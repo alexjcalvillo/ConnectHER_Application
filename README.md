@@ -1,122 +1,104 @@
-# Prime Project
+# ConnectHER
 
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+## Description
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+_Duration: 3 Week Sprint_
 
-## Download (Don't Clone) This Repository
+InnovateHER KC, a nonprofit in Kansas City, MO committed to supporting all womxn, promoting diversity, and advancing its member’s professional goals—came to Prime Digital Academy with a challenge.
 
-- Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-- Unzip the project and start with the code in that folder.
-- Create a new GitHub project and push this code to the new repository.
+Their online presence began on Facebook and has grown to 3,000+ members. As the community has grown, so have its needs. For example, while the group was smaller and the FB Page had less activity, sifting through previous posts for like-minded people and resources wasn’t as inconvenient as it is now. Today, the page is so active that finding a post from an hour ago is a challenge.
 
-## Prerequisites
+In summary, the ask was to conveniently organize InnovateHER’s resources for member’s easy access and provide a more targeted way of connecting with similar and/or complementary individuals.
 
-Before you get started, make sure you have the following software installed on your computer:
+Out of this request, ConnectHER, a social networking application tailored to InnovateHER, emerged. It promotes inclusive interaction while also aligning specific members based on similarities, gathers analytics in a straightforward manner allowing newfound knowledge to better the user experience, and ultimately, makes community resources more easily accessible.
+
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+
+## Screen Shot
+
+Include one or two screenshots of your project here (optional). Remove if unused.
+
+### Prerequisites - Ashleigh
+
+Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+- [Docker](https://www.docker.com/)
 
-## Create database and table
+## Installation - Alex
 
-Create a new database called `prime_app` and create a `user` table:
+This version of the project uses Docker to run the development environment. If you haven’t installed [docker](https://www.docker.com/), do so now.
 
-```SQL
-CREATE TABLE "users" (
-    "id" SERIAL PRIMARY KEY,
-    "email" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+Clone this repo to your local machine.
+Open the project in the editor of your choice, we use [VS Code](https://code.visualstudio.com/) and run `npm install`.
+In order to access specific functions and API’s you will need to configure a `.env` file. Please see detailed instructions below.\*
+From the project root directory: `docker-compose up --build`
+The development database should populate with the data stored in the `init.sql` and `data.sql` files.\*\*
+Once the development server has started it should serve a message to indicate the server started successfully.
+In a browser, go to `http://localhost:3000`. You should see the application running.
+There are user profiles created in the `data.sql` so you may login as one of them or create your own.
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+\*Detailed Instructions for Configuring the .env (Secure Development)
 
-## Development Setup Instructions
+Database name as `DATABASE_NAME`.
+Server session secret: `SERVER_SESSION_SECRET` and this can be equal to a secure password. For help creating a password: [Password Generator](https://passwordsgenerator.net/).
+The Docker database setup is handled in 3 configs: `DOCKER_DB_PORT=5432` (defaulted config), `DOCKER_DB_USER` (set to your configuration for secure dev), and `DOCKER_DB_PASS`.
+A `NODE_ENV` can be set to ‘development’.
+Airtables API can be accessed at [Airtable](https://airtable.com/). The API Key will be configured as `AIRTABLE_API_KEY` and will also require the BASE key as `BASE`.
+For AWS S3, configure the `.env` with your account and API Access Key: `AWS_ACCESS_KEY_ID` and your Secret Key as `AWS_SECRET_ACCESS_KEY`.
+Email masking functionality is handled by Nodemailer. This sends secure emails from an account to keep users hidden until choosing to share their contact information. This can be configured in the `.env` file with `NODEMAILER_USERNAME` and `NODEMAILER_PASSWORD`.
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+\*\*The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries.
 
-## Debugging
+## Usage
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+Steps:
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+Note: For testing purposes, test accounts and data are currently initialized with the project upon build. These lines can be removed and are not entirely necessary, but may prove helpful as a tool to show off the application
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+1. Register and/or login to the application. If you’re creating a new account, you’re directed to the ‘Step 1 - About Me’ tab. Complete the forms on tabs 1-3 by providing the necessary information, and click ‘Submit.’
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
+2. After logging into your account, you see the Landing Page. Note, you can also reach this page by selecting ‘Home’ in the top nav bar.
 
-## Testing Routes with Postman
+The Landing Page contains a brief summary of your own information and an option to ‘View Profile.’ You can also view and edit your profile information by selecting ‘Profile’ in the top nav bar.
 
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
+Additionally, the page contains one large button at the very top labeled ‘IHKC Community,’ and below, you see three smaller buttons labeled as follows: “‘Find a Business,’ ‘Find a Speaker,’ ‘Find a Space.’”
 
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
+3. To search through the community of members, select the ‘IHKC Community’ button. After navigating to the Search Page, you can find members by inputting a job title, community role, or an organization name. When the search results appear, clicking the down carrot shows more information about a user and let’s you contact them from within the app.
 
-1. Start the server - `npm run server`
-2. [Import the sample routes JSON file](./PostmanPrimeSoloRoutes.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
+4. Selecting one of the three smaller buttons from the Landing Page, you can view a list of local businesses, speakers, and/or spaces to hold events. Selecting the ‘+’ button expands a card, and you can view additional information including contact info for the individual or entity. Note: these are resources, not necessarily members, so the option to contact them from within in the app is not available.
 
-After running the login route above, you can try any other route you've created that requires a logged in user!
+User Story:
 
-## Production Build
+The following snippet illustrates how a user will utilize and navigate through the ConnectHER application.
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
+<INSERT PRESENTATION LINK>
 
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
+## Built With
 
-## Lay of the Land
+React
+React-redux
+Redux-saga
+Formik
+Moment.js
+Node.js
+Express
+Typescript
+Nodemailer
+Airtable API
+Amazon S3 API
+PostgreSQL
+Docker
+Heroku
 
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
+## License
 
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
+[MIT](https://choosealicense.com/licenses/mit/)
 
-Directory Structure:
+_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
 
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
+## Acknowledgement
 
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped us to make this application a reality. (Thank your people)
+A special thank you to Lauren Conaway and the InnovateHER KC team for giving us this opportunity.
+Thank you to the ConnectHER team for all the hard-work and support
