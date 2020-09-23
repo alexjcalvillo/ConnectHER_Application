@@ -29,24 +29,24 @@ Link to software that is required to install the app (e.g. node).
 
 This version of the project uses Docker to run the development environment. If you haven’t installed [docker](https://www.docker.com/), do so now.
 
-Clone this repo to your local machine.
-Open the project in the editor of your choice, we use [VS Code](https://code.visualstudio.com/) and run `npm install`.
-In order to access specific functions and API’s you will need to configure a `.env` file. Please see detailed instructions below.\*
-From the project root directory: `docker-compose up --build`
-The development database should populate with the data stored in the `init.sql` and `data.sql` files.\*\*
-Once the development server has started it should serve a message to indicate the server started successfully.
-In a browser, go to `http://localhost:3000`. You should see the application running.
-There are user profiles created in the `data.sql` so you may login as one of them or create your own.
+1. Clone this repo to your local machine.
+2. Open the project in the editor of your choice, we use [VS Code](https://code.visualstudio.com/) and run `npm install`.
+3. In order to access specific functions and API’s you will need to configure a `.env` file. Please see detailed instructions below.\*
+4. From the project root directory: `docker-compose up --build`
+5. The development database should populate with the data stored in the `init.sql` and `data.sql` files.\*\*
+6. Once the development server has started it should serve a message to indicate the server started successfully.
+7. In a browser, go to `http://localhost:3000`. You should see the application running.
+8. There are user profiles created in the `data.sql` so you may login as one of them or create your own.
 
 \*Detailed Instructions for Configuring the .env (Secure Development)
 
-Database name as `DATABASE_NAME`.
-Server session secret: `SERVER_SESSION_SECRET` and this can be equal to a secure password. For help creating a password: [Password Generator](https://passwordsgenerator.net/).
-The Docker database setup is handled in 3 configs: `DOCKER_DB_PORT=5432` (defaulted config), `DOCKER_DB_USER` (set to your configuration for secure dev), and `DOCKER_DB_PASS`.
-A `NODE_ENV` can be set to ‘development’.
-Airtables API can be accessed at [Airtable](https://airtable.com/). The API Key will be configured as `AIRTABLE_API_KEY` and will also require the BASE key as `BASE`.
-For AWS S3, configure the `.env` with your account and API Access Key: `AWS_ACCESS_KEY_ID` and your Secret Key as `AWS_SECRET_ACCESS_KEY`.
-Email masking functionality is handled by Nodemailer. This sends secure emails from an account to keep users hidden until choosing to share their contact information. This can be configured in the `.env` file with `NODEMAILER_USERNAME` and `NODEMAILER_PASSWORD`.
+1. Database name as `DATABASE_NAME`.
+2. Server session secret: `SERVER_SESSION_SECRET` and this can be equal to a secure password. For help creating a password: [Password Generator](https://passwordsgenerator.net/).
+3. The Docker database setup is handled in 3 configs: `DOCKER_DB_PORT=5432` (defaulted config), `DOCKER_DB_USER` (set to your configuration for secure dev), and `DOCKER_DB_PASS`.
+4. A `NODE_ENV` can be set to ‘development’.
+5. Airtables API can be accessed at [Airtable](https://airtable.com/). The API Key will be configured as `AIRTABLE_API_KEY` and will also require the BASE key as `BASE`.
+6. For AWS S3, configure the `.env` with your account and API Access Key: `AWS_ACCESS_KEY_ID` and your Secret Key as `AWS_SECRET_ACCESS_KEY`.
+7. Email masking functionality is handled by Nodemailer. This sends secure emails from an account to keep users hidden until choosing to share their contact information. This can be configured in the `.env` file with `NODEMAILER_USERNAME` and `NODEMAILER_PASSWORD`.
 
 \*\*The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries.
 
