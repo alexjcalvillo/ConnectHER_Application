@@ -14,7 +14,7 @@ Out of this request, ConnectHER, a social networking application tailored to Inn
 
 To see the fully functional site, please visit: [ConnectHER](https://ancient-woodland-73195.herokuapp.com/)
 
-## Screen Shot
+## Screen Shots
 
 ![Screenshot](public/Screen2.png)
 ![Screenshot](public/Screen1.png)
@@ -77,26 +77,20 @@ The following snippet illustrates how a user will utilize and navigate through t
 
 ## Built With
 
-React
-React-redux
-Redux-saga
-Formik
-Moment.js
-Node.js
-Express
-Typescript
-Nodemailer
-Airtable API
-Amazon S3 API
-PostgreSQL
-Docker
-Heroku
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
+- React
+- React-redux
+- Redux-saga
+- Formik
+- Moment.js
+- Node.js
+- Express
+- Typescript
+- Nodemailer
+- Airtable API
+- Amazon S3 API
+- PostgreSQL
+- Docker
+- Heroku
 
 ## Acknowledgement
 
