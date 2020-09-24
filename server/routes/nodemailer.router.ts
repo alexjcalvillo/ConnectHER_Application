@@ -23,7 +23,7 @@ router.post(
 
     const mailOptions = {
       //example: from: '"Scott" scott@primeacademy.io',
-      from: '"InnovateHER" innovateher@gmail.com', // sender address -> //YOUR GMAIL USER HERE IN STRING + email not in string! -> EXAMPLE@gmail.com
+      from: `"InnovateHER" ${process.env.NODEMAILER_USERNAME}`, // sender address -> //YOUR GMAIL USER HERE IN STRING + email not in string! -> EXAMPLE@gmail.com
       // to: mailer.email,
       to: mailer.toEmail, // list of receivers
       subject: mailer.subject, // Subject line

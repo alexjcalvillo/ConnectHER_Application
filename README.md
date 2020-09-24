@@ -39,10 +39,11 @@ This version of the project uses Docker to run the development environment. If y
 7. In a browser, go to `http://localhost:3000`. You should see the application running.
 8. There are user profiles created in the `data.sql` so you may login as one of them or create your own.
 
-\*Detailed Instructions for Configuring the .env (Secure Development)
+### Detailed Instructions for Configuring the .env (Secure Development)
 
 1. Database name as `DATABASE_NAME`.
 2. Server session secret: `SERVER_SESSION_SECRET` and this can be equal to a secure password. For help creating a password: [Password Generator](https://passwordsgenerator.net/).
+   1. In order for the development profiles to work: `SERVER_SESSION_SECRET = w0nd3rW@ll!Ye@h`.
 3. The Docker database setup is handled in 3 configs: `DOCKER_DB_PORT=5432` (defaulted config), `DOCKER_DB_USER` (set to your configuration for secure dev), and `DOCKER_DB_PASS`.
 4. A `NODE_ENV` can be set to ‘development’.
 5. Airtables API can be accessed at [Airtable](https://airtable.com/). The API Key will be configured as `AIRTABLE_API_KEY` and will also require the BASE key as `BASE`.
@@ -94,6 +95,6 @@ The following snippet illustrates how a user will utilize and navigate through t
 
 ## Acknowledgement
 
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped us to make this application a reality. (Thank your people)
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped us to make this application a reality.
 A special thank you to Lauren Conaway and the InnovateHER KC team for giving us this opportunity.
-Thank you to the ConnectHER team for all the hard-work and support
+Thank you to the ConnectHER team for all the hard-work and support: [Alex Calvillo](www.github.com/alexjcalvillo),
