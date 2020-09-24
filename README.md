@@ -12,7 +12,7 @@ In summary, the ask was to conveniently organize InnovateHER’s resources for m
 
 Out of this request, ConnectHER, a social networking application tailored to InnovateHER, emerged. It promotes inclusive interaction while also aligning specific members based on similarities, gathers analytics in a straightforward manner allowing newfound knowledge to better the user experience, and ultimately, makes community resources more easily accessible.
 
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+To see the fully functional site, please visit: [ConnectHER](https://ancient-woodland-73195.herokuapp.com/)
 
 ## Screen Shot
 
