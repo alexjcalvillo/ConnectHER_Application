@@ -19,14 +19,14 @@ To see the fully functional site, please visit: [ConnectHER](https://ancient-woo
 ![Screenshot](public/Screen2.png)
 ![Screenshot](public/Screen1.png)
 
-### Prerequisites - Ashleigh
+### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
 - [Docker](https://www.docker.com/)
 
-## Installation - Alex
+## Installation
 
 This version of the project uses Docker to run the development environment. If you haven’t installed [docker](https://www.docker.com/), do so now.
 
@@ -71,9 +71,9 @@ Additionally, the page contains one large button at the very top labeled ‘IHKC
 
 User Story:
 
-The following snippet illustrates how a user will utilize and navigate through the ConnectHER application.
+The following snippet illustrates how a user will utilize and navigate through the ConnectHER application. (0:00 - 5:42).
 
-<INSERT PRESENTATION LINK>
+[Presentation](https://vimeo.com/460774354)
 
 ## Built With
 
