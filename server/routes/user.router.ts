@@ -7,9 +7,21 @@ import { encryptPassword } from '../modules/encryption';
 
 const router: express.Router = express.Router();
 
+
+//-----------------------------
+//        GET ROUTES         |
+//-----------------------------
+// if user is granted access from login route, return user information
+
 router.get('/', rejectUnauthenticated, (req: Request, res: Response): void => {
   res.send(req.user);
 });
+
+
+//-----------------------------
+//        POST ROUTES         |
+//-----------------------------
+// Route endpoint is descriptive of action
 
 router.post(
   '/register',
