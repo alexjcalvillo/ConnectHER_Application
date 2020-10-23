@@ -5,21 +5,13 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 class ImageUpload extends Component {
   handleFinishedUpload = (info) => {
-    console.log(this.props.store.user.id);
     this.setState({
       avatar: info.fileUrl,
     });
-    console.log(info);
-    console.log(info.fileUrl);
-    // this.props.dispatch({
-    //   type: 'POST_IMAGE_URL',
-    //   payload: info.fileUrl,
-    // });
     const headshotInfo = {
       avatarPath: info.fileUrl,
       avatarId: this.props.store.user.id,
     };
-    console.log(headshotInfo);
     this.props.dispatch({
       type: 'SET_USER_HEADSHOT',
       payload: headshotInfo,

@@ -52,10 +52,6 @@ function MemberAboutForm(props) {
       birthday: '',
     },
     onSubmit: (values) => {
-      // setHeading(JSON.stringify(values, null, 2));
-      // alert(JSON.stringify(values, null, 2));
-      console.log('image reducer', props.store.imageUrlReducer);
-      console.log('values', values);
       props.dispatch({
         type: 'HOLD_ABOUT',
         payload: values,

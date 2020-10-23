@@ -14,11 +14,8 @@ class NodeMailer extends Component {
       sent: true,
     });
     const subject = `Connection Request From ${this.props.store.user.first_name} ${this.props.store.user.last_name}`;
-    console.log(subject);
     // const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    console.log(message);
-    console.log(this.props.store.listingClickedReducer.email);
     // if (subject || message === '') {
     //   alert('Please fill in missing fields');
     // } else {

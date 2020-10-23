@@ -32,13 +32,11 @@ router.put(
   (req: Request, res: Response, next: express.NextFunction): void => {
     const url = req.body.headshot;
     const imageId = req.params.id;
-    console.log(url, imageId);
     const queryText = `UPDATE "about" SET headshot = $1 WHERE user_id = $2;`;
 
     pool
       .query(queryText, [url, imageId])
       .then((response) => {
-        console.log(response);
         res.sendStatus(200);
       })
       .catch((err) => {

@@ -9,7 +9,6 @@ function* fetchAirtableSpeaker() {
     };
 
     const response = yield axios.get('/api/airtable/speaker', config);
-    console.log(response.data);
     yield put({ type: 'SET_AIRTABLE_SPEAKER', payload: response.data.records });
   } catch (error) {
     console.log('Airtable get speaker request failed', error);
@@ -24,7 +23,6 @@ function* fetchAirtableSpaces() {
     };
 
     const response = yield axios.get('/api/airtable/spaces', config);
-    console.log(response.data);
     yield put({ type: 'SET_AIRTABLE_SPACES', payload: response.data.records });
   } catch (error) {
     console.log('Airtable get spaces request failed', error);
@@ -39,7 +37,6 @@ function* fetchAirtableBusinesses() {
     };
 
     const response = yield axios.get('/api/airtable/businesses', config);
-    console.log(response.data);
     yield put({
       type: 'SET_AIRTABLE_BUSINESSES',
       payload: response.data.records,

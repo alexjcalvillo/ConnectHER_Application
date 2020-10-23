@@ -13,7 +13,6 @@ function queryNum(n: any, array: any): any {
     let queryValues = `($1, $${skill})`;
     array.push(queryValues);
     queryNum(n - 1, array);
-    console.log(array);
   }
 }
 
@@ -70,7 +69,6 @@ router.post(
   (req: Request, res: Response, next: express.NextFunction): void => {
     const user_id = req.body.user_id;
     const skills = req.body.skills;
-    console.log(user_id, skills);
 
     const array: any[] = [];
     const numStart = skills.length;
@@ -78,7 +76,6 @@ router.post(
 
     const finalQuery = array.reverse().join(', ');
     skills.unshift(user_id);
-    console.log(finalQuery, skills);
 
     const query: QueryConfig = {
       text: `INSERT INTO "users_skills" (user_id, skill_id)

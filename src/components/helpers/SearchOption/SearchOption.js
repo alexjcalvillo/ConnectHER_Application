@@ -6,28 +6,21 @@ import { Row, Col, Input, Container } from 'reactstrap';
 import SearchResults from '../../panels/SearchResults/SearchResults';
 
 // creating a Search functional component to reuse in search page and for skills
-function SearchOptions(props) {
+function SearchOptions({ skills }) {
   // Using hooks we're creating local state for a search Term and a search Result
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-  // useEffect(() => {
-  //   const results = props.skills.filter(
-  //     (skill) =>
-  //       skill.toLowerCase().includes(searchTerm) || skill.includes(searchTerm)
-  //   );
-  //   setSearchResults(results);
-  // }, [searchTerm]);
   useEffect(() => {
-    const results = props.skills.filter(
+    const results = skills.filter(
       (skill) =>
         skill.skill.toLowerCase().includes(searchTerm) ||
         skill.skill.includes(searchTerm)
     );
     setSearchResults(results);
-  }, [searchTerm]);
+  }, [skills, searchTerm]);
   return (
     <div>
       <Container className="bg-secondary">

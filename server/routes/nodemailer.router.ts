@@ -17,8 +17,6 @@ const transporter = nodemailer.createTransport({
 router.post(
   '/mail',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    console.log(req.body);
-
     const mailer = req.body;
 
     const mailOptions = {

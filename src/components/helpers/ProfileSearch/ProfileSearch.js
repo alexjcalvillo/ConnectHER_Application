@@ -7,26 +7,24 @@ import { Row, Col, Input } from 'reactstrap';
 import ProfileResults from '../../panels/ProfileResults/ProfileResults';
 
 // creating a Search functional component to reuse in search page and for skills
-function ProfileOptions(props) {
+function ProfileOptions({ term, skills }) {
   // Using hooks we're creating local state for a search Term and a search Result
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-  console.log(props.term, props.skills);
   useEffect(() => {
-    let search = props.term;
-    let list = props.skills;
+    let search = term;
+    let list = skills;
     const results = list.filter(
       (skill) =>
         skill[search].toLowerCase().includes(searchTerm) ||
         skill[search].includes(searchTerm)
     );
 
-    console.log(results);
     setSearchResults(results);
-  }, [searchTerm]);
+  }, [skills, term, searchTerm]);
   return (
     <div>
       <Row>

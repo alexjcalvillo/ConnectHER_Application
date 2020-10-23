@@ -18,7 +18,6 @@ class MemberSearchPage extends Component {
   }
 
   buttonClick = (selected) => {
-    console.log(selected);
     this.setState({
       rSelected: selected,
     });

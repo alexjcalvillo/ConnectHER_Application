@@ -17,12 +17,9 @@ class ProfileResults extends Component {
   };
 
   render() {
-    console.log(this.props.results);
     return (
       <>
-        {/* {this.props.results.map((profile, i) => ( */}
         <MemberList members={this.props.results} />
-        {/* ))} */}
       </>
     );
   }

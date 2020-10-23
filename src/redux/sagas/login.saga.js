@@ -15,7 +15,6 @@ function* loginUser(action) {
     // send the action.payload as the body
     // the config includes credentials which
     // allow the server session to recognize the user
-    console.log(action.payload);
     const login = {
       username: action.payload.email,
       password: action.payload.password,

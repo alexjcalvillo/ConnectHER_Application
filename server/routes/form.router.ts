@@ -8,7 +8,6 @@ const router: express.Router = express.Router();
 router.post(
   '/register/about/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    console.log('form post backend req.body', req.body);
     const displayName = req.body.displayName;
     const communityRole = req.body.role;
     const organizationName = req.body.organization;
@@ -64,7 +63,6 @@ router.post(
 router.post(
   '/register/demographic/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    console.log(req.body);
     const age = req.body.age;
     const ethnicity = req.body.ethnicity;
     const gender = req.body.gender;
@@ -93,26 +91,5 @@ router.post(
       });
   }
 );
-//POST route for posting to the social_media table
-// router.post(
-//   '/register/social/:id',
-//   (req: Request, res: Response, next: express.NextFunction): void => {
-//     console.log(req.body);
-//     const linkedin = req.body.linkedin;
-//     const facebook = req.body.facebook;
-//     const instagram = req.body.instagram;
-//     const twitter = req.body.twitter;
-//     const userId = req.params.id;
-
-//     const queryText = `INSERT INTO "social_media" (twitter, facebook, linkedin, instagram, user_id) VALUES ($1, $2, $3, $4, $5);`;
-//     pool
-//       .query(queryText, [linkedin, facebook, instagram, twitter, userId])
-//       .then(() => res.sendStatus(201))
-//       .catch((err) => {
-//         console.log('Error completing social_media table POST query', err);
-//         res.sendStatus(500);
-//       });
-//   }
-// );
 
 export default router;

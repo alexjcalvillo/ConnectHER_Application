@@ -68,7 +68,6 @@ function* getProfileSkills(action) {
     const response = yield axios.get(
       `/api/skills/profile-list/${action.payload}`
     );
-    console.log(response.data);
     yield put({
       type: 'SET_PROFILE_SKILLS',
       payload: response.data,

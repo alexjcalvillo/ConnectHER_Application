@@ -40,7 +40,6 @@ class LandingPage extends Component {
   };
 
   render() {
-    console.log(this.state.activeTab);
     return (
       <Container className="mt-5 mb-5">
         <Row>

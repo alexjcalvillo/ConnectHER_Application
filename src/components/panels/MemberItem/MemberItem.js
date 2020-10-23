@@ -16,7 +16,6 @@ class MemberItem extends Component {
   };
 
   handleListingClick = () => {
-    console.log(this.props.id);
     this.props.dispatch({
       type: 'SET_LISTING_CLICKED',
       payload: this.props.member,

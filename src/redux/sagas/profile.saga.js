@@ -3,12 +3,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* getProfile(action) {
   try {
-    console.log(action.payload); // :id = action.payload.id ${}
     const response = yield axios.get(
       `/api/profile/about/${action.payload}`
       //  Data structure needed for payload on backend on req.body: { id }
     );
-    console.log(response);
     yield put({
       type: 'SET_MY_PROFILE',
       payload: response.data[0],
@@ -20,7 +18,6 @@ function* getProfile(action) {
 
 function* updateProfile(action) {
   try {
-    console.log(action.payload); // :id = action.payload.id ${}
     yield axios.put(
       `/api/profile/about/${action.payload.id}`,
       action.payload.profile
@@ -45,7 +42,6 @@ function* getAllProfiles(action) {
       //  Data structure needed for payload on backend on req.body: { id }
     );
     const responseSkills = yield axios.get(`/api/profile/memberskills`);
-    console.log(responseSkills);
     const profiles = response.data.map((profile) => {
       return {
         ...profile,
@@ -54,7 +50,6 @@ function* getAllProfiles(action) {
         }),
       };
     });
-    console.log(profiles);
     yield put({ type: 'SET_MEMBER_LISTINGS', payload: profiles });
     // yield put({ type: 'SET_MEMBER_LISTINGS', payload: response.data });
   } catch (error) {
@@ -71,7 +66,6 @@ function* updateImageUrl(action) {
     // const data = {
     //   imageUrl: action.payload.avatarPath,
     // };
-    console.log('Posting image url', action.payload);
     yield axios.put(
       `/api/imageurl/headshot-update/${action.payload.id}`,
       action.payload
