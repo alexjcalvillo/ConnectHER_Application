@@ -16,24 +16,23 @@ import '../../assets/scss/argon-dashboard-react.scss';
 
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Nav from '../panels/Nav/Nav';
+import Footer from '../panels/Footer/Footer';
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../actions/ProtectedRoute/ProtectedRoute';
 
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
+import UserPage from '../views/UserPage/UserPage';
+import LandingPage from '../views/LandingPage/LandingPage';
 
-import ProfilePage from '../ProfilePage/ProfilePage';
-import MainPage from '../MainPage/MainPage';
+import ProfilePage from '../views/ProfilePage/ProfilePage';
+import MainPage from '../views/MainPage/MainPage';
 
 import './App.css';
-import MemberSearchPage from '../MemberSearchPage/MemberSearchPage';
+import MemberSearchPage from '../views/MemberSearchPage/MemberSearchPage';
 
-import SpeakerPage from '../SpeakerPage/SpeakerPage';
-import BusinessPage from '../BusinessPage/BusinessPage';
-import SpacesPage from '../SpacesPage/SpacesPage';
+import SpeakerPage from '../views/SpeakerPage/SpeakerPage';
+import BusinessPage from '../views/BusinessPage/BusinessPage';
+import SpacesPage from '../views/SpacesPage/SpacesPage';
 
 class App extends Component {
   componentDidMount() {
@@ -95,12 +94,6 @@ class App extends Component {
               component={MainPage}
             />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/info"
-              component={InfoPage}
-            />
             <ProtectedRoute
               // logged in shows MemberSearchPage else shows LoginPage
               exact
