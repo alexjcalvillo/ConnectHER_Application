@@ -5,10 +5,7 @@ import { QueryConfig } from 'pg';
 
 const router: express.Router = express.Router();
 
-// recursive function to write a query string that matches
-// the number of inserts required based on skills selected
-// with the user id on each ex [$1, $2], [$1, $3] for 2 skills
-function queryNum(n: number, array: string[]): string[] {
+function queryNum(n: any, array: any): any {
   if (n <= 0) {
     return;
   } else {
@@ -23,7 +20,7 @@ function queryNum(n: number, array: string[]): string[] {
 //        GET ROUTES         |
 //----------------------------
 
-//GET route for getting ALL skills from the skills table
+//GET route for getting skills from the skills table
 router.get(
   '/all',
   (req: Request, res: Response, next: express.NextFunction): void => {
@@ -41,7 +38,7 @@ router.get(
   }
 );
 
-// GET skills that are related to the current user logged in
+// GET skills that relate to signed in profile
 router.get(
   '/profile-list/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
@@ -66,18 +63,18 @@ router.get(
 //        POST ROUTES         |
 //-----------------------------
 
-// POST route for posting to the user_skills table
+//POST route for posting to the user_skills table
 router.post(
   '/add',
   (req: Request, res: Response, next: express.NextFunction): void => {
     const user_id = req.body.user_id;
     const skills = req.body.skills;
 
-    const array: string[] = [];
-    const numStart: number = skills.length;
+    const array: any[] = [];
+    const numStart = skills.length;
     queryNum(numStart, array);
 
-    const finalQuery = array.reverse().join(', '); // queryNum prints this in reverse, so we need to join it in opposite order
+    const finalQuery = array.reverse().join(', ');
     skills.unshift(user_id);
 
     const query: QueryConfig = {
