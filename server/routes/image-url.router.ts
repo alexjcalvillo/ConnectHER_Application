@@ -4,7 +4,12 @@ import pool from '../modules/pool';
 
 const router: express.Router = express.Router();
 
-// PUT to UPDATE PROFILE PICTURE
+
+//-----------------------------
+//         POST ROUTES         |
+//-----------------------------
+
+// POST the original screenshot
 router.post(
   '/headshot/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
@@ -27,6 +32,11 @@ router.post(
   }
 );
 
+//-----------------------------
+//         PUT ROUTES         |
+//-----------------------------
+
+// PUT to UPDATE PROFILE PICTURE
 router.put(
   '/headshot-update/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {

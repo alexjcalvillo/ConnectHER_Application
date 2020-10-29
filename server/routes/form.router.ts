@@ -4,6 +4,9 @@ import pool from '../modules/pool';
 
 const router: express.Router = express.Router();
 
+//------------------------------
+//         POST ROUTES         |
+//------------------------------
 //POST route for posting to the about table
 router.post(
   '/register/about/:id',
