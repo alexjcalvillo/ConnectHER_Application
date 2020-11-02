@@ -8,8 +8,8 @@ import formRouter from './routes/form.router';
 // const imageUrlRouter = require('./routes/image-url.router.js');
 import profileRouter from './routes/profile.router';
 import imageUrlRouter from './routes/image-url.router';
+import categoriesRouter from './routes/categories.router';
 import skillsRouter from './routes/skills.router';
-import nodemailer from 'nodemailer';
 import nodemailerRouter from './routes/nodemailer.router';
 
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
@@ -47,6 +47,7 @@ app.use(
 
 app.use('/api/imageurl', imageUrlRouter);
 app.use('/api/profile', profileRouter);
+app.use('/api/categories', categoriesRouter);
 app.use('/api/skills', skillsRouter);
 
 // Serve static files
