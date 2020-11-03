@@ -33,7 +33,7 @@ import MemberSearchPage from '../views/MemberSearchPage/MemberSearchPage';
 import SpeakerPage from '../views/SpeakerPage/SpeakerPage';
 import BusinessPage from '../views/BusinessPage/BusinessPage';
 import SpacesPage from '../views/SpacesPage/SpacesPage';
-import { SkillsSelector } from '../views/SkillsSelector/SkillsSelector';
+import SkillsSelector from '../panels/SkillsSelector/SkillsSelector';
 
 class App extends Component {
   componentDidMount() {
@@ -56,7 +56,7 @@ class App extends Component {
               path="/speakers"
               component={SpeakerPage}
             /> */}
-            <Route to="/skills" component={SkillsSelector} />
+            <Route path="/skills" component={SkillsSelector} />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
