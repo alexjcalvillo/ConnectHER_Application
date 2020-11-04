@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import styles from './CategoryPanel.module.css';
 
 class CategoryPanel extends Component {
     render() {
-        const { category, skills } = this.props;
+        const { category, activeTab } = this.props;
         return (
             <>
-                <div>
-                    <h1>{this.props.category}</h1>
-                </div>
-                <div>
-                    {this.props && skills && skills.map(skill => skill.skill)}
+                <div
+                onClick={() => this.props.getActiveTab(category)}
+                className={activeTab === category ? styles.isActive : styles.categoryHeading}>
+                    <p>{category}</p>
                 </div>
             </>
         )

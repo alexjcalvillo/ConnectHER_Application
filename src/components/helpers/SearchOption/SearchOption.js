@@ -21,6 +21,7 @@ function SearchOptions({ skills }) {
     );
     setSearchResults(results);
   }, [skills, searchTerm]);
+  console.log(skills);
   return (
     <div>
       <Container className="bg-secondary">

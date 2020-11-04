@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SkillsSelector.module.css';
 import CategoryPanel from './skills_selector_components/CategoryPanel';
+import SearchOption from '../../helpers/SearchOption/SearchOption'
 
 const SkillsSelector = () => {
+    const [activeTab, setActiveTab] = useState('Leadership');
     const categories = useSelector(state => state.skillCategories);
     const skills = useSelector(state => state.skillsholder);
     const dispatch = useDispatch();
@@ -12,15 +14,29 @@ const SkillsSelector = () => {
         dispatch({ type: 'GET_CATEGORIES' });
         dispatch({ type: 'GET_SKILLS' });
     }, []);
-    console.log(categories.length);
-    console.log(categories.map(category => category.name));
-    console.log(skills);
+    function getActiveTab(category) {
+        setActiveTab(category.name);
+    };
     return (
-        <div className={styles.container}>
+        <div>
             <h1>Hello from the Skills Selector.</h1>
-            {categories.map(category => {
-                return<CategoryPanel key={category.id} category={category.name} skills={skills[category.name]} />
-            })}
+            <div className={styles.container}>
+                <div className={styles.sidebar}>
+                    {categories.map(category => {
+                        return<CategoryPanel
+                                key={category.id}
+                                category={category.name}
+                                skills={skills[category.name]}
+                                getActiveTab={() => getActiveTab(category)}
+                                activeTab={activeTab}
+                              />
+                    })}
+                </div>
+                <div className={styles.main}>
+                    {/* <SearchOption
+                    /> */}
+                </div>
+            </div>
         </div>
     )
 };
