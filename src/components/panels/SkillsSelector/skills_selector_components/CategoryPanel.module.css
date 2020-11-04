@@ -6,6 +6,7 @@
     border-bottom-left-radius: 3px;
     margin-bottom: 0.5px;
     text-align: center;
+    font-weight: 700;
 }
 
 .categoryHeading:hover {
@@ -21,9 +22,4 @@
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     text-align: center;
-}
-
-.isActive:hover {
-    background-color: lightgray;
-    cursor: pointer;
 }

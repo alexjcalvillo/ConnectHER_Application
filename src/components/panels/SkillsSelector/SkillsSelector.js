@@ -17,6 +17,7 @@ const SkillsSelector = () => {
     function getActiveTab(category) {
         setActiveTab(category.name);
     };
+    let searchSkills = skills[activeTab];
     return (
         <div>
             <h1>Hello from the Skills Selector.</h1>
@@ -33,8 +34,11 @@ const SkillsSelector = () => {
                     })}
                 </div>
                 <div className={styles.main}>
-                    {/* <SearchOption
-                    /> */}
+                    {skills && searchSkills && 
+                        <SearchOption
+                        skills={searchSkills}
+                        />
+                    }
                 </div>
             </div>
         </div>
