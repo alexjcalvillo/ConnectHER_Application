@@ -13,11 +13,14 @@ const SkillsSelector = () => {
     useEffect(() => {
         dispatch({ type: 'GET_CATEGORIES' });
         dispatch({ type: 'GET_SKILLS' });
+        dispatch({ type: 'GET_ALL_SKILLS' });
     }, []);
     function getActiveTab(category) {
         setActiveTab(category.name);
     };
     let searchSkills = skills[activeTab];
+    let allSkills = skills.allSkills;
+    console.log(skills.allSkills);
     return (
         <div>
             <h1>Hello from the Skills Selector.</h1>
@@ -39,6 +42,16 @@ const SkillsSelector = () => {
                         skills={searchSkills}
                         />
                     }
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.main}>
+                    {skills && allSkills && 
+                        <SearchOption 
+                            skills={skills.allSkills}
+                        />
+                    }
+                    Hello
                 </div>
             </div>
         </div>

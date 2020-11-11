@@ -39,7 +39,7 @@ function SearchOptions({ skills }) {
         <Row>
           <Col
             lg={{ size: 10, offset: 1 }}
-            // style={{ height: '300px', overflow: 'scroll' }}
+            style={{ height: '300px', overflow: 'scroll' }}
           >
             <SearchResults results={searchResults} />
           </Col>

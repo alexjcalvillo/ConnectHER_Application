@@ -15,6 +15,11 @@ const skillsholder = (state = {}, action) => {
         "Community Advocacy": action.payload[10],
         "Civic Engagement": action.payload[11],
       };
+    case 'SET_ALL_SKILLS':
+      return {
+        ...state,
+        allSkills: action.payload,
+      }
     default:
       return state;
   }
