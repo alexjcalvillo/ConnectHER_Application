@@ -1,0 +1,27 @@
+.search-active {
+    background-color: white;
+    overflow: scroll;
+    margin-top: -15px;
+    margin-left: 13.25%;
+    /* margin: auto; */
+    width: 50%;
+    max-height: 55rem;
+    position: absolute;
+    z-index: 999;
+    flex: 1;
+    transition: all 0.3s 0.5s ease;
+}
+
+.search-inactive {
+    visibility: hidden;
+    max-height: 0rem;
+    margin-top: -15px;
+    margin-left: 13.25%;
+    width: 50%;
+    position: absolute;
+    transition: all 0.3s 0.5s ease;
+}
+
+.search-inactive > * {
+    visibility: hidden;
+}

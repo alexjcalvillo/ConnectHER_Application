@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SkillsSelector.module.css';
-import CategoryPanel from './skills_selector_components/CategoryPanel';
+import CategoryPanel from './skills_selector_components/CategoryPanel/CategoryPanel';
 import SearchOption from '../../helpers/SearchOption/SearchOption'
+import SearchItems from './skills_selector_components/SearchItems/SearchItems';
 
 const SkillsSelector = () => {
     const [activeTab, setActiveTab] = useState('Leadership');
+    const [searchTerm, setSearchTerm] = useState('');
     const categories = useSelector(state => state.skillCategories);
     const skills = useSelector(state => state.skillsholder);
     const dispatch = useDispatch();
@@ -18,8 +20,11 @@ const SkillsSelector = () => {
     function getActiveTab(category) {
         setActiveTab(category.name);
     };
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+    }
     let searchSkills = skills[activeTab];
-    let allSkills = skills.allSkills;
+    let allSkills = skills && skills.allSkills;
     console.log(skills.allSkills);
     return (
         <div>
@@ -46,12 +51,27 @@ const SkillsSelector = () => {
             </div>
             <div className={styles.container}>
                 <div className={styles.main}>
-                    {skills && allSkills && 
+                    {/* {skills && allSkills && 
                         <SearchOption 
                             skills={skills.allSkills}
                         />
-                    }
-                    Hello
+                    } */}
+                    <div className={styles.searchBar} >
+                        <input
+                            type="text" 
+                            placeholder="Search for skills"
+                            onChange={handleSearch}
+                            defaultValue="li"
+                        />
+                    </div>
+                    <div className={styles.container}>
+                        {skills && allSkills && <SearchItems 
+                            items={allSkills}
+                            searchTerm={searchTerm}
+                            property="skill"
+                        />}
+                        Select skills you wish to add. Try searching for a term.
+                    </div>
                 </div>
             </div>
         </div>
