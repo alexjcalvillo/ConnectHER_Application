@@ -9,16 +9,16 @@ const SearchItems = ({ items, searchTerm, property }) => {
     useEffect(() => {
         // update list rendered based on current state of search
         const results = items.filter(item => {
-            return item[property].toLowerCase().includes(searchTerm) ||
-            item[property].includes(searchTerm);
+            return item[property].toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item[property].includes(searchTerm.toLowerCase());
         });
         setSearchResults(results);
     }, [searchTerm]);
     return (
         <div className={searchTerm ? styles['search-active'] : styles['search-inactive']}>
-            {searchResults.map(item => {
+            {searchTerm ? searchResults.map(item => {
                 return <SkillPill key={item.id} skill={item[property]} />
-            })}
+            }) : null}
         </div>
     )
 }
