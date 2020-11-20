@@ -6,6 +6,8 @@ import CategoryPanel from './skills_selector_components/CategoryPanel/CategoryPa
 import SearchOption from '../../helpers/SearchOption/SearchOption'
 import SearchItems from './skills_selector_components/SearchItems/SearchItems';
 import ModalBox from '../ModalBox/ModalBox';
+import SkillPill from './skills_selector_components/SkillPill/SkillPill';
+import SelectedSkills from './skills_selector_components/SelectedSkills/SelectedSkills';
 
 const SkillsSelector = () => {
     const [activeTab, setActiveTab] = useState('Leadership');
@@ -27,52 +29,17 @@ const SkillsSelector = () => {
     let searchSkills = skills[activeTab];
     let allSkills = skills && skills.allSkills;
     console.log(skills.allSkills);
+
+    
+    // useEffect(() => {
+    //     removeSkill();
+    // }, []);
     return (
         <div>
             <h1>Hello from the Skills Selector.</h1>
             <div className={styles.container}>
-                <ModalBox
-                    component={(
-                <>
-                    <div className={styles.sidebar}>
-                        {categories.map(category => {
-                            return<CategoryPanel
-                                    key={category.id}
-                                    category={category.name}
-                                    skills={skills[category.name]}
-                                    getActiveTab={() => getActiveTab(category)}
-                                    activeTab={activeTab}
-                                />
-                        })}
-                    </div>
-                    <div className={styles.main}>
-                        {skills && searchSkills && 
-                            <SearchOption
-                            skills={searchSkills}
-                            />
-                        }
-                    </div>
-                    </>)} 
-                />
-            </div>
-            <div className={styles.container}>
                 <div className={styles.main}>
-                    {/* <div className={styles.searchBar} >
-                        <input
-                            type="text" 
-                            placeholder="Search for skills"
-                            onChange={handleSearch}
-                            defaultValue="li"
-                        />
-                    </div>
-                    <div className={styles.container}>
-                        {skills && allSkills && <SearchItems 
-                            items={allSkills}
-                            searchTerm={searchTerm}
-                            property="skill"
-                        />}
-                        Select skills you wish to add. Try searching for a term.
-                    </div> */}
+                    <h1 style={{display: 'inline-block'}}>Skills</h1>
                     <ModalBox component={
                         (<><div className={styles.searchBar} >
                         <input
@@ -82,15 +49,17 @@ const SkillsSelector = () => {
                         />
                     </div>
                     <div className={styles.container}>
-                        {skills && allSkills && <SearchItems 
+                        {skills && allSkills && <SearchItems
                             items={allSkills}
                             searchTerm={searchTerm}
                             property="skill"
                         />}
-                        Select skills you wish to add. Try searching for a term.
+                        <p>Select skills you wish to add. Try searching for a term.</p>
                         <br />
-                        Example: "Public Speaking"
-                    </div></>)
+                        <p>Example: "Public Speaking"</p>
+                    </div>
+                    <SelectedSkills />
+                    </>)
                     } />
                 </div>
             </div>

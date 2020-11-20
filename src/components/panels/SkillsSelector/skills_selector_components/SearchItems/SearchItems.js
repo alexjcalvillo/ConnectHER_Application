@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import SkillPill from '../SkillPill/SkillPill';
 
 import styles from './SearchItems.module.css';
@@ -14,10 +16,17 @@ const SearchItems = ({ items, searchTerm, property }) => {
         });
         setSearchResults(results);
     }, [searchTerm]);
+
+    const dispatch = useDispatch();
+
+    const addSkill = (item) => {
+        console.log(item);
+        dispatch({type: 'ADD_SKILL', payload: item});
+    }
     return (
         <div className={searchTerm ? styles['search-active'] : styles['search-inactive']}>
             {searchTerm ? searchResults.map(item => {
-                return <SkillPill key={item.id} skill={item[property]} />
+                return <SkillPill key={item.id} skill={item} onClick={() => addSkill(item)}/>
             }) : null}
         </div>
     )
