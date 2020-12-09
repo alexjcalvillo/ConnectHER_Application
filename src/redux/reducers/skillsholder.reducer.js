@@ -5,7 +5,7 @@ const skillsholder = (state = {}, action) => {
         'Leadership': action.payload[0],
         'Business and Entreprenuership': action.payload[1],
         "Marketing and Sales": action.payload[2],
-        "Techical Skills": action.payload[3],
+        "Technical Skills": action.payload[3],
         "Accounting and Finance": action.payload[4],
         "Legal": action.payload[5],
         "Health and Wellness": action.payload[6],

@@ -165,8 +165,8 @@ class UserPage extends Component {
                     <Col>
                       <Card>
                         <CardBody>
-                          {/* <SkillsWidget /> */}
-                          <SkillsSelector />
+                          <SkillsWidget />
+                          {/* <SkillsSelector /> */}
                           <hr />
                           <Row>
                             <Col lg={{ size: 2, offset: 10 }}>

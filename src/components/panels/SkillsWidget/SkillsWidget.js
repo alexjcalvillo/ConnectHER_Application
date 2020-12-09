@@ -192,10 +192,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs1">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.leadership && (
+              this.props.store.skillsholder["Leadership"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.leadership}
+                    skills={this.props.store.skillsholder["Leadership"]}
                   />
                 </>
               )}
@@ -203,10 +203,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs2">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.business && (
+              this.props.store.skillsholder["Business and Entreprenuership"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.business}
+                    skills={this.props.store.skillsholder["Business and Entreprenuership"]}
                   />
                 </>
               )}
@@ -214,10 +214,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs3">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.marketing && (
+              this.props.store.skillsholder["Marketing and Sales"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.marketing}
+                    skills={this.props.store.skillsholder["Marketing and Sales"]}
                   />
                 </>
               )}
@@ -225,10 +225,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs4">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.technical && (
+              this.props.store.skillsholder["Technical Skills"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.technical}
+                    skills={this.props.store.skillsholder["Technical Skills"]}
                   />
                 </>
               )}
@@ -236,10 +236,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs5">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.finance && (
+              this.props.store.skillsholder["Accounting and Finance"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.finance}
+                    skills={this.props.store.skillsholder["Accounting and Finance"]}
                   />
                 </>
               )}
@@ -247,37 +247,37 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs6">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.legal && (
+              this.props.store.skillsholder["Legal"] && (
                 <>
-                  <SearchOption skills={this.props.store.skillsholder.legal} />
+                  <SearchOption skills={this.props.store.skillsholder["Legal"]} />
                 </>
               )}
           </TabPane>
           <TabPane tabId="tabs7">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.health && (
+              this.props.store.skillsholder["Health and Wellness"] && (
                 <>
-                  <SearchOption skills={this.props.store.skillsholder.health} />
+                  <SearchOption skills={this.props.store.skillsholder["Health and Wellness"]} />
                 </>
               )}
           </TabPane>
           <TabPane tabId="tabs8">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.hr && (
+              this.props.store.skillsholder["Human Resources"] && (
                 <>
-                  <SearchOption skills={this.props.store.skillsholder.hr} />
+                  <SearchOption skills={this.props.store.skillsholder["Human Resources"]} />
                 </>
               )}
           </TabPane>
           <TabPane tabId="tabs9">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.education && (
+              this.props.store.skillsholder["Education"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.education}
+                    skills={this.props.store.skillsholder["Education"]}
                   />
                 </>
               )}
@@ -285,10 +285,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs10">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.creatives && (
+              this.props.store.skillsholder["Artists and Creatives"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.creatives}
+                    skills={this.props.store.skillsholder["Artists and Creatives"]}
                   />
                 </>
               )}
@@ -296,10 +296,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs11">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.communityAdvocacy && (
+              this.props.store.skillsholder["Community Advocacy"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.communityAdvocacy}
+                    skills={this.props.store.skillsholder["Community Advocacy"]}
                   />
                 </>
               )}
@@ -307,10 +307,10 @@ class SkillsWidget extends Component {
           <TabPane tabId="tabs12">
             {this.props.store &&
               this.props.store.skillsholder &&
-              this.props.store.skillsholder.civicEngagement && (
+              this.props.store.skillsholder["Civic Engagement"] && (
                 <>
                   <SearchOption
-                    skills={this.props.store.skillsholder.civicEngagement}
+                    skills={this.props.store.skillsholder["Civic Engagement"]}
                   />
                 </>
               )}

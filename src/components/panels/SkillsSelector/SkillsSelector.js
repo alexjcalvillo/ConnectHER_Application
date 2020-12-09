@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SkillsSelector.module.css';
-import CategoryPanel from './skills_selector_components/CategoryPanel/CategoryPanel';
-import SearchOption from '../../helpers/SearchOption/SearchOption'
 import SearchItems from './skills_selector_components/SearchItems/SearchItems';
 import ModalBox from '../ModalBox/ModalBox';
-import SkillPill from './skills_selector_components/SkillPill/SkillPill';
 import SelectedSkills from './skills_selector_components/SelectedSkills/SelectedSkills';
 
 const SkillsSelector = () => {

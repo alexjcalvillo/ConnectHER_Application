@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import Nav from '../panels/Nav/Nav';
 import Footer from '../panels/Footer/Footer';
 
-import ProtectedRoute from '../actions/ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../panels/ProtectedRoute/ProtectedRoute';
 
 import UserPage from '../views/UserPage/UserPage';
 import LandingPage from '../views/LandingPage/LandingPage';
