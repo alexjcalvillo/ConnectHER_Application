@@ -21,6 +21,7 @@ function SearchOptions({ skills }) {
     );
     setSearchResults(results);
   }, [skills, searchTerm]);
+  console.log(skills);
   return (
     <div>
       <Container className="bg-secondary">
@@ -38,7 +39,7 @@ function SearchOptions({ skills }) {
         <Row>
           <Col
             lg={{ size: 10, offset: 1 }}
-            // style={{ height: '300px', overflow: 'scroll' }}
+            style={{ height: '300px', overflow: 'scroll' }}
           >
             <SearchResults results={searchResults} />
           </Col>

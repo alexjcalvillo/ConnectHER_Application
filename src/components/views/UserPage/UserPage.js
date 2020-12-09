@@ -24,6 +24,7 @@ import {
 } from 'reactstrap';
 
 import classnames from 'classnames';
+import SkillsSelector from '../../panels/SkillsSelector/SkillsSelector';
 
 class UserPage extends Component {
   state = {
@@ -165,6 +166,7 @@ class UserPage extends Component {
                       <Card>
                         <CardBody>
                           <SkillsWidget />
+                          {/* <SkillsSelector /> */}
                           <hr />
                           <Row>
                             <Col lg={{ size: 2, offset: 10 }}>

@@ -63,6 +63,18 @@ function* getSkills(action) {
   }
 }
 
+function* getAllSkills(action) {
+  try {
+    const response = yield axios.get('/api/skills/all');
+    yield put({
+      type: 'SET_ALL_SKILLS',
+      payload: response.data,
+    })
+  } catch (err) {
+    console.log('Error retreiving ALL SKILLS');
+  }
+}
+
 function* getProfileSkills(action) {
   try {
     const response = yield axios.get(
@@ -79,6 +91,7 @@ function* getProfileSkills(action) {
 
 function* skillsSaga() {
   yield takeLatest('GET_SKILLS', getSkills);
+  yield takeLatest('GET_ALL_SKILLS', getAllSkills);
   yield takeLatest('GET_PROFILE_SKILLS', getProfileSkills);
   // yield takeLatest('FINAL_SUBMIT', );
 }
