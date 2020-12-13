@@ -13,6 +13,7 @@ function SearchOptions({ skills }) {
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
   useEffect(() => {
     const results = skills.filter(
       (skill) =>
@@ -21,7 +22,7 @@ function SearchOptions({ skills }) {
     );
     setSearchResults(results);
   }, [skills, searchTerm]);
-  console.log(skills);
+
   return (
     <div>
       <Container className="bg-secondary">

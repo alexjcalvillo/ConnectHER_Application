@@ -15,7 +15,7 @@ const SearchItems = ({ items, searchTerm, property }) => {
             item[property].includes(searchTerm.toLowerCase());
         });
         setSearchResults(results);
-    }, [searchTerm]);
+    }, [items, property, searchTerm]);
 
     const dispatch = useDispatch();
 

@@ -5,6 +5,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import MemberAboutForm from '../../components/MemberAboutForm/MemberAboutForm';
 import MemberDemoForm from '../../components/MemberDemoForm/MemberDemoForm';
 import SkillsWidget from '../../components/SkillsWidget/SkillsWidget';
+import SkillsSelector from '../../components/SkillsSelector/SkillsSelector';
 
 import MainPage from '../MainPage/MainPage';
 
@@ -91,7 +92,7 @@ class UserPage extends Component {
                 style={{
                   position: 'relative',
                   top: '5px',
-                  zIndex: '1000',
+                  zIndex: '997',
                 }}
                 className="nav-fill flex-column flex-sm-row"
               >
@@ -156,8 +157,8 @@ class UserPage extends Component {
                     <Col>
                       <Card>
                         <CardBody>
-                          <SkillsWidget />
-                          {/* <SkillsSelector /> */}
+                          {/* <SkillsWidget /> */}
+                          <SkillsSelector />
                           <hr />
                           <Row>
                             <Col lg={{ size: 2, offset: 10 }}>

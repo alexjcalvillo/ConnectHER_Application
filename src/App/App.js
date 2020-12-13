@@ -20,7 +20,6 @@ import './App.css';
 import {
   BusinessPage,
   LandingPage,
-  LoginPage,
   MainPage,
   MemberSearchPage,
   ProfilePage,
