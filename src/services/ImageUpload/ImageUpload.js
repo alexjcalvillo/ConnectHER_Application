@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; /*8.5K (gzipped: 3.4K)*/
 import { connect } from 'react-redux'; /*13.3K (gzipped: 4.8K)*/
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader'; /*26.5K(gzipped: 8.2K)*/
-import mapStoreToProps from '../../../redux/mapStoreToProps';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class ImageUpload extends Component {
   handleFinishedUpload = (info) => {

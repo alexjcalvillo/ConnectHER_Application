@@ -23,7 +23,7 @@ import {
   Col,
   CardHeader,
 } from 'reactstrap';
-import ImageUpload from '../services/ImageUpload/ImageUpload';
+import ImageUpload from '../../services/ImageUpload/ImageUpload';
 
 // Basic functional component structure for React with default state
 // value setup.

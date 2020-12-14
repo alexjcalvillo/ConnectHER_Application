@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+import { connect_service } from '../../services/connect_service';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* getSkills(action) {
@@ -65,7 +66,7 @@ function* getSkills(action) {
 
 function* getAllSkills(action) {
   try {
-    const response = yield axios.get('/api/skills/all');
+    const response = yield connect_service.get('/skills/all');
     yield put({
       type: 'SET_ALL_SKILLS',
       payload: response.data,

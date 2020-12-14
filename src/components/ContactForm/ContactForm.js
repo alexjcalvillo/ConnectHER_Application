@@ -8,11 +8,13 @@ class ContactForm extends Component {
   state = {
     sent: false,
   };
+
   handleSubmit(e) {
     e.preventDefault();
     this.setState({
       sent: true,
     });
+
     const subject = `Connection Request From ${this.props.store.user.first_name} ${this.props.store.user.last_name}`;
     // const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
@@ -41,7 +43,6 @@ class ContactForm extends Component {
         console.log('error sending message', error);
       });
   }
-  // }
 
   resetForm = () => {
     document.getElementById('contact-form').reset();
@@ -69,6 +70,7 @@ class ContactForm extends Component {
                 rows="7"
                 id="message"
               ></textarea>
+
               <UncontrolledTooltip
                 delay={0}
                 fade={true}
@@ -78,6 +80,7 @@ class ContactForm extends Component {
                 Reminder: The recipient can’t respond to your message. To keep
                 the conversation going, include your contact info!
               </UncontrolledTooltip>
+              
             </div>
             <Button color="secondary" type="submit">
               Submit

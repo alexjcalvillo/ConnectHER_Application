@@ -16,7 +16,7 @@ import {
   CardHeader,
   Badge,
 } from 'reactstrap';
-import ImageUpload from '../../components/services/ImageUpload/ImageUpload';
+import ImageUpload from '../../services/ImageUpload/ImageUpload';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
