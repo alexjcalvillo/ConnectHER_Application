@@ -23,7 +23,13 @@ const Nav = (props) => {
     <Navbar
       className="navbar-horizontal navbar-light bg-secondary"
       expand="lg"
-      style={{ borderBottom: '1px solid #999999' }}
+      style={{
+        boxShadow: '0 2px 4px #11111150',
+        position: 'fixed',
+        width: '100%',
+        zIndex: '1000',
+        marginTop: '-150px',
+      }}
     >
       <Container>
         <Link to="/home">
