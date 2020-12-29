@@ -11,6 +11,7 @@ class SpeakerList extends React.Component {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
     isOpen: false,
+    isFavorite: false,
   };
 
   componentDidMount() {
@@ -23,6 +24,19 @@ class SpeakerList extends React.Component {
     });
   };
 
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
   cellToggle = () => {
     this.setState({
       status: !this.state.status,
@@ -33,29 +47,54 @@ class SpeakerList extends React.Component {
     return (
       <>
         <Card
-          style={{ maxHeight: '280px', minHeight: '280px' }}
+          style={{
+            maxHeight: '280px',
+            minHeight: '280px',
+            border: '0px solid #000',
+          }}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
           <CardBody
-          // style={this.state.status ? openHeight : closedHeight}
+            // style={this.state.status ? openHeight : closedHeight}
+            style={{
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+              paddingBottom: '0px',
+            }}
           >
+            <div
+              style={{
+                height: '100px',
+                width: '350px',
+                marginLeft: '-24px',
+                marginTop: '-24px',
+                borderRadius: '5px 5px 0 0',
+                background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
+                border: '2px solid #f7fafc',
+                borderBottom: '0px',
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  textAlign: 'right',
+                  marginLeft: '-15px',
+                  marginTop: '10px',
+                }}
+              >
+                <i
+                  class="fa fa-heart m-1 fa-heart-custom"
+                  style={{
+                    color: '#f7fafc',
+                  }}
+                />
+              </div>
+            </div>
             <Row
             // style={this.state.status ? openFade : closedFade}
             >
-              <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
-                <Button
-                  block
-                  outline
-                  color="primary"
-                  size="sm"
-                  onClick={() => this.toggleModal('defaultModal')}
-                >
-                  <i
-                    style={{ cursor: 'pointer', fontSize: '30px' }}
-                    className="ni ni-fat-add pt-1"
-                  />
-                </Button>
-                {/* {this.state.status ? (
+              {/* <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
+                {this.state.status ? (
                   <i
                     onClick={this.toggleModal}
                     style={{ cursor: 'pointer' }}
@@ -67,15 +106,20 @@ class SpeakerList extends React.Component {
                     style={{ cursor: 'pointer' }}
                     className="ni ni-fat-add"
                   />
-                )} */}
-              </Col>
-              <Col lg={{ size: 9, order: 1 }}>
+                )}
+              </Col> */}
+              <Col lg={{ size: 12, order: 1 }}>
                 <div
                   style={{
-                    width: '100px',
-                    height: '100px',
+                    marginTop: '-92px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    width: '125px',
+                    height: '125px',
                     overflow: 'hidden',
                     borderRadius: '50%',
+                    border: '2px solid #f7fafc',
+                    boxShadow: '0 2px 4px #11111150',
                   }}
                 >
                   {this.props.speaker.fields &&
@@ -88,16 +132,40 @@ class SpeakerList extends React.Component {
                       />
                     )}
                 </div>
-                <div style={{ width: '50%' }}>
+                <div
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    marginTop: '5px',
+                  }}
+                >
                   {' '}
                   {this.props.speaker.fields.Name}
                 </div>
-                <p>
+                <p
+                  style={{
+                    fontSize: '13px',
+                    width: '100%',
+                    textAlign: 'center',
+                    height: '49px',
+                    maxHeight: '49px',
+                    overflow: 'scroll',
+                  }}
+                >
                   {this.props.speaker.fields.Title}
                   {' at '} {this.props.speaker.fields.Organization}
                 </p>
-                <hr />
-
+                <hr style={{ marginTop: '-5px' }} />
+                <Button
+                  block
+                  outline
+                  color="primary"
+                  size="sm"
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={{ marginTop: '-21px', fontSize: '16px' }}
+                >
+                  Learn More
+                </Button>
                 {/*<div style={{ width: '50%' }}>
                   {this.props.speaker.fields['Speaker Photo'][0].url}
                 </div>*/}
@@ -166,6 +234,8 @@ class SpeakerList extends React.Component {
                     height: '150px',
                     overflow: 'hidden',
                     borderRadius: '50%',
+                    border: '2px solid #5e72e4',
+                    boxShadow: '0 2px 4px #11111150',
                   }}
                 >
                   {this.props.speaker.fields &&
