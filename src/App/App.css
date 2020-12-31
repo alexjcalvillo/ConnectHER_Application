@@ -55,7 +55,6 @@ input {
   cursor: pointer;
   font-size: 35px;
   border: 0px solid #00000000;
-  transition: 75ms;
 }
 
 .fa-heart-custom:hover {

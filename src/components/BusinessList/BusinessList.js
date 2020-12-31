@@ -8,6 +8,7 @@ class BusinessList extends React.Component {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
     isOpen: false,
+    isFavorite: false,
   };
 
   componentDidMount() {
@@ -26,16 +27,78 @@ class BusinessList extends React.Component {
     });
   };
 
+  /*-----> CASTOR <-----*/
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
+  /*-----> CASTOR <-----*/
   render() {
+    let favoriteIconColor = '#f7fafc';
+    if (this.state.isFavorite === false) {
+      favoriteIconColor = '#f7fafc';
+    } else {
+      favoriteIconColor = '#ff3858';
+    }
     return (
       <>
         <Card
-          style={{ maxHeight: '280px', minHeight: '280px' }}
+          style={{
+            maxHeight: '280px',
+            minHeight: '280px',
+            border: '0px solid #000',
+          }}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody>
+          <CardBody
+            style={{
+              maxHeight: '280px',
+              minHeight: '280px',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+              paddingBottom: '0px',
+            }}
+          >
+            <div
+              style={{
+                height: '100px',
+                width: '350px',
+                marginLeft: '-24px',
+                marginTop: '-24px',
+                borderRadius: '5px 5px 0 0',
+                background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
+                border: '2px solid #f7fafc',
+                borderBottom: '0px',
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  textAlign: 'right',
+                  marginLeft: '-15px',
+                  marginTop: '10px',
+                }}
+              >
+                <i
+                  class="fa fa-heart m-1 fa-heart-custom"
+                  style={{
+                    color: favoriteIconColor,
+                  }}
+                  onClick={this.toggleFavorite}
+                />
+              </div>
+            </div>
             <Row>
-              <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
+              {/* <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
                 <Button
                   block
                   outline
@@ -48,13 +111,22 @@ class BusinessList extends React.Component {
                     className="ni ni-fat-add pt-1"
                   />
                 </Button>
-              </Col>
-              <Col lg={{ size: 9, order: 1 }}>
+              </Col> */}
+              <Col lg={{ size: 12, order: 1 }}>
                 <div
+                  onClick={() => this.toggleModal('defaultModal')}
                   style={{
-                    width: '100px',
-                    height: '100px',
+                    cursor: 'pointer',
+                    marginTop: '-92px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    width: '125px',
+                    height: '125px',
                     overflow: 'hidden',
+                    borderRadius: '5px',
+                    border: '3px solid #f7fafc',
+                    boxShadow: '0 2px 4px #11111150',
+                    backgroundColor: '#f7fafc',
                   }}
                 >
                   {this.props.business.fields &&
@@ -65,7 +137,11 @@ class BusinessList extends React.Component {
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] && (
                       <img
-                        style={{ objectFit: 'cover' }}
+                        style={{
+                          objectFit: 'cover',
+                          width: '125px',
+                          height: '125px',
+                        }}
                         src={
                           this.props.business.fields[
                             `Attachments (logo, marketing materials, price sheets, etc.)`
@@ -75,17 +151,51 @@ class BusinessList extends React.Component {
                       />
                     )}
                 </div>
-                <div style={{ width: '50%' }}>
-                  {' '}
+                <div
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    marginTop: '5px',
+                  }}
+                >
                   {this.props.business.fields['Organization Name']}
                 </div>
-                <ul>
-                  <li>{this.props.business.fields['Business Category']}</li>
-                  <li>
-                    Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
-                  </li>
-                </ul>
-                <hr />
+
+                <p
+                  style={{
+                    fontSize: '15px',
+                    width: '100%',
+                    textAlign: 'center',
+                    margin: '0px',
+                    height: '25px',
+                    maxHeight: '25px',
+                  }}
+                >
+                  {this.props.business.fields['Business Category']}
+                </p>
+                <p
+                  style={{
+                    fontSize: '13px',
+                    width: '100%',
+                    textAlign: 'center',
+                    height: '24px',
+                    maxHeight: '24px',
+                  }}
+                >
+                  Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
+                </p>
+
+                <hr style={{ marginTop: '-5px' }} />
+                <Button
+                  block
+                  outline
+                  color="primary"
+                  size="sm"
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={{ marginTop: '-21px', fontSize: '16px' }}
+                >
+                  Learn More
+                </Button>
               </Col>
             </Row>
           </CardBody>
@@ -114,6 +224,9 @@ class BusinessList extends React.Component {
                     width: '150px',
                     height: '150px',
                     overflow: 'hidden',
+                    borderRadius: '5px',
+                    border: '3px solid #f7fafc',
+                    boxShadow: '0 2px 4px #11111150',
                   }}
                 >
                   {this.props.business.fields &&
@@ -124,7 +237,11 @@ class BusinessList extends React.Component {
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] && (
                       <img
-                        style={{ objectFit: 'cover' }}
+                        style={{
+                          objectFit: 'cover',
+                          width: '150px',
+                          height: '150px',
+                        }}
                         src={
                           this.props.business.fields[
                             `Attachments (logo, marketing materials, price sheets, etc.)`

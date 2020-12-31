@@ -24,6 +24,13 @@ class SpeakerList extends React.Component {
     });
   };
 
+  cellToggle = () => {
+    this.setState({
+      status: !this.state.status,
+    });
+  };
+
+  /*-----> CASTOR <-----*/
   toggleFavorite = () => {
     if (!this.state.isFavorite) {
       this.setState({
@@ -37,13 +44,15 @@ class SpeakerList extends React.Component {
       });
     }
   };
-  cellToggle = () => {
-    this.setState({
-      status: !this.state.status,
-    });
-  };
+  /*-----> CASTOR <-----*/
 
   render() {
+    let favoriteIconColor = '#f7fafc';
+    if (this.state.isFavorite === false) {
+      favoriteIconColor = '#f7fafc';
+    } else {
+      favoriteIconColor = '#ff3858';
+    }
     return (
       <>
         <Card
@@ -57,6 +66,8 @@ class SpeakerList extends React.Component {
           <CardBody
             // style={this.state.status ? openHeight : closedHeight}
             style={{
+              maxHeight: '280px',
+              minHeight: '280px',
               boxShadow: '0 2px 4px #11111150',
               borderRadius: '5px',
               paddingBottom: '0px',
@@ -85,8 +96,9 @@ class SpeakerList extends React.Component {
                 <i
                   class="fa fa-heart m-1 fa-heart-custom"
                   style={{
-                    color: '#f7fafc',
+                    color: favoriteIconColor,
                   }}
+                  onClick={this.toggleFavorite}
                 />
               </div>
             </div>
@@ -110,7 +122,9 @@ class SpeakerList extends React.Component {
               </Col> */}
               <Col lg={{ size: 12, order: 1 }}>
                 <div
+                  onClick={() => this.toggleModal('defaultModal')}
                   style={{
+                    cursor: 'pointer',
                     marginTop: '-92px',
                     marginLeft: 'auto',
                     marginRight: 'auto',
@@ -118,8 +132,9 @@ class SpeakerList extends React.Component {
                     height: '125px',
                     overflow: 'hidden',
                     borderRadius: '50%',
-                    border: '2px solid #f7fafc',
+                    border: '3px solid #f7fafc',
                     boxShadow: '0 2px 4px #11111150',
+                    backgroundColor: '#f7fafc',
                   }}
                 >
                   {this.props.speaker.fields &&
@@ -139,7 +154,6 @@ class SpeakerList extends React.Component {
                     marginTop: '5px',
                   }}
                 >
-                  {' '}
                   {this.props.speaker.fields.Name}
                 </div>
                 <p
@@ -234,7 +248,7 @@ class SpeakerList extends React.Component {
                     height: '150px',
                     overflow: 'hidden',
                     borderRadius: '50%',
-                    border: '2px solid #5e72e4',
+                    border: '3px solid #f7fafc',
                     boxShadow: '0 2px 4px #11111150',
                   }}
                 >
