@@ -71,13 +71,14 @@ class SpeakerList extends React.Component {
               boxShadow: '0 2px 4px #11111150',
               borderRadius: '5px',
               paddingBottom: '0px',
+              paddingLeft: '0px',
+              paddingRight: '0px',
             }}
           >
             <div
               style={{
                 height: '100px',
-                width: '350px',
-                marginLeft: '-24px',
+                width: '100%',
                 marginTop: '-24px',
                 borderRadius: '5px 5px 0 0',
                 background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
@@ -176,7 +177,13 @@ class SpeakerList extends React.Component {
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={{ marginTop: '-21px', fontSize: '16px' }}
+                  style={{
+                    marginTop: '-21px',
+                    fontSize: '16px',
+                    width: '85%',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}
                 >
                   Learn More
                 </Button>

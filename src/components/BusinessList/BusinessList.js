@@ -66,37 +66,10 @@ class BusinessList extends React.Component {
               boxShadow: '0 2px 4px #11111150',
               borderRadius: '5px',
               paddingBottom: '0px',
+              paddingLeft: '0px',
+              paddingRight: '0px',
             }}
           >
-            <div
-              style={{
-                height: '100px',
-                width: '350px',
-                marginLeft: '-24px',
-                marginTop: '-24px',
-                borderRadius: '5px 5px 0 0',
-                background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
-                border: '2px solid #f7fafc',
-                borderBottom: '0px',
-              }}
-            >
-              <div
-                style={{
-                  width: '100%',
-                  textAlign: 'right',
-                  marginLeft: '-15px',
-                  marginTop: '10px',
-                }}
-              >
-                <i
-                  class="fa fa-heart m-1 fa-heart-custom"
-                  style={{
-                    color: favoriteIconColor,
-                  }}
-                  onClick={this.toggleFavorite}
-                />
-              </div>
-            </div>
             <Row>
               {/* <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
                 <Button
@@ -113,6 +86,35 @@ class BusinessList extends React.Component {
                 </Button>
               </Col> */}
               <Col lg={{ size: 12, order: 1 }}>
+                <div
+                  style={{
+                    height: '100px',
+                    width: '100%',
+                    marginTop: '-24px',
+                    borderRadius: '5px 5px 0 0',
+                    background:
+                      'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
+                    border: '2px solid #f7fafc',
+                    borderBottom: '0px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      textAlign: 'right',
+                      marginLeft: '-15px',
+                      marginTop: '10px',
+                    }}
+                  >
+                    <i
+                      class="fa fa-heart m-1 fa-heart-custom"
+                      style={{
+                        color: favoriteIconColor,
+                      }}
+                      onClick={this.toggleFavorite}
+                    />
+                  </div>
+                </div>
                 <div
                   onClick={() => this.toggleModal('defaultModal')}
                   style={{
@@ -185,14 +187,24 @@ class BusinessList extends React.Component {
                   Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
                 </p>
 
-                <hr style={{ marginTop: '-5px' }} />
+                <hr
+                  style={{
+                    marginTop: '-5px',
+                  }}
+                />
                 <Button
                   block
                   outline
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={{ marginTop: '-21px', fontSize: '16px' }}
+                  style={{
+                    marginTop: '-21px',
+                    fontSize: '16px',
+                    width: '85%',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}
                 >
                   Learn More
                 </Button>
