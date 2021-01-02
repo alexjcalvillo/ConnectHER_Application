@@ -142,8 +142,8 @@ class SpeakerList extends React.Component {
                       <img
                         style={{
                           objectFit: 'cover',
-                          width: '125px',
-                          height: '125px',
+                          width: '122px',
+                          height: '122px',
                         }}
                         src={this.props.speaker.fields['Speaker Photo'][0].url}
                         alt="img"
@@ -267,8 +267,8 @@ class SpeakerList extends React.Component {
                       <img
                         style={{
                           objectFit: 'cover',
-                          width: '150px',
-                          height: '150px',
+                          width: '147px',
+                          height: '147px',
                         }}
                         src={this.props.speaker.fields['Speaker Photo'][0].url}
                         alt="img"

@@ -48,6 +48,7 @@ class BusinessList extends React.Component {
     const img = new Image();
     let businessImage;
     let businessImageTag;
+    let modalBusinessImageTag;
     let favoriteIconColor = '#f7fafc';
 
     if (this.state.isFavorite === true) {
@@ -71,8 +72,21 @@ class BusinessList extends React.Component {
         <img
           style={{
             objectFit: 'fit',
-            width: '125px',
-            height: '125px',
+            objectPosition: '50% 50%',
+            width: '122px',
+            height: '122px',
+          }}
+          src={businessImage}
+          alt="logo"
+        />
+      );
+      modalBusinessImageTag = (
+        <img
+          style={{
+            objectFit: 'fit',
+            objectPosition: '50% 50%',
+            width: '147px',
+            height: '147px',
           }}
           src={businessImage}
           alt="logo"
@@ -83,14 +97,28 @@ class BusinessList extends React.Component {
         <img
           style={{
             objectFit: 'cover',
-            width: '125px',
-            height: '125px',
+            objectPosition: '50% 50%',
+            width: '122px',
+            height: '122px',
+          }}
+          src={businessImage}
+          alt="logo"
+        />
+      );
+      modalBusinessImageTag = (
+        <img
+          style={{
+            objectFit: 'cover',
+            objectPosition: '50% 50%',
+            width: '147px',
+            height: '147px',
           }}
           src={businessImage}
           alt="logo"
         />
       );
     }
+
     return (
       <>
         <Card
@@ -181,11 +209,13 @@ class BusinessList extends React.Component {
                 </div>
                 <div
                   style={{
-                    width: '100%',
+                    width: '95%',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
                     fontWeight: 'bold',
                     textAlign: 'center',
                     whiteSpace: 'nowrap',
-                    overflow: 'auto',
+                    overflow: 'hidden',
                     marginTop: '5px',
                   }}
                 >
@@ -276,21 +306,8 @@ class BusinessList extends React.Component {
                     ] &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
-                    ][0] && (
-                      <img
-                        style={{
-                          objectFit: 'cover',
-                          width: '150px',
-                          height: '150px',
-                        }}
-                        src={
-                          this.props.business.fields[
-                            `Attachments (logo, marketing materials, price sheets, etc.)`
-                          ][0].url
-                        }
-                        alt="logo"
-                      />
-                    )}
+                    ][0] &&
+                    modalBusinessImageTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}
