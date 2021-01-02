@@ -41,13 +41,55 @@ class BusinessList extends React.Component {
       });
     }
   };
+
   /*-----> CASTOR <-----*/
+
   render() {
+    const img = new Image();
+    let businessImage;
+    let businessImageTag;
     let favoriteIconColor = '#f7fafc';
-    if (this.state.isFavorite === false) {
-      favoriteIconColor = '#f7fafc';
-    } else {
+
+    if (this.state.isFavorite === true) {
       favoriteIconColor = '#ff3858';
+    }
+
+    if (
+      this.props.business.fields[
+        `Attachments (logo, marketing materials, price sheets, etc.)`
+      ] !== undefined
+    ) {
+      businessImage = this.props.business.fields[
+        `Attachments (logo, marketing materials, price sheets, etc.)`
+      ][0].url;
+    }
+
+    img.src = businessImage;
+
+    if (img.width >= 1.5 * img.height || img.height >= 1.5 * img.width) {
+      businessImageTag = (
+        <img
+          style={{
+            objectFit: 'fit',
+            width: '125px',
+            height: '125px',
+          }}
+          src={businessImage}
+          alt="logo"
+        />
+      );
+    } else {
+      businessImageTag = (
+        <img
+          style={{
+            objectFit: 'cover',
+            width: '125px',
+            height: '125px',
+          }}
+          src={businessImage}
+          alt="logo"
+        />
+      );
     }
     return (
       <>
@@ -65,9 +107,7 @@ class BusinessList extends React.Component {
               minHeight: '280px',
               boxShadow: '0 2px 4px #11111150',
               borderRadius: '5px',
-              paddingBottom: '0px',
-              paddingLeft: '0px',
-              paddingRight: '0px',
+              padding: '0px',
             }}
           >
             <Row>
@@ -90,7 +130,6 @@ class BusinessList extends React.Component {
                   style={{
                     height: '100px',
                     width: '100%',
-                    marginTop: '-24px',
                     borderRadius: '5px 5px 0 0',
                     background:
                       'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
@@ -107,7 +146,7 @@ class BusinessList extends React.Component {
                     }}
                   >
                     <i
-                      class="fa fa-heart m-1 fa-heart-custom"
+                      className="fa fa-heart m-1 fa-heart-custom"
                       style={{
                         color: favoriteIconColor,
                       }}
@@ -137,26 +176,16 @@ class BusinessList extends React.Component {
                     ] &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
-                    ][0] && (
-                      <img
-                        style={{
-                          objectFit: 'cover',
-                          width: '125px',
-                          height: '125px',
-                        }}
-                        src={
-                          this.props.business.fields[
-                            `Attachments (logo, marketing materials, price sheets, etc.)`
-                          ][0].url
-                        }
-                        alt="logo"
-                      />
-                    )}
+                    ][0] &&
+                    businessImageTag}
                 </div>
                 <div
                   style={{
                     width: '100%',
+                    fontWeight: 'bold',
                     textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    overflow: 'auto',
                     marginTop: '5px',
                   }}
                 >

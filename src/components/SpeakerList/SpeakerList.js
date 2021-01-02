@@ -70,16 +70,14 @@ class SpeakerList extends React.Component {
               minHeight: '280px',
               boxShadow: '0 2px 4px #11111150',
               borderRadius: '5px',
-              paddingBottom: '0px',
-              paddingLeft: '0px',
-              paddingRight: '0px',
+              padding: '0px',
             }}
           >
             <div
               style={{
                 height: '100px',
                 width: '100%',
-                marginTop: '-24px',
+
                 borderRadius: '5px 5px 0 0',
                 background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
                 border: '2px solid #f7fafc',
@@ -142,7 +140,11 @@ class SpeakerList extends React.Component {
                     this.props.speaker.fields['Speaker Photo'] &&
                     this.props.speaker.fields['Speaker Photo'][0] && (
                       <img
-                        style={{ objectFit: 'cover' }}
+                        style={{
+                          objectFit: 'cover',
+                          width: '125px',
+                          height: '125px',
+                        }}
                         src={this.props.speaker.fields['Speaker Photo'][0].url}
                         alt="img"
                       />
@@ -263,7 +265,11 @@ class SpeakerList extends React.Component {
                     this.props.speaker.fields['Speaker Photo'] &&
                     this.props.speaker.fields['Speaker Photo'][0] && (
                       <img
-                        style={{ objectFit: 'cover' }}
+                        style={{
+                          objectFit: 'cover',
+                          width: '150px',
+                          height: '150px',
+                        }}
                         src={this.props.speaker.fields['Speaker Photo'][0].url}
                         alt="img"
                       />
