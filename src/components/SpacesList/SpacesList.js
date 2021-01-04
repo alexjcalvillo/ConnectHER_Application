@@ -3,6 +3,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
+import function_list from '../../functions/list';
+
 //import BootstrapTable from 'react-bootstrap-table-next';
 //import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
 
@@ -11,6 +13,7 @@ class SpacesList extends React.Component {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
     isOpen: false,
+    isFavorite: false,
   };
 
   componentDidMount() {
@@ -28,75 +31,149 @@ class SpacesList extends React.Component {
       status: !this.state.status,
     });
   };
+
+  /*-----> CASTOR <-----*/
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
+
+  /*-----> CASTOR <-----*/
+
   render() {
+    let image;
+
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
+
+    if (
+      this.props.space.fields !== undefined &&
+      this.props.space.fields.Pictures !== undefined
+    ) {
+      image = this.props.space.fields.Pictures[0].url;
+    }
     return (
       <>
         <Card
-          style={{ maxHeight: '280px', minHeight: '280px' }}
+          style={{
+            maxHeight: '280px',
+            minHeight: '280px',
+            border: '0px solid #000',
+          }}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
           <CardBody
-          // style={this.state.status ? openHeight : closedHeight}
+            // style={this.state.status ? openHeight : closedHeight}
+            style={{
+              maxHeight: '280px',
+              minHeight: '280px',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+              padding: '0px',
+            }}
           >
             <Row
             // style={this.state.status ? openFade : closedFade}
             >
-              <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
-                <Button
-                  block
-                  outline
-                  color="primary"
-                  size="sm"
-                  onClick={() => this.toggleModal('defaultModal')}
-                >
-                  <i
-                    style={{ cursor: 'pointer', fontSize: '30px' }}
-                    className="ni ni-fat-add pt-1"
-                  />
-                </Button>
-                {/* {this.state.status ? (
-                <i
-                  onClick={this.toggleModal}
-                  style={{ cursor: 'pointer' }}
-                  className="ni ni-fat-delete"
-                />
-              ) : (
-                <i
-                  onClick={this.cellToggle}
-                  style={{ cursor: 'pointer' }}
-                  className="ni ni-fat-add"
-                />
-              )} */}
-              </Col>
-              <Col lg={{ size: 9, order: 1 }}>
+              <Col lg={{ size: 12, order: 1 }}>
                 <div
                   style={{
-                    width: '100px',
                     height: '100px',
+                    width: '100%',
+                    borderRadius: '5px 5px 0 0',
+                    background:
+                      'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
+                    border: '2px solid #f7fafc',
+                    borderBottom: '0px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      textAlign: 'right',
+                      marginLeft: '-15px',
+                      marginTop: '10px',
+                    }}
+                  >
+                    <i
+                      className="fa fa-heart m-1 fa-heart-custom"
+                      style={{
+                        color: favoriteIconColor,
+                      }}
+                      onClick={this.toggleFavorite}
+                    />
+                  </div>
+                </div>
+                <div
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={{
+                    cursor: 'pointer',
+                    marginTop: '-92px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    width: '125px',
+                    height: '125px',
                     overflow: 'hidden',
-                    // borderRadius: '50%',
+                    borderRadius: '5px',
+                    border: '3px solid #f7fafc',
+                    boxShadow: '0 2px 4px #11111150',
+                    backgroundColor: '#f7fafc',
                   }}
                 >
                   {this.props.space.fields &&
                     this.props.space.fields.Pictures &&
-                    this.props.space.fields.Pictures[0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={this.props.space.fields.Pictures[0].url}
-                        alt="logo"
-                      />
-                    )}
+                    this.props.space.fields.Pictures[0] &&
+                    function_list.getCardImg(image).cardTag}
                 </div>
-                <div style={{ width: '50%' }}>
-                  {' '}
+                <div
+                  style={{
+                    width: '95%',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    marginTop: '5px',
+                  }}
+                >
                   {this.props.space.fields['Space Name']}
                 </div>
-                <ul>
-                  <li>Capacity: {this.props.space.fields.Capacity}</li>
-                  <li>
-                    Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
-                  </li>
-                </ul>
+
+                <p
+                  style={{
+                    fontSize: '15px',
+                    width: '100%',
+                    textAlign: 'center',
+                    margin: '0px',
+                    height: '25px',
+                    maxHeight: '25px',
+                  }}
+                >
+                  Capacity: {this.props.space.fields.Capacity}
+                </p>
+                <p
+                  style={{
+                    fontSize: '13px',
+                    width: '100%',
+                    textAlign: 'center',
+                    height: '24px',
+                    maxHeight: '24px',
+                  }}
+                >
+                  Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
+                </p>
+
                 <hr />
 
                 {/*<div style={{ width: '50%' }}>
@@ -137,13 +214,8 @@ class SpacesList extends React.Component {
                 >
                   {this.props.space.fields &&
                     this.props.space.fields.Pictures &&
-                    this.props.space.fields.Pictures[0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={this.props.space.fields.Pictures[0].url}
-                        alt="logo"
-                      />
-                    )}
+                    this.props.space.fields.Pictures[0] &&
+                    function_list.getCardImg(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}

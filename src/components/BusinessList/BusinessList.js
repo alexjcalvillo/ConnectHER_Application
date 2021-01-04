@@ -47,7 +47,7 @@ class BusinessList extends React.Component {
   /*-----> CASTOR <-----*/
 
   render() {
-    let businessImage;
+    let image;
 
     let favoriteIconColor = function_list.favoriteIconHandler(
       this.state.isFavorite
@@ -58,14 +58,11 @@ class BusinessList extends React.Component {
         `Attachments (logo, marketing materials, price sheets, etc.)`
       ] !== undefined
     ) {
-      businessImage = this.props.business.fields[
+      image = this.props.business.fields[
         `Attachments (logo, marketing materials, price sheets, etc.)`
       ][0].url;
     }
 
-    const businessImageTag = function_list.getCardImg(businessImage).cardTag;
-    const modalBusinessImageTag = function_list.getCardImg(businessImage)
-      .modalTag;
     return (
       <>
         <Card
@@ -86,20 +83,6 @@ class BusinessList extends React.Component {
             }}
           >
             <Row>
-              {/* <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
-                <Button
-                  block
-                  outline
-                  color="primary"
-                  size="sm"
-                  onClick={() => this.toggleModal('defaultModal')}
-                >
-                  <i
-                    style={{ cursor: 'pointer', fontSize: '30px' }}
-                    className="ni ni-fat-add pt-1"
-                  />
-                </Button>
-              </Col> */}
               <Col lg={{ size: 12, order: 1 }}>
                 <div
                   style={{
@@ -152,7 +135,7 @@ class BusinessList extends React.Component {
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] &&
-                    businessImageTag}
+                    function_list.getCardImg(image).cardTag}
                 </div>
                 <div
                   style={{
@@ -245,6 +228,7 @@ class BusinessList extends React.Component {
                     borderRadius: '5px',
                     border: '3px solid #f7fafc',
                     boxShadow: '0 2px 4px #11111150',
+                    backgroundColor: '#f7fafc',
                   }}
                 >
                   {this.props.business.fields &&
@@ -254,7 +238,7 @@ class BusinessList extends React.Component {
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] &&
-                    modalBusinessImageTag}
+                    function_list.getCardImg(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}
