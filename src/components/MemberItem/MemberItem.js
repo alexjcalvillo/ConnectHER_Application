@@ -161,10 +161,7 @@ class MemberItem extends Component {
                   </Col>
                 </Row>
                 <hr style={{ backgroundColor: '#F59032', marginTop: '5px' }} />
-                <Row
-                  className="mt-3"
-                  // style={{ borderLeft: '0.5px solid #F59032' }}
-                >
+                <Row className="mt-3">
                   <Col lg={5} xs={12}>
                     <p className="lead">Social Media</p>
                     <a
@@ -279,39 +276,6 @@ class MemberItem extends Component {
           <div className="m-5">
             <ContactForm />
           </div>
-          {/* <div className="modal-header">
-            <p className="lead" id="modal-title-default">
-              {this.props.store.listingClickedReducer.first_name}{' '}
-              {this.props.store.listingClickedReducer.last_name}
-            </p>
-            <button
-              aria-label="Close"
-              className="close"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => this.toggleModal('defaultModal')}
-            >
-              <span aria-hidden={true}>×</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <h4>{this.props.store.listingClickedReducer.organization_name}</h4>
-            <p>Bio: {this.props.store.listingClickedReducer.bio}</p>
-          </div>
-          <div className="modal-footer">
-            <Button outline color="primary" type="button">
-              Contact Now
-            </Button>
-            <Button
-              className="ml-auto"
-              color="link"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => this.toggleModal('defaultModal')}
-            >
-              Close
-            </Button>
-          </div> */}
         </Modal>
       </>
     );
