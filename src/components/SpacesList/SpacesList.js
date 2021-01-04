@@ -3,6 +3,9 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
+import function_list from '../../functions/list'; // custom functions object
+import style_list from '../../styles/list'; // custom styles object
+
 //import BootstrapTable from 'react-bootstrap-table-next';
 //import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
 
@@ -11,10 +14,18 @@ class SpacesList extends React.Component {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
     isOpen: false,
+    isFavorite: false,
   };
 
   componentDidMount() {
     document.title = 'Find a Space';
+  }
+
+  refreshImage() {
+    this.setState({
+      ...this.state,
+      refreshed: true,
+    });
   }
 
   toggleModal = (state) => {
@@ -28,80 +39,99 @@ class SpacesList extends React.Component {
       status: !this.state.status,
     });
   };
+
+  /*-----> CASTOR <-----*/
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
+
+  /*-----> CASTOR <-----*/
+
   render() {
+    let image;
+
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
+
+    if (
+      this.props.space.fields !== undefined &&
+      this.props.space.fields.Pictures !== undefined
+    ) {
+      image = this.props.space.fields.Pictures[0].url;
+    }
+
+    if (this.state.refreshed !== true) {
+      setTimeout(() => {
+        this.refreshImage();
+      }, 1000);
+    }
+
     return (
       <>
         <Card
-          style={{ maxHeight: '280px', minHeight: '280px' }}
+          style={style_list.card.base}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody
-          // style={this.state.status ? openHeight : closedHeight}
-          >
-            <Row
-            // style={this.state.status ? openFade : closedFade}
-            >
-              <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
+          <CardBody style={style_list.card.body}>
+            <Row>
+              <Col lg={{ size: 12, order: 1 }}>
+                <div style={style_list.card.gradientFade}>
+                  <div style={style_list.card.heart}>
+                    <i
+                      className="fa fa-heart m-1 fa-heart-custom"
+                      style={{
+                        color: favoriteIconColor,
+                      }}
+                      onClick={this.toggleFavorite}
+                    />
+                  </div>
+                </div>
+                <div
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={style_list.card.detailsImageContainer}
+                >
+                  {this.props.space.fields &&
+                    this.props.space.fields.Pictures &&
+                    this.props.space.fields.Pictures[0] &&
+                    function_list.detailsCardImage(image).cardTag}
+                </div>
+                <div style={style_list.card.detailsTitle}>
+                  {this.props.space.fields['Space Name']}
+                </div>
+
+                <p style={style_list.card.detailsP1}>
+                  Capacity: {this.props.space.fields.Capacity}
+                </p>
+                <p style={style_list.card.detailsP2}>
+                  Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
+                </p>
+
+                <hr
+                  style={{
+                    marginTop: '-5px',
+                  }}
+                />
                 <Button
                   block
                   outline
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
+                  style={style_list.card.learnMoreButton}
                 >
-                  <i
-                    style={{ cursor: 'pointer', fontSize: '30px' }}
-                    className="ni ni-fat-add pt-1"
-                  />
+                  Learn More
                 </Button>
-                {/* {this.state.status ? (
-                <i
-                  onClick={this.toggleModal}
-                  style={{ cursor: 'pointer' }}
-                  className="ni ni-fat-delete"
-                />
-              ) : (
-                <i
-                  onClick={this.cellToggle}
-                  style={{ cursor: 'pointer' }}
-                  className="ni ni-fat-add"
-                />
-              )} */}
-              </Col>
-              <Col lg={{ size: 9, order: 1 }}>
-                <div
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    overflow: 'hidden',
-                    // borderRadius: '50%',
-                  }}
-                >
-                  {this.props.space.fields &&
-                    this.props.space.fields.Pictures &&
-                    this.props.space.fields.Pictures[0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={this.props.space.fields.Pictures[0].url}
-                        alt="logo"
-                      />
-                    )}
-                </div>
-                <div style={{ width: '50%' }}>
-                  {' '}
-                  {this.props.space.fields['Space Name']}
-                </div>
-                <ul>
-                  <li>Capacity: {this.props.space.fields.Capacity}</li>
-                  <li>
-                    Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
-                  </li>
-                </ul>
-                <hr />
-
-                {/*<div style={{ width: '50%' }}>
-                {this.props.speaker.fields['Speaker Photo'][0].url}
-              </div>*/}
               </Col>
             </Row>
           </CardBody>
@@ -109,7 +139,6 @@ class SpacesList extends React.Component {
         <Modal
           className="modal-dialog-centered modal-primary"
           size="lg"
-          // contentClassName="bg-gradient-primary"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
         >
@@ -123,27 +152,14 @@ class SpacesList extends React.Component {
             <span aria-hidden={true}>×</span>
           </button>
           <ModalBody>
-            {/* <Card className="shadow ml-0 mr-0 mb-3 text-primary"> */}
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
-                <div
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    overflow: 'hidden',
-                    // borderRadius: '50%',
-                  }}
-                >
+                <div style={style_list.modal.imageContainer}>
                   {this.props.space.fields &&
                     this.props.space.fields.Pictures &&
-                    this.props.space.fields.Pictures[0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={this.props.space.fields.Pictures[0].url}
-                        alt="logo"
-                      />
-                    )}
+                    this.props.space.fields.Pictures[0] &&
+                    function_list.detailsCardImage(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}
@@ -181,11 +197,9 @@ class SpacesList extends React.Component {
             <hr />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
-                {/*<Row style={{ width: '100%' }}>*/}
                 <p className="font-weight-light mt-2">
                   Amenities: {this.props.space.fields.Amenities}
                 </p>
-                {/*</Row>*/}
               </Col>
             </Row>
             <hr />

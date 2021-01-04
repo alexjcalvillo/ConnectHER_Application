@@ -16,7 +16,7 @@ const LogOutButton = (props) => (
     className="nav-line text-nowrap ml-2"
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
   >
-    <i className="ni ni-key-25 m-1" style={{ color: '#888' }} />
+    <i className="fa fa-key m-1" aria-hidden="true" style={{ color: '#888' }} />
     Log Out
   </Link>
 );
