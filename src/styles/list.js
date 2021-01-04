@@ -10,6 +10,8 @@ import card_detailsP2 from './card_detailsP2';
 import card_learnMoreButton from './card_learnMoreButton';
 
 import modal_imageContainerBox from './modal_imageContainerBox';
+
+import member_styles from './member_styles';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -24,6 +26,7 @@ const style_list = {
   card_detailsP2,
   card_learnMoreButton,
   modal_imageContainerBox,
+  member_styles,
 };
 /*-------------------------*/
 

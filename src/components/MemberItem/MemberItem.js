@@ -6,7 +6,8 @@ import './MemberItem.css';
 import { Badge, Button, Col, Row, Card, CardBody, Modal } from 'reactstrap';
 import ContactForm from '../ContactForm/ContactForm';
 
-import function_list from '../../functions/list';
+import function_list from '../../functions/list'; // custom functions object
+import style_list from '../../styles/list'; // custom styles object
 
 class MemberItem extends Component {
   state = { defaultModal: false, isOpen: false };
@@ -34,68 +35,23 @@ class MemberItem extends Component {
   render() {
     const { member } = this.props;
 
-    const closedFade = {
-      top: '0',
-      left: '0',
-      backgroundImage: 'linear-gradient(to bottom, transparent, #f2f2f2)',
-      transition: 'all 0.3s 0.08s ease-in-out',
-    };
-
-    const openFade = {
-      top: '0',
-      left: '0',
-      backgroundImage: 'none',
-      transition: 'all 0.3s 0.08s ease-in-out',
-    };
-
-    const closedHeight = {
-      maxHeight: '200px',
-      position: 'relative',
-      top: '0',
-      bottom: '0',
-      overflow: 'hidden',
-      zIndex: '0',
-      transition: 'all 0.3s 0.08s cubic-bezier(.17,.67,.83,.67)',
-    };
-
-    const openHeight = {
-      maxHeight: '100%',
-      position: 'relative',
-      top: '0',
-      // bottom: '0',
-      overflow: 'hidden',
-      zIndex: '999',
-      // transform: 'translate(0, 50px)',
-      transition: 'all 0.3s 0.08s cubic-bezier(.17,.67,.83,.67)',
-    };
-
-    const buttonClose = {
-      position: 'relative',
-      // top: '208px',
-      bottom: '13px',
-      // left: '15px',
-      // width: '96.8%',
-      zIndex: '999',
-      transition: 'position 0.3s 0.08s cubic-bezier(.17,.67,.83,.67)',
-    };
-
-    const buttonOpen = {
-      position: 'relative',
-      bottom: '25px',
-      // left: '15px',
-      // width: '96.8%',
-      zIndex: '999',
-      transition: 'position 0.3s 0.08s cubic-bezier(.17,.67,.83,.67)',
-    };
     return (
       <>
         <Card
           className="bg-neutral shadow mb-2"
-          style={this.state.isOpen ? openHeight : closedHeight}
+          style={
+            this.state.isOpen
+              ? style_list.member_styles.openHeight
+              : style_list.member_styles.closedHeight
+          }
         >
           <CardBody
             className="m-0"
-            style={this.state.isOpen ? openFade : closedFade}
+            style={
+              this.state.isOpen
+                ? style_list.member_styles.openFade
+                : style_list.member_styles.closedFade
+            }
           >
             <Row className="mb-2">
               <Col
@@ -257,7 +213,11 @@ class MemberItem extends Component {
           block
           // outline
           color="primary"
-          style={this.state.isOpen ? buttonOpen : buttonClose}
+          style={
+            this.state.isOpen
+              ? style_list.member_styles.buttonOpen
+              : style_list.member_styles.buttonClose
+          }
           onClick={this.openMember}
         >
           {this.state.isOpen ? (
