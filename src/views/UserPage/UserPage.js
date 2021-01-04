@@ -6,6 +6,7 @@ import MemberAboutForm from '../../components/MemberAboutForm/MemberAboutForm';
 import MemberDemoForm from '../../components/MemberDemoForm/MemberDemoForm';
 import SkillsWidget from '../../components/SkillsWidget/SkillsWidget';
 import SkillsSelector from '../../components/SkillsSelector/SkillsSelector';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 import MainPage from '../MainPage/MainPage';
 
@@ -99,6 +100,18 @@ class UserPage extends Component {
                 <NavItem>
                   <NavLink
                     className={classnames('mb-sm-3 mb-md-0', {
+                      active: this.state.activeTab === '4',
+                    })}
+                    onClick={() => {
+                      this.toggle('4');
+                    }}
+                  >
+                    Step 1 - Registration Station
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '1',
                     })}
                     onClick={() => {
@@ -171,6 +184,17 @@ class UserPage extends Component {
                               </Button>
                             </Col>
                           </Row>
+                        </CardBody>
+                      </Card>
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="4">
+                  <Row>
+                    <Col>
+                      <Card>
+                        <CardBody>
+                          <RegisterForm toggle={() => this.toggle('4')} />
                         </CardBody>
                       </Card>
                     </Col>
