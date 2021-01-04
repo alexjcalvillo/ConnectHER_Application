@@ -1,3 +1,7 @@
-const example = {};
+const exampleStyle = {};
 
-export default example;
+const exampleObject = {
+  exampleStyle,
+};
+
+export default exampleObject;

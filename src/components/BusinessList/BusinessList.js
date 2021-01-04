@@ -18,6 +18,13 @@ class BusinessList extends React.Component {
     document.title = 'Find a Business';
   }
 
+  refreshImage() {
+    this.setState({
+      ...this.state,
+      refreshed: true,
+    });
+  }
+
   toggleModal = (state) => {
     this.setState({
       [state]: !this.state[state],
@@ -64,17 +71,22 @@ class BusinessList extends React.Component {
       ][0].url;
     }
 
+    if (this.state.refreshed !== true) {
+      setTimeout(() => {
+        this.refreshImage();
+      }, 1000);
+    }
     return (
       <>
         <Card
-          style={style_list.card}
+          style={style_list.card.base}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody style={style_list.card_body}>
+          <CardBody style={style_list.card.body}>
             <Row>
               <Col lg={{ size: 12, order: 1 }}>
-                <div style={style_list.card_gradientFade}>
-                  <div style={style_list.card_heart}>
+                <div style={style_list.card.gradientFade}>
+                  <div style={style_list.card.heart}>
                     <i
                       className="fa fa-heart m-1 fa-heart-custom"
                       style={{
@@ -86,7 +98,7 @@ class BusinessList extends React.Component {
                 </div>
                 <div
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={style_list.card_detailsImageContainer}
+                  style={style_list.card.detailsImageContainer}
                 >
                   {this.props.business.fields &&
                     this.props.business.fields[
@@ -97,14 +109,14 @@ class BusinessList extends React.Component {
                     ][0] &&
                     function_list.detailsCardImage(image).cardTag}
                 </div>
-                <div style={style_list.card_detailsTitle}>
+                <div style={style_list.card.detailsTitle}>
                   {this.props.business.fields['Organization Name']}
                 </div>
 
-                <p style={style_list.card_detailsP1}>
+                <p style={style_list.card.detailsP1}>
                   {this.props.business.fields['Business Category']}
                 </p>
-                <p style={style_list.card_detailsP2}>
+                <p style={style_list.card.detailsP2}>
                   Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
                 </p>
 
@@ -119,7 +131,7 @@ class BusinessList extends React.Component {
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={style_list.card_learnMoreButton}
+                  style={style_list.card.learnMoreButton}
                 >
                   Learn More
                 </Button>
@@ -146,7 +158,7 @@ class BusinessList extends React.Component {
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
-                <div style={style_list.modal_imageContainerBox}>
+                <div style={style_list.modal.imageContainer}>
                   {this.props.business.fields &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`

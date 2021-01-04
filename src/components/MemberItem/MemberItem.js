@@ -41,16 +41,16 @@ class MemberItem extends Component {
           className="bg-neutral shadow mb-2"
           style={
             this.state.isOpen
-              ? style_list.member_styles.openHeight
-              : style_list.member_styles.closedHeight
+              ? style_list.member.openHeight
+              : style_list.member.closedHeight
           }
         >
           <CardBody
             className="m-0"
             style={
               this.state.isOpen
-                ? style_list.member_styles.openFade
-                : style_list.member_styles.closedFade
+                ? style_list.member.openFade
+                : style_list.member.closedFade
             }
           >
             <Row className="mb-2">
@@ -215,8 +215,8 @@ class MemberItem extends Component {
           color="primary"
           style={
             this.state.isOpen
-              ? style_list.member_styles.buttonOpen
-              : style_list.member_styles.buttonClose
+              ? style_list.member.buttonOpen
+              : style_list.member.buttonClose
           }
           onClick={this.openMember}
         >

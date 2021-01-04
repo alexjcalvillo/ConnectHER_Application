@@ -56,12 +56,12 @@ class SpeakerList extends React.Component {
     return (
       <>
         <Card
-          style={style_list.card}
+          style={style_list.card.base}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody style={style_list.card_body}>
-            <div style={style_list.card_gradientFade}>
-              <div style={style_list.card_heart}>
+          <CardBody style={style_list.card.body}>
+            <div style={style_list.card.gradientFade}>
+              <div style={style_list.card.heart}>
                 <i
                   class="fa fa-heart m-1 fa-heart-custom"
                   style={{
@@ -76,7 +76,7 @@ class SpeakerList extends React.Component {
                 <div
                   onClick={() => this.toggleModal('defaultModal')}
                   style={{
-                    ...style_list.card_detailsImageContainer,
+                    ...style_list.card.detailsImageContainer,
                     borderRadius: '50%',
                   }}
                 >
@@ -94,7 +94,7 @@ class SpeakerList extends React.Component {
                       />
                     )}
                 </div>
-                <div style={style_list.card_detailsTitle}>
+                <div style={style_list.card.detailsTitle}>
                   {this.props.speaker.fields.Name}
                 </div>
                 <p
@@ -117,7 +117,7 @@ class SpeakerList extends React.Component {
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={style_list.card_learnMoreButton}
+                  style={style_list.card.learnMoreButton}
                 >
                   Learn More
                 </Button>
@@ -146,7 +146,7 @@ class SpeakerList extends React.Component {
               <Col lg={5}>
                 <div
                   style={{
-                    ...style_list.modal_imageContainerBox,
+                    ...style_list.modal.imageContainer,
                     borderRadius: '50%',
                   }}
                 >

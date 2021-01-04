@@ -45,7 +45,7 @@ const buttonOpen = {
   transition: 'position 0.3s 0.08s cubic-bezier(.17,.67,.83,.67)',
 };
 
-const member_styles = {
+const member = {
   closedFade,
   openFade,
   closedHeight,
@@ -54,4 +54,4 @@ const member_styles = {
   buttonOpen,
 };
 
-export default member_styles;
+export default member;

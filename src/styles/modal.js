@@ -1,4 +1,4 @@
-const modal_imageContainerBox = {
+const imageContainer = {
   width: '150px',
   height: '150px',
   overflow: 'hidden',
@@ -8,4 +8,8 @@ const modal_imageContainerBox = {
   backgroundColor: '#f7fafc',
 };
 
-export default modal_imageContainerBox;
+const modal = {
+  imageContainer,
+};
+
+export default modal;
