@@ -133,7 +133,7 @@ class SpacesList extends React.Component {
                   {this.props.space.fields &&
                     this.props.space.fields.Pictures &&
                     this.props.space.fields.Pictures[0] &&
-                    function_list.getCardImg(image).cardTag}
+                    function_list.detailsCard(image).cardTag}
                 </div>
                 <div
                   style={{
@@ -215,7 +215,7 @@ class SpacesList extends React.Component {
                   {this.props.space.fields &&
                     this.props.space.fields.Pictures &&
                     this.props.space.fields.Pictures[0] &&
-                    function_list.getCardImg(image).modalTag}
+                    function_list.detailsCard(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}

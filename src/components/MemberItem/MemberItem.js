@@ -6,6 +6,8 @@ import './MemberItem.css';
 import { Badge, Button, Col, Row, Card, CardBody, Modal } from 'reactstrap';
 import ContactForm from '../ContactForm/ContactForm';
 
+import function_list from '../../functions/list';
+
 class MemberItem extends Component {
   state = { defaultModal: false, isOpen: false };
 
@@ -144,66 +146,19 @@ class MemberItem extends Component {
                   <Col lg={7} xs={12}>
                     <h3 className="lead mb-0">Skills:</h3>
                     <div
-                    // style={{
-                    //   height: '65px',
-                    //   overflow: 'scroll',
-                    //   borderBottom: '1px solid #9999993a',
-                    //   borderLeft: '1px solid #9999993a',
-                    //   borderRight: '1px solid #9999993a',
-                    //   paddingLeft: '2px',
-                    // }}
+                      style={{
+                        height: '65px',
+                        overflow: 'scroll',
+                        borderBottom: '1px solid #9999993a',
+                        borderLeft: '1px solid #9999993a',
+                        borderRight: '1px solid #9999993a',
+                        paddingLeft: '2px',
+                      }}
                     >
                       {member.skills.map((skill, i) => {
-                        let color = 'primary';
-                        if (skill.category_id === 1) {
-                          color = 'primary';
-                        } else if (
-                          skill.category === 'Business and Entrepreneurship'
-                        ) {
-                          color = 'info';
-                        }
-
-                        switch (skill.category_id) {
-                          case 1:
-                            color = 'primary';
-                            break;
-                          case 2:
-                            color = 'info';
-                            break;
-                          case 3:
-                            color = 'secondary';
-                            break;
-                          case 4:
-                            color = 'success';
-                            break;
-                          case 5:
-                            color = 'danger';
-                            break;
-                          case 6:
-                            color = 'warning';
-                            break;
-                          case 7:
-                            color = 'primary';
-                            break;
-                          case 8:
-                            color = 'info';
-                            break;
-                          case 9:
-                            color = 'secondary';
-                            break;
-                          case 10:
-                            color = 'success';
-                            break;
-                          case 11:
-                            color = 'danger';
-                            break;
-                          case 12:
-                            color = 'warning';
-                            break;
-                          default:
-                            color = 'primary';
-                            break;
-                        }
+                        let color = function_list.mapSkillColors(
+                          skill.category_id
+                        );
                         return (
                           <Badge
                             className="mr-1 mt-1"
@@ -365,7 +320,6 @@ class MemberItem extends Component {
             >
               Close
             </Button>
-
           </div> */}
         </Modal>
       </>
