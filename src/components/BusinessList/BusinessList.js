@@ -3,7 +3,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
-import function_list from '../../functions/list';
+import function_list from '../../functions/list'; // custom functions object
+import style_list from '../../styles/list'; // custom styles object
 
 class BusinessList extends React.Component {
   state = {
@@ -66,43 +67,14 @@ class BusinessList extends React.Component {
     return (
       <>
         <Card
-          style={{
-            maxHeight: '280px',
-            minHeight: '280px',
-            border: '0px solid #000',
-          }}
+          style={style_list.card}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody
-            style={{
-              maxHeight: '280px',
-              minHeight: '280px',
-              boxShadow: '0 2px 4px #11111150',
-              borderRadius: '5px',
-              padding: '0px',
-            }}
-          >
+          <CardBody style={style_list.card_body}>
             <Row>
               <Col lg={{ size: 12, order: 1 }}>
-                <div
-                  style={{
-                    height: '100px',
-                    width: '100%',
-                    borderRadius: '5px 5px 0 0',
-                    background:
-                      'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
-                    border: '2px solid #f7fafc',
-                    borderBottom: '0px',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '100%',
-                      textAlign: 'right',
-                      marginLeft: '-15px',
-                      marginTop: '10px',
-                    }}
-                  >
+                <div style={style_list.card_gradientFade}>
+                  <div style={style_list.card_heart}>
                     <i
                       className="fa fa-heart m-1 fa-heart-custom"
                       style={{
@@ -114,19 +86,7 @@ class BusinessList extends React.Component {
                 </div>
                 <div
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={{
-                    cursor: 'pointer',
-                    marginTop: '-92px',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    width: '125px',
-                    height: '125px',
-                    overflow: 'hidden',
-                    borderRadius: '5px',
-                    border: '3px solid #f7fafc',
-                    boxShadow: '0 2px 4px #11111150',
-                    backgroundColor: '#f7fafc',
-                  }}
+                  style={style_list.card_detailsImageContainer}
                 >
                   {this.props.business.fields &&
                     this.props.business.fields[
@@ -135,44 +95,16 @@ class BusinessList extends React.Component {
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] &&
-                    function_list.detailsCard(image).cardTag}
+                    function_list.detailsCardImage(image).cardTag}
                 </div>
-                <div
-                  style={{
-                    width: '95%',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    marginTop: '5px',
-                  }}
-                >
+                <div style={style_list.card_detailsTitle}>
                   {this.props.business.fields['Organization Name']}
                 </div>
 
-                <p
-                  style={{
-                    fontSize: '15px',
-                    width: '100%',
-                    textAlign: 'center',
-                    margin: '0px',
-                    height: '25px',
-                    maxHeight: '25px',
-                  }}
-                >
+                <p style={style_list.card_detailsP1}>
                   {this.props.business.fields['Business Category']}
                 </p>
-                <p
-                  style={{
-                    fontSize: '13px',
-                    width: '100%',
-                    textAlign: 'center',
-                    height: '24px',
-                    maxHeight: '24px',
-                  }}
-                >
+                <p style={style_list.card_detailsP2}>
                   Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
                 </p>
 
@@ -187,13 +119,7 @@ class BusinessList extends React.Component {
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
-                  style={{
-                    marginTop: '-21px',
-                    fontSize: '16px',
-                    width: '85%',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
+                  style={style_list.card_learnMoreButton}
                 >
                   Learn More
                 </Button>
@@ -220,17 +146,7 @@ class BusinessList extends React.Component {
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
-                <div
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    overflow: 'hidden',
-                    borderRadius: '5px',
-                    border: '3px solid #f7fafc',
-                    boxShadow: '0 2px 4px #11111150',
-                    backgroundColor: '#f7fafc',
-                  }}
-                >
+                <div style={style_list.modal_imageContainerBox}>
                   {this.props.business.fields &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
@@ -238,7 +154,7 @@ class BusinessList extends React.Component {
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ][0] &&
-                    function_list.detailsCard(image).modalTag}
+                    function_list.detailsCardImage(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}

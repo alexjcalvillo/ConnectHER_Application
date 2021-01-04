@@ -1,6 +1,6 @@
 import React from 'react';
 
-const detailsCard = (src) => {
+const detailsCardImage = (src) => {
   const img = new Image();
 
   let businessImageTag;
@@ -63,4 +63,4 @@ const detailsCard = (src) => {
   }
 };
 
-export default detailsCard;
+export default detailsCardImage;
