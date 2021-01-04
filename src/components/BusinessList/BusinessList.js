@@ -3,6 +3,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
+import function_list from '../../functions/list';
+
 class BusinessList extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
@@ -45,15 +47,11 @@ class BusinessList extends React.Component {
   /*-----> CASTOR <-----*/
 
   render() {
-    const img = new Image();
     let businessImage;
-    let businessImageTag;
-    let modalBusinessImageTag;
-    let favoriteIconColor = '#f7fafc';
 
-    if (this.state.isFavorite === true) {
-      favoriteIconColor = '#ff3858';
-    }
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
 
     if (
       this.props.business.fields[
@@ -65,60 +63,9 @@ class BusinessList extends React.Component {
       ][0].url;
     }
 
-    img.src = businessImage;
-
-    if (img.width >= 1.5 * img.height || img.height >= 1.5 * img.width) {
-      businessImageTag = (
-        <img
-          style={{
-            objectFit: 'fit',
-            objectPosition: '50% 50%',
-            width: '122px',
-            height: '122px',
-          }}
-          src={businessImage}
-          alt="logo"
-        />
-      );
-      modalBusinessImageTag = (
-        <img
-          style={{
-            objectFit: 'fit',
-            objectPosition: '50% 50%',
-            width: '147px',
-            height: '147px',
-          }}
-          src={businessImage}
-          alt="logo"
-        />
-      );
-    } else {
-      businessImageTag = (
-        <img
-          style={{
-            objectFit: 'cover',
-            objectPosition: '50% 50%',
-            width: '122px',
-            height: '122px',
-          }}
-          src={businessImage}
-          alt="logo"
-        />
-      );
-      modalBusinessImageTag = (
-        <img
-          style={{
-            objectFit: 'cover',
-            objectPosition: '50% 50%',
-            width: '147px',
-            height: '147px',
-          }}
-          src={businessImage}
-          alt="logo"
-        />
-      );
-    }
-
+    const businessImageTag = function_list.getCardImg(businessImage).cardTag;
+    const modalBusinessImageTag = function_list.getCardImg(businessImage)
+      .modalTag;
     return (
       <>
         <Card

@@ -3,6 +3,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
 
+import function_list from '../../functions/list';
+
 //import BootstrapTable from 'react-bootstrap-table-next';
 //import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
 
@@ -47,12 +49,9 @@ class SpeakerList extends React.Component {
   /*-----> CASTOR <-----*/
 
   render() {
-    let favoriteIconColor = '#f7fafc';
-    if (this.state.isFavorite === false) {
-      favoriteIconColor = '#f7fafc';
-    } else {
-      favoriteIconColor = '#ff3858';
-    }
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
     return (
       <>
         <Card
