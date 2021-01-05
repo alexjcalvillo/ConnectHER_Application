@@ -3,15 +3,26 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
+import function_list from '../../functions/list'; // custom functions object
+import style_list from '../../styles/list'; // custom styles object
+
 class BusinessList extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
     isOpen: false,
+    isFavorite: false,
   };
 
   componentDidMount() {
     document.title = 'Find a Business';
+  }
+
+  refreshImage() {
+    this.setState({
+      ...this.state,
+      refreshed: true,
+    });
   }
 
   toggleModal = (state) => {
@@ -26,36 +37,68 @@ class BusinessList extends React.Component {
     });
   };
 
+  /*-----> CASTOR <-----*/
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
+
+  /*-----> CASTOR <-----*/
+
   render() {
+    let image;
+
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
+
+    if (
+      this.props.business.fields[
+        `Attachments (logo, marketing materials, price sheets, etc.)`
+      ] !== undefined
+    ) {
+      image = this.props.business.fields[
+        `Attachments (logo, marketing materials, price sheets, etc.)`
+      ][0].url;
+    }
+
+    if (this.state.refreshed !== true) {
+      setTimeout(() => {
+        this.refreshImage();
+      }, 1000);
+    }
     return (
       <>
         <Card
-          style={{ maxHeight: '280px', minHeight: '280px' }}
+          style={style_list.card.base}
           className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody>
+          <CardBody style={style_list.card.body}>
             <Row>
-              <Col className="pt-6 pr-1" lg={{ size: 3, order: 2 }}>
-                <Button
-                  block
-                  outline
-                  color="primary"
-                  size="sm"
-                  onClick={() => this.toggleModal('defaultModal')}
-                >
-                  <i
-                    style={{ cursor: 'pointer', fontSize: '30px' }}
-                    className="ni ni-fat-add pt-1"
-                  />
-                </Button>
-              </Col>
-              <Col lg={{ size: 9, order: 1 }}>
+              <Col lg={{ size: 12, order: 1 }}>
+                <div style={style_list.card.gradientFade}>
+                  <div style={style_list.card.heart}>
+                    <i
+                      className="fa fa-heart m-1 fa-heart-custom"
+                      style={{
+                        color: favoriteIconColor,
+                      }}
+                      onClick={this.toggleFavorite}
+                    />
+                  </div>
+                </div>
                 <div
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    overflow: 'hidden',
-                  }}
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={style_list.card.detailsImageContainer}
                 >
                   {this.props.business.fields &&
                     this.props.business.fields[
@@ -63,29 +106,35 @@ class BusinessList extends React.Component {
                     ] &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
-                    ][0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={
-                          this.props.business.fields[
-                            `Attachments (logo, marketing materials, price sheets, etc.)`
-                          ][0].url
-                        }
-                        alt="logo"
-                      />
-                    )}
+                    ][0] &&
+                    function_list.detailsCardImage(image).cardTag}
                 </div>
-                <div style={{ width: '50%' }}>
-                  {' '}
+                <div style={style_list.card.detailsTitle}>
                   {this.props.business.fields['Organization Name']}
                 </div>
-                <ul>
-                  <li>{this.props.business.fields['Business Category']}</li>
-                  <li>
-                    Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
-                  </li>
-                </ul>
-                <hr />
+
+                <p style={style_list.card.detailsP1}>
+                  {this.props.business.fields['Business Category']}
+                </p>
+                <p style={style_list.card.detailsP2}>
+                  Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
+                </p>
+
+                <hr
+                  style={{
+                    marginTop: '-5px',
+                  }}
+                />
+                <Button
+                  block
+                  outline
+                  color="primary"
+                  size="sm"
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={style_list.card.learnMoreButton}
+                >
+                  Learn More
+                </Button>
               </Col>
             </Row>
           </CardBody>
@@ -109,30 +158,15 @@ class BusinessList extends React.Component {
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
-                <div
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    overflow: 'hidden',
-                  }}
-                >
+                <div style={style_list.modal.imageContainer}>
                   {this.props.business.fields &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
                     ] &&
                     this.props.business.fields[
                       `Attachments (logo, marketing materials, price sheets, etc.)`
-                    ][0] && (
-                      <img
-                        style={{ objectFit: 'cover' }}
-                        src={
-                          this.props.business.fields[
-                            `Attachments (logo, marketing materials, price sheets, etc.)`
-                          ][0].url
-                        }
-                        alt="logo"
-                      />
-                    )}
+                    ][0] &&
+                    function_list.detailsCardImage(image).modalTag}
                 </div>
                 <div className="mt-4 display-4">
                   {' '}

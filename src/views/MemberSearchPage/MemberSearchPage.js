@@ -18,46 +18,32 @@ class MemberSearchPage extends Component {
   }
 
   buttonClick = (selected) => {
-    this.setState({
-      rSelected: selected,
-    });
+    let searchTerm;
     switch (selected) {
-      case 1:
-        this.setState({
-          searchTerm: 'job_title',
-        });
-        break;
       case 2:
-        this.setState({
-          searchTerm: 'community_role',
-        });
+        searchTerm = 'community_role';
         break;
       case 3:
-        this.setState({
-          searchTerm: 'organization_name',
-        });
+        searchTerm = 'organization_name';
         break;
       default:
-        this.setState({
-          searchTerm: 'job_title',
-        });
+        searchTerm = 'job_title';
         break;
     }
+    this.setState({
+      rSelected: selected,
+      searchTerm,
+    });
   };
 
   render() {
     return (
       <>
         <Container>
-          <Row className="mt-4">
-            <Col lg={12}>
-              <Card>
-                <CardBody>
-                  <h1>Search the Community and Connect with Womxn!</h1>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
+          <h1 className="display-3" style={{ textAlign: 'center' }}>
+            Search the Community and Connect with Womxn!
+          </h1>
+
           <br />
           <Row>
             <Col lg={{ size: 2, offset: 1 }} xs={4} className="text-right pt-2">

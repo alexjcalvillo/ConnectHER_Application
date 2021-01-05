@@ -1,4 +1,7 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+</style > html,
 #react-root {
   height: 100%;
 }
@@ -49,4 +52,18 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.fa-heart-custom {
+  cursor: pointer;
+  font-size: 35px;
+  border: 0px solid #00000000;
+}
+
+.fa-heart-custom:hover {
+  font-size: 32px;
+  border-left: 1px solid #00000000;
+  border-bottom: 1px solid #00000000;
+  border-right: 2px solid #00000000;
+  border-top: 2px solid #00000000;
 }

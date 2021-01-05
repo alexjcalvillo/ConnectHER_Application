@@ -23,7 +23,13 @@ const Nav = (props) => {
     <Navbar
       className="navbar-horizontal navbar-light bg-secondary"
       expand="lg"
-      style={{ borderBottom: '1px solid #999999' }}
+      style={{
+        boxShadow: '0 2px 4px #11111150',
+        position: 'fixed',
+        width: '100%',
+        zIndex: '1000',
+        marginTop: '-150px',
+      }}
     >
       <Container>
         <Link to="/home">
@@ -42,26 +48,51 @@ const Nav = (props) => {
         <div className="ml-auto">
           {props.store.user.id && (
             <>
-
               <Link className="nav-line text-nowrap mr-2" to="/main">
-                <i
-                  className="ni ni-book-bookmark m-1"
-                  style={{ color: '#888' }}
-                />
+                <i className="fa fa-book m-1" style={{ color: '#888' }} />
                 Home
               </Link>
 
+              <Link className="nav-line text-nowrap mr-2" to="/search">
+                <i className="fa fa-users m-1" style={{ color: '#888' }} />
+                Community
+              </Link>
+
+              <Link className="nav-line text-nowrap mr-2" to="/speakers">
+                <i className="fa fa-microphone m-1" style={{ color: '#888' }} />
+                Speakers
+              </Link>
+
+              <Link className="nav-line text-nowrap mr-2" to="/businesses">
+                <i className="fa fa-briefcase m-1" style={{ color: '#888' }} />
+                Businesses
+              </Link>
+
+              <Link className="nav-line text-nowrap mr-2" to="/spaces">
+                <i className="fa fa-building m-1" style={{ color: '#888' }} />
+                Spaces
+              </Link>
+
               <Link className="nav-line text-nowrap mr-2  " to="/profile">
-                <i className="ni ni-circle-08 m-1" style={{ color: '#888' }} />
+                <i
+                  className="fa fa-user-circle m-1"
+                  style={{ color: '#888' }}
+                />
                 Profile
               </Link>
 
-              {/* <i className="ni ni-user-run" style={{ color: '#888' }} /> */}
-              <LogOutButton className="nav-logout ml-0" />
+              <Link className="nav-line text-nowrap mr-2" to="/admin">
+                <i
+                  className="fa fa-user-secret m-1"
+                  style={{ color: '#888' }}
+                />
+                Admin
+              </Link>
 
+              {/* <i className="ni ni-user-run" style={{ color: '#888' }} /> */}
+              <LogOutButton />
             </>
           )}
-
         </div>
       </Container>
     </Navbar>

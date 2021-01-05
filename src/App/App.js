@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 // Import template/Argon Styling
 import '../assets/plugins/nucleo/css/nucleo.css';
 import '../assets/vendor/font-awesome/css/font-awesome.min.css';
@@ -25,7 +24,7 @@ import {
   ProfilePage,
   SpacesPage,
   SpeakerPage,
-  UserPage
+  UserPage,
 } from '../views/index';
 
 // Import Static Components
@@ -46,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div style={{ marginTop: '150px' }}>
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -62,6 +61,7 @@ class App extends Component {
               exact
               path="/user"
               component={UserPage}
+              authRedirect="/main"
             />
 
             <ProtectedRoute
