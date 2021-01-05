@@ -33,7 +33,7 @@ class RegisterForm extends Component {
     event.preventDefault();
 
     this.props.dispatch({
-      type: 'REGISTER',
+      type: 'HOLD_REGISTER',
       payload: {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -145,15 +145,17 @@ class RegisterForm extends Component {
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                  <Button
-                    outline
-                    color="primary"
-                    block
-                    type="submit"
-                    name="submit"
-                  >
-                    Register
-                  </Button>
+                  <Col lg={{ size: 2, offset: 10 }}>
+                    <Button
+                      name="submit"
+                      outline
+                      color="primary"
+                      type="submit"
+                      onClick={this.props.toggle}
+                    >
+                      Next
+                    </Button>
+                  </Col>
                 </FormGroup>
               </Col>
             </Row>

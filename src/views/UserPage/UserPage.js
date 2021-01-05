@@ -45,7 +45,6 @@ class UserPage extends Component {
       payload: {
         form: this.props.store.form,
         skills: this.props.store.memberskills,
-        id: this.props.store.user.id,
       },
     });
     this.props.history.push('/main');
@@ -100,25 +99,13 @@ class UserPage extends Component {
                 <NavItem>
                   <NavLink
                     className={classnames('mb-sm-3 mb-md-0', {
-                      active: this.state.activeTab === '4',
-                    })}
-                    onClick={() => {
-                      this.toggle('4');
-                    }}
-                  >
-                    Step 1 - Registration Station
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '1',
                     })}
                     onClick={() => {
                       this.toggle('1');
                     }}
                   >
-                    Step 1 - About Me
+                    Step 1 - Registration Station
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -130,7 +117,7 @@ class UserPage extends Component {
                       this.toggle('2');
                     }}
                   >
-                    Step 2 - Demographic Information
+                    Step 2 - About Me
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -142,7 +129,19 @@ class UserPage extends Component {
                       this.toggle('3');
                     }}
                   >
-                    Step 3 - Areas of Interest/Expertise
+                    Step 3 - Demographic Information
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames('mb-sm-3 mb-md-0', {
+                      active: this.state.activeTab === '4',
+                    })}
+                    onClick={() => {
+                      this.toggle('4');
+                    }}
+                  >
+                    Step 4 - Areas of Interest/Expertise
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -150,22 +149,33 @@ class UserPage extends Component {
                 <TabPane tabId="1">
                   <Row>
                     <Col>
-                      <MemberAboutForm toggle={() => this.toggle('2')} />
+                      <Card>
+                        <CardBody>
+                          <RegisterForm toggle={() => this.toggle('2')} />
+                        </CardBody>
+                      </Card>
                     </Col>
                   </Row>
                 </TabPane>
                 <TabPane tabId="2">
                   <Row>
                     <Col>
+                      <MemberAboutForm toggle={() => this.toggle('3')} />
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="3">
+                  <Row>
+                    <Col>
                       <Card>
                         <CardBody>
-                          <MemberDemoForm toggle={() => this.toggle('3')} />
+                          <MemberDemoForm toggle={() => this.toggle('4')} />
                         </CardBody>
                       </Card>
                     </Col>
                   </Row>
                 </TabPane>
-                <TabPane tabId="3">
+                <TabPane tabId="4">
                   <Row>
                     <Col>
                       <Card>
@@ -184,17 +194,6 @@ class UserPage extends Component {
                               </Button>
                             </Col>
                           </Row>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  </Row>
-                </TabPane>
-                <TabPane tabId="4">
-                  <Row>
-                    <Col>
-                      <Card>
-                        <CardBody>
-                          <RegisterForm toggle={() => this.toggle('4')} />
                         </CardBody>
                       </Card>
                     </Col>

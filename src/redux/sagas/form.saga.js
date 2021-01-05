@@ -4,21 +4,28 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* postForm(action) {
   try {
+    const id = yield put({
+      type: 'GET_USER',
+    });
+    yield put({
+      type: 'REGISTER',
+      payload: action.payload.form.register,
+    });
     yield axios.post(
-      `/api/form/register/about/${action.payload.id}`,
+      `/api/form/register/about/${id}`,
       action.payload.form.about
     ); // { form: props.store.form, id: props.store.user.id }
     yield axios.post(
-      `/api/form/register/demographic/${action.payload.id}`,
+      `/api/form/register/demographic/${id}`,
       action.payload.form.demo
     );
     const skills = action.payload.skills.map((skills) => {
       return skills.id;
     });
-    yield axios.post(`/api/skills/add`, { user_id: action.payload.id, skills });
+    yield axios.post(`/api/skills/add`, { user_id: id, skills });
     yield put({
       type: 'FETCH_USER',
-      payload: action.payload.id,
+      payload: id,
     });
   } catch (error) {
     console.log('Form failed to submit. Please try again.', error);

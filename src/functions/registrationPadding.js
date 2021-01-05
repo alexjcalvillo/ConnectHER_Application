@@ -1,5 +1,3 @@
-import React from 'react';
-
 const registrationPadding = (window) => {
   let paddingAmount = '20%';
 

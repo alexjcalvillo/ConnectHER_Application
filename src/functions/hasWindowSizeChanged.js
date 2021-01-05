@@ -1,5 +1,3 @@
-import React from 'react';
-
 let lastWindowWidth = window.innerWidth;
 let lastWindowHeight = window.innerHeight;
 let bool;

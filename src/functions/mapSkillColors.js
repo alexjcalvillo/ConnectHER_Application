@@ -1,5 +1,3 @@
-import React from 'react';
-
 const mapSkillColors = (skill_id) => {
   let color;
   switch (skill_id) {
