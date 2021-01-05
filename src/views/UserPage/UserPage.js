@@ -67,7 +67,7 @@ class UserPage extends Component {
                   // style={{ margin: 'auto', marginTop: '50px' }}
                 >
                   <Card className="shadow">
-                    <CardBody>
+                    <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                       <h2 className="display-2">
                         Welcome to the InnovateHER KC Community!
                       </h2>
@@ -98,6 +98,10 @@ class UserPage extends Component {
               >
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '5px 0 0 0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '1',
                     })}
@@ -110,6 +114,10 @@ class UserPage extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '2',
                     })}
@@ -122,6 +130,10 @@ class UserPage extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '3',
                     })}
@@ -134,6 +146,10 @@ class UserPage extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '0 5px 0 0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '4',
                     })}
@@ -150,7 +166,7 @@ class UserPage extends Component {
                   <Row>
                     <Col>
                       <Card>
-                        <CardBody>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                           <RegisterForm toggle={() => this.toggle('2')} />
                         </CardBody>
                       </Card>
@@ -168,7 +184,7 @@ class UserPage extends Component {
                   <Row>
                     <Col>
                       <Card>
-                        <CardBody>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                           <MemberDemoForm toggle={() => this.toggle('4')} />
                         </CardBody>
                       </Card>
@@ -179,7 +195,7 @@ class UserPage extends Component {
                   <Row>
                     <Col>
                       <Card>
-                        <CardBody>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                           {/* <SkillsWidget /> */}
                           <SkillsSelector />
                           <hr />
