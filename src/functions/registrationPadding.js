@@ -1,19 +1,21 @@
 const registrationPadding = (window) => {
-  let paddingAmount = '20%';
+  let paddingAmount = 15;
 
   if (window.width < 576) {
-    paddingAmount = '4%';
+    paddingAmount = 4;
   } else if (window.width < 768) {
-    paddingAmount = '5%';
+    paddingAmount = 5;
   } else if (window.width < 1000) {
-    paddingAmount = '10%';
+    paddingAmount = 10;
   } else if (window.width < 1200) {
-    paddingAmount = '15%';
+    paddingAmount = 13;
   }
 
+  const paddingV = paddingAmount / 4 + '%';
+  const paddingH = paddingAmount + '%';
+
   const paddingObj = {
-    paddingLeft: paddingAmount,
-    paddingRight: paddingAmount,
+    padding: paddingV + paddingH,
   };
   return paddingObj;
 };
