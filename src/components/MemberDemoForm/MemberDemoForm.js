@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { useFormik } from 'formik';
 
+import style_list from '../../styles/list';
 // import reactstrap Styles/Components
 import {
   //FormGroup,
@@ -50,9 +51,10 @@ function MemberDemoForm(props) {
 
   return (
     <>
-      <Form onSubmit={formik.handleSubmit}>
+      <Form style={props.style} onSubmit={formik.handleSubmit}>
         <Label htmlFor="age">Age Range</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="age"
           name="age"
           type="select"
@@ -71,6 +73,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="ethnicity">Ethnicity</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="ethnicity"
           name="ethnicity"
           type="select"
@@ -98,6 +101,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="gender">Gender</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="gender"
           name="gender"
           type="select"
@@ -113,6 +117,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="sexual_orientation">Sexual Orientation</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="sexual_orientation"
           name="sexual_orientation"
           type="select"
@@ -132,6 +137,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="ability">Ability Level</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="ability"
           name="ability"
           type="select"
@@ -148,6 +154,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="income_level">Income Level</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="income_level"
           name="income_level"
           type="select"
@@ -164,6 +171,7 @@ function MemberDemoForm(props) {
 
         <Label htmlFor="education_level">Education Level</Label>
         <Input
+          style={style_list.register.form_inputC}
           id="education_level"
           name="education_level"
           type="select"
@@ -187,6 +195,7 @@ function MemberDemoForm(props) {
         <Row>
           <Col lg={{ size: 2, offset: 10 }}>
             <Button
+              style={style_list.register.button}
               outline
               color="primary"
               type="submit"

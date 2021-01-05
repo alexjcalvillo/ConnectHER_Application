@@ -70,8 +70,9 @@ class RegisterForm extends Component {
       height: window.innerHeight,
       width: window.innerWidth,
     });
+
     return (
-      <div style={padding}>
+      <div style={{ ...style_list.register.form_base, ...padding }}>
         <div style={{ marginTop: '25px' }}>
           <Form onSubmit={this.registerUser}>
             {this.props.store.errors.registrationMessage && (
@@ -84,6 +85,7 @@ class RegisterForm extends Component {
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-4">
                     <Input
+                      style={style_list.register.form_inputA}
                       className="form-control-alternative"
                       type="text"
                       name="firstName"
@@ -97,6 +99,7 @@ class RegisterForm extends Component {
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-4">
                     <Input
+                      style={style_list.register.form_inputA}
                       className="form-control-alternative"
                       type="text"
                       name="lastName"
@@ -110,11 +113,12 @@ class RegisterForm extends Component {
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-4">
                     <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
+                      <InputGroupText style={style_list.register.form_icon}>
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
+                      style={style_list.register.form_inputB}
                       className="form-control-alternative"
                       placeholder="name@example.com"
                       type="email"
@@ -128,11 +132,12 @@ class RegisterForm extends Component {
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-4">
                     <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
+                      <InputGroupText style={style_list.register.form_icon}>
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
+                      style={style_list.register.form_inputB}
                       className="form-control-alternative"
                       type="password"
                       name="password"
@@ -146,6 +151,7 @@ class RegisterForm extends Component {
                 <FormGroup>
                   <Col lg={{ size: 2, offset: 10 }}>
                     <Button
+                      style={style_list.register.button}
                       name="submit"
                       outline
                       color="primary"
