@@ -24,6 +24,9 @@ Grid
   border: 3px solid #f7fafc;
 }
 
+.tabbing {
+  padding-left: 35px;
+}
 .login-link {
   /* float: left; */
   color: #888;

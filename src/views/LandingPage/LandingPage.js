@@ -44,23 +44,22 @@ class LandingPage extends Component {
       <Container className="card-img-overlay background">
         <Row>
           <Col
+            className="tabbing"
             lg={{ size: 6, offset: 6 }}
-            md={{ size: 7, offset: 5 }}
-            sm={12}
-            xs={12}
+            md={{ size: 8, offset: 4 }}
           >
             <Nav
               tabs
               style={{
                 position: 'relative',
-                top: '5px',
-                zIndex: '5',
+                top: '0px',
+                zIndex: '0',
               }}
               className="form nav-fill flex-column flex-sm-row"
             >
               <NavItem>
                 <NavLink
-                  className={classnames('mb-sm-3 mb-md-0', {
+                  className={classnames('mb-sm-0 mb-md-0', {
                     active: this.state.activeTab === '1',
                   })}
                   onClick={() => {
@@ -72,7 +71,7 @@ class LandingPage extends Component {
               </NavItem>
               <NavItem>
                 <NavLink
-                  className={classnames('mb-sm-3 mb-md-0', {
+                  className={classnames('mb-sm-0 mb-md-0', {
                     active: this.state.activeTab === '2',
                   })}
                   onClick={() => {
@@ -89,29 +88,40 @@ class LandingPage extends Component {
           <TabPane tabId="1">
             <Row>
               <Col
+                className="tabbing"
                 lg={{ size: 6, offset: 6 }}
-                md={{ size: 7, offset: 5 }}
+                md={{ size: 8, offset: 4 }}
                 sm={12}
                 xs={12}
               >
                 <Card>
-                  <CardBody className="login card">
+                  <CardBody className="login">
                     <LoginForm />
                   </CardBody>
                 </Card>
                 <div className="copyright">
                   {' '}
-                  <span style={{ color: '#EEEDEF', fontSize: 12 }}>
+                  <span
+                    style={{
+                      color: '#EEEDEF',
+                      fontSize: 12,
+                      textAlign: 'center',
+                    }}
+                  >
                     {' '}
                     &copy; An
                   </span>{' '}
-                  <span style={{ color: '#823bae', fontSize: 12 }}>
+                  <span style={{ color: '#823bae', fontSize: 12.5 }}>
                     Innovate
                   </span>
-                  <span style={{ color: '#F59032', fontSize: 12 }}>HER</span>{' '}
-                  <span style={{ color: '#1BBFBF', fontSize: 12 }}>KC</span>
-                  <span style={{ color: '#EEEDEF', fontSize: 12 }}>
-                    {''}Space | Built with {''}
+                  <span style={{ color: '#F59032', fontSize: 12.5 }}>HER</span>{' '}
+                  <span style={{ color: '#1BBFBF', fontSize: 12.5 }}>KC</span>
+                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
+                    {' '}
+                    Space
+                  </span>{' '}
+                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
+                    | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy
                   </span>
                 </div>
@@ -121,14 +131,41 @@ class LandingPage extends Component {
           <TabPane tabId="2">
             <Row>
               <Col
+                className="tabbing"
                 lg={{ size: 6, offset: 6 }}
-                md={{ size: 7, offset: 5 }}
+                md={{ size: 8, offset: 4 }}
                 sm={12}
                 xs={12}
               >
                 <Card>
                   <CardBody className="login card"></CardBody>
                 </Card>
+                <div className="copyright">
+                  {' '}
+                  <span
+                    style={{
+                      color: '#EEEDEF',
+                      fontSize: 12,
+                      textAlign: 'center',
+                    }}
+                  >
+                    {' '}
+                    &copy; An
+                  </span>{' '}
+                  <span style={{ color: '#823bae', fontSize: 12.5 }}>
+                    Innovate
+                  </span>
+                  <span style={{ color: '#F59032', fontSize: 12.5 }}>HER</span>{' '}
+                  <span style={{ color: '#1BBFBF', fontSize: 12.5 }}>KC</span>
+                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
+                    {' '}
+                    Space
+                  </span>{' '}
+                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
+                    | Built with {''}
+                    <i className="fa fa-heartbeat" /> by Prime Digital Academy
+                  </span>
+                </div>
               </Col>
             </Row>
           </TabPane>
