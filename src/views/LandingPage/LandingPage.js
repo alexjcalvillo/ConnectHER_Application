@@ -41,17 +41,22 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <Container className="mt-5 mb-5">
+      <Container className="card-img-overlay background">
         <Row>
-          <Col lg={{ size: 6, offset: 3 }} md={8}>
+          <Col
+            lg={{ size: 6, offset: 6 }}
+            md={{ size: 7, offset: 5 }}
+            sm={12}
+            xs={12}
+          >
             <Nav
               tabs
               style={{
                 position: 'relative',
                 top: '5px',
-                zIndex: '1000',
+                zIndex: '5',
               }}
-              className="nav-fill flex-column flex-sm-row"
+              className="form nav-fill flex-column flex-sm-row"
             >
               <NavItem>
                 <NavLink
@@ -83,22 +88,46 @@ class LandingPage extends Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Row>
-              <Col lg={{ size: 6, offset: 3 }} md={8}>
+              <Col
+                lg={{ size: 6, offset: 6 }}
+                md={{ size: 7, offset: 5 }}
+                sm={12}
+                xs={12}
+              >
                 <Card>
-                  <CardBody>
+                  <CardBody className="login card">
                     <LoginForm />
                   </CardBody>
                 </Card>
+                <div className="copyright">
+                  {' '}
+                  <span style={{ color: '#EEEDEF', fontSize: 12 }}>
+                    {' '}
+                    &copy; An
+                  </span>{' '}
+                  <span style={{ color: '#823bae', fontSize: 12 }}>
+                    Innovate
+                  </span>
+                  <span style={{ color: '#F59032', fontSize: 12 }}>HER</span>{' '}
+                  <span style={{ color: '#1BBFBF', fontSize: 12 }}>KC</span>
+                  <span style={{ color: '#EEEDEF', fontSize: 12 }}>
+                    {''}Space | Built with {''}
+                    <i className="fa fa-heartbeat" /> by Prime Digital Academy
+                  </span>
+                </div>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
-              <Col lg={{ size: 6, offset: 3 }} md={8}>
+              <Col
+                lg={{ size: 6, offset: 6 }}
+                md={{ size: 7, offset: 5 }}
+                sm={12}
+                xs={12}
+              >
                 <Card>
-                  <CardBody>
-                    <RegisterForm />
-                  </CardBody>
+                  <CardBody className="login card"></CardBody>
                 </Card>
               </Col>
             </Row>

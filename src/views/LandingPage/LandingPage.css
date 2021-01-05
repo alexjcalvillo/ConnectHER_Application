@@ -2,6 +2,46 @@
 Grid
 -------------------------------------------------------------------------------- */
 
+.background {
+  margin-top: 80px;
+  padding-left: 0px;
+  background-image: url('LandingBackground.png');
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form {
+  margin-top: 60px;
+}
+
+.login {
+  border: 3px solid #f7fafc;
+  box-shadow: 0 2px 4px #11111150;
+  border-radius: 5px;
+  border: 3px solid #f7fafc;
+}
+
+.login-link {
+  /* float: left; */
+  color: #888;
+  background-color: blue;
+  text-align: center;
+  /* padding: 24px 10px; */
+  text-decoration: none;
+  font-size: 15px;
+  /* display: inline;
+  margin-right: 50px; */
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+
 .grid {
   display: flex;
   flex: 0 1 auto;
@@ -15,7 +55,7 @@ Grid
 
 .grid-col {
   flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
+  padding: 0;
   box-sizing: border-box;
 }
 
