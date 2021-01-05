@@ -122,7 +122,7 @@ router.get(
               .query(queryText)
               .then((dbResponse) => {
                 const mexican = dbResponse.rows[0].count;
-                const queryText = `SELECT COUNT(ethnicity) FROM "demographic" WHERE ethnicity = 'multiracial';`;
+                const queryText = `SELECT COUNT(ethnicity) FROM "demographic" WHERE ethnicity = 'Multiracial';`;
                 pool
                   .query(queryText)
                   .then((dbResponse) => {
@@ -194,6 +194,91 @@ router.get(
                     console.log(err);
                     res.sendStatus(500);
                   });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
+// GET route to get count for gender
+router.get(
+  '/gender',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(gender) FROM "demographic" WHERE gender = 'Female / Female-Identifying';`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const female = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(gender) FROM "demographic" WHERE gender = 'Non-Binary';`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const nonBinary = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(gender) FROM "demographic" WHERE gender = 'I prefer not to answer';`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const noAnswer = dbResponse.rows[0].count;
+                res.send({
+                  female: female,
+                  nonBinary: nonBinary,
+                  noAnswer: noAnswer,
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
+//GET route to get count for sexual orientation
+router.get(
+  '/sexual-orientation',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(sexual_orientation) FROM "demographic" WHERE sexual_orientation = 'Straight / Heterosexual';`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const straight = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(sexual_orientation) FROM "demographic" WHERE sexual_orientation = 'LGBTQIA+';`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const lgbtqia = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(sexual_orientation) FROM "demographic" WHERE sexual_orientation = 'I prefer not to answer';`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const noAnswer = dbResponse.rows[0].count;
+
+                res.send({
+                  straight: straight,
+                  lgbtqia: lgbtqia,
+                  noAnswer: noAnswer,
+                });
               })
               .catch((err) => {
                 console.log(err);

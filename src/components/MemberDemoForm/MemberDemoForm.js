@@ -123,7 +123,7 @@ function MemberDemoForm(props) {
           <option value="Female / Female-Identifying">
             Female / Female-Identifying
           </option>
-          <option value=" Straight / Heterosexual">
+          <option value="Straight / Heterosexual">
             {' '}
             Straight / Heterosexual
           </option>
