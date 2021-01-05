@@ -105,7 +105,7 @@ class UserPage extends Component {
                       this.toggle('1');
                     }}
                   >
-                    Step 1 - Registration Station
+                    Step 1 - User Information
                   </NavLink>
                 </NavItem>
                 <NavItem>

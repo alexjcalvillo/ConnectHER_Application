@@ -72,7 +72,7 @@ class RegisterForm extends Component {
     });
     return (
       <div style={padding}>
-        <h1>Register User</h1>
+        <h1>User Information</h1>
         <div>
           <Form onSubmit={this.registerUser}>
             {this.props.store.errors.registrationMessage && (
