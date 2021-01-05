@@ -10,6 +10,9 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 import MainPage from '../MainPage/MainPage';
 
+import function_list from '../../functions/list';
+import style_list from '../../styles/list';
+
 import {
   Container,
   Row,
@@ -50,7 +53,17 @@ class UserPage extends Component {
     this.props.history.push('/main');
   };
 
+  refresh() {
+    this.setState({
+      ...this.state,
+    });
+  }
   render() {
+    let padding = function_list.registrationPadding({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+
     return (
       <>
         {this.props.store.profile &&
@@ -104,6 +117,7 @@ class UserPage extends Component {
                     }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '1',
+                      navLinkFix: this.state.activeTab === '1',
                     })}
                     onClick={() => {
                       this.toggle('1');
@@ -120,6 +134,7 @@ class UserPage extends Component {
                     }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '2',
+                      navLinkFix: this.state.activeTab === '2',
                     })}
                     onClick={() => {
                       this.toggle('2');
@@ -136,6 +151,7 @@ class UserPage extends Component {
                     }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '3',
+                      navLinkFix: this.state.activeTab === '3',
                     })}
                     onClick={() => {
                       this.toggle('3');
@@ -152,6 +168,7 @@ class UserPage extends Component {
                     }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '4',
+                      navLinkFix: this.state.activeTab === '4',
                     })}
                     onClick={() => {
                       this.toggle('4');
@@ -176,7 +193,10 @@ class UserPage extends Component {
                 <TabPane tabId="2">
                   <Row>
                     <Col>
-                      <MemberAboutForm toggle={() => this.toggle('3')} />
+                      <MemberAboutForm
+                        toggle={() => this.toggle('3')}
+                        style={style_list.register.form_base}
+                      />
                     </Col>
                   </Row>
                 </TabPane>
@@ -185,7 +205,13 @@ class UserPage extends Component {
                     <Col>
                       <Card>
                         <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
-                          <MemberDemoForm toggle={() => this.toggle('4')} />
+                          <MemberDemoForm
+                            toggle={() => this.toggle('4')}
+                            style={{
+                              ...padding,
+                              ...style_list.register.form_base,
+                            }}
+                          />
                         </CardBody>
                       </Card>
                     </Col>
@@ -202,6 +228,7 @@ class UserPage extends Component {
                           <Row>
                             <Col lg={{ size: 2, offset: 10 }}>
                               <Button
+                                style={style_list.register.button}
                                 outline
                                 color="primary"
                                 onClick={this.submitData}

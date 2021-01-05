@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import ReactDatetime from 'react-datetime';
 import moment from 'moment';
 
+import style_list from '../../styles/list';
+
 // import reactstrap Styles/Components
 import {
   FormGroup,
@@ -67,16 +69,24 @@ function MemberAboutForm(props) {
     <>
       <Card className="bg-secondary">
         <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
-          <Form onSubmit={formik.handleSubmit}>
+          <Form
+            onSubmit={formik.handleSubmit}
+            style={{ ...props.style, padding: '5%' }}
+          >
             <Row>
               <Col>
                 <Row>
                   <ImageUpload />
 
-                  <Col lg={6}>
+                  <Col
+                    md={12}
+                    lg={8}
+                    style={{ marginLeft: 'auto', marginRight: 'auto' }}
+                  >
                     <FormGroup>
                       <Label htmlFor="displayName">Display Name: </Label>
                       <Input
+                        style={style_list.register.form_inputA}
                         className="form-control-alternative"
                         id="displayName"
                         name="displayName"
@@ -86,6 +96,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="bio">Bio: </Label>
                       <Input
+                        style={style_list.register.form_inputA}
                         className="form-control-alternative"
                         id="bio"
                         name="bio"
@@ -96,12 +107,12 @@ function MemberAboutForm(props) {
                       />
                     </FormGroup>
                   </Col>
-                  <Col lg={6}>
+                  <Col lg={12}>
                     <FormGroup>
                       <Label htmlFor="birthday">Birthday: </Label>
                       <InputGroup className="input-group-alternative">
                         <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
+                          <InputGroupText style={style_list.register.form_icon}>
                             <i className="ni ni-calendar-grid-58" />
                           </InputGroupText>
                         </InputGroupAddon>
@@ -117,6 +128,7 @@ function MemberAboutForm(props) {
                           value={formik.values.birthday}
                           inputProps={{
                             placeholder: 'Birthday',
+                            style: style_list.register.form_inputB,
                           }}
                           timeFormat={false}
                           closeOnSelect={true}
@@ -133,6 +145,7 @@ function MemberAboutForm(props) {
                     <Col lg={6}>
                       <Label htmlFor="email">Community Role: </Label>
                       <Input
+                        style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="role"
                         name="role"
@@ -142,6 +155,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="organization">Organization: </Label>
                       <Input
+                        style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="organization"
                         name="organization"
@@ -151,6 +165,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="title">Job Title: </Label>
                       <Input
+                        style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="title"
                         name="title"
@@ -162,6 +177,7 @@ function MemberAboutForm(props) {
                     <Col lg={6}>
                       <Label htmlFor="streetAddress">Street Address</Label>
                       <Input
+                        style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="streetAddress"
                         name="streetAddress"
@@ -173,6 +189,7 @@ function MemberAboutForm(props) {
                         <Col>
                           <Label htmlFor="city">City: </Label>
                           <Input
+                            style={style_list.register.form_inputC}
                             className="form-control-alternative"
                             id="city"
                             name="city"
@@ -184,6 +201,7 @@ function MemberAboutForm(props) {
                         <Col>
                           <Label htmlFor="state">State: </Label>
                           <Input
+                            style={style_list.register.form_inputC}
                             className="form-control-alternative"
                             id="state"
                             name="state"
@@ -195,6 +213,7 @@ function MemberAboutForm(props) {
                       </Row>
                       <Label htmlFor="zipcode">Zipcode: </Label>
                       <Input
+                        style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="zipcode"
                         name="zipcode"
@@ -292,6 +311,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-linkedin-square" />{' '}
                     <Label htmlFor="linkedin">LinkedIn: </Label>
                     <Input
+                      style={style_list.register.form_inputA}
                       className="form-control-alternative"
                       id="linkedin"
                       name="linkedin"
@@ -304,6 +324,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-facebook-square" />{' '}
                     <Label htmlFor="facebook">Facebook: </Label>
                     <Input
+                      style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="facebook"
                       name="facebook"
@@ -316,6 +337,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-twitter-square" />{' '}
                     <Label htmlFor="twitter">Twitter: </Label>
                     <Input
+                      style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="twitter"
                       name="twitter"
@@ -338,6 +360,7 @@ function MemberAboutForm(props) {
                     />{' '}
                     <Label htmlFor="instagram">Instagram: </Label>
                     <Input
+                      style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="instagram"
                       name="instagram"
@@ -349,6 +372,7 @@ function MemberAboutForm(props) {
                 </Row>
                 <Label htmlFor="shirtsize">T-Shirt Size: </Label>
                 <Input
+                  style={style_list.register.form_inputC}
                   id="shirtSize"
                   type="select"
                   className="form-control-alternative"
@@ -365,6 +389,7 @@ function MemberAboutForm(props) {
                 <Row>
                   <Col lg={{ size: 2, offset: 10 }}>
                     <Button
+                      style={style_list.register.button}
                       outline
                       color="primary"
                       type="submit"
