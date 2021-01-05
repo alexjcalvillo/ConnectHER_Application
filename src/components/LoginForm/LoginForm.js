@@ -59,6 +59,7 @@ class LoginForm extends Component {
             </InputGroupAddon>
             <Input
               className="form-control-alternative"
+              size="sm"
               placeholder="name@example.com"
               type="email"
               name="email"
@@ -77,6 +78,7 @@ class LoginForm extends Component {
             </InputGroupAddon>
             <Input
               className="form-control-alternative"
+              size="sm"
               type="password"
               name="password"
               placeholder="password"
@@ -87,7 +89,14 @@ class LoginForm extends Component {
           </InputGroup>
         </FormGroup>
         <FormGroup>
-          <Button outline color="primary" block type="submit" name="submit">
+          <Button
+            size="sm"
+            color="info"
+            outline
+            block
+            type="submit"
+            name="submit"
+          >
             Log In
           </Button>
         </FormGroup>
