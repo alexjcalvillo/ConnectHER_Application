@@ -11,6 +11,7 @@ import imageUrlRouter from './routes/image-url.router';
 import categoriesRouter from './routes/categories.router';
 import skillsRouter from './routes/skills.router';
 import nodemailerRouter from './routes/nodemailer.router';
+import demographicRouter from './routes/demographic.router';
 
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
@@ -49,6 +50,7 @@ app.use('/api/imageurl', imageUrlRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/skills', skillsRouter);
+app.use('/api/demographics', demographicRouter);
 
 // Serve static files
 app.use(express.static('build'));
