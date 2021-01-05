@@ -6,6 +6,7 @@ import MemberAboutForm from '../../components/MemberAboutForm/MemberAboutForm';
 import MemberDemoForm from '../../components/MemberDemoForm/MemberDemoForm';
 import SkillsWidget from '../../components/SkillsWidget/SkillsWidget';
 import SkillsSelector from '../../components/SkillsSelector/SkillsSelector';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 import MainPage from '../MainPage/MainPage';
 
@@ -44,7 +45,6 @@ class UserPage extends Component {
       payload: {
         form: this.props.store.form,
         skills: this.props.store.memberskills,
-        id: this.props.store.user.id,
       },
     });
     this.props.history.push('/main');
@@ -67,7 +67,7 @@ class UserPage extends Component {
                   // style={{ margin: 'auto', marginTop: '50px' }}
                 >
                   <Card className="shadow">
-                    <CardBody>
+                    <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                       <h2 className="display-2">
                         Welcome to the InnovateHER KC Community!
                       </h2>
@@ -98,6 +98,10 @@ class UserPage extends Component {
               >
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '5px 0 0 0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '1',
                     })}
@@ -105,11 +109,15 @@ class UserPage extends Component {
                       this.toggle('1');
                     }}
                   >
-                    Step 1 - About Me
+                    Step 1 - User Information
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '2',
                     })}
@@ -117,11 +125,15 @@ class UserPage extends Component {
                       this.toggle('2');
                     }}
                   >
-                    Step 2 - Demographic Information
+                    Step 2 - About Me
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
+                    style={{
+                      borderRadius: '0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
                     className={classnames('mb-sm-3 mb-md-0', {
                       active: this.state.activeTab === '3',
                     })}
@@ -129,7 +141,23 @@ class UserPage extends Component {
                       this.toggle('3');
                     }}
                   >
-                    Step 3 - Areas of Interest/Expertise
+                    Step 3 - Demographic Information
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    style={{
+                      borderRadius: '0 5px 0 0',
+                      boxShadow: '0px 2px 4px #11111150',
+                    }}
+                    className={classnames('mb-sm-3 mb-md-0', {
+                      active: this.state.activeTab === '4',
+                    })}
+                    onClick={() => {
+                      this.toggle('4');
+                    }}
+                  >
+                    Step 4 - Areas of Interest/Expertise
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -137,18 +165,18 @@ class UserPage extends Component {
                 <TabPane tabId="1">
                   <Row>
                     <Col>
-                      <MemberAboutForm toggle={() => this.toggle('2')} />
+                      <Card>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
+                          <RegisterForm toggle={() => this.toggle('2')} />
+                        </CardBody>
+                      </Card>
                     </Col>
                   </Row>
                 </TabPane>
                 <TabPane tabId="2">
                   <Row>
                     <Col>
-                      <Card>
-                        <CardBody>
-                          <MemberDemoForm toggle={() => this.toggle('3')} />
-                        </CardBody>
-                      </Card>
+                      <MemberAboutForm toggle={() => this.toggle('3')} />
                     </Col>
                   </Row>
                 </TabPane>
@@ -156,7 +184,18 @@ class UserPage extends Component {
                   <Row>
                     <Col>
                       <Card>
-                        <CardBody>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
+                          <MemberDemoForm toggle={() => this.toggle('4')} />
+                        </CardBody>
+                      </Card>
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="4">
+                  <Row>
+                    <Col>
+                      <Card>
+                        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                           {/* <SkillsWidget /> */}
                           <SkillsSelector />
                           <hr />

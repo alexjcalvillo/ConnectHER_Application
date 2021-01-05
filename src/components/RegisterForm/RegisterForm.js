@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import function_list from '../../functions/list'; // custom functions object
+import style_list from '../../styles/list'; // custom styles object
+
 // Importing Reactstrap
 import {
   Button,
@@ -30,7 +33,7 @@ class RegisterForm extends Component {
     event.preventDefault();
 
     this.props.dispatch({
-      type: 'REGISTER',
+      type: 'HOLD_REGISTER',
       payload: {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -46,87 +49,118 @@ class RegisterForm extends Component {
     });
   };
 
+  refresh() {
+    this.setState({
+      ...this.state,
+    });
+  }
   render() {
+    window.onresize = () => {
+      if (
+        function_list.hasWindowSizeChanged({
+          height: window.innerHeight,
+          width: window.innerWidth,
+        }) === true
+      ) {
+        this.refresh();
+      }
+    };
+
+    let padding = function_list.registrationPadding({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
     return (
-      <Form onSubmit={this.registerUser}>
-        <h2>Register User</h2>
-        {this.props.store.errors.registrationMessage && (
-          <h3 className="alert" role="alert">
-            {this.props.store.errors.registrationMessage}
-          </h3>
-        )}
-        <Row>
-          <Col>
-            <FormGroup>
-              <InputGroup className="input-group-alternative mb-4">
-                <Input
-                  className="form-control-alternative"
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  value={this.state.firstName}
-                  required
-                  onChange={this.handleInputChangeFor('firstName')}
-                />
-              </InputGroup>
-            </FormGroup>
-            <FormGroup>
-              <InputGroup className="input-group-alternative mb-4">
-                <Input
-                  className="form-control-alternative"
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                  value={this.state.lastName}
-                  required
-                  onChange={this.handleInputChangeFor('lastName')}
-                />
-              </InputGroup>
-            </FormGroup>
-            <FormGroup>
-              <InputGroup className="input-group-alternative mb-4">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="ni ni-email-83" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  className="form-control-alternative"
-                  placeholder="name@example.com"
-                  type="email"
-                  name="email"
-                  value={this.state.email}
-                  required
-                  onChange={this.handleInputChangeFor('email')}
-                />
-              </InputGroup>
-            </FormGroup>
-            <FormGroup>
-              <InputGroup className="input-group-alternative mb-4">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="ni ni-lock-circle-open" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  className="form-control-alternative"
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  value={this.state.password}
-                  required
-                  onChange={this.handleInputChangeFor('password')}
-                />
-              </InputGroup>
-            </FormGroup>
-            <FormGroup>
-              <Button outline color="primary" block type="submit" name="submit">
-                Register
-              </Button>
-            </FormGroup>
-          </Col>
-        </Row>
-      </Form>
+      <div style={padding}>
+        <div style={{ marginTop: '25px' }}>
+          <Form onSubmit={this.registerUser}>
+            {this.props.store.errors.registrationMessage && (
+              <h3 className="alert" role="alert">
+                {this.props.store.errors.registrationMessage}
+              </h3>
+            )}
+            <Row>
+              <Col>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-4">
+                    <Input
+                      className="form-control-alternative"
+                      type="text"
+                      name="firstName"
+                      placeholder="First name"
+                      value={this.state.firstName}
+                      required
+                      onChange={this.handleInputChangeFor('firstName')}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-4">
+                    <Input
+                      className="form-control-alternative"
+                      type="text"
+                      name="lastName"
+                      placeholder="Last name"
+                      value={this.state.lastName}
+                      required
+                      onChange={this.handleInputChangeFor('lastName')}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-4">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input
+                      className="form-control-alternative"
+                      placeholder="name@example.com"
+                      type="email"
+                      name="email"
+                      value={this.state.email}
+                      required
+                      onChange={this.handleInputChangeFor('email')}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-4">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input
+                      className="form-control-alternative"
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                      value={this.state.password}
+                      required
+                      onChange={this.handleInputChangeFor('password')}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <Col lg={{ size: 2, offset: 10 }}>
+                    <Button
+                      name="submit"
+                      outline
+                      color="primary"
+                      type="submit"
+                      onClick={this.props.toggle}
+                    >
+                      Next
+                    </Button>
+                  </Col>
+                </FormGroup>
+              </Col>
+            </Row>
+          </Form>
+        </div>
+      </div>
     );
   }
 }

@@ -10,7 +10,7 @@ import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 
 class MemberItem extends Component {
-  state = { defaultModal: false, isOpen: false };
+  state = { defaultModal: false, isOpen: false, isFavorite: false };
 
   toggleModal = (state) => {
     this.setState({
@@ -32,8 +32,29 @@ class MemberItem extends Component {
     });
   };
 
+  /*-----> CASTOR <-----*/
+  toggleFavorite = () => {
+    if (!this.state.isFavorite) {
+      this.setState({
+        ...this.state,
+        isFavorite: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isFavorite: false,
+      });
+    }
+  };
+
+  /*-----> CASTOR <-----*/
+
   render() {
     const { member } = this.props;
+
+    let favoriteIconColor = function_list.favoriteIconHandler(
+      this.state.isFavorite
+    );
 
     return (
       <>
@@ -53,22 +74,34 @@ class MemberItem extends Component {
                 : style_list.member.closedFade
             }
           >
-            <Row className="mb-2">
+            <div style={style_list.card.gradientFade}>
+              <div style={style_list.card.heart}>
+                <i
+                  className="fa fa-heart m-1 fa-heart-custom"
+                  style={{
+                    color: favoriteIconColor,
+                  }}
+                  onClick={this.toggleFavorite}
+                />
+              </div>
+            </div>
+            <Row
+              className="mb-2"
+              style={{
+                paddingLeft: '16px',
+                paddingRight: '16px',
+              }}
+            >
               <Col
                 lg={3}
                 xs={12}
                 className="mr-0 text-center"
-                style={{ borderRight: '0.5px solid #F59032' }}
+                style={{
+                  borderRight: '0.5px solid #F59032',
+                  marginTop: '-75px',
+                }}
               >
-                <div
-                  style={{
-                    maxHeight: '160px',
-                    maxWidth: '160px',
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                    margin: 'auto',
-                  }}
-                >
+                <div style={style_list.member.profileImage}>
                   <img
                     style={{
                       objectFit: 'cover',
@@ -90,7 +123,7 @@ class MemberItem extends Component {
               </Col>
               <Col lg={9} xs={12}>
                 <Row>
-                  <Col lg="5">
+                  <Col lg="5" style={{ marginTop: '-75px' }}>
                     <p className="lead mb-0">
                       {member.first_name} {member.last_name}
                     </p>
@@ -99,16 +132,14 @@ class MemberItem extends Component {
                     </p>
                   </Col>
 
-                  <Col lg={7} xs={12}>
-                    <h3 className="lead mb-0">Skills:</h3>
+                  <Col lg={7} xs={12} style={{ marginTop: '-50px' }}>
+                    <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
+                      Skills:
+                    </h3>
                     <div
                       style={{
-                        height: '65px',
+                        height: '90px',
                         overflow: 'scroll',
-                        borderBottom: '1px solid #9999993a',
-                        borderLeft: '1px solid #9999993a',
-                        borderRight: '1px solid #9999993a',
-                        paddingLeft: '2px',
                       }}
                     >
                       {member.skills.map((skill, i) => {
@@ -129,11 +160,8 @@ class MemberItem extends Component {
                     </div>
                   </Col>
                 </Row>
-                <hr style={{ backgroundColor: '#F59032' }} />
-                <Row
-                  className="mt-3"
-                  // style={{ borderLeft: '0.5px solid #F59032' }}
-                >
+                <hr style={{ backgroundColor: '#F59032', marginTop: '5px' }} />
+                <Row className="mt-3">
                   <Col lg={5} xs={12}>
                     <p className="lead">Social Media</p>
                     <a
@@ -248,39 +276,6 @@ class MemberItem extends Component {
           <div className="m-5">
             <ContactForm />
           </div>
-          {/* <div className="modal-header">
-            <p className="lead" id="modal-title-default">
-              {this.props.store.listingClickedReducer.first_name}{' '}
-              {this.props.store.listingClickedReducer.last_name}
-            </p>
-            <button
-              aria-label="Close"
-              className="close"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => this.toggleModal('defaultModal')}
-            >
-              <span aria-hidden={true}>×</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <h4>{this.props.store.listingClickedReducer.organization_name}</h4>
-            <p>Bio: {this.props.store.listingClickedReducer.bio}</p>
-          </div>
-          <div className="modal-footer">
-            <Button outline color="primary" type="button">
-              Contact Now
-            </Button>
-            <Button
-              className="ml-auto"
-              color="link"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => this.toggleModal('defaultModal')}
-            >
-              Close
-            </Button>
-          </div> */}
         </Modal>
       </>
     );

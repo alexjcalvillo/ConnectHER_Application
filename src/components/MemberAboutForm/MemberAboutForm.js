@@ -66,12 +66,7 @@ function MemberAboutForm(props) {
   return (
     <>
       <Card className="bg-secondary">
-        <CardHeader>
-          <CardTitle>
-            <CardText className="display-3">About Me:</CardText>
-          </CardTitle>
-        </CardHeader>
-        <CardBody>
+        <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
           <Form onSubmit={formik.handleSubmit}>
             <Row>
               <Col>
