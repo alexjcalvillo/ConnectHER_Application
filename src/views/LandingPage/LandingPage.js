@@ -5,13 +5,16 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import RegistrationOptions from '../../components/MembershipOptions/MembershipOptions';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import function_list from '../../functions/list';
+import styles_list from '../../styles/list';
 
 // Argon Components
 import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
+import style_list from '../../styles/list';
 
 // const [activeTab, setActiveTab] = useState('1');
 
@@ -35,11 +38,52 @@ class LandingPage extends Component {
     }
   }
 
+  // background = (window) => {
+  //   let background;
+
+  //   // ----> if image width is less than 768 do not display
+  //   if ((background = true)) {
+  //     background = {
+  //       backgroundImage: `url('LandingBackground.png')`,
+  //       opacity: '10',
+  //     };
+
+  //     // ----> if image width is greater or equal to 768 do display
+  //   } else if (window.width >= 768) {
+  //     background = {
+  //       // backgroundImage: `url('LandingBackground.png')`, // Bg Image does not work
+  //       backgroundColor: 'black', // Bg Color works
+  //     };
+  //   }
+  // };
+
   onLogin = (event) => {
     this.props.history.push('/login');
   };
 
+  // refresh() {
+  //   this.setState({
+  //     ...this.state,
+  //   });
+  // }
+
   render() {
+    // window.onresize = () => {
+    //   if (
+    //     function_list.hasWindowSizeChanged({
+    //       height: window.innerHeight,
+    //       width: window.innerWidth,
+    //     }) === true
+    //   ) {
+    //     this.refresh();
+    //   }
+    // };
+    // const background = function_list.landingPageBgHandler({
+    //   height: window.innerHeight,
+    //   width: window.innerWidth,
+    // });
+
+    // const imageR = require('./LandingBackground.png');
     return (
       <Container className="card-img-overlay background">
         <Row>
@@ -138,7 +182,9 @@ class LandingPage extends Component {
                 xs={12}
               >
                 <Card>
-                  <CardBody className="login card"></CardBody>
+                  <CardBody className="login card">
+                    <RegistrationOptions />
+                  </CardBody>
                 </Card>
                 <div className="copyright">
                   {' '}

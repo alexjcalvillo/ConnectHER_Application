@@ -66,7 +66,7 @@ class RegisterForm extends Component {
       }
     };
 
-    let padding = function_list.registrationPadding({
+    const padding = function_list.registrationPadding({
       height: window.innerHeight,
       width: window.innerWidth,
     });

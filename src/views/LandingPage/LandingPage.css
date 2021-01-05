@@ -2,15 +2,17 @@
 Grid
 -------------------------------------------------------------------------------- */
 
-.background {
-  margin-top: 80px;
-  padding-left: 0px;
-  background-image: url('LandingBackground.png');
-  height: 100vh;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+@media only screen and (min-width: 800px) {
+  .background {
+    margin-top: 80px;
+    padding-left: 0px;
+    background-image: url('LandingBackground.png');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .form {
