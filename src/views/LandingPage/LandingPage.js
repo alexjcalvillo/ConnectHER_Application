@@ -16,12 +16,6 @@ import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 import style_list from '../../styles/list';
 
-// const [activeTab, setActiveTab] = useState('1');
-
-//   const toggle = tab => {
-//     if(activeTab !== tab) setActiveTab(tab);
-//   }
-
 class LandingPage extends Component {
   state = {
     activeTab: '1',
@@ -38,52 +32,11 @@ class LandingPage extends Component {
     }
   }
 
-  // background = (window) => {
-  //   let background;
-
-  //   // ----> if image width is less than 768 do not display
-  //   if ((background = true)) {
-  //     background = {
-  //       backgroundImage: `url('LandingBackground.png')`,
-  //       opacity: '10',
-  //     };
-
-  //     // ----> if image width is greater or equal to 768 do display
-  //   } else if (window.width >= 768) {
-  //     background = {
-  //       // backgroundImage: `url('LandingBackground.png')`, // Bg Image does not work
-  //       backgroundColor: 'black', // Bg Color works
-  //     };
-  //   }
-  // };
-
   onLogin = (event) => {
     this.props.history.push('/login');
   };
 
-  // refresh() {
-  //   this.setState({
-  //     ...this.state,
-  //   });
-  // }
-
   render() {
-    // window.onresize = () => {
-    //   if (
-    //     function_list.hasWindowSizeChanged({
-    //       height: window.innerHeight,
-    //       width: window.innerWidth,
-    //     }) === true
-    //   ) {
-    //     this.refresh();
-    //   }
-    // };
-    // const background = function_list.landingPageBgHandler({
-    //   height: window.innerHeight,
-    //   width: window.innerWidth,
-    // });
-
-    // const imageR = require('./LandingBackground.png');
     return (
       <Container className="card-img-overlay background">
         <Row>
@@ -97,7 +50,7 @@ class LandingPage extends Component {
               style={{
                 position: 'relative',
                 top: '0px',
-                zIndex: '0',
+                zIndex: '5',
               }}
               className="form nav-fill flex-column flex-sm-row"
             >
@@ -147,25 +100,14 @@ class LandingPage extends Component {
                   {' '}
                   <span
                     style={{
-                      color: '#EEEDEF',
-                      fontSize: 12,
+                      color: 'white',
+                      fontSize: 13.5,
                       textAlign: 'center',
+                      opacity: 0.5,
                     }}
                   >
                     {' '}
-                    &copy; An
-                  </span>{' '}
-                  <span style={{ color: '#823bae', fontSize: 12.5 }}>
-                    Innovate
-                  </span>
-                  <span style={{ color: '#F59032', fontSize: 12.5 }}>HER</span>{' '}
-                  <span style={{ color: '#1BBFBF', fontSize: 12.5 }}>KC</span>
-                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
-                    {' '}
-                    Space
-                  </span>{' '}
-                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
-                    | Built with {''}
+                    &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy
                   </span>
                 </div>
@@ -190,25 +132,14 @@ class LandingPage extends Component {
                   {' '}
                   <span
                     style={{
-                      color: '#EEEDEF',
-                      fontSize: 12,
+                      color: 'white',
+                      fontSize: 13.5,
                       textAlign: 'center',
+                      opacity: 0.5,
                     }}
                   >
                     {' '}
-                    &copy; An
-                  </span>{' '}
-                  <span style={{ color: '#823bae', fontSize: 12.5 }}>
-                    Innovate
-                  </span>
-                  <span style={{ color: '#F59032', fontSize: 12.5 }}>HER</span>{' '}
-                  <span style={{ color: '#1BBFBF', fontSize: 12.5 }}>KC</span>
-                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
-                    {' '}
-                    Space
-                  </span>{' '}
-                  <span style={{ color: '#EEEDEF', fontSize: 12.5 }}>
-                    | Built with {''}
+                    &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy
                   </span>
                 </div>

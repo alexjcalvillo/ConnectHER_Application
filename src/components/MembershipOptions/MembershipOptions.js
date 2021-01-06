@@ -35,10 +35,11 @@ class RegistrationOptions extends Component {
     return (
       <Container className="registration">
         <Row>
-          <Col className="registrationOptions" lg={4} md={4} sm={6} xs={6}>
-            <Card>
+          <Col className="registrationOptions" lg={4} md={4} sm={12} xs={12}>
+            <Card className="options">
               <h3
                 style={{
+                  color: '#17C3CA',
                   marginTop: '0px',
                   marginBottom: 0,
                   marginLeft: 10,
@@ -50,7 +51,9 @@ class RegistrationOptions extends Component {
               </h3>
               <h5
                 style={{
+                  color: '#823bae',
                   marginTop: 0,
+                  marginBottom: 2,
                   marginLeft: 10,
                   fontSize: 13,
                   fontFamily: 'Cabin',
@@ -58,19 +61,28 @@ class RegistrationOptions extends Component {
               >
                 $10/Month
               </h5>
-              <p
-                style={{
-                  marginTop: 0,
-                  marginLeft: 10,
-                  fontSize: 10,
-                  fontFamily: 'Lato:wght@300',
-                }}
-              >
-                includes access to membership database and receive 50% off
-                premium events
-              </p>
+              <div className="heightControl">
+                <p
+                  style={{
+                    textAlign: 'center',
+                    marginTop: 0,
+                    marginBottom: 5,
+                    fontSize: 11,
+                    fontFamily: 'Lato:wght@300',
+                  }}
+                >
+                  includes access to membership database and 50% off premium
+                  events
+                </p>
+              </div>
               <Button
-                color="info"
+                style={{
+                  marginBottom: 10,
+                  backgroundColor: '#17c3ca',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                }}
                 outline
                 size="sm"
                 onClick={this.handleRegister}
@@ -80,36 +92,117 @@ class RegistrationOptions extends Component {
               </Button>{' '}
             </Card>
           </Col>
-          <Col className="registrationOptions" lg={4} md={4} sm={6} xs={6}>
-            <Card>
-              <CardBody>
-                <h4>Plan 2</h4>
-                <Button
-                  color="info"
-                  outline
-                  size="sm"
-                  onClick={this.handleRegister}
-                  className="payGate"
+          <Col className="registrationOptions" lg={4} md={4} sm={12} xs={12}>
+            <Card className="options">
+              <h3
+                style={{
+                  color: '#17C3CA',
+                  marginTop: '0px',
+                  marginBottom: 0,
+                  marginLeft: 10,
+                  fontSize: 25,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                Plan 2
+              </h3>
+              <h5
+                style={{
+                  color: '#823bae',
+                  marginTop: 0,
+                  marginBottom: 2,
+                  marginLeft: 10,
+                  fontSize: 13,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                $20/Month
+              </h5>
+              <div className="heightControl">
+                <p
+                  style={{
+                    textAlign: 'center',
+                    marginTop: 0,
+                    marginBottom: 5,
+                    fontSize: 11,
+                    fontFamily: 'Lato:wght@300',
+                  }}
                 >
-                  Register
-                </Button>{' '}
-              </CardBody>
+                  includes plan 1 plus access to membership program and a
+                  T-shirt.
+                </p>
+              </div>{' '}
+              <Button
+                style={{
+                  marginBottom: 10,
+                  backgroundColor: '#17c3ca',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                }}
+                outline
+                size="sm"
+                onClick={this.handleRegister}
+                className="payGate"
+              >
+                Register
+              </Button>{' '}
             </Card>
           </Col>
-          <Col className="registrationOptions" lg={4} md={4} sm={6} xs={6}>
-            <Card>
-              <CardBody>
-                <h4>Plan 3</h4>
-                <Button
-                  color="info"
-                  outline
-                  size="sm"
-                  onClick={this.handleRegister}
-                  className="payGate"
+          <Col className="registrationOptions" lg={4} md={4} sm={12} xs={12}>
+            <Card className="options">
+              <h3
+                style={{
+                  color: '#17C3CA',
+                  marginBottom: 0,
+                  marginLeft: 10,
+                  fontSize: 25,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                Plan 3
+              </h3>
+              <h5
+                style={{
+                  color: '#823bae',
+                  marginTop: 0,
+                  marginBottom: 2,
+                  marginLeft: 10,
+                  fontSize: 13,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                $60/Month
+              </h5>
+              <div className="heightControl">
+                <p
+                  style={{
+                    textAlign: 'center',
+                    marginTop: 0,
+                    marginBottom: 5,
+                    fontSize: 11,
+                    fontFamily: 'Lato:wght@300',
+                  }}
                 >
-                  Register
-                </Button>{' '}
-              </CardBody>
+                  includes plan 2 plus a workspace membership and access at
+                  PlexPod
+                </p>
+              </div>
+              <Button
+                style={{
+                  marginBottom: 10,
+                  backgroundColor: '#17c3ca',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                }}
+                outline
+                size="sm"
+                onClick={this.handleRegister}
+                className="payGate"
+              >
+                Register
+              </Button>{' '}
             </Card>
           </Col>
         </Row>

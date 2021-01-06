@@ -13,6 +13,8 @@ import {
   InputGroupText,
 } from 'reactstrap';
 
+import './LoginForm.css';
+
 class LoginForm extends Component {
   state = {
     email: '',
@@ -43,8 +45,19 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.login}>
-        <h2>Login</h2>
+      <Form className="formControl" onSubmit={this.login}>
+        <h3
+          style={{
+            color: '#823bae',
+            marginTop: -10,
+            marginBottom: 5,
+            marginLeft: 10,
+            fontSize: 25,
+            fontFamily: 'Cabin',
+          }}
+        >
+          Login
+        </h3>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.loginMessage}
@@ -90,8 +103,14 @@ class LoginForm extends Component {
         </FormGroup>
         <FormGroup>
           <Button
-            size="sm"
-            color="info"
+            style={{
+              marginBottom: 0,
+              backgroundColor: '#17c3ca',
+              border: '1px solid white',
+              color: '#f7fafc',
+              boxShadow: '0 2px 4px #11111150',
+              height: 40,
+            }}
             outline
             block
             type="submit"
