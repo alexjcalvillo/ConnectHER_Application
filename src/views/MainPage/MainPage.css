@@ -1,22 +1,24 @@
-.spacing{
-    padding: 2%;
-    display: flexbox;
+.welcomeBanner {
+  margin-top: 20px;
+  padding-bottom: -40px;
+}
+.spacing {
+  padding: 2%;
+  display: flexbox;
 }
 
-
-.text{
-    display: inline-block;
-    text-align: right;
+.text {
+  display: inline-block;
+  text-align: right;
 }
 
-.spacing-01{
-    padding: 2%;
-    box-sizing: border-box;
- 
+.spacing-01 {
+  padding: 2%;
+  box-sizing: border-box;
 }
 
-
-
-.move{
-    position: fixed; right: 10%; bottom: 17%;
+.move {
+  position: fixed;
+  right: 10%;
+  bottom: 17%;
 }
