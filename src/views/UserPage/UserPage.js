@@ -35,8 +35,6 @@ class UserPage extends Component {
   };
 
   toggle = (tab, bypass) => {
-    console.log(tab, bypass);
-
     if (bypass === 'bypass') {
       if (this.state.activeTab !== tab) {
         this.setState({
