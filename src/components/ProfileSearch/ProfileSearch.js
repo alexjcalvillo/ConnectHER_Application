@@ -21,6 +21,7 @@ function ProfileOptions({ term, skills }) {
   useEffect(() => {
     let search = term;
     let list = skills;
+    console.log(list);
     const results = list.filter(
       (skill) =>
         skill[search].toLowerCase().includes(searchTerm) ||

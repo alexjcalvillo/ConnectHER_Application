@@ -53,7 +53,9 @@ function MemberAboutForm(props) {
       mentee: false,
       birthday: '',
     },
+
     onSubmit: (values) => {
+      props.toggle('3', 'bypass');
       props.dispatch({
         type: 'HOLD_ABOUT',
         payload: values,
@@ -86,6 +88,7 @@ function MemberAboutForm(props) {
                     <FormGroup>
                       <Label htmlFor="displayName">Display Name: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputA}
                         className="form-control-alternative"
                         id="displayName"
@@ -96,6 +99,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="bio">Bio: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputA}
                         className="form-control-alternative"
                         id="bio"
@@ -145,6 +149,7 @@ function MemberAboutForm(props) {
                     <Col lg={6}>
                       <Label htmlFor="email">Community Role: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="role"
@@ -155,6 +160,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="organization">Organization: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="organization"
@@ -165,6 +171,7 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="title">Job Title: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="title"
@@ -177,6 +184,7 @@ function MemberAboutForm(props) {
                     <Col lg={6}>
                       <Label htmlFor="streetAddress">Street Address</Label>
                       <Input
+                        required
                         style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="streetAddress"
@@ -189,6 +197,7 @@ function MemberAboutForm(props) {
                         <Col>
                           <Label htmlFor="city">City: </Label>
                           <Input
+                            required
                             style={style_list.register.form_inputC}
                             className="form-control-alternative"
                             id="city"
@@ -201,6 +210,7 @@ function MemberAboutForm(props) {
                         <Col>
                           <Label htmlFor="state">State: </Label>
                           <Input
+                            required
                             style={style_list.register.form_inputC}
                             className="form-control-alternative"
                             id="state"
@@ -213,6 +223,7 @@ function MemberAboutForm(props) {
                       </Row>
                       <Label htmlFor="zipcode">Zipcode: </Label>
                       <Input
+                        required
                         style={style_list.register.form_inputC}
                         className="form-control-alternative"
                         id="zipcode"
@@ -233,6 +244,7 @@ function MemberAboutForm(props) {
                     </legend>
                     <InputGroup className="custom-control custom-radio mb-3">
                       <Input
+                        required
                         className="custom-control-input"
                         id="yes-mentor"
                         name="mentor"
@@ -249,6 +261,7 @@ function MemberAboutForm(props) {
                     </InputGroup>
                     <InputGroup className="custom-control custom-radio mb-3">
                       <Input
+                        required
                         className="custom-control-input"
                         id="no-mentor"
                         name="mentor"
@@ -271,6 +284,7 @@ function MemberAboutForm(props) {
 
                     <InputGroup className="custom-control custom-radio mb-3">
                       <Input
+                        required
                         className="custom-control-input"
                         id="yes-mentor-2"
                         name="mentee"
@@ -288,6 +302,7 @@ function MemberAboutForm(props) {
                     </InputGroup>
                     <InputGroup className="custom-control custom-radio mb-3">
                       <Input
+                        required
                         className="custom-control-input"
                         id="no-mentor-2"
                         name="mentee"
@@ -311,6 +326,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-linkedin-square" />{' '}
                     <Label htmlFor="linkedin">LinkedIn: </Label>
                     <Input
+                      required
                       style={style_list.register.form_inputA}
                       className="form-control-alternative"
                       id="linkedin"
@@ -324,6 +340,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-facebook-square" />{' '}
                     <Label htmlFor="facebook">Facebook: </Label>
                     <Input
+                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="facebook"
@@ -337,6 +354,7 @@ function MemberAboutForm(props) {
                     <i className="fa fa-twitter-square" />{' '}
                     <Label htmlFor="twitter">Twitter: </Label>
                     <Input
+                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="twitter"
@@ -360,6 +378,7 @@ function MemberAboutForm(props) {
                     />{' '}
                     <Label htmlFor="instagram">Instagram: </Label>
                     <Input
+                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="instagram"
@@ -372,6 +391,7 @@ function MemberAboutForm(props) {
                 </Row>
                 <Label htmlFor="shirtsize">T-Shirt Size: </Label>
                 <Input
+                  required
                   style={style_list.register.form_inputC}
                   id="shirtSize"
                   type="select"
@@ -393,7 +413,6 @@ function MemberAboutForm(props) {
                       outline
                       color="primary"
                       type="submit"
-                      onClick={props.toggle}
                     >
                       Next
                     </Button>
