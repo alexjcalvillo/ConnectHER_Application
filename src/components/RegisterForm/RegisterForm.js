@@ -31,7 +31,7 @@ class RegisterForm extends Component {
 
   registerUser = (event) => {
     event.preventDefault();
-
+    this.props.toggle('2', 'bypass');
     this.props.dispatch({
       type: 'HOLD_REGISTER',
       payload: {
@@ -156,7 +156,6 @@ class RegisterForm extends Component {
                       outline
                       color="primary"
                       type="submit"
-                      onClick={this.props.toggle}
                     >
                       Next
                     </Button>

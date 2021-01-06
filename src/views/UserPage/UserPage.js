@@ -34,11 +34,26 @@ class UserPage extends Component {
     activeTab: '1',
   };
 
-  toggle = (tab) => {
-    if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab,
-      });
+  toggle = (tab, bypass) => {
+    if (bypass === 'bypass') {
+      if (this.state.activeTab !== tab) {
+        this.setState({
+          activeTab: tab,
+        });
+      }
+    } else {
+      if (
+        function_list.formProgression({
+          tab,
+          form: this.props.store.form,
+        }) === true
+      ) {
+        if (this.state.activeTab !== tab) {
+          this.setState({
+            activeTab: tab,
+          });
+        }
+      }
     }
   };
 
@@ -184,7 +199,7 @@ class UserPage extends Component {
                     <Col>
                       <Card>
                         <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
-                          <RegisterForm toggle={() => this.toggle('2')} />
+                          <RegisterForm toggle={this.toggle} />
                         </CardBody>
                       </Card>
                     </Col>
@@ -194,7 +209,7 @@ class UserPage extends Component {
                   <Row>
                     <Col>
                       <MemberAboutForm
-                        toggle={() => this.toggle('3')}
+                        toggle={this.toggle}
                         style={style_list.register.form_base}
                       />
                     </Col>

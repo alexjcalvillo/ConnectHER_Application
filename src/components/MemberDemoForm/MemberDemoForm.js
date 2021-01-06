@@ -41,6 +41,7 @@ function MemberDemoForm(props) {
 
     onSubmit: (values) => {
       // setHeading(JSON.stringify(values, null, 2));
+      props.toggle('4', 'bypass');
       props.dispatch({
         type: 'HOLD_DEMO', // HOLD_DEMO
         payload: values,
@@ -54,6 +55,7 @@ function MemberDemoForm(props) {
       <Form style={props.style} onSubmit={formik.handleSubmit}>
         <Label htmlFor="age">Age Range</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="age"
           name="age"
@@ -73,6 +75,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="ethnicity">Ethnicity</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="ethnicity"
           name="ethnicity"
@@ -101,6 +104,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="gender">Gender</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="gender"
           name="gender"
@@ -117,6 +121,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="sexual_orientation">Sexual Orientation</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="sexual_orientation"
           name="sexual_orientation"
@@ -137,6 +142,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="ability">Ability Level</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="ability"
           name="ability"
@@ -154,6 +160,7 @@ function MemberDemoForm(props) {
         </Input>
         <Label htmlFor="income_level">Income Level</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="income_level"
           name="income_level"
@@ -171,6 +178,7 @@ function MemberDemoForm(props) {
 
         <Label htmlFor="education_level">Education Level</Label>
         <Input
+          required
           style={style_list.register.form_inputC}
           id="education_level"
           name="education_level"
@@ -199,7 +207,6 @@ function MemberDemoForm(props) {
               outline
               color="primary"
               type="submit"
-              onClick={props.toggle}
             >
               Next
             </Button>
