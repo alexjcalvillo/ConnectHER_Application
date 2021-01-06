@@ -1,3 +1,5 @@
+import function_list from './list';
+
 const formProgression = (data) => {
   let bool;
 
@@ -7,7 +9,7 @@ const formProgression = (data) => {
     if (data.form.register !== undefined) {
       bool = true;
     } else {
-      alert('Please fill out User Information before moving on!');
+      function_list.alert('Please fill out User Information before moving on!');
       bool = false;
     }
   }
@@ -16,16 +18,20 @@ const formProgression = (data) => {
     if (data.form.about !== undefined) {
       bool = true;
     } else {
-      alert('Please fill out About Me before moving on!');
+      function_list.alert(
+        'Please fill out User Information, and About Me before moving on!'
+      );
       bool = false;
     }
   }
 
   if (data.tab === '4') {
-    if (data.form.register !== undefined) {
+    if (data.form.demo !== undefined) {
       bool = true;
     } else {
-      alert('Please fill out Demographic Information before moving on!');
+      function_list.alert(
+        'Please fill out User Information, About Me, and Demographic Information before moving on!'
+      );
       bool = false;
     }
   }
