@@ -25,7 +25,7 @@ const formProgression = (data) => {
     }
   }
 
-  if (data.tab === '3') {
+  if (data.tab === '4') {
     if (data.form.demo !== undefined) {
       bool = true;
     } else {
@@ -35,7 +35,7 @@ const formProgression = (data) => {
       bool = false;
     }
   }
-  bool = true;
+
   return bool;
 };
 
