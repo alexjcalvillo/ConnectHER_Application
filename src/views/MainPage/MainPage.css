@@ -1,10 +1,45 @@
 .welcomeBanner {
-  margin-top: 20px;
+  margin-top: 10px;
   padding-bottom: -40px;
+  background-image: url(WelcomePage2.png);
+  background-size: cover;
+  height: 125px;
+  width: 715px;
+  margin-right: 70px;
+  margin-left: -25px;
 }
+
+.rounded-divider {
+  border-top: 5px solid #823bae;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
 .spacing {
   padding: 2%;
   display: flexbox;
+}
+
+.community {
+  background-image: url(1.png);
+  background-size: cover;
+  height: 225px;
+}
+.speakers {
+  background-image: url(2.png);
+  background-size: cover;
+  height: 225px;
+}
+.workspaces {
+  background-image: url(4.png);
+  background-size: cover;
+  height: 225px;
+}
+.businesses {
+  background-image: url(3.png);
+  background-size: cover;
+  height: 225px;
 }
 
 .text {
@@ -13,7 +48,7 @@
 }
 
 .spacing-01 {
-  padding: 2%;
+  padding: 27%;
   box-sizing: border-box;
 }
 
