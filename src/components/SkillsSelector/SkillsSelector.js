@@ -34,6 +34,7 @@ const SkillsSelector = () => {
       <div style={{ ...style_list.register.form_base, padding }}>
         <div style={{ padding: '5px' }}>
           <h1 style={{ display: 'inline-block' }}>Skills</h1>
+          <SelectedSkills />
           <ModalBox
             component={
               <>
