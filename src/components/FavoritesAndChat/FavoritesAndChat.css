@@ -1,24 +1,24 @@
 .popupAnimClose {
-  height: 185px;
+  height: 190px;
   width: 0px;
   margin-right: -3px;
   transition: 500ms;
 }
 .popupAnimOpen {
-  height: 185px;
+  height: 190px;
   width: 300px;
   transition: 500ms;
 }
 
 .popupAnimOpenFavorite {
-  height: 335px;
+  height: 340px;
   width: 300px;
   transition: 500ms;
 }
 
 .chatButtonBox {
   cursor: pointer;
-  margin-top: 1px;
+  margin-top: -4px;
   box-shadow: 0 2px 4px #11111150;
   padding: 0;
   border-radius: 100px 0 0 100px;
@@ -30,13 +30,14 @@
   color: #f7fafc;
   height: 75px;
 }
-.favoriteButtonBox:hover {
-  box-shadow: 0 2px 8px #17c3ca;
+
+.chatButtonBox:hover {
+  box-shadow: 0 2px 12px #111111d0;
 }
 
 .favoriteButtonBox {
   cursor: pointer;
-  margin-top: -1px;
+  margin-top: 3px;
   box-shadow: 0 2px 4px #11111150;
   padding: 0;
   border-radius: 100px 0 0 100px;
@@ -48,8 +49,9 @@
   color: #f7fafc;
   height: 75px;
 }
-.chatButtonBox:hover {
-  box-shadow: 0 2px 8px #17c3ca;
+
+.favoriteButtonBox:hover {
+  box-shadow: 0 2px 12px #111111d0;
 }
 
 .buttonAnimClose {
@@ -109,7 +111,13 @@
   width: 100%;
   text-align: center;
   background-color: #17c3ca20;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
 }
+.favoriteOption:hover {
+  background-color: #f7fafc;
+}
+
 .favoriteOption:nth-child(even) {
   border-bottom: 3px solid #f7fafc;
   border-top: 3px solid #f7fafc;
@@ -119,7 +127,8 @@
 }
 
 .favoriteOptionTitle {
-  padding-top: 14px;
+  user-select: none;
+  padding-top: 11px;
   font-size: 28px;
   font-weight: bold;
   color: #111111d0;
