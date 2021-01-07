@@ -54,55 +54,59 @@ class MainPage extends Component {
   render() {
     return (
       <Container className="backgroundImage">
-        <Col md={{ size: 12 }}>
-          <Row xs={6}>
-            <Col className="spacing">
-              <Card className="welcomeBanner">
-                <div className="banner">
-                  <h3
-                    style={{
-                      color: 'white',
-                      backgroundColor: '#17c3ca',
-                      marginTop: '38px',
-                      marginBottom: 0,
-                      paddingTop: 5,
-                      paddingBottom: 5,
-                      marginLeft: 145,
-                      paddingLeft: 25,
-                      fontSize: 25,
-                      fontFamily: 'Cabin',
-                      boxShadow: '0 2px 4px #11111150',
-                    }}
-                  >
-                    Welcome to InnovateHER KC
-                    {this.props.store.profile.display_name}!
-                  </h3>
-                </div>
-                <CardImg
+        <Row>
+          <Col lg={12} md={12} sm={12} xs={12} className="spacing">
+            <Card className="welcomeBanner">
+              <div className="banner">
+                <h3
                   style={{
-                    objectFit: 'cover',
-                    marginLeft: '500px',
-                    cursor: 'pointer',
-                    marginTop: '-75px',
-                    marginBottom: '7px',
-                    width: '120px',
-                    height: '120px',
-                    overflow: 'hidden',
-                    borderRadius: '50%',
-                    border: '3px solid #f7fafc',
-                    boxShadow: '0 3px 5px #11111150',
-                    backgroundColor: '#f7fafc',
+                    color: 'white',
+                    backgroundColor: '#17c3ca',
+                    marginTop: '66px',
+                    marginBottom: 0,
+                    paddingTop: 8,
+                    paddingBottom: 8,
+                    marginLeft: 225,
+                    paddingLeft: 25,
+                    fontSize: 32,
+                    fontFamily: 'Cabin',
+                    boxShadow: '0 2px 4px #11111150',
                   }}
-                  src={this.props.store.profile.headshot}
-                  alt="Profile image"
-                />
-              </Card>
-            </Col>
-          </Row>
-        </Col>
+                >
+                  Welcome to InnovateHER KC
+                  {this.props.store.profile.display_name}!
+                </h3>
+              </div>
+              <CardImg
+                className="image"
+                style={{
+                  objectFit: 'cover',
+                  marginLeft: '500px',
+                  cursor: 'pointer',
+                  marginTop: '-100px',
+                  marginBottom: '20px',
+                  marginLeft: '670px',
+                  width: '150px',
+                  height: '150px',
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid #f7fafc',
+                  boxShadow: '0 3px 5px #11111150',
+                  backgroundColor: '#f7fafc',
+                }}
+                src={this.props.store.profile.headshot}
+                alt="Profile image"
+              />
+            </Card>
+          </Col>
+        </Row>
         <hr className="rounded-divider" />
         <Row className="text-center">
           <Col
+            lg={3}
+            md={6}
+            sm={6}
+            xs={12}
             style={{
               marginTop: '0px',
               marginBottom: 0,
@@ -111,13 +115,17 @@ class MainPage extends Component {
               padding: 4,
             }}
           >
-            <Card className="speakers">
+            <Card
+              className="speakers"
+              style={{ borderRadius: '5px', boxShadow: '0 2px 4px #11111150' }}
+            >
               <h3
                 style={{
                   color: 'gray',
                   marginBottom: 0,
-                  marginLeft: 10,
-                  fontSize: 25,
+                  textAlign: 'center',
+                  marginTop: 10,
+                  fontSize: 34,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -125,13 +133,17 @@ class MainPage extends Component {
               </h3>
               <Button
                 style={{
-                  marginTop: 150,
+                  backgroundColor: 'grey',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                  fontFamily: 'cabin',
+                  fontSize: 13,
+                  marginTop: 215,
                   marginBottom: 10,
-                  border: '1px solid black',
-                  color: 'gray',
-                  boxShadow: '0 2px 4px white',
-                  width: 100,
-                  marginLeft: 38,
+                  width: 130,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                 }}
                 outline
                 size="sm"
@@ -143,59 +155,27 @@ class MainPage extends Component {
             </Card>
           </Col>
           <Col
-            className="workspaces"
-            style={{
-              marginLeft: 0,
-              marginRight: 0,
-              padding: 4,
-              backgroundImage: 'url(1.png)',
-            }}
-          >
-            <Card className="workspaces">
-              <h3
-                style={{
-                  color: 'gray',
-                  marginBottom: 0,
-                  marginLeft: 10,
-                  fontSize: 25,
-                  fontFamily: 'Cabin',
-                }}
-              >
-                Workspaces{' '}
-              </h3>
-              <Button
-                style={{
-                  marginTop: 150,
-                  marginBottom: 10,
-                  border: '1px solid black',
-                  color: 'gray',
-                  boxShadow: '0 2px 4px white',
-                  width: 100,
-                  marginLeft: 38,
-                }}
-                outline
-                size="sm"
-                onClick={this.handleWorkspaces}
-                className="payGate"
-              >
-                Learn More
-              </Button>{' '}
-            </Card>
-          </Col>
-          <Col
+            lg={3}
+            md={6}
+            sm={6}
+            xs={12}
             style={{
               marginLeft: 0,
               marginRight: 0,
               padding: 4,
             }}
           >
-            <Card className="community">
+            <Card
+              className="community"
+              style={{ borderRadius: '5px', boxShadow: '0 2px 4px #11111150' }}
+            >
               <h3
                 style={{
                   color: 'gray',
                   marginBottom: 0,
-                  marginLeft: 10,
-                  fontSize: 25,
+                  textAlign: 'center',
+                  marginTop: 10,
+                  fontSize: 34,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -203,13 +183,17 @@ class MainPage extends Component {
               </h3>
               <Button
                 style={{
-                  marginTop: 150,
+                  backgroundColor: 'grey',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                  fontFamily: 'cabin',
+                  fontSize: 13,
+                  marginTop: 215,
                   marginBottom: 10,
-                  border: '1px solid black',
-                  color: 'gray',
-                  boxShadow: '0 2px 4px white',
-                  width: 100,
-                  marginLeft: 38,
+                  width: 130,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                 }}
                 outline
                 size="sm"
@@ -221,19 +205,77 @@ class MainPage extends Component {
             </Card>
           </Col>
           <Col
+            lg={3}
+            md={6}
+            sm={6}
+            xs={12}
             style={{
               marginLeft: 0,
               marginRight: 0,
               padding: 4,
             }}
           >
-            <Card className="businesses">
+            <Card
+              className="workspaces"
+              style={{ borderRadius: '5px', boxShadow: '0 2px 4px #11111150' }}
+            >
               <h3
                 style={{
                   color: 'gray',
                   marginBottom: 0,
-                  marginLeft: 10,
-                  fontSize: 25,
+                  textAlign: 'center',
+                  marginTop: 10,
+                  fontSize: 34,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                Work Spaces
+              </h3>
+              <Button
+                style={{
+                  backgroundColor: 'grey',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                  fontFamily: 'cabin',
+                  fontSize: 13,
+                  marginTop: 215,
+                  marginBottom: 10,
+                  width: 130,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+                outline
+                size="sm"
+                onClick={this.handleWorkspaces}
+                className="payGate"
+              >
+                Learn More
+              </Button>{' '}
+            </Card>
+          </Col>
+          <Col
+            lg={3}
+            md={6}
+            sm={6}
+            xs={12}
+            style={{
+              marginLeft: 0,
+              marginRight: 0,
+              padding: 4,
+            }}
+          >
+            <Card
+              className="businesses"
+              style={{ borderRadius: '5px', boxShadow: '0 2px 4px #11111150' }}
+            >
+              <h3
+                style={{
+                  color: 'gray',
+                  marginBottom: 0,
+                  textAlign: 'center',
+                  marginTop: 10,
+                  fontSize: 34,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -241,13 +283,17 @@ class MainPage extends Component {
               </h3>
               <Button
                 style={{
-                  marginTop: 150,
+                  backgroundColor: 'grey',
+                  border: '1px solid white',
+                  color: '#f7fafc',
+                  boxShadow: '0 2px 4px #11111150',
+                  fontFamily: 'cabin',
+                  fontSize: 13,
+                  marginTop: 215,
                   marginBottom: 10,
-                  border: '1px solid black',
-                  color: 'gray',
-                  boxShadow: '0 2px 4px white',
-                  width: 100,
-                  marginLeft: 38,
+                  width: 130,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                 }}
                 outline
                 size="sm"
