@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-class MembersListItem extends Component {
+class SpeakersListItem extends Component {
   state = {
     toggleDetails: false,
     deleted: false,
@@ -20,7 +20,7 @@ class MembersListItem extends Component {
     });
   };
   render() {
-    let member = this.props.member;
+    let speaker = this.props.speaker;
     let detailsClass = 'tabItemDetailsClose';
 
     let containerClass = 'tabListItem';
@@ -33,10 +33,14 @@ class MembersListItem extends Component {
     let Content = (
       <div className={`${containerClass}`} onClick={this.toggleDetails}>
         <div className="tabProfileImageContainer">
-          <img className="tabProfileImage" src={member.headshot} alt="img" />
+          <img
+            className="tabProfileImage"
+            src={speaker.fields['Speaker Photo'][0].url}
+            alt="img"
+          />
         </div>
         <div className="tabNameContainer">
-          <p className="tabName">{member.display_name}</p>
+          <p className="tabName">{speaker.fields.Name}</p>
         </div>
         <div className={detailsClass}>
           <div className="detailsDeleteContainer" onClick={this.delete}>
@@ -51,4 +55,4 @@ class MembersListItem extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(MembersListItem);
+export default connect(mapStoreToProps)(SpeakersListItem);

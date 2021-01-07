@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import MembersList from './MembersList';
+import SpeakersList from './SpeakersList';
+import BusinessesList from './BusinessesList';
+import SpacesList from './SpacesList';
 
 class FavoriteComponent extends Component {
   state = {
@@ -58,27 +61,15 @@ class FavoriteComponent extends Component {
     }
 
     if (this.state.view === 'speakers') {
-      Content = (
-        <div>
-          <p>Speakers Content Coming Soon</p>
-        </div>
-      );
+      Content = <SpeakersList />;
     }
 
     if (this.state.view === 'businesses') {
-      Content = (
-        <div>
-          <p>Businesses Content Coming Soon</p>
-        </div>
-      );
+      Content = <BusinessesList />;
     }
 
     if (this.state.view === 'spaces') {
-      Content = (
-        <div>
-          <p>Spaces Content Coming Soon</p>
-        </div>
-      );
+      Content = <SpacesList />;
     }
     return (
       <>

@@ -7,23 +7,16 @@ import MembersListItem from './MembersListItem';
 class MembersList extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: 'FETCH_AIRTABLE_SPEAKER',
+      type: 'FETCH_ALL_PROFILES',
     });
   }
 
   render() {
     return (
-      <div style={{ maxHeight: '350px', overflow: 'scroll' }}>
-        {this.props.store &&
-          this.props.store.speakers &&
-          this.props.store.speakers.map((speaker, index) => {
-            if (
-              speaker.fields['Speaker Photo'] !== undefined &&
-              speaker.fields['Speaker Photo'][0] !== undefined
-            ) {
-              return <MembersListItem speaker={speaker} index={index} />;
-            }
-          })}
+      <div style={{ maxHeight: '305px', overflow: 'scroll' }}>
+        {this.props.store.memberListingsReducer.map((member, index) => {
+          return <MembersListItem member={member} index={index} />;
+        })}
       </div>
     );
   }

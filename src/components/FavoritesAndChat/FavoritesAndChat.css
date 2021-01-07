@@ -78,12 +78,12 @@
   width: 35px;
   height: 33px;
   border-radius: 2px 0 0 0;
-  border-right: 2px solid #17c3ca20;
-  background-color: #17c3ca20;
+  border-right: 2px solid #d6f3f3;
+  background-color: #d6f3f3;
 }
 
 .closePopup:hover {
-  background-color: #17c3ca40;
+  background-color: #bceef0;
   border-right: 0px;
 }
 .closePopupIcon {
@@ -101,7 +101,7 @@
   margin-top: -32px;
   height: 35px;
   text-align: center;
-  border-bottom: 3px solid #17c3ca40;
+  border-bottom: 3px solid #bceef0;
 }
 
 .favoriteTitle {
@@ -117,7 +117,7 @@
   height: 75px;
   width: 100%;
   text-align: center;
-  background-color: #17c3ca20;
+  background-color: #d6f3f3;
   border-bottom: 3px solid transparent;
   border-top: 3px solid transparent;
 }
@@ -149,12 +149,12 @@
   overflow: hidden;
   width: 35px;
   height: 33px;
-  border-left: 2px solid #17c3ca20;
-  background-color: #17c3ca20;
+  border-left: 2px solid #d6f3f3;
+  background-color: #d6f3f3;
 }
 
 .popupReturn:hover {
-  background-color: #17c3ca40;
+  background-color: #bceef0;
   border-left: 2px solid transparent;
 }
 .popupReturnIcon {
@@ -168,7 +168,7 @@
 }
 
 .tabListItem {
-  background-color: #17c3ca20;
+  background-color: #bdecee;
   border-bottom: 2px solid #f7fafc;
   height: 50px;
   width: 100%;
@@ -209,7 +209,8 @@
 .tabNameContainer {
   user-select: none;
   vertical-align: middle;
-  max-width: 230px;
+  white-space: nowrap;
+  max-width: 220px;
   overflow: hidden;
   margin-left: 10px;
 
@@ -220,6 +221,7 @@
 
 .tabName {
   margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 .tabItemDetailsClose {
@@ -228,7 +230,7 @@
   border-bottom: 2px solid #f7fafc;
   height: 0px;
   font-size: 0;
-  background-color: #17c3ca40;
+  background-color: #bceef0;
   overflow: hidden;
   transition: 50ms;
 }
@@ -239,7 +241,7 @@
   border-top: 2px solid #f7fafc;
   border-bottom: 2px solid #f7fafc;
   height: 50px;
-  background-color: #17c3ca40;
+  background-color: #bceef0;
   transition: 50ms;
 }
 
@@ -250,13 +252,18 @@
   height: 40px;
   width: 150px;
   text-align: center;
-  border: 2px solid #17c3ca20;
+  border: 2px solid #d6f3f3;
   background-color: #f7fafc;
   box-shadow: 0 4px 4px #11111140;
   border-top: 0px;
   border-radius: 0 0 5px 5px;
+  transition: 250ms;
 }
 
+.detailsDeleteContainer:hover {
+  box-shadow: 0 4px 4px #11111170;
+  transition: 250ms;
+}
 .detailsDelete {
   user-select: none;
   padding-top: 8px;

@@ -50,14 +50,14 @@ class LandingPage extends Component {
               style={{
                 backgroundColor: '#f7fafc',
                 boxShadow: '0 2px 4px #11111150',
-                border: '1px solid #AAA',
                 position: 'relative',
                 top: '0px',
                 zIndex: '5',
+                borderRadius: '5px 5px 0 0',
               }}
               className="form nav-fill flex-column flex-sm-row"
             >
-              <NavItem>
+              <NavItem style={{ borderRadius: '5px 0 0 0' }}>
                 <NavLink
                   style={{
                     borderRadius: '5px 0 0 0',
@@ -102,8 +102,11 @@ class LandingPage extends Component {
                 sm={12}
                 xs={12}
               >
-                <Card>
-                  <CardBody className="login">
+                <Card style={{ borderRadius: '0 0 5px 5px' }}>
+                  <CardBody
+                    className="login"
+                    style={{ borderRadius: '0 0 5px 5px' }}
+                  >
                     <LoginForm />
                   </CardBody>
                 </Card>
@@ -134,8 +137,11 @@ class LandingPage extends Component {
                 sm={12}
                 xs={12}
               >
-                <Card>
-                  <CardBody className="login card">
+                <Card style={{ borderRadius: '0 0 5px 5px' }}>
+                  <CardBody
+                    className="login card"
+                    style={{ borderRadius: '0 0 5px 5px' }}
+                  >
                     <RegistrationOptions />
                   </CardBody>
                 </Card>

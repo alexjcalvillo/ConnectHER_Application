@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-class MembersListItem extends Component {
+import function_list from '../../functions/list';
+
+class BusinessesListItem extends Component {
   state = {
     toggleDetails: false,
     deleted: false,
   };
+
   toggleDetails = () => {
     let bool;
     if (this.state.toggleDetails === true) bool = false;
@@ -16,11 +19,39 @@ class MembersListItem extends Component {
 
   delete = () => {
     this.setState({
+      ...this.state,
       delete: true,
     });
   };
+
+  refreshImage() {
+    this.setState({
+      ...this.state,
+      refreshed: true,
+    });
+  }
+
   render() {
-    let member = this.props.member;
+    let business = this.props.business;
+    let image = undefined;
+
+    if (
+      business.fields[
+        `Attachments (logo, marketing materials, price sheets, etc.)`
+      ] !== undefined
+    ) {
+      image =
+        business.fields[
+          `Attachments (logo, marketing materials, price sheets, etc.)`
+        ][0].url;
+    }
+
+    if (this.state.refreshed !== true) {
+      setTimeout(() => {
+        this.refreshImage();
+      }, 1000);
+    }
+
     let detailsClass = 'tabItemDetailsClose';
 
     let containerClass = 'tabListItem';
@@ -33,10 +64,10 @@ class MembersListItem extends Component {
     let Content = (
       <div className={`${containerClass}`} onClick={this.toggleDetails}>
         <div className="tabProfileImageContainer">
-          <img className="tabProfileImage" src={member.headshot} alt="img" />
+          {function_list.favoritesImage(image)}
         </div>
         <div className="tabNameContainer">
-          <p className="tabName">{member.display_name}</p>
+          <p className="tabName">{business.fields[`Organization Name`]}</p>
         </div>
         <div className={detailsClass}>
           <div className="detailsDeleteContainer" onClick={this.delete}>
@@ -51,4 +82,4 @@ class MembersListItem extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(MembersListItem);
+export default connect(mapStoreToProps)(BusinessesListItem);
