@@ -1,0 +1,168 @@
+.popupAnimClose {
+  height: 340px;
+  width: 0px;
+  margin-right: -3px;
+  transition: 500ms;
+}
+.popupAnimOpen {
+  height: 190px;
+  width: 300px;
+  transition: 500ms;
+}
+
+.popupAnimOpenFavorite {
+  height: 340px;
+  width: 300px;
+  transition: 500ms;
+}
+
+.popupAnimFavorite {
+  height: 340px;
+  width: 0px;
+  margin-right: -3px;
+  transition: 500ms;
+}
+
+.chatButtonBox {
+  cursor: pointer;
+  margin-top: -4px;
+  box-shadow: 0 2px 4px #11111150;
+  padding: 0;
+  border-radius: 100px 0 0 100px;
+  background-color: #17c3ca;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 0;
+  color: #f7fafc;
+  height: 75px;
+}
+
+.chatButtonBox:hover {
+  box-shadow: 0 2px 12px #111111d0;
+}
+
+.favoriteButtonBox {
+  cursor: pointer;
+  margin-top: 3px;
+  box-shadow: 0 2px 4px #11111150;
+  padding: 0;
+  border-radius: 100px 0 0 100px;
+  background-color: #17c3ca;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 0;
+  color: #f7fafc;
+  height: 75px;
+}
+
+.favoriteButtonBox:hover {
+  box-shadow: 0 2px 12px #111111d0;
+}
+
+.buttonAnimClose {
+  width: 75px;
+  transition: 500ms;
+}
+
+.buttonAnimOpen {
+  margin-left: -300px;
+  width: 375px;
+  transition: 500ms;
+}
+
+.closePopup {
+  cursor: pointer;
+  overflow: hidden;
+  width: 35px;
+  height: 33px;
+  border-radius: 2px 0 0 0;
+  border-right: 2px solid #17c3ca20;
+  background-color: #17c3ca20;
+}
+
+.closePopup:hover {
+  background-color: #17c3ca40;
+  border-right: 0px;
+}
+.closePopupIcon {
+  margin-top: -2px;
+  margin-left: 3px;
+  font-size: 35px;
+  color: #111111d0;
+}
+.closePopupIcon:hover {
+  color: #000;
+}
+
+.favoriteTitleBox {
+  user-select: none;
+  margin-top: -32px;
+  height: 35px;
+  text-align: center;
+  border-bottom: 3px solid #17c3ca40;
+}
+
+.favoriteTitle {
+  padding-top: 2px;
+  margin-bottom: 2px;
+  height: 33px;
+  vertical-align: middle;
+  color: #111111d0;
+}
+
+.favoriteOption {
+  cursor: pointer;
+  height: 75px;
+  width: 100%;
+  text-align: center;
+  background-color: #17c3ca20;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+}
+.favoriteOption:hover {
+  background-color: #f7fafc;
+}
+
+.favoriteOption:nth-child(even) {
+  border-bottom: 3px solid #f7fafc;
+  border-top: 3px solid #f7fafc;
+}
+.favoriteOption:last-child {
+  border-bottom: 0;
+}
+
+.favoriteOptionTitle {
+  user-select: none;
+  padding-top: 11px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #111111d0;
+}
+
+.popupReturn {
+  margin-bottom: 3px;
+  margin-top: -36px;
+  margin-left: 262px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 35px;
+  height: 33px;
+  border-left: 2px solid #17c3ca20;
+  background-color: #17c3ca20;
+}
+
+.popupReturn:hover {
+  background-color: #17c3ca40;
+  border-left: 2px solid transparent;
+}
+.popupReturnIcon {
+  margin-top: 1px;
+  margin-left: 3px;
+  font-size: 28px;
+  color: #111111d0;
+}
+.popupReturnIcon:hover {
+  color: #000;
+}

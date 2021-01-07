@@ -35,6 +35,7 @@ const formProgression = (data) => {
       bool = false;
     }
   }
+
   return bool;
 };
 
