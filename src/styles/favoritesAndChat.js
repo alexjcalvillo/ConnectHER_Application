@@ -66,7 +66,7 @@ const iconContainer = {
 };
 
 const popupBox = {
-  boxShadow: '0 2px 4px #11111150',
+  boxShadow: '0 2px 8px #11111150',
   backgroundColor: '#f7fafc',
   position: 'fixed',
   bottom: 0,

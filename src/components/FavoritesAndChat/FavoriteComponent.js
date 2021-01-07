@@ -8,7 +8,7 @@ const style = style_list.favoritesAndChat;
 
 class FavoriteComponent extends Component {
   state = {
-    view: 'default',
+    view: undefined,
   };
 
   toggleView = (view) => {
@@ -55,11 +55,52 @@ class FavoriteComponent extends Component {
       </>
     );
 
+    if (this.state.view === 'members') {
+      Content = (
+        <div>
+          <p>Members Content Coming Soon</p>
+        </div>
+      );
+    }
+
+    if (this.state.view === 'speakers') {
+      Content = (
+        <div>
+          <p>Speakers Content Coming Soon</p>
+        </div>
+      );
+    }
+
+    if (this.state.view === 'businesses') {
+      Content = (
+        <div>
+          <p>Businesses Content Coming Soon</p>
+        </div>
+      );
+    }
+
+    if (this.state.view === 'spaces') {
+      Content = (
+        <div>
+          <p>Spaces Content Coming Soon</p>
+        </div>
+      );
+    }
     return (
       <>
         <div className="favoriteTitleBox">
           <h2 className="favoriteTitle">Favorites</h2>
         </div>
+        {this.state.view && (
+          <div
+            className="popupReturn"
+            onClick={() => {
+              this.toggleView(undefined);
+            }}
+          >
+            <i className="fa fa-arrow-left popupReturnIcon" />
+          </div>
+        )}
         {Content}
       </>
     );
