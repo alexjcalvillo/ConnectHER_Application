@@ -31,6 +31,7 @@ import {
 // Import Static Components
 import Nav from '../components/Nav/Nav';
 import Footer from '../components/Footer/Footer';
+import FavoritesAndChat from '../components/FavoritesAndChat/FavoritesAndChat';
 
 // Custom Wrapper Components
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
@@ -48,6 +49,7 @@ class App extends Component {
       <Router>
         <div style={{ marginTop: '150px' }}>
           <Nav />
+          <FavoritesAndChat />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />

@@ -1,0 +1,126 @@
+.popupAnimClose {
+  height: 185px;
+  width: 0px;
+  margin-right: -3px;
+  transition: 500ms;
+}
+.popupAnimOpen {
+  height: 185px;
+  width: 300px;
+  transition: 500ms;
+}
+
+.popupAnimOpenFavorite {
+  height: 335px;
+  width: 300px;
+  transition: 500ms;
+}
+
+.chatButtonBox {
+  cursor: pointer;
+  margin-top: 1px;
+  box-shadow: 0 2px 4px #11111150;
+  padding: 0;
+  border-radius: 100px 0 0 100px;
+  background-color: #17c3ca;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 0;
+  color: #f7fafc;
+  height: 75px;
+}
+.favoriteButtonBox:hover {
+  box-shadow: 0 2px 8px #17c3ca;
+}
+
+.favoriteButtonBox {
+  cursor: pointer;
+  margin-top: -1px;
+  box-shadow: 0 2px 4px #11111150;
+  padding: 0;
+  border-radius: 100px 0 0 100px;
+  background-color: #17c3ca;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  border-right: 0;
+  color: #f7fafc;
+  height: 75px;
+}
+.chatButtonBox:hover {
+  box-shadow: 0 2px 8px #17c3ca;
+}
+
+.buttonAnimClose {
+  width: 75px;
+  transition: 500ms;
+}
+
+.buttonAnimOpen {
+  margin-left: -300px;
+  width: 375px;
+  transition: 500ms;
+}
+
+.closePopup {
+  cursor: pointer;
+  overflow: hidden;
+  width: 35px;
+  height: 33px;
+  border-radius: 2px 0 0 0;
+  border-right: 2px solid #17c3ca20;
+  background-color: #17c3ca20;
+}
+
+.closePopup:hover {
+  background-color: #17c3ca40;
+  border-right: 0px;
+}
+.closePopupIcon {
+  margin-top: -2px;
+  margin-left: 2px;
+  font-size: 35px;
+  color: #111111d0;
+}
+.closePopupIcon:hover {
+  color: #000;
+}
+
+.favoriteTitleBox {
+  user-select: none;
+  margin-top: -32px;
+  height: 35px;
+  text-align: center;
+  border-bottom: 3px solid #17c3ca40;
+}
+
+.favoriteTitle {
+  padding-top: 2px;
+  margin-bottom: 0;
+  height: 33px;
+  vertical-align: middle;
+  color: #17c3ca;
+}
+
+.favoriteOption {
+  cursor: pointer;
+  height: 75px;
+  width: 100%;
+  text-align: center;
+  background-color: #17c3ca20;
+}
+.favoriteOption:nth-child(even) {
+  border-bottom: 3px solid #f7fafc;
+  border-top: 3px solid #f7fafc;
+}
+.favoriteOption:last-child {
+  border-bottom: 0;
+}
+
+.favoriteOptionTitle {
+  padding-top: 14px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #111111d0;
+}

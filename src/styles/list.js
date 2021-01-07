@@ -4,6 +4,7 @@ import modal from './modal';
 import member from './member';
 import landing from './landing';
 import register from './register';
+import favoritesAndChat from './favoritesAndChat';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -13,6 +14,7 @@ const style_list = {
   member,
   landing,
   register,
+  favoritesAndChat,
 };
 /*-------------------------*/
 
