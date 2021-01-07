@@ -1,5 +1,5 @@
 .popupAnimClose {
-  height: 190px;
+  height: 340px;
   width: 0px;
   margin-right: -3px;
   transition: 500ms;
@@ -13,6 +13,13 @@
 .popupAnimOpenFavorite {
   height: 340px;
   width: 300px;
+  transition: 500ms;
+}
+
+.popupAnimFavorite {
+  height: 340px;
+  width: 0px;
+  margin-right: -3px;
   transition: 500ms;
 }
 

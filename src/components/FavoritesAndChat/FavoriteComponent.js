@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-import style_list from '../../styles/list';
-
-const style = style_list.favoritesAndChat;
-
 class FavoriteComponent extends Component {
   state = {
     view: undefined,

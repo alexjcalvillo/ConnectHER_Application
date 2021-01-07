@@ -60,6 +60,7 @@ class FavoritesAndChat extends Component {
   render() {
     let Content;
     let PopupBox;
+
     let popupAnim = 'popupAnimClose';
     let buttonAnim = 'buttonAnimClose';
     let chatIconStyle = style.icon;
@@ -74,6 +75,7 @@ class FavoritesAndChat extends Component {
       }
       buttonAnim = 'buttonAnimOpen';
     }
+
     PopupBox = (
       <div className={popupAnim} style={style.popupBox}>
         <div
