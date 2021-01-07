@@ -112,6 +112,11 @@ class MemberItem extends Component {
                 </div>
                 <Button
                   className="mt-5"
+                  style={{
+                    border: '1px solid #17c3ca',
+                    color: '#17c3ca',
+                    boxShadow: '0 2px 4px #11111150',
+                  }}
                   outline
                   block
                   size="sm"

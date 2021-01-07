@@ -33,7 +33,7 @@ function ProfileOptions({ term, skills }) {
   return (
     <div>
       <Row>
-        <Col>
+        <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Input
             className="form-control-alternative"
             type="text"

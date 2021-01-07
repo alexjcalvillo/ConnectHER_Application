@@ -53,7 +53,7 @@ class MainPage extends Component {
   };
   render() {
     return (
-      <Container className="backgroundImage">
+      <Container className="main-background">
         <Row>
           <Col lg={12} md={12} sm={12} xs={12} className="spacing">
             <Card className="welcomeBanner">
@@ -61,14 +61,16 @@ class MainPage extends Component {
                 style={{
                   color: 'white',
                   backgroundColor: '#17c3ca',
-                  marginTop: '66px',
+                  marginTop: '60px',
                   marginBottom: 0,
                   paddingTop: 8,
                   paddingBottom: 8,
                   marginLeft: 350,
+                  marginRight: '-1px',
                   paddingLeft: 35,
                   fontSize: 42,
                   fontFamily: 'Cabin',
+                  borderRadius: '5px 0 0 5px',
                   boxShadow: '0 2px 4px #11111150',
                 }}
               >

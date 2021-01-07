@@ -57,7 +57,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 13,
+                  fontSize: 15,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -71,7 +71,7 @@ class RegistrationOptions extends Component {
                     marginBottom: 5,
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    fontSize: 11,
+                    fontSize: 14,
                     fontFamily: 'Lato:wght@300',
                   }}
                 >
@@ -118,7 +118,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 13,
+                  fontSize: 15,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -130,7 +130,7 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 11,
+                    fontSize: 14,
                     fontFamily: 'Lato:wght@300',
                   }}
                 >
@@ -176,7 +176,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 13,
+                  fontSize: 15,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -188,7 +188,7 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 11,
+                    fontSize: 14,
                     fontFamily: 'Lato:wght@300',
                   }}
                 >
