@@ -57,46 +57,23 @@ class MainPage extends Component {
         <Row>
           <Col lg={12} md={12} sm={12} xs={12} className="spacing">
             <Card className="welcomeBanner">
-              <div className="banner">
-                <h3
-                  style={{
-                    color: 'white',
-                    backgroundColor: '#17c3ca',
-                    marginTop: '66px',
-                    marginBottom: 0,
-                    paddingTop: 8,
-                    paddingBottom: 8,
-                    marginLeft: 225,
-                    paddingLeft: 25,
-                    fontSize: 32,
-                    fontFamily: 'Cabin',
-                    boxShadow: '0 2px 4px #11111150',
-                  }}
-                >
-                  Welcome to InnovateHER KC
-                  {this.props.store.profile.display_name}!
-                </h3>
-              </div>
-              <CardImg
-                className="image"
+              <h3
                 style={{
-                  objectFit: 'cover',
-                  marginLeft: '500px',
-                  cursor: 'pointer',
-                  marginTop: '-100px',
-                  marginBottom: '20px',
-                  marginLeft: '670px',
-                  width: '150px',
-                  height: '150px',
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid #f7fafc',
-                  boxShadow: '0 3px 5px #11111150',
-                  backgroundColor: '#f7fafc',
+                  color: 'white',
+                  backgroundColor: '#17c3ca',
+                  marginTop: '66px',
+                  marginBottom: 0,
+                  paddingTop: 8,
+                  paddingBottom: 8,
+                  marginLeft: 350,
+                  paddingLeft: 35,
+                  fontSize: 42,
+                  fontFamily: 'Cabin',
+                  boxShadow: '0 2px 4px #11111150',
                 }}
-                src={this.props.store.profile.headshot}
-                alt="Profile image"
-              />
+              >
+                Welcome to InnovateHER KC!
+              </h3>
             </Card>
           </Col>
         </Row>
