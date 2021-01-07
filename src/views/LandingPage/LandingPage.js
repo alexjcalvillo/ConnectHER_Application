@@ -42,12 +42,15 @@ class LandingPage extends Component {
         <Row>
           <Col
             className="tabbing"
-            lg={{ size: 6, offset: 6 }}
-            md={{ size: 8, offset: 4 }}
+            lg={{ size: 8, offset: 2 }}
+            md={{ size: 8, offset: 2 }}
           >
             <Nav
               tabs
               style={{
+                backgroundColor: '#f7fafc',
+                boxShadow: '0 2px 4px #11111150',
+                border: '1px solid #AAA',
                 position: 'relative',
                 top: '0px',
                 zIndex: '5',
@@ -56,6 +59,10 @@ class LandingPage extends Component {
             >
               <NavItem>
                 <NavLink
+                  style={{
+                    borderRadius: '5px 0 0 0',
+                    boxShadow: '0px 2px 4px #11111150',
+                  }}
                   className={classnames('mb-sm-0 mb-md-0', {
                     active: this.state.activeTab === '1',
                   })}
@@ -68,6 +75,10 @@ class LandingPage extends Component {
               </NavItem>
               <NavItem>
                 <NavLink
+                  style={{
+                    borderRadius: '0 5px 0 0',
+                    boxShadow: '0px 2px 4px #11111150',
+                  }}
                   className={classnames('mb-sm-0 mb-md-0', {
                     active: this.state.activeTab === '2',
                   })}
@@ -86,8 +97,8 @@ class LandingPage extends Component {
             <Row>
               <Col
                 className="tabbing"
-                lg={{ size: 6, offset: 6 }}
-                md={{ size: 8, offset: 4 }}
+                lg={{ size: 8, offset: 2 }}
+                md={{ size: 8, offset: 2 }}
                 sm={12}
                 xs={12}
               >
@@ -103,7 +114,7 @@ class LandingPage extends Component {
                       color: 'white',
                       fontSize: 13.5,
                       textAlign: 'center',
-                      opacity: 0.5,
+                      opacity: 0.7,
                     }}
                   >
                     {' '}
@@ -118,8 +129,8 @@ class LandingPage extends Component {
             <Row>
               <Col
                 className="tabbing"
-                lg={{ size: 6, offset: 6 }}
-                md={{ size: 8, offset: 4 }}
+                lg={{ size: 8, offset: 2 }}
+                md={{ size: 8, offset: 2 }}
                 sm={12}
                 xs={12}
               >

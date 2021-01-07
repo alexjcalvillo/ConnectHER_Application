@@ -49,14 +49,14 @@ class LoginForm extends Component {
         <h3
           style={{
             color: '#823bae',
-            marginTop: -10,
+            marginTop: '0',
             marginBottom: 5,
             marginLeft: 10,
             fontSize: 25,
             fontFamily: 'Cabin',
           }}
         >
-          Login
+          Member Login
         </h3>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">

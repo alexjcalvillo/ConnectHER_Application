@@ -42,7 +42,8 @@ class RegistrationOptions extends Component {
                   color: '#17C3CA',
                   marginTop: '0px',
                   marginBottom: 0,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 25,
                   fontFamily: 'Cabin',
                 }}
@@ -54,7 +55,8 @@ class RegistrationOptions extends Component {
                   color: '#823bae',
                   marginTop: 0,
                   marginBottom: 2,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 13,
                   fontFamily: 'Cabin',
                 }}
@@ -67,6 +69,8 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
                     fontSize: 11,
                     fontFamily: 'Lato:wght@300',
                   }}
@@ -99,7 +103,8 @@ class RegistrationOptions extends Component {
                   color: '#17C3CA',
                   marginTop: '0px',
                   marginBottom: 0,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 25,
                   fontFamily: 'Cabin',
                 }}
@@ -111,7 +116,8 @@ class RegistrationOptions extends Component {
                   color: '#823bae',
                   marginTop: 0,
                   marginBottom: 2,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 13,
                   fontFamily: 'Cabin',
                 }}
@@ -155,7 +161,8 @@ class RegistrationOptions extends Component {
                 style={{
                   color: '#17C3CA',
                   marginBottom: 0,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 25,
                   fontFamily: 'Cabin',
                 }}
@@ -167,7 +174,8 @@ class RegistrationOptions extends Component {
                   color: '#823bae',
                   marginTop: 0,
                   marginBottom: 2,
-                  marginLeft: 10,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
                   fontSize: 13,
                   fontFamily: 'Cabin',
                 }}

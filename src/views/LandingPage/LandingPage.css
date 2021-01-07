@@ -32,7 +32,7 @@ Grid
   .background {
     margin-top: 80px;
     padding-left: 0px;
-    background-image: url('LandingAlt.png');
+    background-image: url('yes.png');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -43,7 +43,7 @@ Grid
 }
 
 .form {
-  margin-top: 60px;
+  margin-top: 90px;
 }
 
 .login {
@@ -51,6 +51,7 @@ Grid
   box-shadow: 0 2px 4px #11111150;
   border-radius: 5px;
   border: 3px solid #f7fafc;
+  height: 260px;
 }
 
 .tabbing {
