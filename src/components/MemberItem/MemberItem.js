@@ -3,7 +3,16 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import './MemberItem.css';
-import { Badge, Button, Col, Row, Card, CardBody, Modal } from 'reactstrap';
+import {
+  Badge,
+  Button,
+  Col,
+  Row,
+  Card,
+  CardBody,
+  Modal,
+  ModalBody,
+} from 'reactstrap';
 import ContactForm from '../ContactForm/ContactForm';
 
 import function_list from '../../functions/list'; // custom functions object
@@ -59,25 +68,14 @@ class MemberItem extends Component {
     return (
       <>
         <Card
-          className="bg-neutral shadow mb-2"
-          style={
-            this.state.isOpen
-              ? style_list.member.openHeight
-              : style_list.member.closedHeight
-          }
+          style={style_list.card.base}
+          className="bg-secondary shadow ml-0 mr-0 mb-3"
         >
-          <CardBody
-            className="m-0"
-            style={
-              this.state.isOpen
-                ? style_list.member.openFade
-                : style_list.member.closedFade
-            }
-          >
+          <CardBody style={style_list.card.body}>
             <div style={style_list.card.gradientFade}>
               <div style={style_list.card.heart}>
                 <i
-                  className="fa fa-heart m-1 fa-heart-custom"
+                  class="fa fa-heart m-1 fa-heart-custom"
                   style={{
                     color: favoriteIconColor,
                   }}
@@ -85,187 +83,58 @@ class MemberItem extends Component {
                 />
               </div>
             </div>
-            <Row
-              className="mb-2"
-              style={{
-                paddingLeft: '16px',
-                paddingRight: '16px',
-              }}
-            >
-              <Col
-                lg={3}
-                xs={12}
-                className="mr-0 text-center"
-                style={{
-                  borderRight: '0.5px solid #F59032',
-                  marginTop: '-75px',
-                }}
-              >
-                <div style={style_list.member.profileImage}>
+            <Row>
+              <Col lg={{ size: 12, order: 1 }}>
+                <div
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={{
+                    ...style_list.card.detailsImageContainer,
+                    borderRadius: '50%',
+                  }}
+                >
                   <img
                     style={{
                       objectFit: 'cover',
+                      width: '122px',
+                      height: '122px',
                     }}
                     src={member.headshot}
-                    alt="Profile"
+                    alt="img"
                   />
                 </div>
-                <Button
-                  className="mt-5"
+                <div style={style_list.card.detailsTitle}>
+                  {member.first_name} {member.last_name}
+                </div>
+                <p
                   style={{
-                    border: '1px solid #17c3ca',
-                    color: '#17c3ca',
-                    boxShadow: '0 2px 4px #11111150',
+                    fontSize: '13px',
+                    width: '100%',
+                    textAlign: 'center',
+                    height: '49px',
+                    maxHeight: '49px',
+                    overflow: 'scroll',
                   }}
-                  outline
-                  block
-                  size="sm"
-                  color="primary"
-                  onClick={this.handleListingClick}
                 >
-                  Contact Now
+                  {member.job_title} at {member.organization_name}
+                </p>
+                <hr style={{ marginTop: '-5px' }} />
+                <Button
+                  block
+                  outline
+                  color="primary"
+                  size="sm"
+                  onClick={() => this.toggleModal('defaultModal')}
+                  style={style_list.card.learnMoreButton}
+                >
+                  Learn More
                 </Button>
-              </Col>
-              <Col lg={9} xs={12}>
-                <Row>
-                  <Col lg="5" style={{ marginTop: '-75px' }}>
-                    <p className="lead mb-0">
-                      {member.first_name} {member.last_name}
-                    </p>
-                    <p className="h5">
-                      {member.job_title} at {member.organization_name}
-                    </p>
-                  </Col>
-
-                  <Col lg={7} xs={12} style={{ marginTop: '-50px' }}>
-                    <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
-                      Skills:
-                    </h3>
-                    <div
-                      style={{
-                        height: '90px',
-                        overflow: 'scroll',
-                      }}
-                    >
-                      {member.skills.map((skill, i) => {
-                        let color = function_list.mapSkillColors(
-                          skill.category_id
-                        );
-                        return (
-                          <Badge
-                            className="mr-1 mt-1"
-                            key={skill.id}
-                            color={color}
-                            pill
-                          >
-                            {skill.skill}
-                          </Badge>
-                        );
-                      })}
-                    </div>
-                  </Col>
-                </Row>
-                <hr style={{ backgroundColor: '#F59032', marginTop: '5px' }} />
-                <Row className="mt-3">
-                  <Col lg={5} xs={12}>
-                    <p className="lead">Social Media</p>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={member.instagram}
-                      // target="_blank"
-                    >
-                      <i
-                        className="fa fa-instagram"
-                        style={{
-                          fontSize: '30px',
-                          background:
-                            'linear-gradient(220deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
-                          WebkitTextFillColor: 'transparent',
-                          WebkitBackgroundClip: 'text',
-                          verticalAlign: 'middle',
-                        }}
-                      />
-                    </a>{' '}
-                    |{' '}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={member.facebook}
-                    >
-                      <i
-                        className="fa fa-facebook-official"
-                        style={{
-                          fontSize: '30px',
-                          color: '#4267B2',
-                          verticalAlign: 'middle',
-                        }}
-                      />
-                    </a>{' '}
-                    |{' '}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={member.linkedin}
-                    >
-                      <i
-                        className="fa fa-linkedin-square"
-                        style={{
-                          fontSize: '30px',
-                          color: '#2867B2',
-                          verticalAlign: 'middle',
-                        }}
-                      />
-                    </a>{' '}
-                    |{' '}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={member.twitter}
-                    >
-                      <i
-                        className="fa fa-twitter-square"
-                        style={{
-                          fontSize: '30px',
-                          color: '#1DA1F2',
-                          verticalAlign: 'middle',
-                        }}
-                      />
-                    </a>
-                  </Col>
-                  <Col lg={7} xs={12} className="text-left">
-                    <p className="lead mb-0">Bio: </p>
-                    <p>{member.bio}</p>
-                  </Col>
-                </Row>
               </Col>
             </Row>
           </CardBody>
         </Card>
-        <Button
-          block
-          // outline
-          color="primary"
-          style={
-            this.state.isOpen
-              ? style_list.member.buttonOpen
-              : style_list.member.buttonClose
-          }
-          onClick={this.openMember}
-        >
-          {this.state.isOpen ? (
-            <>
-              <i className="ni ni-bold-up"></i>
-            </>
-          ) : (
-            <>
-              <i className="ni ni-bold-down" />
-            </>
-          )}
-        </Button>
         <Modal
           className="modal-dialog-centered modal-primary"
-          contentClassName="bg-gradient-primary"
+          size="lg"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
         >
@@ -278,9 +147,149 @@ class MemberItem extends Component {
           >
             <span aria-hidden={true}>×</span>
           </button>
-          <div className="m-5">
-            <ContactForm />
-          </div>
+          <ModalBody style={{ backgroundColor: '#bceef0' }}>
+            <Row>
+              <Col lg={1}></Col>
+              <Col lg={5}>
+                <div
+                  style={{
+                    ...style_list.modal.imageContainer,
+                    borderRadius: '50%',
+                  }}
+                >
+                  <img
+                    style={{
+                      objectFit: 'cover',
+                      width: '122px',
+                      height: '122px',
+                    }}
+                    src={member.headshot}
+                    alt="img"
+                  />
+                </div>
+                <div className="mt-4 display-4">
+                  {' '}
+                  {member.first_name} {member.last_name}
+                </div>
+                <p>
+                  {member.job_title} at {member.organization_name}
+                </p>
+                <Button
+                  className="mt-5"
+                  style={{
+                    marginTop: 0,
+                    border: '1px solid a#17c3c',
+                    color: 'a#17c3c',
+                    boxShadow: '0 2px 4px #11111150',
+                  }}
+                  outline
+                  block
+                  size="sm"
+                  color="primary"
+                  onClick={this.handleListingClick}
+                >
+                  Contact Now
+                </Button>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.instagram}
+                  // target="_blank"
+                >
+                  {' '}
+                  <i
+                    className="fa fa-instagram"
+                    style={{
+                      fontSize: '30px',
+                      background:
+                        'linear-gradient(220deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+                      WebkitTextFillColor: 'transparent',
+                      WebkitBackgroundClip: 'text',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </a>{' '}
+                |{' '}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.facebook}
+                >
+                  <i
+                    className="fa fa-facebook-official"
+                    style={{
+                      fontSize: '30px',
+                      color: '#4267B2',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </a>{' '}
+                |{' '}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.linkedin}
+                >
+                  <i
+                    className="fa fa-linkedin-square"
+                    style={{
+                      fontSize: '30px',
+                      color: '#2867B2',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </a>{' '}
+                |{' '}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.twitter}
+                >
+                  <i
+                    className="fa fa-twitter-square"
+                    style={{
+                      fontSize: '30px',
+                      color: '#1DA1F2',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </a>
+              </Col>
+              <Col lg={6} className="text-left p-5">
+                <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
+                  Skills:
+                </h3>
+                <div
+                  style={{
+                    height: '90px',
+                    overflow: 'scroll',
+                  }}
+                >
+                  {member.skills.map((skill, i) => {
+                    let color = function_list.mapSkillColors(skill.category_id);
+                    return (
+                      <Badge
+                        className="mr-1 mt-1"
+                        key={skill.id}
+                        color={color}
+                        pill
+                      >
+                        {skill.skill}
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <Col lg={{ size: 10, offset: 1 }}>
+                <p className="lead mb-0">Bio: </p>
+                <p>{member.bio}</p>
+              </Col>
+            </Row>
+            <hr />
+          </ModalBody>
         </Modal>
       </>
     );

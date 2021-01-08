@@ -91,7 +91,7 @@ class MainPage extends Component {
               marginBottom: 0,
               marginLeft: 0,
               marginRight: 0,
-              padding: 4,
+              padding: 10,
             }}
           >
             <Card
@@ -141,7 +141,7 @@ class MainPage extends Component {
             style={{
               marginLeft: 0,
               marginRight: 0,
-              padding: 4,
+              padding: 10,
             }}
           >
             <Card
@@ -191,7 +191,7 @@ class MainPage extends Component {
             style={{
               marginLeft: 0,
               marginRight: 0,
-              padding: 4,
+              padding: 10,
             }}
           >
             <Card
@@ -241,7 +241,7 @@ class MainPage extends Component {
             style={{
               marginLeft: 0,
               marginRight: 0,
-              padding: 4,
+              padding: 10,
             }}
           >
             <Card
