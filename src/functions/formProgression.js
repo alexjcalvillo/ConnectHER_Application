@@ -1,6 +1,7 @@
 import function_list from './list';
 
 const formProgression = (data) => {
+  console.log(data);
   let bool;
 
   if (data.tab === '1') bool = true;

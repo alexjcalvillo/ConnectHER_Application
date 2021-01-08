@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import MemberAboutForm from '../../components/MemberAboutForm/MemberAboutForm';
 import MemberDemoForm from '../../components/MemberDemoForm/MemberDemoForm';
-import SkillsWidget from '../../components/SkillsWidget/SkillsWidget';
 import SkillsSelector from '../../components/SkillsSelector/SkillsSelector';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
@@ -221,7 +220,7 @@ class UserPage extends Component {
                       <Card>
                         <CardBody style={{ boxShadow: '0 2px 4px #11111150' }}>
                           <MemberDemoForm
-                            toggle={() => this.toggle('4')}
+                            toggle={this.toggle}
                             style={{
                               ...padding,
                               ...style_list.register.form_base,

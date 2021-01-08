@@ -40,13 +40,11 @@ function MemberDemoForm(props) {
     },
 
     onSubmit: (values) => {
-      // setHeading(JSON.stringify(values, null, 2));
       props.toggle('4', 'bypass');
       props.dispatch({
         type: 'HOLD_DEMO', // HOLD_DEMO
         payload: values,
       });
-      // alert(JSON.stringify(values, null, 2));
     },
   });
 
