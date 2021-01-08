@@ -145,9 +145,11 @@ class MemberItem extends Component {
             type="button"
             onClick={() => this.toggleModal('defaultModal')}
           >
-            <span aria-hidden={true}>×</span>
+            <span style={{ backgroundColor: '' }} aria-hidden={true}>
+              ×
+            </span>
           </button>
-          <ModalBody style={{ backgroundColor: '#bceef0' }}>
+          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
@@ -177,19 +179,51 @@ class MemberItem extends Component {
                 <Button
                   className="mt-5"
                   style={{
-                    marginTop: 0,
-                    border: '1px solid a#17c3c',
-                    color: 'a#17c3c',
+                    color: '17C3CA',
+                    marginTop: -20,
+                    border: '1px solid white',
+                    backgroundColor: '#bceef0',
                     boxShadow: '0 2px 4px #11111150',
                   }}
                   outline
                   block
                   size="sm"
-                  color="primary"
                   onClick={this.handleListingClick}
                 >
                   Contact Now
                 </Button>
+              </Col>
+              <Col lg={6} className="text-left p-5">
+                <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
+                  Skills:
+                </h3>
+                <div
+                  style={{
+                    height: '90px',
+                    overflow: 'scroll',
+                  }}
+                >
+                  {member.skills.map((skill, i) => {
+                    let color = function_list.mapSkillColors(skill.category_id);
+                    return (
+                      <Badge
+                        className="mr-1 mt-1"
+                        key={skill.id}
+                        color={color}
+                        pill
+                      >
+                        {skill.skill}
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <Col lg={{ size: 10, offset: 1 }}>
+                <p className="lead mb-0">Bio: </p>
+                <p>{member.bio}</p>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -254,38 +288,6 @@ class MemberItem extends Component {
                     }}
                   />
                 </a>
-              </Col>
-              <Col lg={6} className="text-left p-5">
-                <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
-                  Skills:
-                </h3>
-                <div
-                  style={{
-                    height: '90px',
-                    overflow: 'scroll',
-                  }}
-                >
-                  {member.skills.map((skill, i) => {
-                    let color = function_list.mapSkillColors(skill.category_id);
-                    return (
-                      <Badge
-                        className="mr-1 mt-1"
-                        key={skill.id}
-                        color={color}
-                        pill
-                      >
-                        {skill.skill}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </Col>
-            </Row>
-            <hr />
-            <Row>
-              <Col lg={{ size: 10, offset: 1 }}>
-                <p className="lead mb-0">Bio: </p>
-                <p>{member.bio}</p>
               </Col>
             </Row>
             <hr />

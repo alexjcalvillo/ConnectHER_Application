@@ -35,7 +35,12 @@ class SpacesPage extends Component {
         style={{ background: 'none', borderRadius: '0px', border: 'none' }}
       >
         <CardHeader> */}
-        <h1 className="mt-5 mb-5 display-1">Spaces</h1>
+        <h1
+          style={{ fontFamily: 'Cabin', textAlign: 'center' }}
+          className="mt-5 mb-5 display-1"
+        >
+          Spaces
+        </h1>
         <Row>
           {this.props.store &&
             this.props.store.spaces &&
