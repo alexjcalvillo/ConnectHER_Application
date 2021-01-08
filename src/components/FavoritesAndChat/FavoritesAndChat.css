@@ -5,7 +5,7 @@
   transition: 500ms;
 }
 .popupAnimOpen {
-  height: 190px;
+  height: 340px;
   width: 300px;
   transition: 500ms;
 }
@@ -237,6 +237,7 @@
 
 .tabItemDetailsOpen {
   font-size: inherit;
+  text-align: center;
   margin-top: -2px;
   border-top: 2px solid #f7fafc;
   border-bottom: 2px solid #f7fafc;
@@ -250,7 +251,7 @@
   margin-left: auto;
   margin-right: auto;
   height: 40px;
-  width: 150px;
+  width: 125px;
   text-align: center;
   border: 2px solid #d6f3f3;
   background-color: #f7fafc;
@@ -258,12 +259,53 @@
   border-top: 0px;
   border-radius: 0 0 5px 5px;
   transition: 250ms;
+  display: inline-block;
+}
+
+.detailsDeleteContainer2 {
+  margin-top: 0px;
+  height: 40px;
+  width: 125px;
+  text-align: center;
+  border: 2px solid #d6f3f3;
+  background-color: #f7fafc;
+  box-shadow: 0 4px 4px #11111140;
+  border-top: 0px;
+  border-radius: 0 0 5px 5px;
+  transition: 250ms;
+  display: inline-block;
+}
+
+.detailsMessageContainer {
+  margin-top: 0px;
+  margin-right: 15px;
+  height: 40px;
+  width: 125px;
+  text-align: center;
+  border: 2px solid #d6f3f3;
+  background-color: #f7fafc;
+  box-shadow: 0 4px 4px #11111140;
+  border-top: 0px;
+  border-radius: 0 0 5px 5px;
+  transition: 250ms;
+  display: inline-block;
 }
 
 .detailsDeleteContainer:hover {
   box-shadow: 0 4px 4px #11111170;
   transition: 250ms;
 }
+
+.detailsDeleteContainer2:hover {
+  box-shadow: 0 4px 4px #11111170;
+  transition: 250ms;
+}
+
+.detailsMessageContainer:hover {
+  box-shadow: 0 4px 4px #11111170;
+  transition: 250ms;
+}
+
 .detailsDelete {
   user-select: none;
   padding-top: 8px;

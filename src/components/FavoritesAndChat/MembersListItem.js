@@ -51,7 +51,15 @@ class MembersListItem extends Component {
           <p className="tabName">{member.display_name}</p>
         </div>
         <div className={detailsClass}>
-          <div className="detailsDeleteContainer" onClick={this.delete}>
+          <div
+            className="detailsMessageContainer"
+            onClick={() => {
+              this.props.openChat({ id: member.user_id });
+            }}
+          >
+            <p className="detailsDelete">Message</p>
+          </div>
+          <div className="detailsDeleteContainer2" onClick={this.delete}>
             <p className="detailsDelete">Delete Favorite</p>
           </div>
         </div>
