@@ -18,15 +18,17 @@ router.get(
         const business = [];
         const space = [];
 
-        for (let i = 0; i < response.rows[0].type.length; i++) {
-          if (response.rows[0].type[i] === 'member') {
-            member.push(response.rows[0].id[i]);
-          } else if (response.rows[0].type[i] === 'speaker') {
-            speaker.push(response.rows[0].id[i]);
-          } else if (response.rows[0].type[i] === 'business') {
-            business.push(response.rows[0].id[i]);
-          } else if (response.rows[0].type[i] === 'space') {
-            space.push(response.rows[0].id[i]);
+        if (response.rows[0].id !== null) {
+          for (let i = 0; i < response.rows[0].type.length; i++) {
+            if (response.rows[0].type[i] === 'member') {
+              member.push(response.rows[0].id[i]);
+            } else if (response.rows[0].type[i] === 'speaker') {
+              speaker.push(response.rows[0].id[i]);
+            } else if (response.rows[0].type[i] === 'business') {
+              business.push(response.rows[0].id[i]);
+            } else if (response.rows[0].type[i] === 'space') {
+              space.push(response.rows[0].id[i]);
+            }
           }
         }
 
