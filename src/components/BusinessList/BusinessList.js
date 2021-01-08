@@ -16,6 +16,13 @@ class BusinessList extends React.Component {
 
   componentDidMount() {
     document.title = 'Find a Business';
+    if (
+      function_list.checkFavorite({
+        id: this.props.business.id,
+        array: this.props.store.favorites.business,
+      }) === true
+    )
+      this.setState({ ...this.state, isFavorite: true });
   }
 
   refreshImage() {
@@ -39,27 +46,51 @@ class BusinessList extends React.Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!this.state.isFavorite) {
-      this.setState({
-        ...this.state,
-        isFavorite: true,
-      });
+    if (
+      function_list.checkFavorite({
+        id: this.props.business.id,
+        array: this.props.store.favorites.business,
+      }) === false
+    ) {
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: true,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'POST_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.business.id}`,
+              favoriteType: 'speaker',
+            },
+          });
+        }
+      );
     } else {
-      this.setState({
-        ...this.state,
-        isFavorite: false,
-      });
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: false,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'PUT_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.business.id}`,
+              favoriteType: 'speaker',
+            },
+          });
+        }
+      );
     }
   };
-
   /*-----> CASTOR <-----*/
 
   render() {
     let image;
-
-    let favoriteIconColor = function_list.favoriteIconHandler(
-      this.state.isFavorite
-    );
 
     if (
       this.props.business.fields[
@@ -69,6 +100,17 @@ class BusinessList extends React.Component {
       image = this.props.business.fields[
         `Attachments (logo, marketing materials, price sheets, etc.)`
       ][0].url;
+    }
+
+    let favoriteIconColor = function_list.favoriteIconHandler(false);
+
+    if (
+      function_list.checkFavorite({
+        id: this.props.business.id,
+        array: this.props.store.favorites.business,
+      }) === true
+    ) {
+      favoriteIconColor = function_list.favoriteIconHandler(true);
     }
 
     if (this.state.refreshed !== true) {
