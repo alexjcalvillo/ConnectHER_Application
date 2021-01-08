@@ -9,10 +9,18 @@ import ContactForm from '../ContactForm/ContactForm';
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 
-let isFavorite;
-
 class MemberItem extends Component {
-  state = { defaultModal: false, isOpen: false };
+  state = { defaultModal: false, isOpen: false, isFavorite: false };
+
+  componentDidMount() {
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === true
+    )
+      this.setState({ ...this.state, isFavorite: true });
+  }
 
   toggleModal = (state) => {
     this.setState({
@@ -36,10 +44,16 @@ class MemberItem extends Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!isFavorite) {
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === false
+    ) {
       this.setState(
         {
           ...this.state,
+          isFavorite: true,
         },
         () => {
           this.props.dispatch({
@@ -56,6 +70,7 @@ class MemberItem extends Component {
       this.setState(
         {
           ...this.state,
+          isFavorite: false,
         },
         () => {
           this.props.dispatch({
@@ -75,14 +90,15 @@ class MemberItem extends Component {
 
   render() {
     const { member } = this.props;
-    isFavorite = false;
     let favoriteIconColor = function_list.favoriteIconHandler(false);
 
-    for (let i = 0; i < this.props.store.favorites.member.length; i++) {
-      if (member.user_id == this.props.store.favorites.member[i]) {
-        favoriteIconColor = function_list.favoriteIconHandler(true);
-        isFavorite = true;
-      }
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === true
+    ) {
+      favoriteIconColor = function_list.favoriteIconHandler(true);
     }
 
     return (

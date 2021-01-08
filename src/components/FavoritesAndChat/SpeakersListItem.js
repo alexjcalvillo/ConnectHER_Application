@@ -15,12 +15,25 @@ class SpeakersListItem extends Component {
   };
 
   delete = () => {
-    this.setState({
-      delete: true,
-    });
+    this.setState(
+      {
+        delete: true,
+      },
+      () => {
+        this.props.dispatch({
+          type: 'PUT_FAVORITES',
+          payload: {
+            userId: this.props.store.user.id,
+            favoriteId: `${this.props.speaker.id}`,
+            favoriteType: 'speaker',
+          },
+        });
+      }
+    );
   };
   render() {
     let speaker = this.props.speaker;
+    console.log(speaker.id);
     let detailsClass = 'tabItemDetailsClose';
 
     let containerClass = 'tabListItem';

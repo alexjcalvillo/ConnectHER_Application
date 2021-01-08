@@ -21,7 +21,15 @@ class MembersList extends Component {
               speaker.fields['Speaker Photo'] !== undefined &&
               speaker.fields['Speaker Photo'][0] !== undefined
             ) {
-              return <SpeakersListItem speaker={speaker} index={index} />;
+              for (
+                let i = 0;
+                i < this.props.store.favorites.speaker.length;
+                i++
+              ) {
+                if (speaker.id == this.props.store.favorites.speaker[i]) {
+                  return <SpeakersListItem speaker={speaker} index={index} />;
+                }
+              }
             }
           })}
       </div>

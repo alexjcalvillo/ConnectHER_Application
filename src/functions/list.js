@@ -8,6 +8,7 @@ import landingPageBgHandler from './landingPageBgHandler';
 import formProgression from './formProgression';
 import alert from './alert';
 import favoritesImage from './favoritesImage';
+import checkFavorite from './checkFavorite';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -21,6 +22,7 @@ const function_list = {
   formProgression, // handles progression check, and safe-guards registration from errors
   alert, // custom alert pop up
   favoritesImage, //resizes images for favorite component
+  checkFavorite, // checks to see if component is favorited
 };
 /*-------------------------*/
 
