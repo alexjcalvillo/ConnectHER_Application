@@ -13,7 +13,7 @@ class BusinessesList extends Component {
 
   render() {
     return (
-      <div style={{ maxHeight: '305px', overflow: 'scroll' }}>
+      <div style={{ maxHeight: '303px', overflow: 'scroll' }}>
         {this.props.store &&
           this.props.store.businesses &&
           this.props.store.businesses.map((business, index) => {

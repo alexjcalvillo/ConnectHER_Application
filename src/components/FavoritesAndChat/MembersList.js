@@ -13,7 +13,7 @@ class MembersList extends Component {
 
   render() {
     return (
-      <div style={{ maxHeight: '305px', overflow: 'scroll' }}>
+      <div style={{ maxHeight: '303px', overflow: 'scroll' }}>
         {this.props.store.memberListingsReducer.map((member, index) => {
           return <MembersListItem member={member} index={index} />;
         })}

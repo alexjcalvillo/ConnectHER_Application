@@ -65,6 +65,13 @@ CREATE TABLE "about" (
     "user_id" int REFERENCES "users" 
 );
 
+CREATE TABLE "favorites" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" int REFERENCES "users",
+    "favorite_id" VARCHAR (128),
+    "favorite_type" VARCHAR (16)
+);
+
 -- starter categories
 INSERT INTO "category" ("name")
 VALUES 

@@ -13,7 +13,7 @@ class SpacesList extends Component {
 
   render() {
     return (
-      <div style={{ maxHeight: '305px', overflow: 'scroll' }}>
+      <div style={{ maxHeight: '303px', overflow: 'scroll' }}>
         {this.props.store &&
           this.props.store.spaces &&
           this.props.store.spaces.map((space, index) => {
