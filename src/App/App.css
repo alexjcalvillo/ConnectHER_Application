@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Lato:wght@300&display=swap');
 
 </style > html,
 #react-root {
@@ -11,12 +11,16 @@ body {
   margin: 0px;
   height: 100%;
   min-height: calc(100vh - 80px);
-  background-color: #bc91d980;
+  background-color: #f2eff6;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
+}
+
+.heading {
+  margin-top: -20px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -66,18 +70,4 @@ input {
   border-bottom: 1px solid #00000000;
   border-right: 2px solid #00000000;
   border-top: 2px solid #00000000;
-}
-
-.swal2-popup {
-  background-color: #f7fafc !important;
-  border-radius: 5px;
-  border: 4px solid #17c3ca40;
-  box-shadow: 0 2px 4px #11111150;
-}
-
-.swal2-confirm {
-  background-color: #17c3ca !important;
-  border: 1px solid white !important;
-  color: #f7fafc !important;
-  box-shadow: 0 2px 4px #11111150 !important;
 }

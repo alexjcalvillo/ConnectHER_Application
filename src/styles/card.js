@@ -16,7 +16,7 @@ const gradientFade = {
   height: '100px',
   width: '100%',
   borderRadius: '5px 5px 0 0',
-  background: 'linear-gradient(to bottom, #5e72e4, #f7fafc 80%)',
+  background: 'linear-gradient(to bottom, #bceef0, #f7fafc 80%)',
   border: '2px solid #f7fafc',
   borderBottom: '0px',
 };
@@ -76,6 +76,10 @@ const learnMoreButton = {
   width: '85%',
   marginLeft: 'auto',
   marginRight: 'auto',
+  backgroundColor: '#17c3ca',
+  border: '1px solid #17c3ca',
+  color: '#f7fafc',
+  boxShadow: '0 2px 4px #11111150',
 };
 
 const card = {

@@ -5,6 +5,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Button, Row, Col, Container, Card, CardBody } from 'reactstrap';
 
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
+import './MemberSearch.css';
+import style_list from '../../styles/list';
 
 class MemberSearchPage extends Component {
   state = {
@@ -39,18 +41,40 @@ class MemberSearchPage extends Component {
   render() {
     return (
       <>
-        <Container>
-          <h1 className="display-3" style={{ textAlign: 'center' }}>
-            Search the Community and Connect with Womxn!
-          </h1>
-
-          <br />
+        <Container className="member-background">
           <Row>
-            <Col lg={{ size: 2, offset: 1 }} xs={4} className="text-right pt-2">
-              Search By:
+            <Col lg={{ size: 10, offset: 1 }} className="text-right pt-2">
+              <h1
+                className="display-3"
+                style={{
+                  fontFamily: 'cabin',
+                  textAlign: 'center',
+                  fontSize: 45,
+                }}
+              >
+                Search the Community | Connect with Womxn
+              </h1>
+              <br />
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={{ size: 2, offset: 2 }} xs={4} className="text-right pt-2">
+              <h3
+                style={{
+                  color: 'gray',
+                  marginTop: '0',
+                  marginBottom: 5,
+                  marginLeft: 10,
+                  fontSize: 30,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                Search By:
+              </h3>
             </Col>
             <Col lg={{ size: 2 }} xs={12}>
               <Button
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"
@@ -62,27 +86,30 @@ class MemberSearchPage extends Component {
             </Col>
             <Col lg={2} xs={12}>
               <Button
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(2)}
-                active={this.state.rSelected === 2}
+                onClick={() => this.buttonClick(1)}
+                active={this.state.rSelected === 1}
               >
                 Community Role
               </Button>
             </Col>
             <Col lg={2} xs={12}>
               <Button
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(3)}
-                active={this.state.rSelected === 3}
+                onClick={() => this.buttonClick(1)}
+                active={this.state.rSelected === 1}
               >
-                Organization Name
+                Community Role
               </Button>
             </Col>
           </Row>
+
           <Row className="mt-3">
             <Col>
               <ProfileSearch

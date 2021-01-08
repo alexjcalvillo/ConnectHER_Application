@@ -117,7 +117,7 @@ class LandingPage extends Component {
                       color: 'white',
                       fontSize: 13.5,
                       textAlign: 'center',
-                      opacity: 0.7,
+                      opacity: 0.8,
                     }}
                   >
                     {' '}
@@ -152,7 +152,7 @@ class LandingPage extends Component {
                       color: 'white',
                       fontSize: 13.5,
                       textAlign: 'center',
-                      opacity: 0.5,
+                      opacity: 0.8,
                     }}
                   >
                     {' '}

@@ -151,7 +151,7 @@ class SpacesList extends React.Component {
           >
             <span aria-hidden={true}>×</span>
           </button>
-          <ModalBody>
+          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>

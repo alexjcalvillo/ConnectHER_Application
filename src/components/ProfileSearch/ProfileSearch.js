@@ -45,7 +45,11 @@ function ProfileOptions({ term, skills }) {
   return (
     <div>
       <Row>
-        <Col>
+        <Col
+          style={{ marginBottom: 10 }}
+          lg={{ size: 10, offset: 1 }}
+          md={{ size: 10, offset: 1 }}
+        >
           <Input
             className="form-control-alternative"
             type="text"

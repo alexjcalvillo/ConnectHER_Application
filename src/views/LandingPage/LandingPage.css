@@ -6,7 +6,7 @@ Grid
   .background {
     margin-top: 80px;
     padding-left: 0px;
-    background-image: url('LandingAlt.png');
+    background-image: url('backgroundImage.png');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -15,24 +15,12 @@ Grid
     margin-bottom: 1000px;
   }
 }
-@media only screen and (min-width: 350px) {
-  .background {
-    margin-top: 80px;
-    padding-left: 0px;
-    background-image: url('TabletPage.png');
-    height: 100vh;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 1000px;
-  }
-}
+
 @media only screen and (min-width: 767px) {
   .background {
     margin-top: 80px;
     padding-left: 0px;
-    background-image: url('yes.png');
+    background-image: url('backgroundImage.png');
     height: 100vh;
     width: 100%;
     background-position: center;
