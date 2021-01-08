@@ -63,7 +63,7 @@ class BusinessList extends React.Component {
             payload: {
               userId: this.props.store.user.id,
               favoriteId: `${this.props.business.id}`,
-              favoriteType: 'speaker',
+              favoriteType: 'business',
             },
           });
         }
@@ -80,7 +80,7 @@ class BusinessList extends React.Component {
             payload: {
               userId: this.props.store.user.id,
               favoriteId: `${this.props.business.id}`,
-              favoriteType: 'speaker',
+              favoriteType: 'business',
             },
           });
         }

@@ -17,7 +17,15 @@ class BusinessesList extends Component {
         {this.props.store &&
           this.props.store.businesses &&
           this.props.store.businesses.map((business, index) => {
-            return <BusinessesListItem business={business} index={index} />;
+            for (
+              let i = 0;
+              i < this.props.store.favorites.business.length;
+              i++
+            ) {
+              if (business.id == this.props.store.favorites.business[i]) {
+                return <BusinessesListItem business={business} index={index} />;
+              }
+            }
           })}
       </div>
     );
