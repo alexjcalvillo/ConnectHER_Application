@@ -22,13 +22,25 @@ function ProfileOptions({ term, skills }) {
     let search = term;
     let list = skills;
     console.log(list);
-    const results = list.filter(
-      (skill) =>
-        skill[search].toLowerCase().includes(searchTerm) ||
-        skill[search].includes(searchTerm)
-    );
-
-    setSearchResults(results);
+    if (search === 'skills') {
+      let results = list.filter((v) =>
+        v.skills.some(
+          (skill) =>
+            skill.skill.includes(searchTerm) ||
+            skill.skill.toLowerCase().includes(searchTerm)
+        )
+      );
+      setSearchResults(results);
+      // console.log(results);
+    } else {
+      const results = list.filter(
+        (skill) =>
+          skill[search].toLowerCase().includes(searchTerm) ||
+          skill[search].includes(searchTerm)
+      );
+      setSearchResults(results);
+      // console.log(results);
+    }
   }, [skills, term, searchTerm]);
   return (
     <div>
