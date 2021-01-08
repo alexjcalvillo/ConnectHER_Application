@@ -8,6 +8,7 @@ import skillsSaga from './skills.saga';
 import profileSaga from './profile.saga';
 import skillsCategories from './skillCategories.saga';
 import demographicSaga from './demographic.saga';
+import favoritesSaga from './favorites.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -28,5 +29,6 @@ export default function* rootSaga() {
     skillsSaga(),
     skillsCategories(),
     demographicSaga(),
+    favoritesSaga(),
   ]);
 }

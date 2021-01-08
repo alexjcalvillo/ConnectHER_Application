@@ -12,6 +12,16 @@ import style_list from '../../styles/list'; // custom styles object
 class MemberItem extends Component {
   state = { defaultModal: false, isOpen: false, isFavorite: false };
 
+  componentDidMount() {
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === true
+    )
+      this.setState({ ...this.state, isFavorite: true });
+  }
+
   toggleModal = (state) => {
     this.setState({
       [state]: !this.state[state],
@@ -34,16 +44,45 @@ class MemberItem extends Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!this.state.isFavorite) {
-      this.setState({
-        ...this.state,
-        isFavorite: true,
-      });
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === false
+    ) {
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: true,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'POST_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.member.user_id}`,
+              favoriteType: 'member',
+            },
+          });
+        }
+      );
     } else {
-      this.setState({
-        ...this.state,
-        isFavorite: false,
-      });
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: false,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'PUT_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.member.user_id}`,
+              favoriteType: 'member',
+            },
+          });
+        }
+      );
     }
   };
 
@@ -51,10 +90,16 @@ class MemberItem extends Component {
 
   render() {
     const { member } = this.props;
+    let favoriteIconColor = function_list.favoriteIconHandler(false);
 
-    let favoriteIconColor = function_list.favoriteIconHandler(
-      this.state.isFavorite
-    );
+    if (
+      function_list.checkFavorite({
+        id: this.props.member.user_id,
+        array: this.props.store.favorites.member,
+      }) === true
+    ) {
+      favoriteIconColor = function_list.favoriteIconHandler(true);
+    }
 
     return (
       <>

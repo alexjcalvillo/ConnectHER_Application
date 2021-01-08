@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const router: express.Router = express.Router();
 
-
 //-----------------------------
 //         GET ROUTES         |
 //-----------------------------

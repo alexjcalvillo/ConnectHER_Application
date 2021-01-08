@@ -6,9 +6,6 @@ import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 
-//import BootstrapTable from 'react-bootstrap-table-next';
-//import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
-
 class SpeakerList extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
@@ -19,6 +16,13 @@ class SpeakerList extends React.Component {
 
   componentDidMount() {
     document.title = 'Find a Speaker';
+    if (
+      function_list.checkFavorite({
+        id: this.props.speaker.id,
+        array: this.props.store.favorites.speaker,
+      }) === true
+    )
+      this.setState({ ...this.state, isFavorite: true });
   }
 
   toggleModal = (state) => {
@@ -35,24 +39,61 @@ class SpeakerList extends React.Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!this.state.isFavorite) {
-      this.setState({
-        ...this.state,
-        isFavorite: true,
-      });
+    if (
+      function_list.checkFavorite({
+        id: this.props.speaker.id,
+        array: this.props.store.favorites.speaker,
+      }) === false
+    ) {
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: true,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'POST_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.speaker.id}`,
+              favoriteType: 'speaker',
+            },
+          });
+        }
+      );
     } else {
-      this.setState({
-        ...this.state,
-        isFavorite: false,
-      });
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: false,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'PUT_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.speaker.id}`,
+              favoriteType: 'speaker',
+            },
+          });
+        }
+      );
     }
   };
   /*-----> CASTOR <-----*/
 
   render() {
-    let favoriteIconColor = function_list.favoriteIconHandler(
-      this.state.isFavorite
-    );
+    let favoriteIconColor = function_list.favoriteIconHandler(false);
+
+    if (
+      function_list.checkFavorite({
+        id: this.props.speaker.id,
+        array: this.props.store.favorites.speaker,
+      }) === true
+    ) {
+      favoriteIconColor = function_list.favoriteIconHandler(true);
+    }
+
     return (
       <>
         <Card

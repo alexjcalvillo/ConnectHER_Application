@@ -27,6 +27,10 @@ function* fetchUser() {
       type: 'GET_PROFILE_SKILLS',
       payload: response.data.id,
     });
+    yield put({
+      type: 'GET_FAVORITES',
+      payload: response.data.id,
+    });
   } catch (error) {
     console.log('User get request failed', error);
   }
