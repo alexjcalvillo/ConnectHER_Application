@@ -9,8 +9,10 @@ import ContactForm from '../ContactForm/ContactForm';
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 
+let isFavorite;
+
 class MemberItem extends Component {
-  state = { defaultModal: false, isOpen: false, isFavorite: false };
+  state = { defaultModal: false, isOpen: false };
 
   toggleModal = (state) => {
     this.setState({
@@ -34,16 +36,38 @@ class MemberItem extends Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!this.state.isFavorite) {
-      this.setState({
-        ...this.state,
-        isFavorite: true,
-      });
+    if (!isFavorite) {
+      this.setState(
+        {
+          ...this.state,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'POST_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.member.user_id}`,
+              favoriteType: 'member',
+            },
+          });
+        }
+      );
     } else {
-      this.setState({
-        ...this.state,
-        isFavorite: false,
-      });
+      this.setState(
+        {
+          ...this.state,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'PUT_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.member.user_id}`,
+              favoriteType: 'member',
+            },
+          });
+        }
+      );
     }
   };
 
@@ -51,10 +75,15 @@ class MemberItem extends Component {
 
   render() {
     const { member } = this.props;
+    isFavorite = false;
+    let favoriteIconColor = function_list.favoriteIconHandler(false);
 
-    let favoriteIconColor = function_list.favoriteIconHandler(
-      this.state.isFavorite
-    );
+    for (let i = 0; i < this.props.store.favorites.member.length; i++) {
+      if (member.user_id == this.props.store.favorites.member[i]) {
+        favoriteIconColor = function_list.favoriteIconHandler(true);
+        isFavorite = true;
+      }
+    }
 
     return (
       <>

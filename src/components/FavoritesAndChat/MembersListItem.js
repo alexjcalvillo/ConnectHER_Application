@@ -15,9 +15,21 @@ class MembersListItem extends Component {
   };
 
   delete = () => {
-    this.setState({
-      delete: true,
-    });
+    this.setState(
+      {
+        delete: true,
+      },
+      () => {
+        this.props.dispatch({
+          type: 'PUT_FAVORITES',
+          payload: {
+            userId: this.props.store.user.id,
+            favoriteId: `${this.props.member.user_id}`,
+            favoriteType: 'member',
+          },
+        });
+      }
+    );
   };
   render() {
     let member = this.props.member;

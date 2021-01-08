@@ -52,6 +52,7 @@ router.post(
     const favoriteId: string = req.body.favoriteId;
     const favoriteType: string = req.body.favoriteType;
 
+    console.log(req.params, req.body);
     pool
       .query(
         `INSERT INTO "favorites" ("user_id", "favorite_id", "favorite_type")
@@ -68,15 +69,16 @@ router.post(
   }
 );
 
-router.delete(
+router.put(
   '/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
     const favoriteId: string = req.body.favoriteId;
+    const favoriteType: string = req.body.favoriteType;
 
     pool
       .query(
-        `DELETE FROM "favorites" WHERE "user_id" = $1 AND favorite_id = $2;`,
-        [req.params.id, favoriteId]
+        `DELETE FROM "favorites" WHERE "user_id" = $1 AND "favorite_id" = $2 AND "favorite_type" = $3;`,
+        [req.params.id, favoriteId, favoriteType]
       )
       .then(() => {
         res.sendStatus(200);
