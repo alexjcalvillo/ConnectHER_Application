@@ -17,6 +17,7 @@ import './App.css';
 
 // Pages
 import {
+  AdminOverviewPage,
   AdminPage,
   BusinessPage,
   LandingPage,
@@ -72,6 +73,13 @@ class App extends Component {
               exact
               path="/admin"
               component={AdminPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows UserPage else shows LoginPage
+              exact
+              path="/admin-overview"
+              component={AdminOverviewPage}
             />
 
             <ProtectedRoute

@@ -8,8 +8,10 @@ import SpacesPage from './SpacesPage/SpacesPage';
 import SpeakerPage from './SpeakerPage/SpeakerPage';
 import UserPage from './UserPage/UserPage';
 import AdminPage from './AdminPage/AdminPage';
+import AdminOverviewPage from './AdminOverviewPage/AdminOverviewPage';
 
 export {
+  AdminOverviewPage,
   AdminPage,
   BusinessPage,
   LandingPage,
