@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Col, Row } from 'reactstrap';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import BusinessList from '../../components/BusinessList/BusinessList';
+import './BusinessPage.css';
+import style_list from '../../styles/list';
 
 class SpeakerPage extends Component {
   state = { defaultModal: false, isOpen: false };
@@ -35,10 +37,13 @@ class SpeakerPage extends Component {
         style={{ background: 'none', borderRadius: '0px', border: 'none' }}
       >
         <CardHeader> */}
-        <h1
-          style={{ fontFamily: 'Cabin', textAlign: 'center' }}
-          className="mt-5 mb-5 display-1"
-        >
+        <h1 className="spaces-laptop" style={style_list.pageTitles.laptop}>
+          Businesses
+        </h1>
+        <h1 className="spaces-tablet" style={style_list.pageTitles.tablet}>
+          Businesses
+        </h1>
+        <h1 className="spaces-phone" style={style_list.pageTitles.phone}>
           Businesses
         </h1>
         <Row>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import _ from 'lodash';
+import LogOutButton from '../../components/LogOutButton/LogOutButton';
 
 import {
   Container,
@@ -531,6 +532,9 @@ class ProfilePage extends Component {
                         <Button outline color="primary" size="sm">
                           Contact Me
                         </Button>
+
+                        {/* <i className="ni ni-user-run" style={{ color: '#888' }} /> */}
+                        <LogOutButton />
                       </Col>
                     </Row>
                     <br />

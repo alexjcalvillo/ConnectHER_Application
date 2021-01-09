@@ -112,14 +112,7 @@ class LandingPage extends Component {
                 </Card>
                 <div className="copyright">
                   {' '}
-                  <span
-                    style={{
-                      color: 'white',
-                      fontSize: 13.5,
-                      textAlign: 'center',
-                      opacity: 0.8,
-                    }}
-                  >
+                  <span>
                     {' '}
                     &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy
@@ -139,7 +132,7 @@ class LandingPage extends Component {
               >
                 <Card style={{ borderRadius: '0 0 5px 5px' }}>
                   <CardBody
-                    className="login card"
+                    className="login"
                     style={{ borderRadius: '0 0 5px 5px' }}
                   >
                     <RegistrationOptions />
@@ -147,14 +140,7 @@ class LandingPage extends Component {
                 </Card>
                 <div className="copyright">
                   {' '}
-                  <span
-                    style={{
-                      color: 'white',
-                      fontSize: 13.5,
-                      textAlign: 'center',
-                      opacity: 0.8,
-                    }}
-                  >
+                  <span>
                     {' '}
                     &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy

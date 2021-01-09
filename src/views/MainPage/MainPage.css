@@ -17,7 +17,7 @@
   }
 }
 
-@media only screen and (min-width: 401px) {
+@media only screen and (max-width: 768px) and (min-width: 400px) {
   .altBanner {
     margin-top: -20px;
     margin-bottom: 5px;
@@ -37,21 +37,21 @@
 }
 
 @media only screen and (max-width: 400px) {
-  .phone {
-    margin-top: 10px;
-    margin-bottom: -10px;
-    padding-bottom: -40px;
-    background-image: url(phoneBanner.png);
-    background-size: cover;
-    height: 70px;
-    width: auto;
-    box-shadow: 0 2px 4px #11111150;
-  }
   .welcomeBanner {
     display: none;
   }
   .altBanner {
     display: none;
+  }
+  .phone {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: -40px;
+    background-image: url(phoneBanner1.png);
+    background-size: cover;
+    height: 200px;
+    width: auto;
+    box-shadow: 0 2px 4px #11111150;
   }
 }
 
@@ -61,12 +61,6 @@
   margin-top: 0px;
   margin-bottom: 8px;
   box-shadow: 0 2px 4px #11111150;
-}
-
-@media only screen and (max-width: 767px) {
-  .rounded-divider {
-    display: none;
-  }
 }
 
 .spacing {

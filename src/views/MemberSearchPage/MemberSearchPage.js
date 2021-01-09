@@ -28,8 +28,11 @@ class MemberSearchPage extends Component {
       case 3:
         searchTerm = 'organization_name';
         break;
+      case 4:
+        searchTerm = 'skills';
+        break;
       default:
-        searchTerm = 'job_title';
+        searchTerm = 'display_name';
         break;
     }
     this.setState({
@@ -58,9 +61,9 @@ class MemberSearchPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={{ size: 2, offset: 3 }} xs={12}>
+            <Col lg={{ size: 2, offset: 2 }} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
@@ -72,26 +75,38 @@ class MemberSearchPage extends Component {
             </Col>
             <Col lg={2} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(1)}
-                active={this.state.rSelected === 1}
+                onClick={() => this.buttonClick(2)}
+                active={this.state.rSelected === 2}
               >
                 Community Role
               </Button>
             </Col>
             <Col lg={2} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
+                block
+                outline
+                color="primary"
+                onClick={() => this.buttonClick(3)}
+                active={this.state.rSelected === 3}
+              >
+                Organization
+              </Button>
+            </Col>
+            <Col lg={2} xs={12}>
+              <Button
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(1)}
-                active={this.state.rSelected === 1}
+                onClick={() => this.buttonClick(4)}
+                active={this.state.rSelected === 4}
               >
-                Community Role
+                Skills
               </Button>
             </Col>
           </Row>

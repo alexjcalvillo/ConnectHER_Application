@@ -1,0 +1,26 @@
+@media only screen and (min-width: 769px) {
+  .spaces-tablet {
+    display: none;
+  }
+  .spaces-phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 400px) {
+  .spaces-laptop {
+    display: none;
+  }
+  .spaces-phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .spaces-laptop {
+    display: none;
+  }
+  .spaces-tablet {
+    display: none;
+  }
+}

@@ -10,9 +10,8 @@ const loginMessage = (state = '', action) => {
       alert('Enter your username and password!');
     case 'LOGIN_FAILED':
       alert('Please check your username and password and try again.');
-
     case 'LOGIN_FAILED_NO_CODE':
-      alert('Oops! Something went wrong! Is the server running?');
+      return state;
     default:
       return state;
   }

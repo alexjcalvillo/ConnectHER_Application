@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
@@ -88,9 +87,6 @@ const Nav = (props) => {
                 />
                 Admin
               </Link>
-
-              {/* <i className="ni ni-user-run" style={{ color: '#888' }} /> */}
-              <LogOutButton />
             </>
           )}
         </div>

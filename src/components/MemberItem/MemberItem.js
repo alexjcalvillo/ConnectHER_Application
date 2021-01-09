@@ -152,12 +152,14 @@ class MemberItem extends Component {
                 </div>
                 <p
                   style={{
-                    fontSize: '13px',
+                    fontSize: '14px',
                     width: '100%',
                     textAlign: 'center',
                     height: '49px',
                     maxHeight: '49px',
                     overflow: 'scroll',
+                    color: '#111111d0',
+                    fontFamily: 'lato',
                   }}
                 >
                   {member.job_title} at {member.organization_name}
