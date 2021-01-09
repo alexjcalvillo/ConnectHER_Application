@@ -3,6 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* postForm(action) {
+  console.log('made it to registration form saga', action);
   try {
     const id = yield put({
       type: 'GET_USER',

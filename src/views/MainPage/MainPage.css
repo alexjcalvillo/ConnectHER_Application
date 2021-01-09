@@ -1,8 +1,7 @@
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 769px) {
   .welcomeBanner {
     margin-top: -40px;
     margin-bottom: -10px;
-
     padding-bottom: -40px;
     background-image: url(finalBanner.png);
     background-size: cover;
@@ -10,10 +9,48 @@
     width: auto;
     box-shadow: 0 2px 4px #11111150;
   }
+  .altBanner {
+    display: none;
+  }
+  .phone {
+    display: none;
+  }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 401px) {
+  .altBanner {
+    margin-top: -20px;
+    margin-bottom: 5px;
+    padding-bottom: -40px;
+    background-image: url(altBanner.png);
+    background-size: cover;
+    height: 200px;
+    width: auto;
+    box-shadow: 0 2px 4px #11111150;
+  }
   .welcomeBanner {
+    display: none;
+  }
+  .phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .phone {
+    margin-top: 10px;
+    margin-bottom: -10px;
+    padding-bottom: -40px;
+    background-image: url(phoneBanner.png);
+    background-size: cover;
+    height: 70px;
+    width: auto;
+    box-shadow: 0 2px 4px #11111150;
+  }
+  .welcomeBanner {
+    display: none;
+  }
+  .altBanner {
     display: none;
   }
 }

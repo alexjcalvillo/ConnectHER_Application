@@ -1,4 +1,3 @@
-import swal from 'sweetalert';
 import { combineReducers } from 'redux';
 
 // loginMessage holds the string that will display
@@ -8,12 +7,12 @@ const loginMessage = (state = '', action) => {
     case 'CLEAR_LOGIN_ERROR':
       return '';
     case 'LOGIN_INPUT_ERROR':
-      return 'Enter your username and password!';
+      alert('Enter your username and password!');
     case 'LOGIN_FAILED':
-      return swal('Hello world!');
+      alert('Please check your username and password and try again.');
 
     case 'LOGIN_FAILED_NO_CODE':
-      return 'Oops! Something went wrong! Is the server running?';
+      alert('Oops! Something went wrong! Is the server running?');
     default:
       return state;
   }

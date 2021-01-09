@@ -77,6 +77,48 @@ class MainPage extends Component {
                 Welcome to InnovateHER KC!
               </h3>
             </Card>
+            <Card className="altBanner">
+              <h3
+                style={{
+                  color: 'white',
+                  backgroundColor: '#17c3ca',
+                  marginTop: '70px',
+                  marginBottom: 0,
+                  paddingTop: 8,
+                  paddingBottom: 8,
+                  marginLeft: 255,
+                  marginRight: '-1px',
+                  paddingLeft: 35,
+                  fontSize: 30,
+                  fontFamily: 'Cabin',
+                  borderRadius: '5px 0 0 5px',
+                  boxShadow: '0 2px 4px #11111150',
+                }}
+              >
+                Welcome to InnovateHER KC!
+              </h3>
+            </Card>
+            <Card className="phone">
+              <h3
+                style={{
+                  color: 'white',
+                  backgroundColor: '#17c3ca',
+                  marginTop: '20px',
+                  marginBottom: 0,
+                  paddingTop: 1,
+                  paddingBottom: 1,
+                  marginLeft: 90,
+                  marginRight: '-1px',
+                  paddingLeft: 35,
+                  fontSize: 18,
+                  fontFamily: 'Cabin',
+                  borderRadius: '5px 0 0 5px',
+                  boxShadow: '0 2px 4px #11111150',
+                }}
+              >
+                Welcome to InnovateHER KC!
+              </h3>
+            </Card>
           </Col>
         </Row>
         <hr className="rounded-divider" />
