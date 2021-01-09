@@ -30,6 +30,20 @@ Grid
   }
 }
 
+@media only screen and (min-width: 767px) {
+  .background {
+    margin-top: 80px;
+    padding-left: 0px;
+    background-image: url('backgroundImage.png');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 1000px;
+  }
+}
+
 .form {
   margin-top: 90px;
 }
@@ -39,12 +53,19 @@ Grid
   box-shadow: 0 2px 4px #11111150;
   border-radius: 5px;
   border: 3px solid #f7fafc;
-  height: 260px;
+  height: auto;
 }
 
-.tabbing {
-  padding-left: 35px;
+@media only screen and (max-width: 767px) {
+  .login {
+    border: 3px solid #f7fafc;
+    box-shadow: 0 2px 4px #11111150;
+    border-radius: 5px;
+    border: 3px solid #f7fafc;
+    height: auto;
+  }
 }
+
 .login-link {
   /* float: left; */
   color: #888;

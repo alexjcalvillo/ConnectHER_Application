@@ -30,7 +30,7 @@ const heart = {
 
 const detailsImageContainer = {
   cursor: 'pointer',
-  marginTop: '-92px',
+  marginTop: '-87px',
   marginLeft: 'auto',
   marginRight: 'auto',
   width: '125px',
@@ -43,6 +43,8 @@ const detailsImageContainer = {
 };
 
 const detailsTitle = {
+  fontFamily: 'cabin',
+  color: '#111111d0',
   width: '95%',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -54,6 +56,8 @@ const detailsTitle = {
 };
 
 const detailsP1 = {
+  fontFamily: 'cabin',
+  color: '#11111150',
   fontSize: '15px',
   width: '100%',
   textAlign: 'center',
@@ -63,6 +67,8 @@ const detailsP1 = {
 };
 
 const detailsP2 = {
+  fontFamily: 'cabin',
+  color: '#11111150',
   fontSize: '13px',
   width: '100%',
   textAlign: 'center',

@@ -122,12 +122,13 @@ class BusinessList extends React.Component {
 
                 <hr
                   style={{
-                    marginTop: '-5px',
+                    marginTop: '-10px',
                   }}
                 />
                 <Button
                   block
                   outline
+                  style={{ marginTop: '-20px' }}
                   color="primary"
                   size="sm"
                   onClick={() => this.toggleModal('defaultModal')}
@@ -140,12 +141,13 @@ class BusinessList extends React.Component {
           </CardBody>
         </Card>
         <Modal
-          className="modal-dialog-centered modal-primary"
+          className="modal-dialog-centered"
           size="lg"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
         >
           <button
+            style={{ backgroundColor: 'white' }}
             aria-label="Close"
             className="close m-2 "
             data-dismiss="modal"
@@ -154,7 +156,13 @@ class BusinessList extends React.Component {
           >
             <span aria-hidden={true}>×</span>
           </button>
-          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+            }}
+          >
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
@@ -168,17 +176,35 @@ class BusinessList extends React.Component {
                     ][0] &&
                     function_list.detailsCardImage(image).modalTag}
                 </div>
-                <div className="mt-4 display-4">
+                <div
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'Cabin',
+                  }}
+                  className="mt-4 display-4"
+                >
                   {' '}
                   {this.props.business.fields['Organization Name']}
                 </div>
-                <p>{this.props.business.fields['Business Category']}</p>
-                <p>
+                <p
+                  style={{
+                    color: '#11111150',
+                    fontFamily: 'Cabin',
+                  }}
+                >
+                  {this.props.business.fields['Business Category']}
+                  <br></br>
                   Womxn Owned?: {this.props.business.fields['Womxn Owned?']}
                 </p>
               </Col>
               <Col lg={6} className="text-left p-5">
-                <ul style={{ listStyleType: 'none' }}>
+                <ul
+                  style={{
+                    listStyleType: 'none',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                  }}
+                >
                   <li className="mb-2">
                     <i
                       style={{ cursor: 'pointer' }}
@@ -206,7 +232,14 @@ class BusinessList extends React.Component {
             <hr />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
-                <p className="font-weight-light mt-2">
+                <p
+                  style={{
+                    listStyleType: 'none',
+                    color: '#111111d0',
+                    fontFamily: 'lato',
+                  }}
+                  className="font-weight-light mt-2"
+                >
                   {this.props.business.fields['Business Description']}
                 </p>
               </Col>

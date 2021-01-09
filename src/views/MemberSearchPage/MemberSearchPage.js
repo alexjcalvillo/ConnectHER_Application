@@ -43,13 +43,13 @@ class MemberSearchPage extends Component {
       <>
         <Container className="member-background">
           <Row>
-            <Col lg={{ size: 10, offset: 1 }} className="text-right pt-2">
+            <Col lg={{ size: 12 }} className="text-right pt-2">
               <h1
                 className="display-3"
                 style={{
                   fontFamily: 'cabin',
                   textAlign: 'center',
-                  fontSize: 45,
+                  fontSize: '3vw',
                 }}
               >
                 Search the Community | Connect with Womxn
@@ -58,21 +58,7 @@ class MemberSearchPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={{ size: 2, offset: 2 }} xs={4} className="text-right pt-2">
-              <h3
-                style={{
-                  color: 'gray',
-                  marginTop: '0',
-                  marginBottom: 5,
-                  marginLeft: 10,
-                  fontSize: 30,
-                  fontFamily: 'Cabin',
-                }}
-              >
-                Search By:
-              </h3>
-            </Col>
-            <Col lg={{ size: 2 }} xs={12}>
+            <Col lg={{ size: 2, offset: 3 }} xs={12}>
               <Button
                 style={style_list.register.button}
                 outline

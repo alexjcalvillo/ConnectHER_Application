@@ -178,12 +178,15 @@ class MemberItem extends Component {
           </CardBody>
         </Card>
         <Modal
-          className="modal-dialog-centered modal-primary"
+          className="modal-dialog-centered"
           size="lg"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
         >
           <button
+            style={{
+              backgroundColor: 'white',
+            }}
             aria-label="Close"
             className="close m-2 "
             data-dismiss="modal"
@@ -194,7 +197,13 @@ class MemberItem extends Component {
               ×
             </span>
           </button>
-          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+            }}
+          >
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
@@ -214,20 +223,34 @@ class MemberItem extends Component {
                     alt="img"
                   />
                 </div>
-                <div className="mt-4 display-4">
+                <div
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                    fontWeight: 'bold',
+                  }}
+                  className="mt-4 display-4"
+                >
                   {' '}
                   {member.first_name} {member.last_name}
                 </div>
-                <p>
+                <p
+                  style={{
+                    color: '#11111150',
+                    fontFamily: 'cabin',
+                    fontWeight: 'bold',
+                  }}
+                >
                   {member.job_title} at {member.organization_name}
                 </p>
                 <Button
-                  className="mt-5"
                   style={{
-                    color: '17C3CA',
-                    marginTop: -20,
+                    marginTop: '-100px !important',
                     border: '1px solid white',
-                    backgroundColor: '#bceef0',
+                    width: '150px',
+                    backgroundColor: '#17c3ca',
+                    border: '1px solid #17c3ca',
+                    color: '#f7fafc',
                     boxShadow: '0 2px 4px #11111150',
                   }}
                   outline
@@ -239,7 +262,14 @@ class MemberItem extends Component {
                 </Button>
               </Col>
               <Col lg={6} className="text-left p-5">
-                <h3 className="lead mb-0" style={{ marginTop: '0px' }}>
+                <h3
+                  className="lead mb-0"
+                  style={{
+                    marginTop: '0px',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                  }}
+                >
                   Skills:
                 </h3>
                 <div
@@ -267,8 +297,23 @@ class MemberItem extends Component {
             <hr />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
-                <p className="lead mb-0">Bio: </p>
-                <p>{member.bio}</p>
+                <p
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                  }}
+                  className="lead mb-0"
+                >
+                  Bio:{' '}
+                </p>{' '}
+                <p
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'lato',
+                  }}
+                >
+                  {member.bio}
+                </p>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -279,7 +324,7 @@ class MemberItem extends Component {
                   <i
                     className="fa fa-instagram"
                     style={{
-                      fontSize: '30px',
+                      fontSize: '35px',
                       background:
                         'linear-gradient(220deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
                       WebkitTextFillColor: 'transparent',
@@ -297,7 +342,7 @@ class MemberItem extends Component {
                   <i
                     className="fa fa-facebook-official"
                     style={{
-                      fontSize: '30px',
+                      fontSize: '35px',
                       color: '#4267B2',
                       verticalAlign: 'middle',
                     }}
@@ -312,7 +357,7 @@ class MemberItem extends Component {
                   <i
                     className="fa fa-linkedin-square"
                     style={{
-                      fontSize: '30px',
+                      fontSize: '35px',
                       color: '#2867B2',
                       verticalAlign: 'middle',
                     }}
@@ -327,7 +372,7 @@ class MemberItem extends Component {
                   <i
                     className="fa fa-twitter-square"
                     style={{
-                      fontSize: '30px',
+                      fontSize: '35px',
                       color: '#1DA1F2',
                       verticalAlign: 'middle',
                     }}

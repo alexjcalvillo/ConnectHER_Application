@@ -37,7 +37,7 @@ class SpacesPage extends Component {
         <CardHeader> */}
         <h1
           style={{ fontFamily: 'Cabin', textAlign: 'center' }}
-          className="mt-5 mb-5 display-1"
+          className="mt-5 mb-5 display-1 block"
         >
           Spaces
         </h1>

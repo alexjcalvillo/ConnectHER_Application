@@ -146,12 +146,14 @@ class SpeakerList extends React.Component {
                     height: '49px',
                     maxHeight: '49px',
                     overflow: 'scroll',
+                    fontFamily: 'cabin',
+                    color: '#11111150',
                   }}
                 >
                   {this.props.speaker.fields.Title}
                   {' at '} {this.props.speaker.fields.Organization}
                 </p>
-                <hr style={{ marginTop: '-5px' }} />
+                <hr style={{ marginTop: '-12px' }} />
                 <Button
                   block
                   outline
@@ -167,13 +169,14 @@ class SpeakerList extends React.Component {
           </CardBody>
         </Card>
         <Modal
-          className="modal-dialog-centered modal-primary"
+          className="modal-dialog-centered"
           size="lg"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
         >
           <button
             aria-label="Close"
+            style={{ backgroundColor: 'white' }}
             className="close m-2 "
             data-dismiss="modal"
             type="button"
@@ -181,7 +184,13 @@ class SpeakerList extends React.Component {
           >
             <span aria-hidden={true}>×</span>
           </button>
-          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+            }}
+          >
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
@@ -205,17 +214,30 @@ class SpeakerList extends React.Component {
                       />
                     )}
                 </div>
-                <div className="mt-4 display-4">
+                <div
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                    fontWeight: 'bold',
+                  }}
+                  className="mt-4 display-4"
+                >
                   {' '}
                   {this.props.speaker.fields.Name}
                 </div>
-                <p>
+                <p style={{ color: '#11111150', fontFamily: 'cabin' }}>
                   {this.props.speaker.fields.Title}
                   {' at '} {this.props.speaker.fields.Organization}
                 </p>
               </Col>
               <Col lg={6} className="text-left p-5">
-                <ul style={{ listStyleType: 'none' }}>
+                <ul
+                  style={{
+                    listStyleType: 'none',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                  }}
+                >
                   <li className="mb-2">
                     <i
                       style={{ cursor: 'pointer' }}
@@ -243,7 +265,10 @@ class SpeakerList extends React.Component {
             <hr />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
-                <p className="font-weight-light mt-2">
+                <p
+                  style={{ color: '#111111d0', fontFamily: 'lato' }}
+                  className="font-weight-light mt-2"
+                >
                   {this.props.speaker.fields['Speaker Bio']}
                 </p>
                 {/*</Row>*/}

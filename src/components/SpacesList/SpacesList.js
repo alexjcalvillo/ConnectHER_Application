@@ -119,7 +119,7 @@ class SpacesList extends React.Component {
 
                 <hr
                   style={{
-                    marginTop: '-5px',
+                    marginTop: '-11px',
                   }}
                 />
                 <Button
@@ -137,7 +137,7 @@ class SpacesList extends React.Component {
           </CardBody>
         </Card>
         <Modal
-          className="modal-dialog-centered modal-primary"
+          className="modal-dialog-centered"
           size="lg"
           isOpen={this.state.defaultModal}
           toggle={() => this.toggleModal('defaultModal')}
@@ -151,7 +151,13 @@ class SpacesList extends React.Component {
           >
             <span aria-hidden={true}>×</span>
           </button>
-          <ModalBody style={{ backgroundColor: '#17C3CA' }}>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+            }}
+          >
             <Row>
               <Col lg={1}></Col>
               <Col lg={5}>
@@ -161,15 +167,35 @@ class SpacesList extends React.Component {
                     this.props.space.fields.Pictures[0] &&
                     function_list.detailsCardImage(image).modalTag}
                 </div>
-                <div className="mt-4 display-4">
+                <div
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'Cabin',
+                  }}
+                  className="mt-4 display-4"
+                >
                   {' '}
                   {this.props.space.fields['Space Name']}
                 </div>
-                <p>Capacity: {this.props.space.fields.Capacity}</p>
-                <p>Womxn Owned?: {this.props.space.fields['Womxn Owned?']}</p>
+                <p
+                  style={{
+                    color: '#11111150',
+                    fontFamily: 'cabin',
+                  }}
+                >
+                  Capacity: {this.props.space.fields.Capacity}
+                  <br></br>
+                  Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
+                </p>
               </Col>
               <Col lg={6} className="text-left p-5">
-                <ul style={{ listStyleType: 'none' }}>
+                <ul
+                  style={{
+                    listStyleType: 'none',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                  }}
+                >
                   <li className="mb-2">
                     <i
                       style={{ cursor: 'pointer' }}
@@ -197,7 +223,13 @@ class SpacesList extends React.Component {
             <hr />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
-                <p className="font-weight-light mt-2">
+                <p
+                  style={{
+                    color: '#111111d0',
+                    fontFamily: 'lato',
+                  }}
+                  // className="font-weight-light mt-2"
+                >
                   Amenities: {this.props.space.fields.Amenities}
                 </p>
               </Col>
