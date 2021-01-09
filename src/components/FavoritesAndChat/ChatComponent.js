@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import ChatUser from './ChatUser';
+import ChatBox from './ChatBox';
 
 class ChatComponent extends Component {
   state = {
@@ -48,7 +49,7 @@ class ChatComponent extends Component {
         </>
       );
     } else {
-      Content = <div></div>;
+      Content = <ChatBox />;
     }
 
     return (

@@ -42,6 +42,10 @@ import SkillsSelector from '../components/SkillsSelector/SkillsSelector';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' });
+
+    this.props.dispatch({
+      type: 'FETCH_ALL_PROFILES',
+    });
   }
 
   render() {
