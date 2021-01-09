@@ -106,10 +106,13 @@
 
 .favoriteTitle {
   padding-top: 2px;
+  margin-left: 35px;
   margin-bottom: 2px;
   height: 33px;
+  width: 230px;
   vertical-align: middle;
   color: #111111d0;
+  overflow: hidden;
 }
 
 .favoriteOption {
@@ -328,15 +331,17 @@
 
 .chatBox {
   background-color: #f7fafc;
-  border-bottom: 2px solid #bceef0;
-  height: 250px;
+  height: 230px;
+  margin-bottom: 20px;
+  overflow: scroll;
   transition: 250ms;
 }
 
 .chatBoxOpened {
   background-color: #f7fafc;
-  border-bottom: 2px solid #bceef0;
-  height: 130px;
+  height: 110px;
+  margin-bottom: 20px;
+  overflow: scroll;
   transition: 250ms;
 }
 
@@ -348,6 +353,8 @@
 }
 .chatMessengerBox {
   background-color: #d6f3f3;
+  border-top: 2px solid #bceef0;
+  margin-top: -2px;
   width: 300px;
   height: 55px;
   display: inline-flex;
@@ -356,6 +363,8 @@
 
 .chatMessengerBoxOpened {
   background-color: #d6f3f3;
+  border-top: 2px solid #bceef0;
+  margin-top: -2px;
   width: 300px;
   height: 170px;
   display: inline-flex;
@@ -375,7 +384,7 @@
   border-bottom: 2px solid #e4e7e9;
   background-color: #f7fafc;
   box-shadow: 0 2px 4px #11111150;
-  padding: 1px 5px;
+  padding: 4px 8px;
   transition: 250ms;
   overflow: hidden;
   overflow-wrap: break-word;
@@ -417,7 +426,6 @@
   text-align: center;
   box-shadow: 0 2px 4px #11111150;
   font-size: 18px;
-  transition-delay: 250ms;
 }
 
 .chatBoxSendOpened {
@@ -445,10 +453,48 @@
   height: inherit;
   width: 75px;
   font-size: inherit;
-  padding-top: 3px;
+  padding-top: 2px;
   border-radius: 25px;
 }
 
 .chatBoxSendText:hover {
   padding-top: 5px;
+}
+
+.messageItem {
+  display: inline-flex;
+}
+
+.messageImageContainer {
+  height: 42px;
+  width: 42px;
+  margin: 5px 5px 0 5px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 4px #11111150;
+}
+
+.messageImage {
+  user-select: none;
+  background-color: black;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.messageTextContainer {
+  margin: 5px 0 0 0;
+}
+
+.messageText {
+  resize: inherit;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 135%;
+  box-shadow: 0 2px 4px #11111150;
+  border-radius: 15px;
+  overflow: hidden;
 }

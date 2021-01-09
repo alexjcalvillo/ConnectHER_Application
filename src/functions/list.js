@@ -9,6 +9,7 @@ import formProgression from './formProgression';
 import alert from './alert';
 import favoritesImage from './favoritesImage';
 import checkFavorite from './checkFavorite';
+import chatMessageHeight from './chatMessageHeight';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -23,6 +24,7 @@ const function_list = {
   alert, // custom alert pop up
   favoritesImage, //resizes images for favorite component
   checkFavorite, // checks to see if component is favorited
+  chatMessageHeight,
 };
 /*-------------------------*/
 

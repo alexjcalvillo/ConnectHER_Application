@@ -28,6 +28,8 @@ class ChatComponent extends Component {
     let memberArray = ['1', '2', '3'];
     let Content;
 
+    let Title = <h2 className="favoriteTitle">Chat</h2>;
+
     if (this.state.view === undefined) {
       Content = (
         <>
@@ -50,13 +52,22 @@ class ChatComponent extends Component {
       );
     } else {
       Content = <ChatBox />;
+      for (let i = 0; i < this.props.store.memberListingsReducer.length; i++)
+        if (
+          this.props.store.memberListingsReducer[i].user_id ===
+          this.state.userId
+        ) {
+          Title = (
+            <h2 className="favoriteTitle">
+              {this.props.store.memberListingsReducer[i].display_name}
+            </h2>
+          );
+        }
     }
 
     return (
       <>
-        <div className="favoriteTitleBox">
-          <h2 className="favoriteTitle">Chat</h2>
-        </div>
+        <div className="favoriteTitleBox">{Title}</div>
         {this.state.view && (
           <div
             className="popupReturn"
