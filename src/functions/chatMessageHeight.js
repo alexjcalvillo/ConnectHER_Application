@@ -1,5 +1,6 @@
 const chatMessageHeight = (message) => {
   let linePercentage = 0.0;
+  let overrideCount = 0;
   let wordPercentage = 0.0;
   let height;
 
@@ -206,13 +207,14 @@ const chatMessageHeight = (message) => {
       linePercentage = 1 - (linePercentage % 1) + linePercentage + 0.01;
       linePercentage += wordPercentage;
       wordPercentage = 0.0;
+      overrideCount += 1 - (linePercentage % 1);
     } else {
       linePercentage += wordPercentage;
       wordPercentage = 0.0;
     }
-
-    console.log(linePercentage);
+    // console.log(linePercentage, paragraphSplitArray[iii], overrideCount); UNCOMMENT TO DEBUG
   }
+
   if (linePercentage < 1.01) {
     height = '32px';
   } else if (linePercentage < 2.01) {
