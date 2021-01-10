@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import profilePic from './profilePic.jpg';
 
 import './MemberItem.css';
 import {
@@ -110,6 +111,33 @@ class MemberItem extends Component {
       favoriteIconColor = function_list.favoriteIconHandler(true);
     }
 
+    let image = (
+      <img
+        src={profilePic}
+        alt="profile headshot"
+        style={{
+          objectFit: 'cover',
+          width: '147px',
+          height: '147px',
+        }}
+        className="profile-pic card-profile-image mb-2"
+      />
+    );
+    if (member.headshot != '' && member.headshot != null) {
+      image = (
+        <img
+          style={{
+            objectFit: 'cover',
+            width: '147px',
+            height: '147px',
+          }}
+          className="profile-pic card-profile-image mb-2"
+          src={member.headshot}
+          alt="alternative"
+        />
+      );
+    }
+
     return (
       <>
         <Card
@@ -137,15 +165,7 @@ class MemberItem extends Component {
                     borderRadius: '50%',
                   }}
                 >
-                  <img
-                    style={{
-                      objectFit: 'cover',
-                      width: '122px',
-                      height: '122px',
-                    }}
-                    src={member.headshot}
-                    alt="img"
-                  />
+                  {image}
                 </div>
                 <div style={style_list.card.detailsTitle}>
                   {member.first_name} {member.last_name}

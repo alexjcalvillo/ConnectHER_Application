@@ -5,7 +5,7 @@ import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
-
+import './SpacesList.css';
 //import BootstrapTable from 'react-bootstrap-table-next';
 //import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
 
@@ -81,7 +81,7 @@ class SpacesList extends React.Component {
       <>
         <Card
           style={style_list.card.base}
-          className="bg-secondary shadow ml-0 mr-0 mb-3"
+          className="card-adjust bg-secondary shadow ml-0 mr-0 mb-3"
         >
           <CardBody style={style_list.card.body}>
             <Row>
@@ -98,6 +98,7 @@ class SpacesList extends React.Component {
                   </div>
                 </div>
                 <div
+                  className="spaces"
                   onClick={() => this.toggleModal('defaultModal')}
                   style={style_list.card.detailsImageContainer}
                 >

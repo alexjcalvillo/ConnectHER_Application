@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import _ from 'lodash';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
+import './ProfilePage.css';
+import function_list from '../../functions/list';
+import style_list from '../../styles/list';
+import profilePic from './profilePic.jpg';
 
 import {
   Container,
@@ -69,6 +73,35 @@ class ProfilePage extends Component {
   };
 
   render() {
+    let image = (
+      <img
+        src={profilePic}
+        alt="profile headshot"
+        style={{
+          objectFit: 'cover',
+          width: '147px',
+          height: '147px',
+        }}
+        className="profile-pic card-profile-image mb-2"
+      />
+    );
+    if (
+      this.props.store.profile.headshot != '' &&
+      this.props.store.profile.headshot != null
+    ) {
+      image = (
+        <img
+          style={{
+            objectFit: 'cover',
+            width: '147px',
+            height: '147px',
+          }}
+          className="profile-pic card-profile-image mb-2"
+          src={this.props.store.profile.headshot}
+          alt="alternative"
+        />
+      );
+    }
     return (
       <Container>
         {this.props && this.props.store && this.props.store.profile && (
@@ -79,14 +112,38 @@ class ProfilePage extends Component {
                 sm={{ size: 12, order: '2' }}
                 xs={{ size: 12, order: '2' }}
               >
-                <Card className="bg-secondary shadow">
-                  <CardHeader className="bg-white">
-                    My Profile:{' '}
+                <Card
+                  style={{
+                    boxShadow: '0 2px 4px #11111150',
+                    borderRadius: '5px',
+                    padding: '0px',
+                    backgroundColor: '#d6f3f3',
+                  }}
+                  className="details-card"
+                >
+                  <CardHeader
+                    style={{
+                      boxShadow: '0 2px 4px #11111150',
+                      borderRadius: '5px',
+                      height: '60px',
+                    }}
+                    className="bg-white"
+                  >
+                    <h2 style={{ marginTop: -5, fontFamily: 'cabin' }}>
+                      My Profile:
+                    </h2>{' '}
                     {_.isEqual(this.state.profile, this.props.store.profile) ? (
                       ''
                     ) : (
                       <Button
-                        style={{ float: 'right' }}
+                        style={{
+                          backgroundColor: '#17c3ca',
+                          border: '1px solid white',
+                          color: '#f7fafc',
+                          boxShadow: '0 2px 4px #11111150',
+                          marginTop: -45,
+                          float: 'right',
+                        }}
                         outline
                         color="primary"
                         onClick={this.updateProfile}
@@ -357,15 +414,29 @@ class ProfilePage extends Component {
                 sm={{ size: 12, order: '1' }}
                 xs={{ size: 12, order: '1' }}
               >
-                <Card className="shadow mb-3">
+                <Card
+                  className="details-card"
+                  style={{
+                    boxShadow: '0 2px 4px #11111150',
+                    borderRadius: '5px',
+                    padding: '0px',
+                    backgroundColor: '#d6f3f3',
+                  }}
+                >
                   <CardBody className="text-center">
                     {this.state.picEdit ? (
                       <Col lg={{ size: 5, offset: 3 }}>
                         <ImageUpload />
                         {this.props.store.imageUrlReducer.avatarPath ? (
                           <Button
-                            outline
-                            color="primary"
+                            style={{
+                              backgroundColor: '#17c3ca',
+                              border: '1px solid white',
+                              color: '#f7fafc',
+                              boxShadow: '0 2px 4px #11111150',
+                              marginTop: -45,
+                              float: 'right',
+                            }}
                             size="sm"
                             onClick={this.updatePic}
                           >
@@ -386,94 +457,145 @@ class ProfilePage extends Component {
                             margin: 'auto',
                           }}
                         >
-                          <img
-                            style={{ objectFit: 'cover' }}
-                            // className="card-profile-image mb-2"
+                          {/* <img
+                            style={{
+                              objectFit: 'cover',
+                              width: '147px',
+                              height: '147px',
+                            }}
+                            className="profile-pic card-profile-image mb-2"
                             src={this.props.store.profile.headshot}
                             alt="profile headshot"
-                          />
+                          /> */}
+                          {image}
                         </div>
-                        <br />
-                        <Button
-                          outline
-                          color="primary"
-                          size="sm"
-                          className="mb-3 mt-3"
-                          onClick={this.switchPic}
-                        >
-                          Change Profile Picture
-                        </Button>
                       </>
                     )}
                     <h3>
-                      {this.props.store.profile.display_name},{' '}
-                      <span className="font-weight-light">
+                      <span
+                        style={{
+                          fontSize: '30px',
+                          fontFamily: 'cabin',
+                          color: '#111111d0',
+                        }}
+                      >
+                        <b>{this.props.store.profile.display_name}</b>
+                      </span>
+                      <br></br>{' '}
+                      <span
+                        style={{
+                          marginTop: '-20px',
+                          fontSize: '20px',
+                          fontFamily: 'lato',
+                          color: '#111111d0',
+                        }}
+                        className="font-weight-light"
+                      >
                         {this.props.store.profile.community_role}
                       </span>
                     </h3>
-                    <p className="lead">
-                      {this.props.store.profile.organization_name},{' '}
-                      {this.props.store.profile.job_title}
+                    <p
+                      style={{
+                        marginTop: -10,
+                        fontSize: '15px',
+                        fontFamily: 'lato',
+                        color: '#111111d0',
+                      }}
+                      className="lead"
+                    >
+                      <i>{this.props.store.profile.organization_name}</i>{' '}
+                    </p>{' '}
+                    <Button
+                      outline
+                      style={{
+                        backgroundColor: '#17c3ca',
+                        border: '1px solid white',
+                        color: '#f7fafc',
+                        boxShadow: '0 2px 4px #11111150',
+                        marginBottom: 15,
+                        marginLeft: 10,
+                        marginTop: -5,
+                      }}
+                      size="sm"
+                      className="profile-button"
+                      onClick={this.switchPic}
+                    >
+                      Change Profile Picture
+                    </Button>
+                    <hr style={{ marginTop: '0px' }} />
+                    <p
+                      style={{
+                        marginTop: -20,
+                        fontSize: '20px',
+                        fontFamily: 'lato',
+                        color: '#111111d0',
+                      }}
+                    >
+                      Skills/Areas of Interest
                     </p>
-                    <hr />
-                    <p>Skills/Areas of Interest</p>
                     <Row>
-                      {this.props.store.profile &&
-                        this.props.store.profile.skills &&
-                        this.props.store.profile.skills.map((item, i) => {
-                          let color;
-                          switch (item.category_id) {
-                            case 1:
-                              color = 'primary';
-                              break;
-                            case 2:
-                              color = 'info';
-                              break;
-                            case 3:
-                              color = 'secondary';
-                              break;
-                            case 4:
-                              color = 'success';
-                              break;
-                            case 5:
-                              color = 'danger';
-                              break;
-                            case 6:
-                              color = 'warning';
-                              break;
-                            case 7:
-                              color = 'primary';
-                              break;
-                            case 8:
-                              color = 'info';
-                              break;
-                            case 9:
-                              color = 'secondary';
-                              break;
-                            case 10:
-                              color = 'success';
-                              break;
-                            case 11:
-                              color = 'danger';
-                              break;
-                            case 12:
-                              color = 'warning';
-                              break;
-                            default:
-                              color = 'primary';
-                              break;
-                          }
-                          return (
-                            <Badge
-                              className="mr-1 mt-1"
-                              key={i}
-                              pill
-                              color={color}
-                            >
-                              {item.skill}
-                            </Badge>
-                          );
-                        })}
+                      <Col
+                        lg={{ size: 10, offset: '1' }}
+                        sm={{ size: 10, offset: '1' }}
+                        xs={{ size: 10, offset: '1' }}
+                      >
+                        {this.props.store.profile &&
+                          this.props.store.profile.skills &&
+                          this.props.store.profile.skills.map((item, i) => {
+                            let color;
+                            switch (item.category_id) {
+                              case 1:
+                                color = 'primary';
+                                break;
+                              case 2:
+                                color = 'info';
+                                break;
+                              case 3:
+                                color = 'secondary';
+                                break;
+                              case 4:
+                                color = 'success';
+                                break;
+                              case 5:
+                                color = 'danger';
+                                break;
+                              case 6:
+                                color = 'warning';
+                                break;
+                              case 7:
+                                color = 'primary';
+                                break;
+                              case 8:
+                                color = 'info';
+                                break;
+                              case 9:
+                                color = 'secondary';
+                                break;
+                              case 10:
+                                color = 'success';
+                                break;
+                              case 11:
+                                color = 'danger';
+                                break;
+                              case 12:
+                                color = 'warning';
+                                break;
+                              default:
+                                color = 'primary';
+                                break;
+                            }
+                            return (
+                              <Badge
+                                className="mr-1 mt-1"
+                                key={i}
+                                pill
+                                color={color}
+                              >
+                                {item.skill}
+                              </Badge>
+                            );
+                          })}
+                      </Col>
                     </Row>
                     <br />
                     <Row>
@@ -529,10 +651,6 @@ class ProfilePage extends Component {
                     <br />
                     <Row>
                       <Col className="text-center">
-                        <Button outline color="primary" size="sm">
-                          Contact Me
-                        </Button>
-
                         {/* <i className="ni ni-user-run" style={{ color: '#888' }} /> */}
                         <LogOutButton />
                       </Col>
