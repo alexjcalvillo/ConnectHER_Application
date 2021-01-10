@@ -51,7 +51,13 @@ class SpacesPage extends Component {
             this.props.store.spaces &&
             this.props.store.spaces.map((space, index) => {
               return (
-                <Col lg={4} md={6} sm={12} className="ml-0 mr-0">
+                <Col
+                  lg={4}
+                  md={6}
+                  sm={12}
+                  className="col-spacing {
+"
+                >
                   <SpacesList space={space} key={index} />
                 </Col>
               );

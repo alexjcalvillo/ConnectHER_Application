@@ -80,7 +80,7 @@ class BusinessList extends React.Component {
       <>
         <Card
           style={style_list.card.base}
-          className="bg-secondary shadow ml-0 mr-0 mb-3"
+          className="card-adjust bg-secondary shadow ml-0 mr-0 mb-3"
         >
           <CardBody style={style_list.card.body}>
             <Row>

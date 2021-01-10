@@ -30,7 +30,7 @@ class SpeakerPage extends Component {
             this.props.store.speakers &&
             this.props.store.speakers.map((speaker, index) => {
               return (
-                <Col lg={4} md={6} sm={12} className="ml-0 mr-0">
+                <Col lg={4} md={6} sm={12} className="col-spacing">
                   <SpeakerList speaker={speaker} key={index} />
                 </Col>
               );

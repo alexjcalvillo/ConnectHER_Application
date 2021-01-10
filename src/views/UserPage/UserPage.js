@@ -12,6 +12,7 @@ import MainPage from '../MainPage/MainPage';
 
 import function_list from '../../functions/list';
 import style_list from '../../styles/list';
+import './UserPage.css';
 
 import {
   Container,
@@ -106,29 +107,32 @@ class UserPage extends Component {
                         style={{
                           textAlign: 'center',
                           color: '#111111d0',
-                          fontSize: 'cabin',
+                          fontFamily: 'cabin !important',
+                          fontSize: '5vw',
                         }}
-                        className="display-2"
+                        className="registration-heading"
                       >
-                        Welcome to the InnovateHER KC Community!
+                        Welcome to the InnovateHER<br></br> KC Community!
                       </h2>
-                      <p
-                        style={{
-                          textAlign: 'center',
-                          color: '#11111150',
-                          fontFamily: 'lato',
-                          marginTop: -10,
-                        }}
-                        className="lead"
-                      >
-                        We'll start with gathering some information about{' '}
-                        <span style={{ color: '#17c3ca' }}>you</span> to help
-                        solidify your place in the community. Through this we
-                        can support the foundation for the six pillars of
-                        InnovateHer KC: Social Connection, Professional
-                        Development, Championship, Amplification, Resource
-                        Sharing, and Mentorship.
-                      </p>
+                      <div className="registration-welcome">
+                        <p
+                          style={{
+                            textAlign: 'center',
+                            color: '#11111150',
+                            fontFamily: 'lato',
+                            marginTop: -10,
+                          }}
+                          className="registration-description"
+                        >
+                          We'll start with gathering some information about{' '}
+                          <span style={{ color: '#17c3ca' }}>you</span> to help
+                          solidify your place in the community. Through this we
+                          can support the foundation for the six pillars of
+                          InnovateHer KC: Social Connection, Professional
+                          Development, Championship, Amplification, Resource
+                          Sharing, and Mentorship.
+                        </p>
+                      </div>
                     </CardBody>
                   </Card>
                 </Col>

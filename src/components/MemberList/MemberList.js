@@ -15,7 +15,7 @@ class MemberList extends Component {
       <Row>
         {this.props.members.map((item, index) => {
           return (
-            <Col key={index} lg={4} md={4} sm={12}>
+            <Col className="col-spacing" key={index} lg={4} md={4} sm={12}>
               <MemberItem key={item.email} member={item} />
             </Col>
           );
