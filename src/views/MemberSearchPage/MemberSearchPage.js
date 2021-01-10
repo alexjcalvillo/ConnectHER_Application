@@ -48,14 +48,67 @@ class MemberSearchPage extends Component {
           <Row>
             <Col lg={{ size: 12 }} className="text-right pt-2">
               <h1
-                className="display-3"
+                className="community-laptop"
                 style={{
+                  marginTop: '-40px',
                   fontFamily: 'cabin',
+                  color: '#111111d0',
                   textAlign: 'center',
-                  fontSize: '3vw',
+                  fontSize: '50px',
                 }}
               >
-                Search the Community | Connect with Womxn
+                Search the Community{' '}
+                <i
+                  style={{
+                    fontSize: '60px',
+                    color: '#ff3858',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />{' '}
+                Connect with Womxn
+              </h1>
+              <h1
+                className="community-tablet"
+                style={{
+                  marginTop: '-40px',
+                  fontFamily: 'cabin',
+                  color: '#111111d0',
+                  textAlign: 'center',
+                  fontSize: '30px',
+                }}
+              >
+                Search the Community{' '}
+                <i
+                  style={{
+                    fontSize: '35px',
+                    color: '#ff3858',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />{' '}
+                Connect with Womxn
+              </h1>
+              <h1
+                className="community-phone"
+                style={{
+                  marginTop: '-10px',
+                  marginBottom: '-20px',
+                  fontFamily: 'cabin',
+                  color: '#111111d0',
+                  textAlign: 'center',
+                  fontSize: '30px',
+                }}
+              >
+                Search the Community <br></br>
+                <i
+                  style={{
+                    fontSize: '35px',
+                    color: '#ff3858',
+                    textAlign: 'center',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />
+                <br></br>
+                Connect with Womxn
               </h1>
               <br />
             </Col>
