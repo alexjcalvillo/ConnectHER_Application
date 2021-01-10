@@ -12,6 +12,10 @@ function* postForm(action) {
       type: 'REGISTER',
       payload: action.payload.form.register,
     });
+    yield put({
+      type: 'MEMBER_LEVEL',
+      payload: action.payload.form.access,
+    });
     yield axios.post(
       `/api/form/register/about/${id}`,
       action.payload.form.about

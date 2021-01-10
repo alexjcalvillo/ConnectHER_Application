@@ -46,4 +46,16 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.post('/level, (req, res, next) => {
+  const user = req.params.Id;
+  const level = req.body.member_level;
+
+  const queryText = `INSERT INTO "member_level" (user_id, member_level)
+    VALUES ($1, $2) RETURNING id`;
+  pool
+    .query(queryText, [user, level])
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(500));
+});
+
 module.exports = router;
