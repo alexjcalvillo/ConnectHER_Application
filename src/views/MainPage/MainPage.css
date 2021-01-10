@@ -1,7 +1,7 @@
 @media only screen and (min-width: 769px) {
   .welcomeBanner {
-    margin-top: -40px;
-    margin-bottom: -10px;
+    margin-top: -75px;
+    margin-bottom: -3px;
     padding-bottom: -40px;
     background-image: url(finalBanner.png);
     background-size: cover;
@@ -19,7 +19,7 @@
 
 @media only screen and (max-width: 768px) and (min-width: 400px) {
   .altBanner {
-    margin-top: -20px;
+    margin-top: -65px;
     margin-bottom: 5px;
     padding-bottom: -40px;
     background-image: url(altBanner.png);
@@ -44,8 +44,8 @@
     display: none;
   }
   .phone {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-bottom: 12px;
     padding-bottom: -40px;
     background-image: url(phoneBanner1.png);
     background-size: cover;

@@ -1,4 +1,8 @@
 @media only screen and (min-width: 769px) {
+  .spaces-laptop {
+    font-size: 5vw !important;
+    color: #111111d0 !important;
+  }
   .spaces-tablet {
     display: none;
   }
@@ -8,6 +12,10 @@
 }
 
 @media only screen and (max-width: 768px) and (min-width: 400px) {
+  .spaces-tablet {
+    color: #111111d0 !important;
+    margin-top: -52px !important;
+  }
   .spaces-laptop {
     display: none;
   }
@@ -17,6 +25,10 @@
 }
 
 @media only screen and (max-width: 400px) {
+  .spaces-phone {
+    color: #111111d0 !important;
+    margin-top: -15px !important;
+  }
   .spaces-laptop {
     display: none;
   }

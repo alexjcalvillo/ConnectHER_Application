@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Container, Col, Row } from 'reactstrap';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import BusinessList from '../../components/BusinessList/BusinessList';
-import './BusinessPage.css';
 import style_list from '../../styles/list';
 
 class SpeakerPage extends Component {
