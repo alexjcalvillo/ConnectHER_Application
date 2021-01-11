@@ -1,6 +1,5 @@
 const doesChatInstanceExist = (data) => {
   let chatInstance;
-  console.log(data);
   if (data.list.length !== 0) {
     for (let i = 0; i < data.list.length; i++) {
       if (
