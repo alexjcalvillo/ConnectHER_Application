@@ -28,8 +28,11 @@ class MemberSearchPage extends Component {
       case 3:
         searchTerm = 'organization_name';
         break;
+      case 4:
+        searchTerm = 'skills';
+        break;
       default:
-        searchTerm = 'job_title';
+        searchTerm = 'display_name';
         break;
     }
     this.setState({
@@ -43,38 +46,77 @@ class MemberSearchPage extends Component {
       <>
         <Container className="member-background">
           <Row>
-            <Col lg={{ size: 10, offset: 1 }} className="text-right pt-2">
+            <Col lg={{ size: 12 }} className="text-right pt-2">
               <h1
-                className="display-3"
+                className="community-laptop"
                 style={{
+                  marginTop: '-40px',
                   fontFamily: 'cabin',
+                  color: '#111111d0',
                   textAlign: 'center',
-                  fontSize: 45,
+                  fontSize: '50px',
                 }}
               >
-                Search the Community | Connect with Womxn
+                Search the Community{' '}
+                <i
+                  style={{
+                    fontSize: '60px',
+                    color: '#ff3858',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />{' '}
+                Connect with Womxn
+              </h1>
+              <h1
+                className="community-tablet"
+                style={{
+                  marginTop: '-40px',
+                  fontFamily: 'cabin',
+                  color: '#111111d0',
+                  textAlign: 'center',
+                  fontSize: '30px',
+                }}
+              >
+                Search the Community{' '}
+                <i
+                  style={{
+                    fontSize: '35px',
+                    color: '#ff3858',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />{' '}
+                Connect with Womxn
+              </h1>
+              <h1
+                className="community-phone"
+                style={{
+                  marginTop: '-10px',
+                  marginBottom: '-20px',
+                  fontFamily: 'cabin',
+                  color: '#111111d0',
+                  textAlign: 'center',
+                  fontSize: '30px',
+                }}
+              >
+                Search the Community <br></br>
+                <i
+                  style={{
+                    fontSize: '35px',
+                    color: '#ff3858',
+                    textAlign: 'center',
+                  }}
+                  class="fa fa-heart m-1 fa-heart-custom"
+                />
+                <br></br>
+                Connect with Womxn
               </h1>
               <br />
             </Col>
           </Row>
           <Row>
-            <Col lg={{ size: 2, offset: 2 }} xs={4} className="text-right pt-2">
-              <h3
-                style={{
-                  color: 'gray',
-                  marginTop: '0',
-                  marginBottom: 5,
-                  marginLeft: 10,
-                  fontSize: 30,
-                  fontFamily: 'Cabin',
-                }}
-              >
-                Search By:
-              </h3>
-            </Col>
-            <Col lg={{ size: 2 }} xs={12}>
+            <Col lg={{ size: 2, offset: 2 }} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
@@ -86,26 +128,38 @@ class MemberSearchPage extends Component {
             </Col>
             <Col lg={2} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(1)}
-                active={this.state.rSelected === 1}
+                onClick={() => this.buttonClick(2)}
+                active={this.state.rSelected === 2}
               >
                 Community Role
               </Button>
             </Col>
             <Col lg={2} xs={12}>
               <Button
-                style={style_list.register.button}
+                // style={style_list.register.button}
+                block
+                outline
+                color="primary"
+                onClick={() => this.buttonClick(3)}
+                active={this.state.rSelected === 3}
+              >
+                Organization
+              </Button>
+            </Col>
+            <Col lg={2} xs={12}>
+              <Button
+                // style={style_list.register.button}
                 outline
                 block
                 color="primary"
-                onClick={() => this.buttonClick(1)}
-                active={this.state.rSelected === 1}
+                onClick={() => this.buttonClick(4)}
+                active={this.state.rSelected === 4}
               >
-                Community Role
+                Skills
               </Button>
             </Col>
           </Row>

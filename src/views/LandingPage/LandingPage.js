@@ -43,7 +43,8 @@ class LandingPage extends Component {
           <Col
             className="tabbing"
             lg={{ size: 8, offset: 2 }}
-            md={{ size: 8, offset: 2 }}
+            md={{ size: 10, offset: 1 }}
+            sm={{ size: 10, offset: 1 }}
           >
             <Nav
               tabs
@@ -98,8 +99,8 @@ class LandingPage extends Component {
               <Col
                 className="tabbing"
                 lg={{ size: 8, offset: 2 }}
-                md={{ size: 8, offset: 2 }}
-                sm={12}
+                md={{ size: 10, offset: 1 }}
+                sm={{ size: 10, offset: 1 }}
                 xs={12}
               >
                 <Card style={{ borderRadius: '0 0 5px 5px' }}>
@@ -112,14 +113,7 @@ class LandingPage extends Component {
                 </Card>
                 <div className="copyright">
                   {' '}
-                  <span
-                    style={{
-                      color: 'white',
-                      fontSize: 13.5,
-                      textAlign: 'center',
-                      opacity: 0.8,
-                    }}
-                  >
+                  <span>
                     {' '}
                     &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy
@@ -133,13 +127,13 @@ class LandingPage extends Component {
               <Col
                 className="tabbing"
                 lg={{ size: 8, offset: 2 }}
-                md={{ size: 8, offset: 2 }}
-                sm={12}
+                md={{ size: 10, offset: 1 }}
+                sm={{ size: 10, offset: 1 }}
                 xs={12}
               >
                 <Card style={{ borderRadius: '0 0 5px 5px' }}>
                   <CardBody
-                    className="login card"
+                    className="login"
                     style={{ borderRadius: '0 0 5px 5px' }}
                   >
                     <RegistrationOptions />
@@ -147,14 +141,7 @@ class LandingPage extends Component {
                 </Card>
                 <div className="copyright">
                   {' '}
-                  <span
-                    style={{
-                      color: 'white',
-                      fontSize: 13.5,
-                      textAlign: 'center',
-                      opacity: 0.8,
-                    }}
-                  >
+                  <span>
                     {' '}
                     &copy; An InnovateHER KC Space | Built with {''}
                     <i className="fa fa-heartbeat" /> by Prime Digital Academy

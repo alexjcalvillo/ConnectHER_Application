@@ -46,6 +46,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
     "style-loader": "^1.2.1",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^10.13.0",
     "sweetalert2-react-content": "^3.2.2",
     "typescript": "^3.7.5",

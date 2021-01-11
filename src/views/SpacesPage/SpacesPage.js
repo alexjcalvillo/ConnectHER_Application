@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import SpacesList from '../../components/SpacesList/SpacesList';
+import './SpacesPage.css';
+import style_list from '../../styles/list';
 
 class SpacesPage extends Component {
   state = { defaultModal: false, isOpen: false };
@@ -35,10 +37,13 @@ class SpacesPage extends Component {
         style={{ background: 'none', borderRadius: '0px', border: 'none' }}
       >
         <CardHeader> */}
-        <h1
-          style={{ fontFamily: 'Cabin', textAlign: 'center' }}
-          className="mt-5 mb-5 display-1"
-        >
+        <h1 className="spaces-laptop" style={style_list.pageTitles.laptop}>
+          Spaces
+        </h1>
+        <h1 className="spaces-tablet" style={style_list.pageTitles.tablet}>
+          Spaces
+        </h1>
+        <h1 className="spaces-phone" style={style_list.pageTitles.phone}>
           Spaces
         </h1>
         <Row>
@@ -46,7 +51,13 @@ class SpacesPage extends Component {
             this.props.store.spaces &&
             this.props.store.spaces.map((space, index) => {
               return (
-                <Col lg={4} className="ml-0 mr-0">
+                <Col
+                  lg={4}
+                  md={6}
+                  sm={12}
+                  className="col-spacing {
+"
+                >
                   <SpacesList space={space} key={index} />
                 </Col>
               );

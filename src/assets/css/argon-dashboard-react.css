@@ -4179,9 +4179,9 @@ button.close {
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 0 solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.4375rem;
-  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.17);
+  box-shadow: 0 2px 4px #11111150 !important;
+  border-radius: 5px !important;
+  padding: 0px;
   outline: 0; }
 
 .modal-backdrop {

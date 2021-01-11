@@ -1,1 +1,26 @@
+@media only screen and (min-width: 769px) {
+  .community-tablet {
+    display: none;
+  }
+  .community-phone {
+    display: none;
+  }
+}
 
+@media only screen and (max-width: 768px) and (min-width: 400px) {
+  .community-laptop {
+    display: none;
+  }
+  .community-phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .community-tablet {
+    display: none;
+  }
+  .community-laptop {
+    display: none;
+  }
+}
