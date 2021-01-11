@@ -66,7 +66,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -79,7 +79,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -93,8 +93,9 @@ class RegistrationOptions extends Component {
                     marginBottom: 5,
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes access to membership database and 50% off premium
@@ -129,7 +130,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -142,7 +143,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -154,8 +155,9 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes plan 1 plus access to membership program and a
@@ -189,7 +191,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -202,7 +204,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -214,8 +216,9 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes plan 2 plus a workspace membership and access at

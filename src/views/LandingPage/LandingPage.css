@@ -1,7 +1,3 @@
-/* --------------------------------------------------------------------------------
-Grid
--------------------------------------------------------------------------------- */
-
 @media only screen and (min-width: 769px) {
   .background {
     margin-top: 80px;
@@ -14,11 +10,20 @@ Grid
     background-size: cover;
     margin-bottom: 1000px;
   }
+  .form {
+    margin-top: 120px;
+  }
+  .copyright {
+    color: white;
+    font-size: 13.5;
+    text-align: center;
+    opacity: 0.8;
+  }
 }
 
 @media only screen and (max-width: 768px) and (min-width: 400px) {
   .background {
-    margin-top: 80px;
+    margin-top: 90px;
     padding-left: 0px;
     background-image: url('backgroundImage.png');
     height: 100vh;
@@ -28,43 +33,9 @@ Grid
     background-size: cover;
     margin-bottom: 1000px;
   }
-}
-
-@media only screen and (max-width: 767px) {
-  .background {
-    background-color: #d6f3f3;
-  }
-}
-
-.form {
-  margin-top: 100px;
-}
-
-@media only screen and (max-width: 767px) {
   .form {
-    margin-top: 120px;
+    margin-top: 100px;
   }
-}
-
-.login {
-  border: 3px solid #f7fafc;
-  box-shadow: 0 2px 4px #11111150;
-  border-radius: 5px;
-  border: 3px solid #f7fafc;
-  height: auto;
-}
-
-@media only screen and (max-width: 767px) {
-  .login {
-    border: 3px solid #f7fafc;
-    box-shadow: 0 2px 4px #11111150;
-    border-radius: 5px;
-    border: 3px solid #f7fafc;
-    height: auto;
-  }
-}
-
-@media only screen and (min-width: 767px) {
   .copyright {
     color: white;
     font-size: 13.5;
@@ -73,11 +44,27 @@ Grid
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 400px) {
+  .background {
+    background-color: #d6f3f3;
+  }
+
+  .form {
+    margin-top: 130px;
+  }
+
+  .login {
+    border: 3px solid #f7fafc;
+    box-shadow: 0 2px 4px #11111150;
+    border-radius: 5px;
+    border: 3px solid #f7fafc;
+    height: auto;
+  }
   .copyright {
     margin-top: 6px;
-    color: teal;
-    font-size: 4;
+    margin-bottom: 10px;
+    color: #823bae;
+    font-size: 10px;
     text-align: center;
     opacity: 0.8;
   }
@@ -100,6 +87,10 @@ Grid
   cursor: pointer;
   outline: 0;
 }
+
+/* --------------------------------------------------------------------------------
+Grid
+-------------------------------------------------------------------------------- */
 
 .grid {
   display: flex;

@@ -43,7 +43,8 @@ class LandingPage extends Component {
           <Col
             className="tabbing"
             lg={{ size: 8, offset: 2 }}
-            md={{ size: 8, offset: 2 }}
+            md={{ size: 10, offset: 1 }}
+            sm={{ size: 10, offset: 1 }}
           >
             <Nav
               tabs
@@ -98,8 +99,8 @@ class LandingPage extends Component {
               <Col
                 className="tabbing"
                 lg={{ size: 8, offset: 2 }}
-                md={{ size: 8, offset: 2 }}
-                sm={12}
+                md={{ size: 10, offset: 1 }}
+                sm={{ size: 10, offset: 1 }}
                 xs={12}
               >
                 <Card style={{ borderRadius: '0 0 5px 5px' }}>
@@ -126,8 +127,8 @@ class LandingPage extends Component {
               <Col
                 className="tabbing"
                 lg={{ size: 8, offset: 2 }}
-                md={{ size: 8, offset: 2 }}
-                sm={12}
+                md={{ size: 10, offset: 1 }}
+                sm={{ size: 10, offset: 1 }}
                 xs={12}
               >
                 <Card style={{ borderRadius: '0 0 5px 5px' }}>

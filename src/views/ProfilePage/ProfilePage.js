@@ -153,12 +153,21 @@ class ProfilePage extends Component {
                     )}
                   </CardHeader>
                   <CardBody>
-                    <CardText className="text-uppercase text-muted">
-                      Account Information
+                    <CardText
+                      style={{
+                        fontFamily: 'Lato',
+                        color: '#111111d0',
+                      }}
+                    >
+                      ACCOUNT INFORMATION
                     </CardText>
                     <Row>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="display_name"
                           className="form-control-label"
                         >
@@ -173,7 +182,14 @@ class ProfilePage extends Component {
                         />
                       </Col>
                       <Col lg={6}>
-                        <Label htmlFor="email" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="email"
+                          className="form-control-label"
+                        >
                           Email:
                         </Label>
                         <Input
@@ -187,7 +203,14 @@ class ProfilePage extends Component {
                     </Row>
                     <Row>
                       <Col lg={6}>
-                        <Label htmlFor="fname" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="fname"
+                          className="form-control-label"
+                        >
                           First Name:
                         </Label>
                         <Input
@@ -200,6 +223,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="last_name"
                           className="form-control-label"
                         >
@@ -215,12 +242,24 @@ class ProfilePage extends Component {
                       </Col>
                     </Row>
                     <hr />
-                    <CardText className="text-uppercase text-muted">
-                      Personal Information
+                    <CardText
+                      style={{
+                        fontFamily: 'Lato',
+                        color: '#111111d0',
+                      }}
+                    >
+                      PERSONAL INFORMATION
                     </CardText>
                     <Row>
                       <Col lg={12}>
-                        <Label htmlFor="address" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="address"
+                          className="form-control-label"
+                        >
                           Street Address:
                         </Label>
                         <Input
@@ -234,7 +273,14 @@ class ProfilePage extends Component {
                     </Row>
                     <Row>
                       <Col lg={4}>
-                        <Label htmlFor="city" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="city"
+                          className="form-control-label"
+                        >
                           City:
                         </Label>
                         <Input
@@ -247,7 +293,14 @@ class ProfilePage extends Component {
                       </Col>
 
                       <Col lg={4}>
-                        <Label htmlFor="state" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="state"
+                          className="form-control-label"
+                        >
                           State:
                         </Label>
                         <Input
@@ -260,6 +313,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={4}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="zip_code"
                           className="form-control-label"
                         >
@@ -275,12 +332,24 @@ class ProfilePage extends Component {
                       </Col>
                     </Row>
                     <hr />
-                    <CardText className="text-uppercase text-muted">
-                      Professional Information
+                    <CardText
+                      style={{
+                        fontFamily: 'Lato',
+                        color: '#111111d0',
+                      }}
+                    >
+                      PROFESSIONAL INFORMATION
                     </CardText>
                     <Row>
                       <Col lg={6}>
-                        <Label htmlFor="bio" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="bio"
+                          className="form-control-label"
+                        >
                           Bio:
                         </Label>
                         <Input
@@ -293,6 +362,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="community_role"
                           className="form-control-label"
                         >
@@ -310,6 +383,10 @@ class ProfilePage extends Component {
                     <Row>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="organization_name"
                           className="form-control-label"
                         >
@@ -327,6 +404,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="job_title"
                           className="form-control-label"
                         >
@@ -342,12 +423,21 @@ class ProfilePage extends Component {
                       </Col>
                     </Row>
                     <hr />
-                    <CardText className="text-uppercase text-muted">
-                      Social Media
+                    <CardText
+                      style={{
+                        fontFamily: 'Lato',
+                        color: '#111111d0',
+                      }}
+                    >
+                      SOCIAL MEDIA
                     </CardText>
                     <Row>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="linkedin"
                           className="form-control-label"
                         >
@@ -363,6 +453,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="facebook"
                           className="form-control-label"
                         >
@@ -379,7 +473,14 @@ class ProfilePage extends Component {
                     </Row>
                     <Row>
                       <Col lg={6}>
-                        <Label htmlFor="twitter" className="form-control-label">
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="twitter"
+                          className="form-control-label"
+                        >
                           Twitter:
                         </Label>
                         <Input
@@ -392,6 +493,10 @@ class ProfilePage extends Component {
                       </Col>
                       <Col lg={6}>
                         <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
                           htmlFor="instagram"
                           className="form-control-label"
                         >

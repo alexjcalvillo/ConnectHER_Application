@@ -150,7 +150,11 @@ class BusinessList extends React.Component {
           toggle={() => this.toggleModal('defaultModal')}
         >
           <button
-            style={{ backgroundColor: 'white' }}
+            style={{
+              backgroundColor: 'white',
+              boxShadow: '0 2px 4px #11111150',
+              borderRadius: '5px',
+            }}
             aria-label="Close"
             className="close m-2 "
             data-dismiss="modal"

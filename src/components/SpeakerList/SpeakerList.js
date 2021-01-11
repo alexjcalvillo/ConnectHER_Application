@@ -104,7 +104,7 @@ class SpeakerList extends React.Component {
             <div style={style_list.card.gradientFade}>
               <div style={style_list.card.heart}>
                 <i
-                  class="fa fa-heart m-1 fa-heart-custom"
+                  className="fa fa-heart m-1 fa-heart-custom"
                   style={{
                     color: favoriteIconColor,
                   }}
