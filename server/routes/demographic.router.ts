@@ -297,6 +297,212 @@ router.get(
   }
 );
 
+//GET route to get count for Ability Level
+router.get(
+  '/ability',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(ability) FROM "demographic" WHERE ability = 'I have a disability';`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const disability = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(ability) FROM "demographic" WHERE ability = 'I do not have a disability';`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const noDisability = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(ability) FROM "demographic" WHERE ability = 'I prefer not to answer';`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const noAnswer = dbResponse.rows[0].count;
+
+                res.send({
+                  disability: disability,
+                  noDisability: noDisability,
+                  noAnswer: noAnswer,
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
+// GET route to get count for Income
+router.get(
+  '/income',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(income) FROM "demographic" WHERE income = '<40000';`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const lessFourtyK = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(income) FROM "demographic" WHERE income = '40000-79999';`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const fourtyK = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(income) FROM "demographic" WHERE income = '80000-119999';`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const eightyK = dbResponse.rows[0].count;
+                const queryText = `SELECT COUNT(income) FROM "demographic" WHERE income = '>120,000';`;
+                pool
+                  .query(queryText)
+                  .then((dbResponse) => {
+                    const hundoK = dbResponse.rows[0].count;
+                    const queryText = `SELECT COUNT(income) FROM "demographic" WHERE income = 'I prefer not to answer';`;
+                    pool
+                      .query(queryText)
+                      .then((dbResponse) => {
+                        const noAnswer = dbResponse.rows[0].count;
+
+                        res.send({
+                          lessFourtyK: lessFourtyK,
+                          fourtyK: fourtyK,
+                          eightyK: eightyK,
+                          hundoK: hundoK,
+                          noAnswer: noAnswer,
+                        });
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        res.sendStatus(500);
+                      });
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    res.sendStatus(500);
+                  });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
+//GET route for getting the count for Education
+router.get(
+  '/education',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Less than high school';`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        console.log(dbResponse.rows[0].count);
+        const noHighschool = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'High School diploma or GED';`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const diploma = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Some College';`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const someCollege = dbResponse.rows[0].count;
+                const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Associate Degree';`;
+                pool
+                  .query(queryText)
+                  .then((dbResponse) => {
+                    const associates = dbResponse.rows[0].count;
+                    const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Bachelor Degree';`;
+                    pool
+                      .query(queryText)
+                      .then((dbResponse) => {
+                        const bachelors = dbResponse.rows[0].count;
+                        const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Master Degree';`;
+                        pool
+                          .query(queryText)
+                          .then((dbResponse) => {
+                            const masters = dbResponse.rows[0].count;
+                            const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'Doctoral Degree';`;
+                            pool
+                              .query(queryText)
+                              .then((dbResponse) => {
+                                const doctors = dbResponse.rows[0].count;
+                                const queryText = `SELECT COUNT(education) FROM "demographic" WHERE education = 'I prefer not to answer';`;
+                                pool
+                                  .query(queryText)
+                                  .then((dbResponse) => {
+                                    const noAnswer = dbResponse.rows[0].count;
+
+                                    res.send({
+                                      noHighschool: noHighschool,
+                                      diploma: diploma,
+                                      someCollege: someCollege,
+                                      associates: associates,
+                                      bachelors: bachelors,
+                                      masters: masters,
+                                      doctors: doctors,
+                                      noAnswer: noAnswer,
+                                    });
+                                  })
+                                  .catch((err) => {
+                                    console.log(err);
+                                    res.sendStatus(500);
+                                  });
+                              })
+                              .catch((err) => {
+                                console.log(err);
+                                res.sendStatus(500);
+                              });
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                            res.sendStatus(500);
+                          });
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        res.sendStatus(500);
+                      });
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    res.sendStatus(500);
+                  });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
 /**
  * POST route template
  */

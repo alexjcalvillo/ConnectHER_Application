@@ -99,7 +99,6 @@ function MemberAboutForm(props) {
                       />
                       <Label htmlFor="bio">Bio: </Label>
                       <Input
-                        required
                         style={style_list.register.form_inputA}
                         className="form-control-alternative"
                         id="bio"
@@ -326,7 +325,6 @@ function MemberAboutForm(props) {
                     <i className="fa fa-linkedin-square" />{' '}
                     <Label htmlFor="linkedin">LinkedIn: </Label>
                     <Input
-                      required
                       style={style_list.register.form_inputA}
                       className="form-control-alternative"
                       id="linkedin"
@@ -340,7 +338,6 @@ function MemberAboutForm(props) {
                     <i className="fa fa-facebook-square" />{' '}
                     <Label htmlFor="facebook">Facebook: </Label>
                     <Input
-                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="facebook"
@@ -354,7 +351,6 @@ function MemberAboutForm(props) {
                     <i className="fa fa-twitter-square" />{' '}
                     <Label htmlFor="twitter">Twitter: </Label>
                     <Input
-                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="twitter"
@@ -378,7 +374,6 @@ function MemberAboutForm(props) {
                     />{' '}
                     <Label htmlFor="instagram">Instagram: </Label>
                     <Input
-                      required
                       style={style_list.register.form_inputC}
                       className="form-control-alternative"
                       id="instagram"

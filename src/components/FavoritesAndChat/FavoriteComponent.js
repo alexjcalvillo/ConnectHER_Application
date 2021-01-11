@@ -57,7 +57,13 @@ class FavoriteComponent extends Component {
     );
 
     if (this.state.view === 'members') {
-      Content = <MembersList />;
+      Content = (
+        <MembersList
+          openChat={(data) => {
+            this.props.openChat(data);
+          }}
+        />
+      );
     }
 
     if (this.state.view === 'speakers') {

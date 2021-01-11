@@ -40,13 +40,11 @@ function MemberDemoForm(props) {
     },
 
     onSubmit: (values) => {
-      // setHeading(JSON.stringify(values, null, 2));
       props.toggle('4', 'bypass');
       props.dispatch({
         type: 'HOLD_DEMO', // HOLD_DEMO
         payload: values,
       });
-      // alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -169,10 +167,10 @@ function MemberDemoForm(props) {
           value={formik.values.income_level}
         >
           <option value="">Choose one of the following...</option>
-          <option value="<40000">less than $40000 per year</option>
-          <option value="40000-79999"> $40000-79999</option>
-          <option value="80000-119999">$80000-119999</option>
-          <option value=">120,000">$80000-119999</option>
+          <option value="<40000">Less than $40,000</option>
+          <option value="40000-79999"> $40,000-$79,999</option>
+          <option value="80000-119999">$80,000-$119,999</option>
+          <option value=">120,000">Over $120,000</option>
           <option value="I prefer not to answer">I prefer not to answer</option>
         </Input>
 
@@ -193,9 +191,9 @@ function MemberDemoForm(props) {
             High School diploma or GED
           </option>
           <option value="Some College">Some College</option>
-          <option value=">Associate's Degree">Associate's Degree</option>
-          <option value="Bachelor's Degree">Bachelor's Degree</option>
-          <option value="Master's Degree">Master's Degree</option>
+          <option value="Associate Degree">Associate's Degree</option>
+          <option value="Bachelor Degree">Bachelor's Degree</option>
+          <option value="Master Degree">Master's Degree</option>
           <option value="Doctoral Degree">Doctoral Degree</option>
           <option value="I prefer not to answer">I prefer not to answer</option>
         </Input>

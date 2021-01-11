@@ -19,6 +19,13 @@ class SpacesList extends React.Component {
 
   componentDidMount() {
     document.title = 'Find a Space';
+    if (
+      function_list.checkFavorite({
+        id: this.props.space.id,
+        array: this.props.store.favorites.space,
+      }) === true
+    )
+      this.setState({ ...this.state, isFavorite: true });
   }
 
   refreshImage() {
@@ -42,33 +49,68 @@ class SpacesList extends React.Component {
 
   /*-----> CASTOR <-----*/
   toggleFavorite = () => {
-    if (!this.state.isFavorite) {
-      this.setState({
-        ...this.state,
-        isFavorite: true,
-      });
+    if (
+      function_list.checkFavorite({
+        id: this.props.space.id,
+        array: this.props.store.favorites.space,
+      }) === false
+    ) {
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: true,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'POST_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.space.id}`,
+              favoriteType: 'space',
+            },
+          });
+        }
+      );
     } else {
-      this.setState({
-        ...this.state,
-        isFavorite: false,
-      });
+      this.setState(
+        {
+          ...this.state,
+          isFavorite: false,
+        },
+        () => {
+          this.props.dispatch({
+            type: 'PUT_FAVORITES',
+            payload: {
+              userId: this.props.store.user.id,
+              favoriteId: `${this.props.space.id}`,
+              favoriteType: 'space',
+            },
+          });
+        }
+      );
     }
   };
-
   /*-----> CASTOR <-----*/
 
   render() {
     let image;
-
-    let favoriteIconColor = function_list.favoriteIconHandler(
-      this.state.isFavorite
-    );
 
     if (
       this.props.space.fields !== undefined &&
       this.props.space.fields.Pictures !== undefined
     ) {
       image = this.props.space.fields.Pictures[0].url;
+    }
+
+    let favoriteIconColor = function_list.favoriteIconHandler(false);
+
+    if (
+      function_list.checkFavorite({
+        id: this.props.space.id,
+        array: this.props.store.favorites.space,
+      }) === true
+    ) {
+      favoriteIconColor = function_list.favoriteIconHandler(true);
     }
 
     if (this.state.refreshed !== true) {
