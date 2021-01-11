@@ -102,7 +102,13 @@ class FavoritesAndChat extends Component {
             }}
           />
         )}
-        {this.state.type === 'chat' && <ChatComponent />}
+        {this.state.type === 'chat' && (
+          <ChatComponent
+            view={() => {
+              return this.state.type;
+            }}
+          />
+        )}
       </div>
     );
     if (this.props.store.user.id) {

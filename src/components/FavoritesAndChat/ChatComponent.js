@@ -65,7 +65,7 @@ class ChatComponent extends Component {
   };
 
   getState = () => {
-    return this.state.view;
+    return { view1: this.state.view, view2: this.props.view() };
   };
   render() {
     let chatInstance = function_list.getUsersForChat(
