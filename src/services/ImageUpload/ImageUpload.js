@@ -23,7 +23,7 @@ class ImageUpload extends Component {
       server: 'http://localhost:5000',
     };
 
-    const s3Url = 'https://innovateher.s3.amazonaws.com';
+    const s3Url = 'https://primebucket2020.s3.amazonaws.com';
 
     return (
       <div style={{ marginBottom: '10px' }}>
