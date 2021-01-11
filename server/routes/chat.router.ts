@@ -55,7 +55,8 @@ router.post(
     pool
       .query(
         `INSERT INTO "messages" ("chat_id", "user", "message")
-      VALUES ($1, $2, $3);`,
+      VALUES ($1, $2, $3)
+      RETURNING chat_id;`,
         [req.params.chat_id, user, message]
       )
       .then(() => {

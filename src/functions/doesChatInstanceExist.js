@@ -1,6 +1,6 @@
 const doesChatInstanceExist = (data) => {
   let chatInstance;
-
+  console.log(data);
   for (let i = 0; i < data.list.length; i++) {
     if (data.myId === data.list[i].user1 || data.myId === data.list[i].user2) {
       if (
