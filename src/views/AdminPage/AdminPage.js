@@ -58,6 +58,45 @@ class AdminPage extends Component {
       rSelected: selected,
       searchTerm,
     });
+    console.log(this.props);
+    console.log(this.state);
+  };
+
+  handleAgeClick = (event) => {
+    this.props.history.push({
+      pathname: 'admin-overview',
+      state: {
+        graphClicked: 'age',
+      },
+    });
+    console.log('clicked');
+  };
+  handleEthnicityClick = (event) => {
+    this.props.history.push({
+      pathname: 'admin-overview',
+      state: {
+        graphClicked: 'ethnicity',
+      },
+    });
+    console.log('clicked');
+  };
+  handleGenderClick = (event) => {
+    this.props.history.push({
+      pathname: 'admin-overview',
+      state: {
+        graphClicked: 'gender',
+      },
+    });
+    console.log('clicked');
+  };
+  handleSexClick = (event) => {
+    this.props.history.push({
+      pathname: 'admin-overview',
+      state: {
+        graphClicked: 'sex',
+      },
+    });
+    console.log('clicked');
   };
 
   render() {
@@ -65,6 +104,8 @@ class AdminPage extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         <Pie
+          onElementsClick={this.handleAgeClick}
+          onClick={this.handleAgeClick}
           data={{
             labels: [
               '18 or younger',
@@ -111,7 +152,7 @@ class AdminPage extends Component {
               },
             ],
           }}
-          height={100}
+          height={50}
           options={{
             title: {
               display: true,
@@ -125,6 +166,7 @@ class AdminPage extends Component {
           }}
         />
         <Pie
+          onElementsClick={this.handleEthnicityClick}
           data={{
             labels: [
               'American Indian or other Native American',
@@ -173,7 +215,7 @@ class AdminPage extends Component {
               },
             ],
           }}
-          height={100}
+          height={50}
           options={{
             title: {
               display: true,
@@ -187,6 +229,7 @@ class AdminPage extends Component {
           }}
         />
         <Pie
+          onElementsClick={this.handleGenderClick}
           data={{
             labels: [
               'Female / Female-Identifying',
@@ -205,7 +248,7 @@ class AdminPage extends Component {
               },
             ],
           }}
-          height={75}
+          height={50}
           options={{
             title: {
               display: true,
@@ -219,6 +262,7 @@ class AdminPage extends Component {
           }}
         />
         <Pie
+          onElementsClick={this.handleSexClick}
           data={{
             labels: [
               'Straight / Heterosexual',
@@ -239,7 +283,7 @@ class AdminPage extends Component {
               },
             ],
           }}
-          height={75}
+          height={50}
           options={{
             title: {
               display: true,

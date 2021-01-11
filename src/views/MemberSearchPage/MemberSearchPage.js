@@ -6,6 +6,7 @@ import { Button, Row, Col, Container, Card, CardBody } from 'reactstrap';
 
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
 import './MemberSearch.css';
+
 import style_list from '../../styles/list';
 
 class MemberSearchPage extends Component {
@@ -117,6 +118,8 @@ class MemberSearchPage extends Component {
             <Col lg={{ size: 2, offset: 2 }} xs={12}>
               <Button
                 // style={style_list.register.button}
+                className="searchMemberButton"
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"
@@ -129,6 +132,8 @@ class MemberSearchPage extends Component {
             <Col lg={2} xs={12}>
               <Button
                 // style={style_list.register.button}
+                className="searchMemberButton"
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"
@@ -153,6 +158,8 @@ class MemberSearchPage extends Component {
             <Col lg={2} xs={12}>
               <Button
                 // style={style_list.register.button}
+                className="searchMemberButton"
+                style={style_list.register.button}
                 outline
                 block
                 color="primary"

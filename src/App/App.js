@@ -17,6 +17,7 @@ import './App.css';
 
 // Pages
 import {
+  AdminOverviewPage,
   AdminPage,
   BusinessPage,
   LandingPage,
@@ -42,6 +43,10 @@ import SkillsSelector from '../components/SkillsSelector/SkillsSelector';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' });
+
+    this.props.dispatch({
+      type: 'FETCH_ALL_PROFILES',
+    });
   }
 
   render() {
@@ -72,6 +77,13 @@ class App extends Component {
               exact
               path="/admin"
               component={AdminPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows UserPage else shows LoginPage
+              exact
+              path="/admin-overview"
+              component={AdminOverviewPage}
             />
 
             <ProtectedRoute

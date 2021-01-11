@@ -17,7 +17,11 @@ class SpacesList extends Component {
         {this.props.store &&
           this.props.store.spaces &&
           this.props.store.spaces.map((space, index) => {
-            return <SpacesListItem space={space} index={index} />;
+            for (let i = 0; i < this.props.store.favorites.space.length; i++) {
+              if (space.id == this.props.store.favorites.space[i]) {
+                return <SpacesListItem space={space} index={index} />;
+              }
+            }
           })}
       </div>
     );

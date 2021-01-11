@@ -23,4 +23,14 @@
   .community-laptop {
     display: none;
   }
+  .searchMemberButton {
+    font-size: 0.875rem;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .searchMemberButton {
+    font-size: 0.775rem;
+  }
 }
