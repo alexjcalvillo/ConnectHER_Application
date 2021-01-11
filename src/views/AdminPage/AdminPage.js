@@ -33,6 +33,9 @@ class AdminPage extends Component {
     this.props.dispatch({
       type: 'GET_SEX_DEMO',
     });
+    this.props.dispatch({
+      type: 'GET_LEVEL_LIST',
+    });
   }
 
   buttonClick = (selected) => {

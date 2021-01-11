@@ -7,7 +7,6 @@ import { encryptPassword } from '../modules/encryption';
 
 const router: express.Router = express.Router();
 
-
 //-----------------------------
 //        GET ROUTES         |
 //-----------------------------
@@ -16,7 +15,6 @@ const router: express.Router = express.Router();
 router.get('/', rejectUnauthenticated, (req: Request, res: Response): void => {
   res.send(req.user);
 });
-
 
 //-----------------------------
 //        POST ROUTES         |
@@ -56,5 +54,38 @@ router.post('/logout', (req: Request, res: Response): void => {
   req.logout();
   res.sendStatus(200);
 });
+
+router.post(
+  '/level',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const user: string = req.params.Id;
+    const level: string = req.body.member_level;
+
+    const queryText = `INSERT INTO "member_level" (user_id, member_level)
+    VALUES ($1, $2) RETURNING id`;
+    pool
+      .query(queryText, [user, level])
+      .then(() => res.sendStatus(201))
+      .catch(() => res.sendStatus(500));
+  }
+);
+
+// router.get(
+//   '/level',
+//   (req: Request, res: Response, next: express.NextFunction): void => {
+//     const queryText = `SELECT * FROM member_level;`;
+
+//     pool
+//       .query(queryText)
+//       .then((dbResponse) => {
+//         console.log(dbResponse);
+//         res.send(dbResponse.rows);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//         res.sendStatus('Retrieve Access Level Error', 500);
+//       });
+//   }
+// );
 
 export default router;

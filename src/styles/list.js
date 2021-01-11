@@ -5,6 +5,7 @@ import member from './member';
 import landing from './landing';
 import register from './register';
 import favoritesAndChat from './favoritesAndChat';
+import pageTitles from './pageTitles';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -15,6 +16,7 @@ const style_list = {
   landing,
   register,
   favoritesAndChat,
+  pageTitles,
 };
 /*-------------------------*/
 

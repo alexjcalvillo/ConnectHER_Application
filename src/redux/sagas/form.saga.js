@@ -3,6 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* postForm(action) {
+  console.log('made it to registration form saga', action);
   try {
     const id = yield put({
       type: 'GET_USER',
@@ -10,6 +11,10 @@ function* postForm(action) {
     yield put({
       type: 'REGISTER',
       payload: action.payload.form.register,
+    });
+    yield put({
+      type: 'MEMBER_LEVEL',
+      payload: action.payload.form.access,
     });
     yield axios.post(
       `/api/form/register/about/${id}`,

@@ -9,6 +9,7 @@ import profileSaga from './profile.saga';
 import skillsCategories from './skillCategories.saga';
 import demographicSaga from './demographic.saga';
 import favoritesSaga from './favorites.saga';
+import memberSaga from './memberLevel.saga';
 import chatSaga from './chat.saga';
 
 // rootSaga is the primary saga.
@@ -31,6 +32,7 @@ export default function* rootSaga() {
     skillsCategories(),
     demographicSaga(),
     favoritesSaga(),
+    memberSaga(),
     chatSaga(),
   ]);
 }

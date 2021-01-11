@@ -13,6 +13,7 @@ import classnames from 'classnames';
 class RegistrationOptions extends Component {
   state = {
     activeTab: '1',
+    member_level: '',
   };
 
   componentDidMount() {
@@ -26,8 +27,29 @@ class RegistrationOptions extends Component {
     }
   }
 
-  handleRegister = (event) => {
+  handleRegister1 = (event) => {
     event.preventDefault();
+    this.props.dispatch({
+      type: 'HOLD_ACCESS',
+      payload: { member_level: 1 },
+    });
+    this.props.history.push('/user');
+  };
+
+  handleRegister2 = (event) => {
+    event.preventDefault();
+    this.props.dispatch({
+      type: 'HOLD_ACCESS',
+      payload: { member_level: 2 },
+    });
+    this.props.history.push('/user');
+  };
+  handleRegister3 = (event) => {
+    event.preventDefault();
+    this.props.dispatch({
+      type: 'HOLD_ACCESS',
+      payload: { member_level: 3 },
+    });
     this.props.history.push('/user');
   };
 
@@ -44,7 +66,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -57,7 +79,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -71,8 +93,9 @@ class RegistrationOptions extends Component {
                     marginBottom: 5,
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes access to membership database and 50% off premium
@@ -89,7 +112,9 @@ class RegistrationOptions extends Component {
                 }}
                 outline
                 size="sm"
-                onClick={this.handleRegister}
+                value="1"
+                checked={this.state.member_level === '1'}
+                onClick={this.handleRegister1}
                 className="payGate"
               >
                 Register
@@ -105,7 +130,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -118,7 +143,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -130,8 +155,9 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes plan 1 plus access to membership program and a
@@ -148,7 +174,9 @@ class RegistrationOptions extends Component {
                 }}
                 outline
                 size="sm"
-                onClick={this.handleRegister}
+                value="2"
+                checked={this.state.member_level === '2'}
+                onClick={this.handleRegister2}
                 className="payGate"
               >
                 Register
@@ -163,7 +191,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 0,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 25,
+                  fontSize: 30,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -176,7 +204,7 @@ class RegistrationOptions extends Component {
                   marginBottom: 2,
                   marginLeft: 'auto',
                   marginRight: 'auto',
-                  fontSize: 15,
+                  fontSize: 20,
                   fontFamily: 'Cabin',
                 }}
               >
@@ -188,8 +216,9 @@ class RegistrationOptions extends Component {
                     textAlign: 'center',
                     marginTop: 0,
                     marginBottom: 5,
-                    fontSize: 14,
+                    fontSize: 15,
                     fontFamily: 'Lato:wght@300',
+                    padding: 2,
                   }}
                 >
                   includes plan 2 plus a workspace membership and access at
@@ -206,7 +235,9 @@ class RegistrationOptions extends Component {
                 }}
                 outline
                 size="sm"
-                onClick={this.handleRegister}
+                value="3"
+                checked={this.state.member_level === '3'}
+                onClick={this.handleRegister3}
                 className="payGate"
               >
                 Register

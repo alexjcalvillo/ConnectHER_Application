@@ -1,8 +1,7 @@
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 769px) {
   .welcomeBanner {
-    margin-top: -40px;
-    margin-bottom: -10px;
-
+    margin-top: -75px;
+    margin-bottom: -3px;
     padding-bottom: -40px;
     background-image: url(finalBanner.png);
     background-size: cover;
@@ -10,11 +9,49 @@
     width: auto;
     box-shadow: 0 2px 4px #11111150;
   }
+  .altBanner {
+    display: none;
+  }
+  .phone {
+    display: none;
+  }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) and (min-width: 400px) {
+  .altBanner {
+    margin-top: -65px;
+    margin-bottom: 5px;
+    padding-bottom: -40px;
+    background-image: url(altBanner.png);
+    background-size: cover;
+    height: 200px;
+    width: auto;
+    box-shadow: 0 2px 4px #11111150;
+  }
   .welcomeBanner {
     display: none;
+  }
+  .phone {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .welcomeBanner {
+    display: none;
+  }
+  .altBanner {
+    display: none;
+  }
+  .phone {
+    margin-top: -10px;
+    margin-bottom: 12px;
+    padding-bottom: -40px;
+    background-image: url(phoneBanner1.png);
+    background-size: cover;
+    height: 200px;
+    width: auto;
+    box-shadow: 0 2px 4px #11111150;
   }
 }
 
@@ -24,12 +61,6 @@
   margin-top: 0px;
   margin-bottom: 8px;
   box-shadow: 0 2px 4px #11111150;
-}
-
-@media only screen and (max-width: 767px) {
-  .rounded-divider {
-    display: none;
-  }
 }
 
 .spacing {

@@ -15,6 +15,7 @@ import listingClickedReducer from './listingClicked.reducer';
 import skillCategories from './skillCategories.reducer';
 import demographicReducer from './demographic.reducer';
 import favorites from './favorites.reducer';
+import memberLevel from './memberLevel.reducer';
 import chat from './chat.reducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   skillCategories,
   demographicReducer,
   favorites,
+  memberLevel,
   chat,
 });
 
