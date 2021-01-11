@@ -10,11 +10,13 @@ class ChatUser extends Component {
   render() {
     return (
       <div
+        key={this.props.index}
         className="tabListItem"
         onClick={() => {
           this.props.toggleView({
             view: 'chat',
             userId: this.props.user.user_id,
+            chatInstance: this.props.chatInstance,
           });
         }}
       >

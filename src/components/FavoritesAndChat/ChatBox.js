@@ -4,11 +4,6 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import function_list from '../../functions/list';
 
-const messages = [
-  { message: 'Hello Chase how are you doing?', userId: 1 },
-  { message: 'Just reaching out again i never heard from you', userId: 1 },
-  { message: 'Are you getting my messages?', userId: 1 },
-];
 let lastKey;
 
 class ChatBox extends Component {
@@ -18,12 +13,26 @@ class ChatBox extends Component {
   };
 
   componentDidMount() {
-    this.chatScrollToBottom();
+    let chatBox = document.getElementById('chatBox');
+    chatBox.scrollTop = chatBox.scrollHeight;
+    this.listenForMessages();
   }
 
   componentDidUpdate() {
     this.chatScrollToBottom();
   }
+
+  listenForMessages = () => {
+    if (this.props.getState() !== undefined) {
+      setTimeout(() => {
+        this.props.dispatch({
+          type: 'GET_CHAT_INSTANCES',
+          payload: this.props.store.user.id,
+        });
+        this.listenForMessages();
+      }, 5000);
+    }
+  };
 
   chatScrollToBottom = () => {
     let chatBox = document.getElementById('chatBox');
@@ -59,10 +68,15 @@ class ChatBox extends Component {
   };
 
   sendMessage = () => {
-    messages.push({
-      message: this.state.input,
-      userId: this.props.store.user.id,
+    this.props.dispatch({
+      type: 'SEND_MESSAGE',
+      payload: {
+        chatId: this.props.chatInstance,
+        user: this.props.store.user.id,
+        message: this.state.input,
+      },
     });
+
     this.setState({
       ...this.state,
       input: '',
@@ -104,75 +118,84 @@ class ChatBox extends Component {
   };
 
   render() {
+    console.log(this.props.chatInstance, this.props.store.chat);
+    const messages = function_list.getMessagesForChatInstance(
+      this.props.chatInstance,
+      this.props.store.chat
+    );
+    console.log(messages);
     let Content = (
       <div className="chatBoxContainer">
         <div className="chatBox" id="chatBox">
-          {messages.map((message, index) => {
-            let leftImage = '0%';
-            let rightImage = '100%';
-            let imageSrc = '';
-            if (message.userId !== this.props.store.user.id) {
-              leftImage = '100%';
-              rightImage = '0%';
-            }
-            for (
-              let i = 0;
-              i < this.props.store.memberListingsReducer.length;
-              i++
-            ) {
-              if (
-                message.userId ===
-                this.props.store.memberListingsReducer[i].user_id
-              ) {
-                imageSrc = this.props.store.memberListingsReducer[i].headshot;
+          {messages &&
+            messages.map((message, index) => {
+              let leftImage = '0%';
+              let rightImage = '100%';
+              let imageSrc = '';
+              if (message.user !== this.props.store.user.id) {
+                leftImage = '100%';
+                rightImage = '0%';
               }
-            }
+              for (
+                let i = 0;
+                i < this.props.store.memberListingsReducer.length;
+                i++
+              ) {
+                if (
+                  message.user ===
+                  this.props.store.memberListingsReducer[i].user_id
+                ) {
+                  imageSrc = this.props.store.memberListingsReducer[i].headshot;
+                }
+              }
 
-            return (
-              <div className="messageItem">
-                <div
-                  className="messageImageContainerMarginFix"
-                  style={{ opacity: leftImage }}
-                >
+              return (
+                <div className="messageItem">
                   <div
-                    className="messageImageContainer"
-                    style={{
-                      marginTop: function_list.chatMessageHeight(
-                        message.message
-                      ),
-                    }}
+                    className="messageImageContainerMarginFix"
+                    style={{ opacity: leftImage }}
                   >
-                    <img className="messageImage" src={imageSrc} alt="img" />
+                    <div
+                      className="messageImageContainer"
+                      style={{
+                        marginTop: function_list.chatMessageHeight(
+                          message.message
+                        ),
+                      }}
+                    >
+                      <img className="messageImage" src={imageSrc} alt="img" />
+                    </div>
+                  </div>
+                  <div className="messageTextContainer">
+                    <textarea
+                      readOnly
+                      className="messageText"
+                      style={{
+                        height: function_list.chatMessageHeight(
+                          message.message
+                        ),
+                      }}
+                      value={message.message}
+                    />
+                  </div>
+                  <div
+                    className="messageImageContainerMarginFix"
+                    style={{ marginLeft: '2px', opacity: rightImage }}
+                  >
+                    <div
+                      className="messageImageContainer"
+                      style={{
+                        marginTop: function_list.chatMessageHeight(
+                          message.message
+                        ),
+                      }}
+                    >
+                      <img className="messageImage" src={imageSrc} alt="img" />
+                    </div>
                   </div>
                 </div>
-                <div className="messageTextContainer">
-                  <textarea
-                    readOnly
-                    className="messageText"
-                    style={{
-                      height: function_list.chatMessageHeight(message.message),
-                    }}
-                    value={message.message}
-                  />
-                </div>
-                <div
-                  className="messageImageContainerMarginFix"
-                  style={{ marginLeft: '2px', opacity: rightImage }}
-                >
-                  <div
-                    className="messageImageContainer"
-                    style={{
-                      marginTop: function_list.chatMessageHeight(
-                        message.message
-                      ),
-                    }}
-                  >
-                    <img className="messageImage" alt="img" />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
         <div className="chatMessengerBox">
           <textarea
@@ -203,9 +226,22 @@ class ChatBox extends Component {
             {messages.map((message, index) => {
               let leftImage = '0%';
               let rightImage = '100%';
-              if (message.userId !== this.props.store.user.id) {
+              let imageSrc = '';
+              if (message.user !== this.props.store.user.id) {
                 leftImage = '100%';
                 rightImage = '0%';
+              }
+              for (
+                let i = 0;
+                i < this.props.store.memberListingsReducer.length;
+                i++
+              ) {
+                if (
+                  message.user ===
+                  this.props.store.memberListingsReducer[i].user_id
+                ) {
+                  imageSrc = this.props.store.memberListingsReducer[i].headshot;
+                }
               }
               return (
                 <div className="messageItem">
@@ -221,7 +257,7 @@ class ChatBox extends Component {
                         ),
                       }}
                     >
-                      <img className="messageImage" alt="img" />
+                      <img className="messageImage" src={imageSrc} alt="img" />
                     </div>
                   </div>
                   <div className="messageTextContainer">
@@ -248,7 +284,7 @@ class ChatBox extends Component {
                         ),
                       }}
                     >
-                      <img className="messageImage" alt="img" />
+                      <img className="messageImage" src={imageSrc} alt="img" />
                     </div>
                   </div>
                 </div>

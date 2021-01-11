@@ -4,44 +4,18 @@ import pool from '../modules/pool';
 
 const router: express.Router = express.Router();
 
-function getMessages(chatId: any[], userId: number) {
-  let messageArray: any[];
-  for (let i = 0; i < 1; i++) {
-    pool
-      .query(
-        `SELECT "messages".chat_id, "messages".user, "messages".message  FROM "chat_instance"
-  JOIN "messages" ON "chat_instance".id = "messages".chat_id
-  WHERE "chat_instance".id = $2 AND "chat_instance".user_1 = $1 OR "chat_instance".user_2 = $1
-  ORDER BY "messages".id ASC;
-  `,
-        [userId, chatId[i].chat_id]
-      )
-      .then((response) => {
-        console.log(response.rows);
-        messageArray.push(response.rows);
-      })
-      .catch((err) => {
-        console.log('Error completing GET [chat[messages]] query', err);
-      });
-  }
-}
-
 router.get(
   '/:id',
   (req: Request, res: Response, next: express.NextFunction): void => {
     pool
       .query(
-        `SELECT id FROM "chat_instance"
+        `SELECT * FROM "chat_instance"
         WHERE user_1 = $1 OR user_2 = $1;
         `,
         [req.params.id]
       )
       .then((response) => {
-        const chat = getMessages(response.rows, parseInt(req.params.id));
-        const organizedResponse = {
-          chat,
-        };
-        res.send(organizedResponse);
+        res.send(response.rows);
       })
       .catch((err) => {
         console.log('Error completing GET [chat] query', err);
@@ -51,45 +25,70 @@ router.get(
 );
 
 router.get(
-  '/:id/:chat_id',
+  '/chat_instance/:chat_id',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    console.log([req.params.id, req.params.chat_id]);
     pool
       .query(
-        `SELECT "messages".chat_id, "messages".user, "messages".message  FROM "chat_instance"
+        `SELECT "messages".user, "messages".message FROM "chat_instance"
         JOIN "messages" ON "chat_instance".id = "messages".chat_id
-        WHERE "chat_instance".id = $2 AND "chat_instance".user_1 = $1 OR "chat_instance".user_2 = $1
+        WHERE "chat_instance".id = $1
         ORDER BY "messages".id ASC;
         `,
-        [req.params.id, req.params.chat_id]
+        [req.params.chat_id]
       )
       .then((response) => {
         res.send(response.rows);
       })
       .catch((err) => {
-        console.log('Error completing GET [favorites] query', err);
+        console.log('Error completing GET [chat_instance] query', err);
         res.sendStatus(500);
       });
   }
 );
 
 router.post(
-  '/:id',
+  '/chat_instance/message/:chat_id',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    const favoriteId: string = req.body.favoriteId;
-    const favoriteType: string = req.body.favoriteType;
+    const user: number = req.body.user;
+    const message: string = req.body.message;
 
     pool
       .query(
-        `INSERT INTO "favorites" ("user_id", "favorite_id", "favorite_type")
+        `INSERT INTO "messages" ("chat_id", "user", "message")
       VALUES ($1, $2, $3);`,
-        [req.params.id, favoriteId, favoriteType]
+        [req.params.chat_id, user, message]
       )
       .then(() => {
         res.sendStatus(200);
       })
       .catch((err) => {
-        console.log('Error completing POST [favorites] query', err);
+        console.log(
+          'Error completing POST [chat_instance[message]] query',
+          err
+        );
+        res.sendStatus(500);
+      });
+  }
+);
+
+router.post(
+  '/chat_instance',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const user1: number = req.body.user1;
+    const user2: number = req.body.user2;
+
+    pool
+      .query(
+        `INSERT INTO "chat_instance" ("user_1", "user_2")
+      VALUES ($1, $2)
+      RETURNING "id";`,
+        [user1, user2]
+      )
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.log('Error completing POST [chat_instance] query', err);
         res.sendStatus(500);
       });
   }

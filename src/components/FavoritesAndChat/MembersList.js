@@ -12,6 +12,10 @@ class MembersList extends Component {
     this.props.dispatch({
       type: 'FETCH_ALL_PROFILES',
     });
+    this.props.dispatch({
+      type: 'GET_CHAT_INSTANCES',
+      payload: this.props.store.user.id,
+    });
   }
 
   render() {

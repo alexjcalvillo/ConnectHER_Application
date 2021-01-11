@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import function_list from '../../functions/list';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class MembersListItem extends Component {
@@ -32,6 +33,7 @@ class MembersListItem extends Component {
     );
   };
   render() {
+    console.log(this.props.store.chat);
     let member = this.props.member;
     let detailsClass = 'tabItemDetailsClose';
 
@@ -54,6 +56,16 @@ class MembersListItem extends Component {
           <div
             className="detailsMessageContainer"
             onClick={() => {
+              function_list.holdSwitchToChatData({
+                type: 'hold',
+                view: 'chat',
+                userId: member.user_id,
+                chatInstance: function_list.doesChatInstanceExist({
+                  list: this.props.store.chat,
+                  myId: this.props.store.user.id,
+                  userId: member.user_id,
+                }),
+              });
               this.props.openChat({ id: member.user_id });
             }}
           >

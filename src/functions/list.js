@@ -10,6 +10,10 @@ import alert from './alert';
 import favoritesImage from './favoritesImage';
 import checkFavorite from './checkFavorite';
 import chatMessageHeight from './chatMessageHeight';
+import getUsersForChat from './getUsersForChat';
+import getMessagesForChatInstance from './getMessagesForChatInstance';
+import holdSwitchToChatData from './holdSwitchToChatData';
+import doesChatInstanceExist from './doesChatInstanceExist';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -25,6 +29,10 @@ const function_list = {
   favoritesImage, //resizes images for favorite component
   checkFavorite, // checks to see if component is favorited
   chatMessageHeight,
+  getUsersForChat,
+  getMessagesForChatInstance,
+  holdSwitchToChatData,
+  doesChatInstanceExist,
 };
 /*-------------------------*/
 
