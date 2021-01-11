@@ -54,7 +54,6 @@ router.post(
     const favoriteId: string = req.body.favoriteId;
     const favoriteType: string = req.body.favoriteType;
 
-    console.log(req.params, req.body);
     pool
       .query(
         `INSERT INTO "favorites" ("user_id", "favorite_id", "favorite_type")

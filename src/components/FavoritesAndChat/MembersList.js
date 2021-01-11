@@ -12,6 +12,10 @@ class MembersList extends Component {
     this.props.dispatch({
       type: 'FETCH_ALL_PROFILES',
     });
+    this.props.dispatch({
+      type: 'GET_CHAT_INSTANCES',
+      payload: this.props.store.user.id,
+    });
   }
 
   render() {
@@ -20,7 +24,15 @@ class MembersList extends Component {
         {this.props.store.memberListingsReducer.map((member, index) => {
           for (let i = 0; i < this.props.store.favorites.member.length; i++) {
             if (member.user_id == this.props.store.favorites.member[i]) {
-              return <MembersListItem member={member} index={index} />;
+              return (
+                <MembersListItem
+                  member={member}
+                  index={index}
+                  openChat={(data) => {
+                    this.props.openChat(data);
+                  }}
+                />
+              );
             }
           }
         })}

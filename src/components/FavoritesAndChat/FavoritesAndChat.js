@@ -4,6 +4,7 @@ import { Navbar } from 'reactstrap';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import FavoriteComponent from './FavoriteComponent';
+import ChatComponent from './ChatComponent';
 import style_list from '../../styles/list';
 import './FavoritesAndChat.css';
 
@@ -27,6 +28,14 @@ class FavoritesAndChat extends Component {
       chatHover: false,
       favoriteHover: false,
       [button]: bool,
+    });
+  };
+
+  goToChat = (data) => {
+    console.log(data);
+    this.setState({
+      ...this.state,
+      type: 'chat',
     });
   };
 
@@ -86,7 +95,14 @@ class FavoritesAndChat extends Component {
         >
           <i className="fa fa-times closePopupIcon" />
         </div>
-        {this.state.type === 'favorite' && <FavoriteComponent />}
+        {this.state.type === 'favorite' && (
+          <FavoriteComponent
+            openChat={(data) => {
+              this.goToChat(data);
+            }}
+          />
+        )}
+        {this.state.type === 'chat' && <ChatComponent />}
       </div>
     );
     if (this.props.store.user.id) {

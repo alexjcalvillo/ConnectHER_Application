@@ -18,10 +18,21 @@ class SpacesListItem extends Component {
   };
 
   delete = () => {
-    this.setState({
-      ...this.state,
-      delete: true,
-    });
+    this.setState(
+      {
+        delete: true,
+      },
+      () => {
+        this.props.dispatch({
+          type: 'PUT_FAVORITES',
+          payload: {
+            userId: this.props.store.user.id,
+            favoriteId: `${this.props.space.id}`,
+            favoriteType: 'space',
+          },
+        });
+      }
+    );
   };
 
   refreshImage() {
