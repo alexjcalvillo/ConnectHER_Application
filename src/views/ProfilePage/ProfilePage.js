@@ -6,7 +6,6 @@ import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import './ProfilePage.css';
 import function_list from '../../functions/list';
 import style_list from '../../styles/list';
-import profilePic from './profilePic.jpg';
 
 import {
   Container,
@@ -73,14 +72,18 @@ class ProfilePage extends Component {
   };
 
   render() {
+    const profilePic = require('./profilePic.jpg');
+
     let image = (
       <img
         src={profilePic}
         alt="profile headshot"
         style={{
           objectFit: 'cover',
-          width: '147px',
-          height: '147px',
+          width: '150px',
+          height: '150px',
+          borderRadius: '100%',
+          border: '3px solid white',
         }}
         className="profile-pic card-profile-image mb-2"
       />
@@ -93,8 +96,10 @@ class ProfilePage extends Component {
         <img
           style={{
             objectFit: 'cover',
-            width: '147px',
-            height: '147px',
+            width: '150px',
+            height: '150px',
+            borderRadius: '100%',
+            border: '3px solid white',
           }}
           className="profile-pic card-profile-image mb-2"
           src={this.props.store.profile.headshot}
@@ -556,10 +561,11 @@ class ProfilePage extends Component {
                         <div
                           style={{
                             maxHeight: '150px',
-                            maxWidth: '50%',
+                            maxWidth: '150px',
                             borderRadius: '50%',
                             overflow: 'hidden',
                             margin: 'auto',
+                            boxShadow: '0 2px 4px #11111150',
                           }}
                         >
                           {/* <img
