@@ -3,7 +3,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* getChatInstances(action) {
   const response = yield axios.get(`/api/chat/${action.payload}`);
-  console.log(response.data);
   yield put({
     type: 'GET_MESSAGES',
     payload: response.data,

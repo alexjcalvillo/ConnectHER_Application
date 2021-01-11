@@ -85,4 +85,4 @@ CREATE TABLE "Member_Level" (
 );
 
 INSERT INTO "member_level" (user_id, member_level) 
-VALUES (1, 2), (2,3), (3,3),(4,1),(5,4),(6,3), (7,2), (8,1)
+VALUES (1, 2), (2,3), (3,3),(4,1),(5,4),(6,3), (7,2), (8,1);
