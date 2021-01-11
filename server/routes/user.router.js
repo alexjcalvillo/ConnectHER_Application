@@ -46,7 +46,7 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-router.post('/level, (req, res, next) => {
+router.post('/level', (req, res, next) => {
   const user = req.params.Id;
   const level = req.body.member_level;
 
@@ -57,5 +57,20 @@ router.post('/level, (req, res, next) => {
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
+
+// router.get('/level', (req, res) => {
+//   const queryText = `SELECT * FROM member_level;`;
+
+//   pool
+//     .query(queryText)
+//     .then((dbResponse) => {
+//       console.log(dbResponse);
+//       res.send(dbResponse.rows);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.sendStatus('Retrieve Access Level Error', 500);
+//     });
+// });
 
 module.exports = router;

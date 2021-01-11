@@ -70,4 +70,22 @@ router.post(
   }
 );
 
+// router.get(
+//   '/level',
+//   (req: Request, res: Response, next: express.NextFunction): void => {
+//     const queryText = `SELECT * FROM member_level;`;
+
+//     pool
+//       .query(queryText)
+//       .then((dbResponse) => {
+//         console.log(dbResponse);
+//         res.send(dbResponse.rows);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//         res.sendStatus('Retrieve Access Level Error', 500);
+//       });
+//   }
+// );
+
 export default router;
