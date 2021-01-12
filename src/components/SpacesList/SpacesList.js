@@ -5,7 +5,6 @@ import { Row, Col, Card, CardBody, Button, Modal, ModalBody } from 'reactstrap';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
-// import './SpacesList.css';
 //import BootstrapTable from 'react-bootstrap-table-next';
 //import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter'; //Want to add filtering
 
