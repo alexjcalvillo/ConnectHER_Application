@@ -24,7 +24,6 @@ router.get('/', rejectUnauthenticated, (req: Request, res: Response): void => {
 router.post(
   '/register',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    console.log(req.body);
     const email: string | null = <string>req.body.email;
     const password: string | null = encryptPassword(req.body.password);
     const firstName: string = req.body.firstName;
@@ -34,7 +33,9 @@ router.post(
     VALUES ($1, $2, $3, $4) RETURNING id`;
     pool
       .query(queryText, [email, password, firstName, lastName])
-      .then(() => res.sendStatus(201))
+      .then((response) => {
+        res.send(response.rows[0]);
+      })
       .catch((err) => {
         console.log(`Error saving user to database: ${err}`);
         res.sendStatus(500);

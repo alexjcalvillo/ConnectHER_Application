@@ -64,7 +64,7 @@ class MemberSearchPage extends Component {
                     fontSize: '60px',
                     color: '#ff3858',
                   }}
-                  class="fa fa-heart m-1 fa-heart-custom"
+                  class="fa fa-heart m-1"
                 />{' '}
                 Connect with Womxn
               </h1>
@@ -146,6 +146,8 @@ class MemberSearchPage extends Component {
             <Col lg={2} xs={12}>
               <Button
                 // style={style_list.register.button}
+                className="searchMemberButton"
+                style={style_list.register.button}
                 block
                 outline
                 color="primary"
