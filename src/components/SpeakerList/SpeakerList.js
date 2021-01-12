@@ -188,7 +188,8 @@ class SpeakerList extends React.Component {
             style={{
               backgroundColor: '#d6f3f3',
               boxShadow: '0 2px 4px #11111150',
-              borderRadius: '5px',
+              borderTop: '1px solid #11111150',
+              borderRadius: '0 0 5px 5px',
             }}
           >
             <Row>
