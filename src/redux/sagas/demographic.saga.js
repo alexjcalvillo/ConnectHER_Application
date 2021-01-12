@@ -16,6 +16,7 @@ function* getAgeDemo(action) {
     );
   }
 }
+
 function* getEthnicityDemo(action) {
   try {
     const response = yield axios.get('/api/demographics/ethnicity');
