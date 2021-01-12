@@ -23,14 +23,16 @@ class ChatBox extends Component {
   }
 
   listenForMessages = () => {
-    if (this.props.getState() !== undefined) {
-      setTimeout(() => {
-        this.props.dispatch({
-          type: 'GET_CHAT_INSTANCES',
-          payload: this.props.store.user.id,
-        });
-        this.listenForMessages();
-      }, 5000);
+    if (this.props.getState().view1 !== undefined) {
+      if (this.props.getState().view2 !== null) {
+        setTimeout(() => {
+          this.props.dispatch({
+            type: 'GET_CHAT_INSTANCES',
+            payload: this.props.store.user.id,
+          });
+          this.listenForMessages();
+        }, 5000);
+      }
     }
   };
 
