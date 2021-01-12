@@ -5,6 +5,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Button, Row, Col, Container, Card, CardBody } from 'reactstrap';
 
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
+import MentorMentee from '../../components/Mentor_Mentee/Mentor_Mentee';
 import './MemberSearch.css';
 
 import style_list from '../../styles/list';
@@ -36,13 +37,47 @@ class MemberSearchPage extends Component {
         searchTerm = 'display_name';
         break;
     }
-    this.setState({
-      rSelected: selected,
-      searchTerm,
-    });
+    if (searchTerm !== 5) {
+      this.setState({
+        rSelected: selected,
+        searchTerm,
+      });
+    }
   };
 
   render() {
+    let activeButton1 = {};
+    let activeButton2 = {};
+    let activeButton3 = {};
+    let activeButton4 = {};
+    let activeButton5 = {};
+
+    if (this.state.rSelected === 1) {
+      activeButton1 = { backgroundColor: '#bceef0', color: '#111111d0' };
+    } else if (this.state.rSelected === 2) {
+      activeButton2 = { backgroundColor: '#bceef0', color: '#111111d0' };
+    } else if (this.state.rSelected === 3) {
+      activeButton3 = { backgroundColor: '#bceef0', color: '#111111d0' };
+    } else if (this.state.rSelected === 4) {
+      activeButton4 = { backgroundColor: '#bceef0', color: '#111111d0' };
+    } else if (this.state.rSelected === 5) {
+      activeButton5 = { backgroundColor: '#bceef0', color: '#111111d0' };
+    }
+
+    let Content = (
+      <Row className="mt-3">
+        <Col>
+          <ProfileSearch
+            skills={this.props.store.memberListingsReducer}
+            term={this.state.searchTerm}
+          />
+        </Col>
+      </Row>
+    );
+
+    if (this.state.rSelected === 5) {
+      Content = <> {MentorMentee} </>;
+    }
     return (
       <>
         <Container className="member-background">
@@ -115,11 +150,11 @@ class MemberSearchPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={{ size: 2, offset: 2 }} xs={12}>
+            <Col lg={{ size: 2, offset: 1 }} xs={12}>
               <Button
                 // style={style_list.register.button}
                 className="searchMemberButton"
-                style={style_list.register.button}
+                style={{ ...style_list.register.button, ...activeButton1 }}
                 outline
                 block
                 color="primary"
@@ -133,7 +168,7 @@ class MemberSearchPage extends Component {
               <Button
                 // style={style_list.register.button}
                 className="searchMemberButton"
-                style={style_list.register.button}
+                style={{ ...style_list.register.button, ...activeButton2 }}
                 outline
                 block
                 color="primary"
@@ -147,7 +182,7 @@ class MemberSearchPage extends Component {
               <Button
                 // style={style_list.register.button}
                 className="searchMemberButton"
-                style={style_list.register.button}
+                style={{ ...style_list.register.button, ...activeButton3 }}
                 block
                 outline
                 color="primary"
@@ -161,7 +196,7 @@ class MemberSearchPage extends Component {
               <Button
                 // style={style_list.register.button}
                 className="searchMemberButton"
-                style={style_list.register.button}
+                style={{ ...style_list.register.button, ...activeButton4 }}
                 outline
                 block
                 color="primary"
@@ -171,16 +206,22 @@ class MemberSearchPage extends Component {
                 Skills
               </Button>
             </Col>
-          </Row>
-
-          <Row className="mt-3">
-            <Col>
-              <ProfileSearch
-                skills={this.props.store.memberListingsReducer}
-                term={this.state.searchTerm}
-              />
+            <Col lg={2} xs={12}>
+              <Button
+                // style={style_list.register.button}
+                className="searchMemberButton"
+                style={{ ...style_list.register.button, ...activeButton5 }}
+                outline
+                block
+                color="primary"
+                onClick={() => this.buttonClick(5)}
+                active={this.state.rSelected === 5}
+              >
+                Mentor / Mentee
+              </Button>
             </Col>
           </Row>
+          {Content}
         </Container>
       </>
     );

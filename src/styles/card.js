@@ -77,7 +77,7 @@ const detailsP2 = {
 };
 
 const learnMoreButton = {
-  marginTop: '-23px',
+  marginTop: '-21px',
   fontSize: '16px',
   width: '85%',
   marginLeft: 'auto',

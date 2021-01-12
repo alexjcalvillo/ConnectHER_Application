@@ -46,11 +46,12 @@ function ProfileOptions({ term, skills }) {
     <div>
       <Row>
         <Col
-          style={{ marginBottom: 10 }}
+          style={{ marginLeft: 'auto', marginRight: 'auto' }}
           lg={{ size: 10, offset: 1 }}
           md={{ size: 10, offset: 1 }}
         >
           <Input
+            style={{ width: '100%', margin: '5px 0 10px 0px' }}
             className="form-control-alternative"
             type="text"
             placeholder="Search"

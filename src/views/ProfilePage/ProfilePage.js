@@ -129,8 +129,9 @@ class ProfilePage extends Component {
                   <CardHeader
                     style={{
                       boxShadow: '0 2px 4px #11111150',
-                      borderRadius: '5px',
+                      borderRadius: '5px 5px 0px 0px',
                       height: '60px',
+                      margin: '-1px -1px 0 -1px',
                     }}
                     className="bg-white"
                   >
