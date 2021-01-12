@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useDispatch, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Navbar, Container } from 'reactstrap';
 
@@ -12,12 +12,6 @@ const Nav = (props) => {
     path: '/login',
     text: 'Login / Register',
   };
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({ type: 'GET_LEVEL_LIST' });
-  }, []);
 
   if (props.store.user.id != null) {
     loginLinkData.path = '/user';

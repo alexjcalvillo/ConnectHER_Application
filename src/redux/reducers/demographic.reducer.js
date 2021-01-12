@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { useDispatch, connect } from 'react-redux';
 
 const age = (state = [], action) => {
   switch (action.type) {
