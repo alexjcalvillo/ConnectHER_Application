@@ -2,13 +2,16 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
 CREATE TABLE "users" (
     "id" SERIAL PRIMARY KEY,
     "email" VARCHAR (150) UNIQUE NOT NULL,
     "first_name" VARCHAR (100) NOT NULL,
     "last_name" VARCHAR (100) NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "password" VARCHAR (1000) NOT NULL,
+    "access_level" INT(10)
 );
+
 CREATE TABLE "demographic" (
     "id" SERIAL PRIMARY KEY,
     "age" VARCHAR (150),
@@ -84,6 +87,13 @@ CREATE TABLE "messages" (
 "user" INT REFERENCES "users",
 "message" VARCHAR(256)
 );
+
+CREATE TABLE "member" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" int REFERENCES "users",
+    "member_level" int 
+);
+
 -- starter categories
 INSERT INTO "category" ("name")
 VALUES 
