@@ -1,14 +1,13 @@
 -- Add users
-INSERT INTO "users" (email, password, first_name, last_name)
-VALUES ('crosbycalvillo@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Crosby', 'Calvillo'),
-('sarahmiller@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Sarah', 'Miller'),
-('briannahamption@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Brianna', 'Hampton'),
-('kristinjones@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Kristin', 'Jones'),
-('annasmith@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Anna', 'Smith'),
-('ginabirdling@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Gina', 'Birdling'),
-('sophiajean@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Sophia', 'Jean'),
-('bellakreig@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Bella', 'Kreig');
-
+INSERT INTO "users" (email, password, first_name, last_name, access_level)
+VALUES ('crosbycalvillo@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Crosby', 'Calvillo', 1),
+('sarahmiller@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Sarah', 'Miller', 1),
+('briannahamption@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Brianna', 'Hampton', 1),
+('kristinjones@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Kristin', 'Jones', 1),
+('annasmith@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Anna', 'Smith', 2),
+('ginabirdling@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Gina', 'Birdling', 1),
+('sophiajean@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Sophia', 'Jean', 1),
+('bellakreig@gmail.com', '$2a$10$0mPSXOrr5aXmFxj4bWhEdO9vQPg.WHlCzu8IdooZjr40r9e9hv.d6', 'Bella', 'Kreig', 1);
 
 -- Add Profiles
 INSERT INTO "about" 

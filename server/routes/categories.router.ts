@@ -5,15 +5,16 @@ import pool from '../modules/pool';
 const router: express.Router = express.Router();
 
 router.get('/all', (req: Request, res: Response) => {
-    const query = `SELECT * FROM category;`;
+  const query = `SELECT * FROM member;`;
 
-    pool.query(query)
+  pool
+    .query(query)
     .then((response) => {
-        res.send(response.rows);
+      res.send(response.rows);
     })
     .catch((err) => {
-        res.sendStatus(500);
-    })
-})
+      res.sendStatus(500);
+    });
+});
 
 export default router;

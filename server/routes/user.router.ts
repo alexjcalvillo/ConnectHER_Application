@@ -30,8 +30,8 @@ router.post(
     const firstName: string = req.body.firstName;
     const lastName: string = req.body.lastName;
 
-    const queryText: string = `INSERT INTO "users" (email, password, first_name, last_name)
-    VALUES ($1, $2, $3, $4) RETURNING id`;
+    const queryText: string = `INSERT INTO "users" (email, password, first_name, last_name, access_level)
+    VALUES ($1, $2, $3, $4, 1) RETURNING id`;
     pool
       .query(queryText, [email, password, firstName, lastName])
       .then(() => res.sendStatus(201))
@@ -70,22 +70,19 @@ router.post(
   }
 );
 
-// router.get(
-//   '/level',
-//   (req: Request, res: Response, next: express.NextFunction): void => {
-//     const queryText = `SELECT * FROM member_level;`;
+router.get('/level', (req: Request, res: Response) => {
+  const query = `SELECT "users".id, "users".first_name, "users".last_name, member.member_level FROM "users"
+JOIN "member" ON "users".id = "member".user_id 
+ORDER BY "users".id`;
 
-//     pool
-//       .query(queryText)
-//       .then((dbResponse) => {
-//         console.log(dbResponse);
-//         res.send(dbResponse.rows);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         res.sendStatus('Retrieve Access Level Error', 500);
-//       });
-//   }
-// );
+  pool
+    .query(query)
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+});
 
 export default router;

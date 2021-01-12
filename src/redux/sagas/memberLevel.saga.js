@@ -14,16 +14,17 @@ function* memberSaga(action) {
 
 function* memberListSaga(action) {
   try {
-    console.log('level_list saga reached');
-    const selected = yield axios.get(`/api/user/level`);
+    console.log('level_list saga reached', action);
+    const selected = yield axios.get('/api/user/level');
     yield put({
       type: 'SET_LEVEL_LIST',
       payload: selected.data,
     });
+    console.log('selected data', selected.data);
   } catch (err) {
     yield put({
       type: 'SET_ERROR',
-      payload: 'Could not get Movie Details!!!',
+      payload: 'Could not get Member Level',
     });
   }
 }

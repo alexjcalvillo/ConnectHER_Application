@@ -20,6 +20,10 @@ function* fetchUser() {
     // the client-side code know the user is logged in
     yield put({ type: 'SET_USER', payload: response.data });
     yield put({
+      type: 'GET_LEVEL_LIST',
+      payload: response.data.id,
+    });
+    yield put({
       type: 'GET_PROFILE',
       payload: response.data.id,
     });
