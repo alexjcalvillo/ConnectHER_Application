@@ -5,6 +5,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Row, Col, Input } from 'reactstrap';
 
 import ProfileResults from '../ProfileResults/ProfileResults';
+import SkillsSelector from '../SkillsSelector/SkillsSelector';
 
 // creating a Search functional component to reuse in search page and for skills
 function ProfileOptions({ term, skills }) {
@@ -57,6 +58,7 @@ function ProfileOptions({ term, skills }) {
             value={searchTerm}
             onChange={handleChange}
           />
+          <SkillsSelector />
         </Col>
       </Row>
       <Row>
