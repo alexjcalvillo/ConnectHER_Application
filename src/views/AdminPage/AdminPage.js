@@ -4,6 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Pie } from 'react-chartjs-2';
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
 import { Button, Row, Col } from 'reactstrap';
+import AdminSearch from '../../components/AdminSearch/AdminSearch';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -270,7 +271,7 @@ class AdminPage extends Component {
                 options={{
                   title: {
                     display: true,
-                    text: 'Gender',
+                    text: 'Gender Identity',
                     fontSize: 20,
                   },
                   legend: {
@@ -371,7 +372,7 @@ class AdminPage extends Component {
               </Row>
               <Row className="mt-3">
                 <Col>
-                  <ProfileSearch
+                  <AdminSearch
                     skills={this.props.store.memberListingsReducer}
                     term={this.state.searchTerm}
                   />
