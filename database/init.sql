@@ -101,7 +101,6 @@ CREATE TABLE "personality" (
      "disc" VARCHAR(25),
      "agility_index" VARCHAR (25),
       "enneagram" VARCHAR(25)
-    
 );
 
 -- starter categories
