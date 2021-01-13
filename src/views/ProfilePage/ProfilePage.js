@@ -849,7 +849,7 @@ class ProfilePage extends Component {
           className="modal-dialog-centered"
           size="lg"
           isOpen={this.state.defaultModal2}
-          toggle={() => this.toggleModal2('defaultModal2')}
+          toggle={() => this.toggleModal('defaultModal2')}
         >
           <button
             aria-label="Close"

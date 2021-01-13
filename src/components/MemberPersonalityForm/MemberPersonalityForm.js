@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { useFormik } from 'formik';
+import Swal from 'sweetalert2';
 
 import style_list from '../../styles/list';
 // import reactstrap Styles/Components
@@ -30,6 +31,7 @@ function MemberPersonalityForm(props) {
   // a default value of 'Functional Component'
   const formik = useFormik({
     initialValues: {
+      user_id: props.store.user.id,
       myers_briggs: '', // string
       disc: '', // string
       agility_index: '', // string
@@ -41,6 +43,8 @@ function MemberPersonalityForm(props) {
         type: 'SUBMIT_PERSONALITY',
         payload: values,
       });
+      Swal.fire('Your Personality Survey has been submitted');
+      props.callback();
     },
   });
 

@@ -6,16 +6,17 @@ function* postPersonality(action) {
   console.log('payload', action.payload);
   try {
     yield put({ type: 'ERROR_RESET' });
-    const response = yield axios.post(`/api/form/personality`, action.payload);
+    const response = yield axios.post('/api/personality', action.payload);
     console.log(response.data);
     yield put({
       type: 'SET_PERSONALITY',
     });
+    console.log('make it back personality');
   } catch (err) {
     console.log('PERSONALITY ERROR, err');
     yield put({
       type: 'ERROR_MSG',
-      payload: 'There was a problem getting your movies!! Please try again.',
+      payload: 'Post Personality Error, Please try again.',
     });
   }
 }
