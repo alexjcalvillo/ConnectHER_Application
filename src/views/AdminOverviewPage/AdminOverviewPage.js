@@ -416,108 +416,80 @@ class AdminOverviewPage extends Component {
   render() {
     return (
       <div>
-        {/* <label htmlFor="role">
-          Select Child:
-          <select>
-            <option value="">Select a Role</option>
-            {this.props.store.demographicReducer.map((item, index) => {
-              return (
-                <option key={index} value={item.id}>
-                  {item.username}
-                </option>
-              );
-            })}
-          </select>
-          <Button
-            variant="outlined"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={this.handleSubmit}
-          >
-            Get Child Info &#x2192;
-          </Button>
-        </label> */}
-        <h2>{this.state.heading}</h2>
-        <Row>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
               onClick={this.ageGraph}
               active={this.state.rSelected === 1}
             >
               Age
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
               onClick={this.ethnicityGraph}
-              active={this.state.rSelected === 2}
+              Active
             >
               Ethnicity
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
-              onClick={this.genderGraph}
-              active={this.state.rSelected === 3}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              onClick={this.GenderGraph}
+              Active
             >
               Gender
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
               onClick={this.sexGraph}
-              active={this.state.rSelected === 4}
+              Active
             >
-              Sexual Orientation
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
-              onClick={this.abilityGraph}
-              active={this.state.rSelected === 5}
+              Sex Graph
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              onClick={this.sexGraph}
+              Active
             >
               Ability
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
-              onClick={this.incomeGraph}
-              active={this.state.rSelected === 6}
-            >
-              Income
-            </Button>
-          </Col>
-          <Col lg={2} xs={12}>
-            <Button
-              outline
-              block
-              color="primary"
-              onClick={this.educationGraph}
-              active={this.state.rSelected === 7}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              onClick={this.sexGraph}
+              Active
             >
               Education
-            </Button>
-          </Col>
-        </Row>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              onClick={this.sexGraph}
+              Active
+            >
+              Sexual Orientation
+            </a>
+          </li>
+        </ul>
+        <h2>{this.state.heading}</h2>
+
         <Pie
           data={this.state.pieChartData}
           height={110}
