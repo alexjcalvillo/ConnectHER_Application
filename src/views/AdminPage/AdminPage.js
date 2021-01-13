@@ -106,7 +106,7 @@ class AdminPage extends Component {
     let userList;
     if (this.props.store.user.access_level != 2) {
       return (
-        <h2 style={{ topMargin: 75, fontSize: '4vw', textAlign: 'center' }}>
+        <h2 style={{ topMargin: 75, fontSize: 'vw', textAlign: 'center' }}>
           You are not authorized to view this area.
         </h2>
       );

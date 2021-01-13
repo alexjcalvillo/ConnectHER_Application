@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import _ from 'lodash';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
+import MemberPersonalityForm from '../../components/MemberPersonalityForm/MemberPersonalityForm';
 import './ProfilePage.css';
 import function_list from '../../functions/list';
 import style_list from '../../styles/list';
@@ -14,6 +15,8 @@ import {
   Button,
   Card,
   CardBody,
+  Modal,
+  ModalBody,
   Input,
   CardText,
   Label,
@@ -30,13 +33,23 @@ class ProfilePage extends Component {
     profile: {},
     update: false,
     picEdit: false,
+    defaultModal: false,
+    defaultModal2: false,
+    isOpen: false,
   };
+
   componentDidMount() {
     this.setState({
       profile: this.props.store.profile,
       update: false,
     });
   }
+
+  toggleModal = (state) => {
+    this.setState({
+      [state]: !this.state[state],
+    });
+  };
 
   handleChange = (key) => (event) => {
     this.setState({
@@ -617,23 +630,6 @@ class ProfilePage extends Component {
                     >
                       <i>{this.props.store.profile.organization_name}</i>{' '}
                     </p>{' '}
-                    <Button
-                      outline
-                      style={{
-                        backgroundColor: '#17c3ca',
-                        border: '1px solid white',
-                        color: '#f7fafc',
-                        boxShadow: '0 2px 4px #11111150',
-                        marginBottom: 15,
-                        marginLeft: 10,
-                        marginTop: -5,
-                      }}
-                      size="sm"
-                      className="profile-button"
-                      onClick={this.switchPic}
-                    >
-                      Change Profile Picture
-                    </Button>
                     <hr style={{ marginTop: '0px' }} />
                     <p
                       style={{
@@ -760,6 +756,55 @@ class ProfilePage extends Component {
                         </a>
                       </Col>
                     </Row>
+                    <Button
+                      block
+                      style={{
+                        backgroundColor: '#17c3ca',
+                        border: '1px solid white',
+                        color: '#f7fafc',
+                        boxShadow: '0 2px 4px #11111150',
+                        marginBottom: 15,
+                        marginLeft: 10,
+                        marginTop: 25,
+                      }}
+                      size="sm"
+                      className="profile-button"
+                      onClick={this.switchPic}
+                    >
+                      Change Profile Picture
+                    </Button>
+                    <Button
+                      block
+                      onClick={() => this.toggleModal('defaultModal2')}
+                      size="sm"
+                      style={{
+                        backgroundColor: '#17c3ca',
+                        border: '1px solid white',
+                        color: '#f7fafc',
+                        boxShadow: '0 2px 4px #11111150',
+                        marginBottom: 15,
+                        marginLeft: 10,
+                        marginTop: 10,
+                      }}
+                    >
+                      Mentor Survey{' '}
+                    </Button>
+                    <Button
+                      block
+                      onClick={() => this.toggleModal('defaultModal')}
+                      size="sm"
+                      style={{
+                        backgroundColor: '#17c3ca',
+                        border: '1px solid white',
+                        color: '#f7fafc',
+                        boxShadow: '0 2px 4px #11111150',
+                        marginBottom: 15,
+                        marginLeft: 10,
+                        marginTop: 10,
+                      }}
+                    >
+                      Personality Survey{' '}
+                    </Button>
                     <br />
                     <Row>
                       <Col className="text-center">
@@ -774,6 +819,58 @@ class ProfilePage extends Component {
             </Row>
           </Container>
         )}
+        <Modal
+          className="modal-dialog-centered"
+          size="lg"
+          isOpen={this.state.defaultModal}
+          toggle={() => this.toggleModal('defaultModal')}
+        >
+          <button
+            aria-label="Close"
+            className="close m-2 "
+            data-dismiss="modal"
+            type="button"
+            onClick={() => this.toggleModal('defaultModal')}
+          >
+            <span aria-hidden={true}>×</span>
+          </button>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderTop: '1px solid #11111150',
+              borderRadius: '0 0 5px 5px',
+            }}
+          >
+            <MemberPersonalityForm />
+          </ModalBody>
+        </Modal>
+        <Modal
+          className="modal-dialog-centered"
+          size="lg"
+          isOpen={this.state.defaultModal2}
+          toggle={() => this.toggleModal2('defaultModal2')}
+        >
+          <button
+            aria-label="Close"
+            className="close m-2 "
+            data-dismiss="modal"
+            type="button"
+            onClick={() => this.toggleModal('defaultModal2')}
+          >
+            <span aria-hidden={true}>×</span>
+          </button>
+          <ModalBody
+            style={{
+              backgroundColor: '#d6f3f3',
+              boxShadow: '0 2px 4px #11111150',
+              borderTop: '1px solid #11111150',
+              borderRadius: '0 0 5px 5px',
+            }}
+          >
+            <h2>Mentor Survey Goes Here</h2>
+          </ModalBody>
+        </Modal>
       </Container>
     );
   }
