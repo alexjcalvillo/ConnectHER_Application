@@ -100,8 +100,7 @@ CREATE TABLE "personality" (
     "myers_briggs" VARCHAR(25),
      "disc" VARCHAR(25),
      "agility_index" VARCHAR (25),
-      "enneagram" VARCHAR(25),
-    
+      "enneagram" VARCHAR(25)
 );
 
 -- starter categories

@@ -46,6 +46,48 @@ router.get(
   }
 );
 
+router.get(
+  '/chat_instance/notification/:chat_id',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    let firstLoad = false;
+    let responseLength;
+    let notification = false;
+    const checkForNewMessage = () => {
+      setTimeout(() => {
+        pool
+          .query(
+            `SELECT "messages".user, "messages".message FROM "chat_instance"
+        JOIN "messages" ON "chat_instance".id = "messages".chat_id
+        WHERE "chat_instance".id = $1
+        ORDER BY "messages".id ASC;
+        `,
+            [req.params.chat_id]
+          )
+          .then((response) => {
+            responseLength = response.rows.length;
+            if (firstLoad === true) {
+              if (responseLength > response.rows.length) {
+                notification = true;
+              }
+            }
+            console.log(firstLoad, responseLength, notification);
+            if (notification === true) {
+              res.send(response.rows);
+            } else {
+              checkForNewMessage();
+            }
+            firstLoad = true;
+          })
+          .catch((err) => {
+            console.log('Error completing GET [chat_instance] query', err);
+            res.sendStatus(500);
+          });
+      }, 5000);
+    };
+    checkForNewMessage();
+  }
+);
+
 router.post(
   '/chat_instance/message/:chat_id',
   (req: Request, res: Response, next: express.NextFunction): void => {
