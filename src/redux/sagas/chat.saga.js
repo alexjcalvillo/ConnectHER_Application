@@ -34,18 +34,19 @@ function* getMessages(action) {
 }
 
 function* getNotifications(action) {
-  const formattedChatArray = [];
-  for (let i = 0; i < action.payload.length; i++) {
-    const response = yield axios.get(
-      `/api/chat/chat_instance/${action.payload[i].id}`
-    );
-    formattedChatArray.push({
-      chatId: action.payload[i].id,
-      user: action.payload[i].user_2,
-      newMessage: response.data.notification,
-    });
-  }
-  console.log(formattedChatArray);
+  // console.log('innotif');
+  // const formattedChatArray = [];
+  // for (let i = 0; i < action.payload.length; i++) {
+  //   const response = yield axios.get(
+  //     `/api/chat/chat_instance/notification/${action.payload[i].id}`
+  //   );
+  //   formattedChatArray.push({
+  //     chatId: action.payload[i].id,
+  //     user: action.payload[i].user_2,
+  //     newMessage: response.data.notification,
+  //   });
+  // }
+  // console.log(formattedChatArray);
   // yield put({
   //   type: 'SET_CHAT_INSTANCES',
   //   payload: formattedChatArray,
