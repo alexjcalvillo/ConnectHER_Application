@@ -24,15 +24,17 @@ class MembersList extends Component {
         {this.props.store.memberListingsReducer.map((member, index) => {
           for (let i = 0; i < this.props.store.favorites.member.length; i++) {
             if (member.user_id == this.props.store.favorites.member[i]) {
-              return (
-                <MembersListItem
-                  member={member}
-                  index={index}
-                  openChat={(data) => {
-                    this.props.openChat(data);
-                  }}
-                />
-              );
+              if (member.user_id !== this.props.store.user.id) {
+                return (
+                  <MembersListItem
+                    member={member}
+                    index={index}
+                    openChat={(data) => {
+                      this.props.openChat(data);
+                    }}
+                  />
+                );
+              }
             }
           }
         })}

@@ -75,9 +75,6 @@ class MentorMenteeItem extends Component {
           />
           <p className="MM_name">{this.props.member.display_name}</p>
 
-          <p className="MM_details">
-            Organization : {this.props.member.organization_name}
-          </p>
           <div className="MM_favorites_container">
             <i
               class="fa fa-heart m-1 fa-heart-custom"

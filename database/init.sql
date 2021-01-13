@@ -98,9 +98,9 @@ CREATE TABLE "personality" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "users",
     "myers_briggs" VARCHAR(25),
-    "disc" VARCHAR(25),
-    "agility_index" VARCHAR(25),
-    "enneagram" VARCHAR(25)
+     "disc" VARCHAR(25),
+     "agility_index" VARCHAR (25),
+      "enneagram" VARCHAR(25)
 );
 
 -- starter categories
