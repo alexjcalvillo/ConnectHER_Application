@@ -4,6 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import _ from 'lodash';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import MemberPersonalityForm from '../../components/MemberPersonalityForm/MemberPersonalityForm';
+import MentorSurveyForm from '../../components/MemberMentorSurvey/MemberMentorSurvey';
 import './ProfilePage.css';
 import function_list from '../../functions/list';
 import style_list from '../../styles/list';
@@ -868,7 +869,7 @@ class ProfilePage extends Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <h2>Mentor Survey Goes Here</h2>
+            <MentorSurveyForm />
           </ModalBody>
         </Modal>
       </Container>

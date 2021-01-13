@@ -5,7 +5,7 @@ import pool from '../modules/pool';
 const router: express.Router = express.Router();
 
 router.get('/all', (req: Request, res: Response) => {
-  const query = `SELECT * FROM member;`;
+  const query = `SELECT * FROM category;`;
 
   pool
     .query(query)
