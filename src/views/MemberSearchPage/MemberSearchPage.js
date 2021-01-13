@@ -76,7 +76,7 @@ class MemberSearchPage extends Component {
     );
 
     if (this.state.rSelected === 5) {
-      Content = <> {MentorMentee} </>;
+      Content = <MentorMentee />;
     }
     return (
       <>

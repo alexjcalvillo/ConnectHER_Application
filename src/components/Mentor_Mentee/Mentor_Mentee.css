@@ -1,0 +1,124 @@
+.MM_table_container {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #11111150;
+  background-color: #f7fafc;
+  width: 100%;
+  margin-top: 21px;
+  padding: -2px;
+}
+
+.MM_table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.MM_table_list {
+  max-height: 660px;
+  overflow: scroll;
+}
+
+.MM_table_tr {
+  margin: -2px -2px 0 -2px;
+  display: inline-block;
+  width: 100%;
+  border: 2px solid #f7fafc;
+  box-shadow: 0 2px 4px #11111150;
+  color: #f7fafc;
+  border-radius: 5px 5px 0 0;
+}
+
+.MM_table_td_L {
+  background-color: #17c3ca;
+  display: inline-block;
+  width: 50%;
+  border-radius: 3px 0 0 0;
+}
+
+.MM_table_td_L:hover {
+  cursor: pointer;
+  background-color: #17c3cac0;
+}
+
+.MM_table_td_R {
+  background-color: #17c3ca;
+  display: inline-block;
+  width: 50%;
+  border-radius: 0 3px 0 0;
+}
+
+.MM_table_td_R:hover {
+  cursor: pointer;
+  background-color: #17c3cac0;
+}
+
+.MM_table_button {
+  font-weight: bold;
+  user-select: none;
+  margin: -3px;
+  padding: 12px 0 12px 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.MM_br {
+  border-right: 2px solid #f7fafc;
+}
+
+.MM_table_tr_item {
+  margin-bottom: 0px;
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid #11111150;
+  display: inline-block;
+}
+
+.MM_item {
+  margin-top: 3px;
+  display: inline-flex;
+  height: 50px;
+  width: 100%;
+  text-align: start;
+}
+
+.MM_img {
+  margin-left: 5px;
+  margin-right: 15px;
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #f7fafc;
+  box-shadow: 0 2px 4px #11111150;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.MM_name {
+  overflow: scroll;
+  width: 20%;
+  margin-top: -3px;
+  margin-bottom: -7px;
+  padding-top: 18px;
+  display: inline-flex;
+  font-weight: bold;
+  border-right: 1px solid #11111150;
+}
+.MM_details {
+  overflow: scroll;
+  width: 65%;
+  margin-left: 15px;
+  margin-top: -3px;
+  margin-bottom: -7px;
+  padding-top: 18px;
+  display: inline-flex;
+  border-right: 1px solid #11111150;
+}
+
+.MM_favorites_container {
+  display: unset;
+  background-color: #11111120;
+  margin-top: -3px;
+  margin-bottom: 5px;
+  padding: 9px 0 0 2%;
+  height: 60px;
+  width: 8%;
+}
