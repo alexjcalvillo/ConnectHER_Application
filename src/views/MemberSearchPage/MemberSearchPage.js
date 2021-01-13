@@ -12,7 +12,7 @@ import style_list from '../../styles/list';
 
 class MemberSearchPage extends Component {
   state = {
-    searchTerm: 'community_role',
+    searchTerm: 'job_title',
     rSelected: 1,
   };
   componentDidMount() {
@@ -31,10 +31,10 @@ class MemberSearchPage extends Component {
         searchTerm = 'organization_name';
         break;
       case 4:
-        searchTerm = 'skills';
+        searchTerm = 'display_name';
         break;
       default:
-        searchTerm = 'display_name';
+        searchTerm = 'job_title';
         break;
     }
     if (searchTerm !== 5) {
@@ -203,7 +203,7 @@ class MemberSearchPage extends Component {
                 onClick={() => this.buttonClick(4)}
                 active={this.state.rSelected === 4}
               >
-                Skills
+                Name
               </Button>
             </Col>
             <Col lg={2} xs={12}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import { Row, Col, Input } from 'reactstrap';
@@ -12,10 +12,10 @@ function ProfileOptions({ term, skills }) {
   // Using hooks we're creating local state for a search Term and a search Result
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  let skillsAdded = useSelector((state) => state.memberskills);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
   // useEffect hook dependent upon skills, searchTerm props
   // will update each time the search input changes and the
   // results filters values that include any version of the searchTerm
@@ -23,26 +23,31 @@ function ProfileOptions({ term, skills }) {
     let search = term;
     let list = skills;
     console.log(list);
-    if (search === 'skills') {
-      let results = list.filter((v) =>
-        v.skills.some(
-          (skill) =>
-            skill.skill.includes(searchTerm) ||
-            skill.skill.toLowerCase().includes(searchTerm)
+
+    let results = list.filter(
+      (skill) =>
+        skill[search].toLowerCase().includes(searchTerm) ||
+        skill[search].includes(searchTerm)
+    );
+
+    if (skillsAdded.length > 0) {
+      let searchSkills = skillsAdded.map((item, i) => item.skill);
+      console.log(searchSkills);
+      console.log('results: ', results);
+
+      results = results.filter((user) =>
+        searchSkills.every((searchTerm) =>
+          user.skills.some((skillObj) => skillObj.skill === searchTerm)
         )
       );
-      setSearchResults(results);
-      // console.log(results);
-    } else {
-      const results = list.filter(
-        (skill) =>
-          skill[search].toLowerCase().includes(searchTerm) ||
-          skill[search].includes(searchTerm)
-      );
-      setSearchResults(results);
-      // console.log(results);
+      // results = results.filter((v) =>
+      //   v.skills.some((skill) => searchSkills.includes(skill.skill))
+      // );
+
+      console.log('results ', results);
     }
-  }, [skills, term, searchTerm]);
+    setSearchResults(results);
+  }, [skills, term, searchTerm, skillsAdded]);
   return (
     <div>
       <Row>
@@ -51,6 +56,7 @@ function ProfileOptions({ term, skills }) {
           lg={{ size: 10, offset: 1 }}
           md={{ size: 10, offset: 1 }}
         >
+          <SkillsSelector />
           <Input
             style={{ width: '100%', margin: '5px 0 10px 0px' }}
             className="form-control-alternative"
@@ -59,7 +65,6 @@ function ProfileOptions({ term, skills }) {
             value={searchTerm}
             onChange={handleChange}
           />
-          <SkillsSelector />
         </Col>
       </Row>
       <Row>

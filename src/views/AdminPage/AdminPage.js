@@ -13,7 +13,7 @@ import { Button, Row, Col } from 'reactstrap';
 class AdminPage extends Component {
   state = {
     heading: 'Admin Page',
-    searchTerm: 'display_name',
+    searchTerm: 'job_title',
     rSelected: 1,
   };
 
@@ -51,10 +51,10 @@ class AdminPage extends Component {
         searchTerm = 'organization_name';
         break;
       case 4:
-        searchTerm = 'skills';
+        searchTerm = 'display_name';
         break;
       default:
-        searchTerm = 'display_name';
+        searchTerm = 'job_title';
         break;
     }
     this.setState({
@@ -332,7 +332,7 @@ class AdminPage extends Component {
                     onClick={() => this.buttonClick(1)}
                     active={this.state.rSelected === 1}
                   >
-                    Display Name
+                    Job Title
                   </Button>
                 </Col>
                 <Col lg={2} xs={12}>
@@ -354,7 +354,7 @@ class AdminPage extends Component {
                     onClick={() => this.buttonClick(3)}
                     active={this.state.rSelected === 3}
                   >
-                    Organization Name
+                    Organization
                   </Button>
                 </Col>
                 <Col lg={{ size: 2 }} xs={12}>
@@ -365,7 +365,7 @@ class AdminPage extends Component {
                     onClick={() => this.buttonClick(4)}
                     active={this.state.rSelected === 4}
                   >
-                    Skills
+                    Name
                   </Button>
                 </Col>
               </Row>
