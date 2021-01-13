@@ -32,9 +32,6 @@ class LoginForm extends Component {
           password: this.state.password,
         },
       });
-      this.props.dispatch({
-        type: 'GET_LEVEL_LIST',
-      });
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
