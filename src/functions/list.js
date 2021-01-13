@@ -14,6 +14,7 @@ import getUsersForChat from './getUsersForChat';
 import getMessagesForChatInstance from './getMessagesForChatInstance';
 import holdSwitchToChatData from './holdSwitchToChatData';
 import doesChatInstanceExist from './doesChatInstanceExist';
+import adminChartData from './adminChartData';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -33,6 +34,7 @@ const function_list = {
   getMessagesForChatInstance,
   holdSwitchToChatData,
   doesChatInstanceExist,
+  adminChartData,
 };
 /*-------------------------*/
 
