@@ -9,7 +9,7 @@ CREATE TABLE "users" (
     "first_name" VARCHAR (100) NOT NULL,
     "last_name" VARCHAR (100) NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "access_level" INT(10)
+    "access_level" INT
 );
 
 CREATE TABLE "demographic" (
