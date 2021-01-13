@@ -416,6 +416,28 @@ class AdminOverviewPage extends Component {
   render() {
     return (
       <div>
+        {/* <label htmlFor="role">
+          Select Child:
+          <select>
+            <option value="">Select a Role</option>
+            {this.props.store.demographicReducer.map((item, index) => {
+              return (
+                <option key={index} value={item.id}>
+                  {item.username}
+                </option>
+              );
+            })}
+          </select>
+          <Button
+            variant="outlined"
+            color="primary"
+            type="submit"
+            size="small"
+            onClick={this.handleSubmit}
+          >
+            Get Child Info &#x2192;
+          </Button>
+        </label> */}
         <h2>{this.state.heading}</h2>
         <Row>
           <Col lg={2} xs={12}>
