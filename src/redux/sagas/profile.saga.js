@@ -51,6 +51,24 @@ function* getAllProfiles(action) {
       };
     });
     yield put({ type: 'SET_MEMBER_LISTINGS', payload: profiles });
+    yield put({
+      type: 'GET_AGE_DEMO',
+    });
+    yield put({
+      type: 'GET_ETHNICITY_DEMO',
+    });
+    yield put({
+      type: 'GET_GENDER_DEMO',
+    });
+    yield put({
+      type: 'GET_SEX_DEMO',
+    });
+    yield put({
+      type: 'GET_LEVEL_LIST',
+    });
+    yield put({
+      type: 'GET_USER',
+    });
     // yield put({ type: 'SET_MEMBER_LISTINGS', payload: response.data });
   } catch (error) {
     console.log('getAllProfiles failed. Please try again.', error);
