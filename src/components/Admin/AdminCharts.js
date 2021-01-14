@@ -6,18 +6,26 @@ import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
 import { Button, Row, Col } from 'reactstrap';
 import AdminSearch from '../../components/AdminSearch/AdminSearch';
 
+import './Admin.css';
+
 import function_list from '../../functions/list';
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 
 class AdminPage extends Component {
   render() {
     const method = this.props.methods;
+
+    const graphData = {
+      ...function_list.adminHandleGraphSwitch({
+        type: method.getState().title,
+        reducer: this.props.store.demographicReducer,
+      }),
+    };
     return (
       <>
-        <Pie
+        <div className="chartBox">
+          {function_list.buildAdminGraph(graphData, method)}
+        </div>
+        {/* <Pie
           onElementsClick={() => {
             method.handleClick('age');
           }}
@@ -65,7 +73,7 @@ class AdminPage extends Component {
           })}
           height={50}
           options={function_list.adminChartData({ type: 'Sexual Orientation' })}
-        />
+        /> */}
       </>
     );
   }
