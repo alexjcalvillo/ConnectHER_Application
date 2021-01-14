@@ -9,6 +9,8 @@ import './AdminPage.css';
 
 import AdminCharts from '../../components/Admin/AdminCharts';
 import MemberManager from '../../components/Admin/MemberManagement/Mentor_Mentee';
+import MentorMentee from '../../components/Mentor_Mentee/Mentor_Mentee';
+
 import { transformAuthInfo } from 'passport';
 
 import function_list from '../../functions/list';
@@ -52,6 +54,11 @@ class AdminPage extends Component {
 
   handleResults = (resultsFromGraph) => {
     results = resultsFromGraph;
+  };
+
+  handleAdmin = (event) => {
+    event.preventDefault();
+    this.props.history.push('/admin-overview');
   };
 
   rotateTitle = (movement) => {
@@ -107,6 +114,18 @@ class AdminPage extends Component {
                     >
                       Admin Dashboard
                     </h2>
+                    <Button
+                      onClick={this.handleAdmin}
+                      style={{
+                        float: 'left',
+                        marginRight: '30px',
+                        marginTop: -50,
+                        color: '#d6f3f3',
+                        backgroundColor: '#6C5B7B',
+                      }}
+                    >
+                      Full Demographics
+                    </Button>
                   </div>
                 </Col>
               </Row>
@@ -126,8 +145,23 @@ class AdminPage extends Component {
                 </Col>
                 <Col className="graph" lg={{ size: 6 }} md={12} s={12} xs={12}>
                   <div style={{ textAlign: 'center' }}>
-                    <AdminCharts classname="charts" methods={methods} />
-                    <p className="adminChartResultsTest">
+                    <AdminCharts className="charts" methods={methods} />
+                    <p
+                      className="adminChartResultsTest"
+                      style={{
+                        fontSize: 15,
+                        fontFamily: 'lato',
+                        color: '#111111d0',
+                        marginLeft: '-20px !important',
+                      }}
+                    >
+                      This chart generated from a total of {results} user
+                      results!
+                    </p>
+                    <div
+                      className="chart_category"
+                      style={{ marginTop: -40, marginLeft: 500 }}
+                    >
                       <div
                         className="adminButtonLeft"
                         onClick={() => {
@@ -147,15 +181,16 @@ class AdminPage extends Component {
                       >
                         <i class="fa fa-arrow-right adminButtonRightImg"></i>
                       </div>
-                      This chart generated from a total of {results} user
-                      results!
-                    </p>
+                    </div>
                   </div>
                 </Col>
               </Row>
               <Row>
+                <Col lg={{ size: 7, offset: 1 }} md={4} s={12} xs={12}>
+                  <MentorMentee />
+                </Col>
                 <Col
-                  style={{ marginTop: -120, marginLeft: 35 }}
+                  style={{ marginTop: -80, marginLeft: 35 }}
                   lg={3}
                   md={4}
                   s={12}
@@ -228,18 +263,15 @@ class AdminPage extends Component {
                   />
                   <h2>Education</h2>
                 </Col>
-                <Col lg={9} md={4} s={12} xs={12}>
-                  <h2>Filler</h2>
-                </Col>
               </Row>
-              {/* <Row className="mt-3">
+              <Row className="mt-3">
                 <Col>
                   <AdminSearch
                     skills={this.props.store.memberListingsReducer}
                     term={this.state.searchTerm}
                   />
                 </Col>
-              </Row> */}
+              </Row>
             </div>
           );
         }

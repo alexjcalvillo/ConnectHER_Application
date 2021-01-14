@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import member from '../../styles/member';
+import profilePic from './AltImage.jpg';
 
 import function_list from '../../functions/list';
 
@@ -54,6 +55,41 @@ class MentorMenteeItem extends Component {
   };
 
   render() {
+    let image = (
+      <img
+        src={profilePic}
+        alt="profile headshot"
+        style={{
+          objectFit: 'cover',
+          width: '50px',
+          height: '50px',
+          border: '2px solid #f7fafc',
+          boxShadow: '0 2px 4px #11111150',
+          borderRadius: '50%',
+        }}
+        className="profile-pic card-profile-image mb-2"
+      />
+    );
+    if (
+      this.props.member.headshot != '' &&
+      this.props.member.headshot != null
+    ) {
+      image = (
+        <img
+          style={{
+            objectFit: 'cover',
+            width: '50px',
+            height: '50px',
+            border: '2px solid #f7fafc',
+            boxShadow: '0 2px 4px #11111150',
+            borderRadius: '50%',
+          }}
+          className="profile-pic card-profile-image mb-2"
+          src={this.props.member.headshot}
+          alt="alternative"
+        />
+      );
+    }
     let favoriteIconColor = function_list.favoriteIconHandler(false);
 
     if (
@@ -68,11 +104,12 @@ class MentorMenteeItem extends Component {
     let Content = (
       <div className="MM_table_tr_item">
         <div className="MM_item">
-          <img
+          {/* <img
             className="MM_img"
             src={this.props.member.headshot}
             alt="headshot"
-          />
+          /> */}{' '}
+          {image}
           <p className="MM_name">{this.props.member.display_name}</p>
           <div className="MM_details">
             <p className="MM_details_font">{this.props.member.bio}</p>
