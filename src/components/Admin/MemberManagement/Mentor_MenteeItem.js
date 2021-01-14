@@ -73,11 +73,11 @@ class MentorMenteeItem extends Component {
             src={this.props.member.headshot}
             alt="headshot"
           />
-          <p className="MM_name">{this.props.member.display_name}</p>
+          <p className="MM_namea">{this.props.member.display_name}</p>
 
-          <div className="MM_favorites_container">
+          <div className="MM_favorites_containera">
             <i
-              class="fa fa-heart m-1 fa-heart-custom"
+              class="fa fa-heart m-1 fa-heart-customa"
               style={{
                 color: favoriteIconColor,
               }}
