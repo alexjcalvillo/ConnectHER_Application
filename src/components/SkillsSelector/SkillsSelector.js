@@ -9,6 +9,7 @@ import SearchItems from './skills_selector_components/SearchItems/SearchItems';
 import SelectedSkills from './skills_selector_components/SelectedSkills/SelectedSkills';
 import style_list from '../../styles/list';
 import function_list from '../../functions/list';
+import SkillsWidget from '../SkillsWidget/SkillsWidget';
 
 const SkillsSelector = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,14 +39,14 @@ const SkillsSelector = () => {
           <ModalBox
             component={
               <>
-                <div className={styles.searchBar}>
+                {/* <div className={styles.searchBar}>
                   <input
                     type="text"
                     placeholder="Search for skills"
                     onChange={handleSearch}
                   />
-                </div>
-                <div className={styles.container}>
+                </div> */}
+                {/* <div className={styles.container}>
                   {skills && allSkills && (
                     <SearchItems
                       items={allSkills}
@@ -59,8 +60,9 @@ const SkillsSelector = () => {
                   </p>
 
                   <p>Example: "Public Speaking"</p>
-                </div>
-                <SelectedSkills />
+                </div> */}
+                {/* <SelectedSkills /> */}
+                <SkillsWidget />
               </>
             }
           />
