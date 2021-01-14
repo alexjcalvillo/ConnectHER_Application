@@ -5,6 +5,8 @@ import _ from 'lodash';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import MemberPersonalityForm from '../../components/MemberPersonalityForm/MemberPersonalityForm';
 import MentorSurveyForm from '../../components/MemberMentorSurvey/MemberMentorSurvey';
+import IndustryModal from '../../components/IndustryModalButton/IndustryModalButton';
+
 import './ProfilePage.css';
 import function_list from '../../functions/list';
 import style_list from '../../styles/list';
@@ -25,6 +27,7 @@ import {
   Badge,
 } from 'reactstrap';
 import ImageUpload from '../../services/ImageUpload/ImageUpload';
+import CareerModal from '../../components/CareerModal/CareerModal';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -440,6 +443,34 @@ class ProfilePage extends Component {
                           onChange={this.handleChange('job_title')}
                           value={this.state.profile.job_title}
                         />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg={6}>
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="organization_name"
+                          className="form-control-label"
+                        >
+                          Industry:
+                        </Label>
+                        <IndustryModal />
+                      </Col>
+                      <Col lg={6}>
+                        <Label
+                          style={{
+                            fontFamily: 'Cabin',
+                            color: '#111111d0',
+                          }}
+                          htmlFor="job_title"
+                          className="form-control-label"
+                        >
+                          Career Level:
+                        </Label>
+                        <CareerModal />
                       </Col>
                     </Row>
                     <hr />
