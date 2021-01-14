@@ -5,7 +5,7 @@ import _ from 'lodash';
 import LogOutButton from '../../components/LogOutButton/LogOutButton';
 import MemberPersonalityForm from '../../components/MemberPersonalityForm/MemberPersonalityForm';
 import MentorSurveyForm from '../../components/MemberMentorSurvey/MemberMentorSurvey';
-import IndustryModal from '../../components/IndustryModalButton/IndustryModalButton';
+import IndustryModal from '../../components/IndustryModal/IndustryModalButton';
 
 import './ProfilePage.css';
 import function_list from '../../functions/list';
