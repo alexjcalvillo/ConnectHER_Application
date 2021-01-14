@@ -31,7 +31,7 @@ router.get(
 router.get(
   '/members',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryText = `SELECT display_name, community_role, organization_name, mentor, mentee, job_title, headshot, bio, email, first_name, last_name, twitter, facebook, linkedin, instagram, user_id   FROM about
+    const queryText = `SELECT display_name, community_role, organization_name, mentor, mentee, job_title, headshot, bio, email, first_name, last_name, access_level, twitter, facebook, linkedin, instagram, user_id   FROM about
                         JOIN "users" ON "about".user_id= "users".id;`;
     pool
       .query(queryText, [])
@@ -115,12 +115,13 @@ router.put(
     const userId = req.params.id;
     const profile = req.body;
 
-    const query = `UPDATE "users" SET email = $1, first_name = $2, last_name = $3 WHERE id = $4;`;
+    const query = `UPDATE "users" SET email = $1, first_name = $2, last_name = $3, access_level = $4 WHERE id = $5;`;
     pool
       .query(query, [
         profile.email,
         profile.first_name,
         profile.last_name,
+        profile.access_level,
         userId,
       ])
       .then((dbResponse) => {
