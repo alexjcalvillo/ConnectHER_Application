@@ -4,7 +4,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 import Mentor_MenteeItem from './Mentor_MenteeItem';
 
-import './Mentor_Mentee.css';
+import './Mentor_Mentee_Admin.css';
 
 class MentorMentee extends Component {
   state = {
@@ -32,7 +32,7 @@ class MentorMentee extends Component {
       };
     }
     return (
-      <div className="MM_table_container">
+      <div className="MM_table_container1" style={{ height: 430 }}>
         <div className="MM_table">
           <div className="MM_table_tr">
             <div
@@ -55,7 +55,7 @@ class MentorMentee extends Component {
             </div>
           </div>
         </div>
-        <div className="MM_table_list">
+        <div className="MM_table_lista" style={{ height: 430 }}>
           {this.props.store.memberListingsReducer.map((member, index) => {
             return (
               <Mentor_MenteeItem

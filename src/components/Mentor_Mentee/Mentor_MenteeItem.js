@@ -79,7 +79,7 @@ class MentorMenteeItem extends Component {
           </div>{' '}
           <div className="MM_favorites_container">
             <i
-              class="fa fa-heart m-1 fa-heart-custom"
+              class="fa fa-heart m-1 fa-heart-custom desktop-fav"
               style={{
                 color: favoriteIconColor,
               }}
