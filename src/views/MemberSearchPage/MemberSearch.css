@@ -14,6 +14,25 @@
   .community-phone {
     display: none;
   }
+  .searchMemberButton1 {
+    width: 320px;
+    font-size: 0.775rem;
+    margin-top: 5px;
+    margin-left: 8px;
+  }
+  .searchMemberButton2 {
+    margin-top: 5px;
+    width: 320px;
+    font-size: 0.775rem;
+    margin-left: -20px !important;
+  }
+  .searchMemberButton3 {
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 0.775rem;
+    height: 40px;
+    width: 650px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -23,9 +42,24 @@
   .community-laptop {
     display: none;
   }
-  .searchMemberButton {
-    font-size: 0.875rem;
-    padding: 10px;
+  .searchMemberButton1 {
+    width: 150px;
+    font-size: 0.775rem;
+    margin-top: 5px;
+    margin-left: 8px;
+  }
+  .searchMemberButton2 {
+    margin-top: 5px;
+    width: 150px;
+    font-size: 0.775rem;
+    margin-left: 0px !important;
+  }
+  .searchMemberButton3 {
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 0.775rem;
+    height: 40px;
+    width: 330px;
   }
 }
 

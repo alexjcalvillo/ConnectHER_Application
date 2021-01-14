@@ -16,7 +16,6 @@
   border: 1px gray solid;
   border-left: none;
   border-bottom-right-radius: 3px;
-  background-color: green;
   border-top-right-radius: 3px;
   margin: 0 -1px 1px 0;
   overflow: visible;
@@ -38,7 +37,7 @@
 .searchBar > input {
   width: 100%;
   padding: 0.5em;
-  color: #11111150;
+  color: pink;
   font-family: 'cabin';
   border: none;
   border-radius: 4px;

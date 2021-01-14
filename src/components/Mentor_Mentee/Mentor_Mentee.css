@@ -94,7 +94,7 @@
 
   .MM_name {
     overflow: scroll;
-    width: 60%;
+    width: 75% !important;
     margin-top: -3px;
     margin-bottom: -7px;
     padding-top: 18px;
@@ -103,7 +103,7 @@
     border-right: 1px solid #11111150;
   }
   .MM_details {
-    display: none;
+    display: none !important;
   }
 
   .MM_favorites_container {
@@ -111,9 +111,12 @@
     background-color: #11111120;
     margin-top: -3px;
     margin-bottom: 5px;
-    padding: 9px 0 0 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
     height: 60px;
-    width: 8%;
+    width: 25% !important;
   }
 }
 
@@ -132,17 +135,18 @@
 
   .MM_name {
     overflow: scroll;
-    width: 28%;
+    width: 32%;
     margin-top: -3px;
     margin-bottom: -7px;
     padding-top: 18px;
     display: inline-flex;
     font-weight: bold;
+    font-size: 14px;
     border-right: 1px solid #11111150;
   }
   .MM_details {
     overflow: scroll;
-    width: 67%;
+    width: 65%;
     margin-left: 15px;
     margin-top: -3px;
     margin-bottom: -7px;
@@ -159,13 +163,14 @@
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 2%;
-    padding-right: 8%;
+    padding-right: 8% !important;
     height: 60px;
     width: 10%;
   }
 
   .MM_details_font {
     font-size: 15px !important;
-    margin-top: -7px !important;
+    margin-top: -12px !important;
+    margin-bottom: -3px !important;
   }
 }
