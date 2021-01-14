@@ -5,6 +5,8 @@ import { Pie } from 'react-chartjs-2';
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
 import { Button, Row, Col } from 'reactstrap';
 import AdminSearch from '../../components/AdminSearch/AdminSearch';
+import AdminMembership from '../../components/MembershipOptions/AdminMembershipOptions';
+
 import './AdminPage.css';
 
 import AdminCharts from '../../components/Admin/AdminCharts';
@@ -14,12 +16,13 @@ import MentorMentee from '../../components/Mentor_Mentee/Mentor_Mentee';
 import { transformAuthInfo } from 'passport';
 
 import function_list from '../../functions/list';
+import Member from '../../components/Admin/MemberManagement/Member';
 
 let results = 0;
 
 class AdminPage extends Component {
   state = {
-    searchTerm: 'job_title',
+    searchTerm: 'display_name',
     rSelected: 1,
     title: 'Age',
     titleNum: 1,
@@ -132,32 +135,16 @@ class AdminPage extends Component {
               <Row>
                 <Col
                   className="pie"
-                  style={{ marginTop: -16 }}
+                  style={{ marginTop: 12 }}
                   lg={{ size: 3 }}
                   md={12}
                   s={12}
                   xs={12}
                 >
-                  <MemberManager
-                    className="table_dashboard"
-                    methods={methods}
-                  />
+                  <AdminMembership />
                 </Col>
                 <Col className="graph" lg={{ size: 6 }} md={12} s={12} xs={12}>
                   <div style={{ textAlign: 'center' }}>
-                    <AdminCharts className="charts" methods={methods} />
-                    <p
-                      className="adminChartResultsTest"
-                      style={{
-                        fontSize: 15,
-                        fontFamily: 'lato',
-                        color: '#111111d0',
-                        marginLeft: '-20px !important',
-                      }}
-                    >
-                      This chart generated from a total of {results} user
-                      results!
-                    </p>
                     <div
                       className="chart_category"
                       style={{ marginTop: -40, marginLeft: 500 }}
@@ -182,86 +169,25 @@ class AdminPage extends Component {
                         <i class="fa fa-arrow-right adminButtonRightImg"></i>
                       </div>
                     </div>
+                    <AdminCharts className="charts" methods={methods} />
+                    <p
+                      className="adminChartResultsTest"
+                      style={{
+                        fontSize: 15,
+                        fontFamily: 'lato',
+                        color: '#111111d0',
+                        textAlign: 'center',
+                      }}
+                    >
+                      This chart generated from a total of {results} user
+                      results!
+                    </p>
                   </div>
                 </Col>
               </Row>
               <Row>
-                <Col lg={{ size: 7, offset: 1 }} md={4} s={12} xs={12}>
-                  <MentorMentee />
-                </Col>
-                <Col
-                  style={{ marginTop: -80, marginLeft: 35 }}
-                  lg={3}
-                  md={4}
-                  s={12}
-                  xs={12}
-                >
-                  <Pie
-                    className="pie"
-                    onElementsClick={this.handleAgeClick}
-                    onClick={this.handleAgeClick}
-                    data={{
-                      labels: [
-                        '18 or younger',
-                        '18-24',
-                        '25-34',
-                        '35-44',
-                        '45-54',
-                        '55-64',
-                        '65-74',
-                        '75 or older',
-                      ],
-                      datasets: [
-                        {
-                          data: [
-                            this.props.store.demographicReducer.age.age18,
-                            this.props.store.demographicReducer.age.age1824,
-                            this.props.store.demographicReducer.age.age2534,
-                            this.props.store.demographicReducer.age.age3544,
-                            this.props.store.demographicReducer.age.age4554,
-                            this.props.store.demographicReducer.age.age5564,
-                            this.props.store.demographicReducer.age.age6574,
-                            this.props.store.demographicReducer.age.age75,
-                          ],
-                          backgroundColor: [
-                            '##F8B195',
-                            '#F67280',
-                            '#C06C84',
-                            '#6C5B7B',
-                            '#355C7D',
-                            '#99B898',
-                            '#FECEA8',
-                            '#FF847C',
-                          ],
-                          hoverBackgroundColor: [
-                            '##F8B195',
-                            '#F67280',
-                            '#C06C84',
-                            '#6C5B7B',
-                            '#355C7D',
-                            '#99B898',
-                            '#FECEA8',
-                            '#FF847C',
-                          ],
-                        },
-                      ],
-                    }}
-                    height={500}
-                    options={{
-                      title: {
-                        display: false,
-                        text: 'Age',
-                        fontSize: 20,
-                        fontFamily: 'cabin',
-                        marginTop: -30,
-                      },
-                      legend: {
-                        display: false,
-                        position: 'bottom',
-                      },
-                    }}
-                  />
-                  <h2>Education</h2>
+                <Col lg={{ size: 10, offset: 1 }} md={4} s={12} xs={12}>
+                  <Member />
                 </Col>
               </Row>
               <Row className="mt-3">

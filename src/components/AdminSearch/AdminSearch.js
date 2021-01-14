@@ -56,7 +56,7 @@ function AdminSearch({ term, skills }) {
           lg={{ size: 10, offset: 1 }}
           md={{ size: 10, offset: 1 }}
         >
-          <SkillsSelector />
+          {/* <SkillsSelector /> */}
           <Input
             style={{ width: '100%', margin: '5px 0 10px 0px' }}
             className="form-control-alternative"
