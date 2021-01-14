@@ -66,25 +66,30 @@ class MentorMenteeItem extends Component {
     }
 
     let Content = (
-      <div className="MM_table_tr_item">
-        <div className="MM_item">
-          <img
-            className="MM_img"
-            src={this.props.member.headshot}
-            alt="headshot"
-          />
-          <p className="MM_name">{this.props.member.display_name}</p>
+      <div>
+        <div className="MM_table_tr_item">
+          <div className="MM_itema">
+            <p className="MM_namea">{this.props.member.display_name}</p>
 
-          <div className="MM_favorites_container">
-            <i
-              class="fa fa-heart m-1 fa-heart-custom"
-              style={{
-                color: favoriteIconColor,
-              }}
-              onClick={this.toggleFavorite}
-            />
+            <div className="MM_favorites_containera">
+              <i
+                class="fa fa-heart m-1 fa-heart custom"
+                style={{
+                  color: favoriteIconColor,
+                  fontSize: 40,
+                  paddingLeft: 15,
+                  paddingTop: 8,
+                }}
+                onClick={this.toggleFavorite}
+              />
+            </div>
           </div>
         </div>
+        <img
+          className="MM_imga"
+          src={this.props.member.headshot}
+          alt="headshot"
+        />
       </div>
     );
 

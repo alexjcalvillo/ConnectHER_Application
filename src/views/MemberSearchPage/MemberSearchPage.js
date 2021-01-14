@@ -6,6 +6,8 @@ import { Button, Row, Col, Container, Card, CardBody } from 'reactstrap';
 
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
 import MentorMentee from '../../components/Mentor_Mentee/Mentor_Mentee';
+import ModalBox from '../../components/ModalBox/ModalBox';
+
 import './MemberSearch.css';
 
 import style_list from '../../styles/list';
@@ -150,10 +152,10 @@ class MemberSearchPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={{ size: 2, offset: 1 }} xs={12}>
+            <Col lg={{ size: 2, offset: 1 }} s={12} xs={12}>
               <Button
                 // style={style_list.register.button}
-                className="searchMemberButton"
+                className="searchMemberButton3"
                 style={{ ...style_list.register.button, ...activeButton1 }}
                 outline
                 block
@@ -164,10 +166,10 @@ class MemberSearchPage extends Component {
                 Job Title
               </Button>
             </Col>
-            <Col lg={2} xs={12}>
+            <Col lg={2} s={6} xs={6}>
               <Button
                 // style={style_list.register.button}
-                className="searchMemberButton"
+                className="searchMemberButton1"
                 style={{ ...style_list.register.button, ...activeButton2 }}
                 outline
                 block
@@ -178,10 +180,10 @@ class MemberSearchPage extends Component {
                 Community Role
               </Button>
             </Col>
-            <Col lg={2} xs={12}>
+            <Col lg={2} s={6} xs={6}>
               <Button
                 // style={style_list.register.button}
-                className="searchMemberButton"
+                className="searchMemberButton2"
                 style={{ ...style_list.register.button, ...activeButton3 }}
                 block
                 outline
@@ -192,10 +194,10 @@ class MemberSearchPage extends Component {
                 Organization
               </Button>
             </Col>
-            <Col lg={2} xs={12}>
+            <Col lg={2} s={6} xs={6}>
               <Button
                 // style={style_list.register.button}
-                className="searchMemberButton"
+                className="searchMemberButton1"
                 style={{ ...style_list.register.button, ...activeButton4 }}
                 outline
                 block
@@ -206,10 +208,10 @@ class MemberSearchPage extends Component {
                 Name
               </Button>
             </Col>
-            <Col lg={2} xs={12}>
+            <Col lg={2} xs={{ size: 6 }}>
               <Button
                 // style={style_list.register.button}
-                className="searchMemberButton"
+                className="searchMemberButton2"
                 style={{ ...style_list.register.button, ...activeButton5 }}
                 outline
                 block
