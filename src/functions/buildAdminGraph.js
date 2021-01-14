@@ -22,8 +22,10 @@ const buildAdminGraph = (data, methods) => {
   const keys = Object.keys(data.reducer).length;
   const availableHeight = (1 / keys) * 100;
   const itemHeight = availableHeight * 0.8 + '%';
+  const textPadding = (availableHeight * 0.8) / 4 + '%';
   const margin = availableHeight * 0.2 + '%';
   const mapArray = [];
+  const percentageByEntry = [];
   let totalCount = 0;
 
   for (const [key, value] of Object.entries(data.reducer)) {
@@ -42,6 +44,15 @@ const buildAdminGraph = (data, methods) => {
       <div className="chartGraphs">
         {mapArray.map((item, index) => {
           const availableWidth = `${(item.amount / totalCount) * 100}%`;
+          percentageByEntry.push({ ...item, percentage: availableWidth });
+          let graphDetails;
+          if (item.amount !== 0) {
+            graphDetails = (
+              <p className="chartGraphItemText">
+                {`${item.amount} / ${totalCount}`}
+              </p>
+            );
+          }
           return (
             <>
               <div
@@ -51,7 +62,9 @@ const buildAdminGraph = (data, methods) => {
                   height: itemHeight,
                   width: availableWidth,
                 }}
-              ></div>
+              >
+                {graphDetails}
+              </div>
               <div
                 style={{
                   height: margin,
@@ -60,9 +73,21 @@ const buildAdminGraph = (data, methods) => {
             </>
           );
         })}
+        <div className="chartPercentileMarkers">
+          <div className="chartMarker-0" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+          <div className="chartMarker" />
+        </div>
       </div>
       <div className="chartLegend">
-        {mapArray.map((item, index) => {
+        {percentageByEntry.map((item, index) => {
           return (
             <>
               <div
@@ -72,7 +97,10 @@ const buildAdminGraph = (data, methods) => {
                   height: itemHeight,
                 }}
               >
-                <p className="chartLegendItemText">{item.type}</p>
+                <div className="chartLegendAlignText">
+                  <p className="chartLegendItemPercent">{item.percentage}</p>
+                  <p className="chartLegendItemText">{item.type}</p>
+                </div>
               </div>
               <div style={{ height: margin, width: '100%' }} />
             </>
