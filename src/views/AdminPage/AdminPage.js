@@ -144,7 +144,20 @@ class AdminPage extends Component {
                   <AdminMembership />
                 </Col>
                 <Col className="graph" lg={{ size: 6 }} md={12} s={12} xs={12}>
+                  <AdminCharts className="charts" methods={methods} />
                   <div style={{ textAlign: 'center' }}>
+                    <p
+                      className="adminChartResultsTest"
+                      style={{
+                        fontSize: 15,
+                        fontFamily: 'lato',
+                        color: '#111111d0',
+                        marginLeft: '-20px !important',
+                      }}
+                    >
+                      This chart generated from a total of {results} user
+                      results!
+                    </p>
                     <div
                       className="chart_category"
                       style={{ marginTop: -40, marginLeft: 500 }}
