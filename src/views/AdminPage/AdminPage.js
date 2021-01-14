@@ -144,8 +144,8 @@ class AdminPage extends Component {
                   />
                 </Col>
                 <Col className="graph" lg={{ size: 6 }} md={12} s={12} xs={12}>
+                  <AdminCharts className="charts" methods={methods} />
                   <div style={{ textAlign: 'center' }}>
-                    <AdminCharts className="charts" methods={methods} />
                     <p
                       className="adminChartResultsTest"
                       style={{

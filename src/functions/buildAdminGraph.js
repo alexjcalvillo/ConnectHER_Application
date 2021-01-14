@@ -21,11 +21,13 @@ const buildAdminGraph = (data, methods) => {
   //LOGIC
   const keys = Object.keys(data.reducer).length;
   const availableHeight = (1 / keys) * 100;
-  const itemHeight = availableHeight * 0.8 + '%';
-  const textPadding = (availableHeight * 0.8) / 4 + '%';
-  const margin = availableHeight * 0.2 + '%';
+  const itemHeight = availableHeight.toFixed(1) * 0.8 + '%';
+  const margin = availableHeight.toFixed(1) * 0.2 + '%';
+  const antiMargin = availableHeight.toFixed(1) * -0.3;
   const mapArray = [];
   const percentageByEntry = [];
+  let marginFix;
+
   let totalCount = 0;
 
   for (const [key, value] of Object.entries(data.reducer)) {
@@ -73,17 +75,23 @@ const buildAdminGraph = (data, methods) => {
             </>
           );
         })}
+        <div
+          style={{
+            height: margin,
+            margin: antiMargin,
+          }}
+        />
         <div className="chartPercentileMarkers">
-          <div className="chartMarker-0" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
-          <div className="chartMarker" />
+          <div className="chartMarker-0 chartMarker" />
+          <div className="chartMarker-1  chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
         </div>
       </div>
       <div className="chartLegend">
