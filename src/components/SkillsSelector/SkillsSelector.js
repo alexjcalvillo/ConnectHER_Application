@@ -54,9 +54,10 @@ const SkillsSelector = () => {
                     />
                   )}
                   <p>
-                    Select skills you wish to add. Try searching for a term.
+                    Select as many skills as you'd like! Try searching for
+                    terms.
                   </p>
-                  <br />
+
                   <p>Example: "Public Speaking"</p>
                 </div>
                 <SelectedSkills />
