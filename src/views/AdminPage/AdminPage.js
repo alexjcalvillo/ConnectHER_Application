@@ -7,20 +7,23 @@ import { Button, Row, Col } from 'reactstrap';
 import AdminSearch from '../../components/AdminSearch/AdminSearch';
 
 import AdminCharts from '../../components/Admin/AdminCharts';
+import MemberManager from '../../components/Admin/MemberManagement/Mentor_Mentee';
+import { transformAuthInfo } from 'passport';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import function_list from '../../functions/list';
+
+let results = 0;
 
 class AdminPage extends Component {
   state = {
-    heading: 'Admin Page',
     searchTerm: 'job_title',
     rSelected: 1,
+    title: 'Age',
+    titleNum: 1,
   };
 
   componentDidMount() {
+    let lastResultsCheck = 0;
     this.props.dispatch({
       type: 'FETCH_ALL_PROFILES',
     });
@@ -39,10 +42,34 @@ class AdminPage extends Component {
     return this.state;
   };
 
+  setTitle = (title) => {
+    this.setState({
+      ...this.state,
+      title: title,
+    });
+  };
+
+  handleResults = (resultsFromGraph) => {
+    results = resultsFromGraph;
+  };
+
+  rotateTitle = (movement) => {
+    const newState = function_list.getNextGraph(movement, this.state);
+    this.setState({
+      ...this.state,
+      ...newState,
+    });
+  };
   render() {
     const methods = {
       handleClick: this.handleClick,
       getState: this.getState,
+      setTitle: (title) => {
+        this.setTitle(title);
+      },
+      handleResults: (results) => {
+        this.handleResults(results);
+      },
     };
 
     if (this.props.store.user.access_level != 2) {
@@ -57,17 +84,42 @@ class AdminPage extends Component {
       } else {
         if (this.props.store.user.access_level == 2) {
           return (
-            <div>
-              <h2>{this.state.heading}</h2>
+            <div style={{ marginTop: '-50px' }}>
+              <h2>Admin Page</h2>
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  className="adminButtonLeft"
+                  onClick={() => {
+                    this.rotateTitle('left');
+                  }}
+                >
+                  <i class="fa fa-arrow-left adminButtonLeftImg"></i>
+                </div>
+                <h1 className="chartBoxTitle">
+                  {this.state.title || 'loading...'}
+                </h1>
+                <div
+                  className="adminButtonRight"
+                  onClick={() => {
+                    this.rotateTitle('right');
+                  }}
+                >
+                  <i class="fa fa-arrow-right adminButtonRightImg"></i>
+                </div>
+              </div>
               <AdminCharts methods={methods} />
-              <Row className="mt-3">
+              <p className="adminChartResultsTest">
+                This chart generated from a total of {results} user results!
+              </p>
+              <MemberManager methods={methods} />
+              {/* <Row className="mt-3">
                 <Col>
                   <AdminSearch
                     skills={this.props.store.memberListingsReducer}
                     term={this.state.searchTerm}
                   />
                 </Col>
-              </Row>
+              </Row> */}
             </div>
           );
         }

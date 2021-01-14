@@ -15,6 +15,10 @@ import getMessagesForChatInstance from './getMessagesForChatInstance';
 import holdSwitchToChatData from './holdSwitchToChatData';
 import doesChatInstanceExist from './doesChatInstanceExist';
 import adminChartData from './adminChartData';
+import buildAdminGraph from './buildAdminGraph';
+import fixAdminChartType from './fixAdminChartType';
+import adminHandleGraphSwitch from './adminHandleGraphSwitch';
+import getNextGraph from './getNextGraph';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -35,6 +39,10 @@ const function_list = {
   holdSwitchToChatData,
   doesChatInstanceExist,
   adminChartData,
+  buildAdminGraph,
+  fixAdminChartType,
+  adminHandleGraphSwitch,
+  getNextGraph,
 };
 /*-------------------------*/
 
