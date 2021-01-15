@@ -25,11 +25,11 @@ class SkillsWidget extends Component {
     tabs: 1,
   };
 
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'GET_SKILLS',
-    });
-  }
+  // componentDidMount() {
+  // this.props.dispatch({
+  //   type: 'GET_SKILLS',
+  // });
+  // }
 
   toggleNavs = (e, state, index) => {
     e.preventDefault();
@@ -44,6 +44,7 @@ class SkillsWidget extends Component {
       payload: i,
     });
   };
+
   render() {
     return (
       <div className="bg-secondary">
@@ -185,6 +186,17 @@ class SkillsWidget extends Component {
               onClick={(e) => this.toggleNavs(e, 'tabs', 12)}
             >
               Civic Engagement
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              aria-selected={this.state.tabs === 13}
+              className={classnames('mb-sm-3 mb-md-0', {
+                active: this.state.tabs === 13,
+              })}
+              onClick={(e) => this.toggleNavs(e, 'tabs', 13)}
+            >
+              All Skills
             </NavLink>
           </NavItem>
         </Nav>
@@ -331,6 +343,17 @@ class SkillsWidget extends Component {
                 <>
                   <SearchOption
                     skills={this.props.store.skillsholder['Civic Engagement']}
+                  />
+                </>
+              )}
+          </TabPane>
+          <TabPane tabId="tabs13">
+            {this.props.store &&
+              this.props.store.skillsholder &&
+              this.props.store.skillsholder.allSkills && (
+                <>
+                  <SearchOption
+                    skills={this.props.store.skillsholder.allSkills}
                   />
                 </>
               )}
