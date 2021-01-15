@@ -109,10 +109,10 @@ const fixAdminChartType = (type) => {
       newType = '$40,000 - $79,999';
       break;
     case 'eightyK':
-      newType = '$80,000 - $99,999';
+      newType = '$80,000 - $119,999';
       break;
     case 'hundoK':
-      newType = '> $100,000';
+      newType = '> $120,000';
       break;
 
     //NA

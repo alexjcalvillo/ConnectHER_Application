@@ -6,6 +6,7 @@ import { Row, Col, Input } from 'reactstrap';
 
 import SkillsSelector from '../SkillsSelector/SkillsSelector';
 import AdminResults from '../AdminResults/AdminResults';
+import Member from '../../components/Admin/MemberManagement/Member';
 
 // creating a Search functional component to reuse in search page and for skills
 function AdminSearch({ term, skills }) {
@@ -43,8 +44,6 @@ function AdminSearch({ term, skills }) {
       // results = results.filter((v) =>
       //   v.skills.some((skill) => searchSkills.includes(skill.skill))
       // );
-
-      console.log('results ', results);
     }
     setSearchResults(results);
   }, [skills, term, searchTerm, skillsAdded]);
@@ -69,7 +68,7 @@ function AdminSearch({ term, skills }) {
       </Row>
       <Row>
         <Col>
-          <AdminResults results={searchResults} />
+          <Member results={searchResults} />
         </Col>
       </Row>
     </div>

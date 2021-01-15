@@ -4,6 +4,8 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import member from '../../../styles/member';
 import profilePic from './profilePic.jpg';
 
+import EditButton from '../../AdminMemberItem/AdminMemberItem';
+
 import function_list from '../../../functions/list';
 
 class MemberAdminItem extends Component {
@@ -60,12 +62,15 @@ class MemberAdminItem extends Component {
         src={profilePic}
         alt="profile headshot"
         style={{
+          marginLeft: '10px',
           objectFit: 'cover',
           width: '50px',
           height: '50px',
           border: '2px solid #f7fafc',
           boxShadow: '0 2px 4px #11111150',
           borderRadius: '50%',
+          marginTop: '4px',
+          marginBottom: '4px',
         }}
         className="profile-pic card-profile-image mb-2"
       />
@@ -77,12 +82,15 @@ class MemberAdminItem extends Component {
       image = (
         <img
           style={{
+            marginLeft: '10px',
             objectFit: 'cover',
             width: '50px',
             height: '50px',
             border: '2px solid #f7fafc',
             boxShadow: '0 2px 4px #11111150',
             borderRadius: '50%',
+            marginTop: '4px',
+            marginBottom: '4px',
           }}
           className="profile-pic card-profile-image mb-2"
           src={this.props.member.headshot}
@@ -102,31 +110,15 @@ class MemberAdminItem extends Component {
     }
 
     let Content = (
-      <div className="MM_table_tr_item">
-        <div className="MM_item">
-          {/* <img
-            className="MM_img"
-            src={this.props.member.headshot}
-            alt="headshot"
-          /> */}{' '}
+      <div className="MM_table_tr_itema">
+        <div className="MM_itema">
           {image}
-          <p className="MM_name">{this.props.member.display_name}</p>
-          <div className="MM_details">
-            <p className="MM_details_font">{this.props.member.job_title}</p>
-          </div>{' '}
-          <div className="MM_details">
-            <p className="MM_details_font">
-              {this.props.member.organization_name}
-            </p>
-          </div>{' '}
-          <div className="MM_favorites_container">
-            <i
-              class="fa fa-heart m-1 fa-heart-custom desktop-fav"
-              style={{
-                color: favoriteIconColor,
-              }}
-              onClick={this.toggleFavorite}
-            />
+          <p className="MM_namea">{this.props.member.display_name}</p>
+          <div
+            className="MM_details"
+            style={{ borderRight: '0px', padding: '3%', marginTop: '1%' }}
+          >
+            <EditButton member={this.props.member} />
           </div>
         </div>
       </div>

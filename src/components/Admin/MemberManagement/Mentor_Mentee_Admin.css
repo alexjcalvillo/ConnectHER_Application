@@ -14,7 +14,8 @@
 }
 
 .MM_table_lista {
-  max-height: 350px;
+  height: 500px;
+  max-height: 500px;
   overflow: scroll;
 }
 
@@ -64,18 +65,16 @@
   border-right: 2px solid #f7fafc;
 }
 
-.MM_table_tr_item {
+.MM_table_tr_itema {
   margin-bottom: 0px;
-  height: 50px;
+  height: 60px;
   width: 100%;
   border-top: 1px solid #11111150;
-  display: inline-block;
 }
 
 .MM_itema {
-  margin-top: 3px;
   display: inline-flex;
-  height: 100px !important;
+  height: 100%;
   width: 100%;
   text-align: start;
 }
@@ -94,17 +93,16 @@
 }
 
 .MM_namea {
-  overflow: scroll;
+  overflow: hidden;
   width: 70%;
-  font-size: 25px;
-  margin-top: -3px;
-  margin-bottom: 15px;
+  height: 100%;
+  font-size: 2vw;
   margin-left: 20px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 0.6vh;
   display: inline-flex;
   font-weight: bold;
   border-right: 1px solid #11111150;
+  margin-block-end: 0;
 }
 
 .MM_favorites_container {

@@ -55,6 +55,7 @@ class AdminMemberItem extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     if (
       function_list.checkFavorite({
         id: this.props.member.user_id,
@@ -282,69 +283,21 @@ class AdminMemberItem extends Component {
 
     return (
       <>
-        <Card
-          style={style_list.card.base}
-          className="bg-secondary shadow ml-0 mr-0 mb-3"
+        <Button
+          block
+          outline
+          color="primary"
+          size="sm"
+          onClick={this.handleListingClick}
+          style={{
+            ...style_list.card.learnMoreButton,
+            border: '1px solid #f7fafc',
+            padding: '3%',
+          }}
         >
-          <CardBody style={style_list.card.body}>
-            <div style={style_list.card.gradientFade}>
-              <div style={style_list.card.heart}>
-                <i
-                  className="fa fa-heart m-1 fa-heart-custom"
-                  style={{
-                    color: favoriteIconColor,
-                  }}
-                  onClick={this.toggleFavorite}
-                />
-              </div>
-            </div>
-            <Row>
-              <Col lg={{ size: 12, order: 1 }}>
-                <div
-                  onClick={() => this.toggleModal('defaultModal')}
-                  style={{
-                    ...style_list.card.detailsImageContainer,
-                    borderRadius: '50%',
-                  }}
-                >
-                  {image}
-                </div>
-                <div style={style_list.card.detailsTitle}>
-                  {this.state.editMember.about.first_name}{' '}
-                  {this.state.editMember.about.last_name}
-                </div>
-                <p
-                  style={{
-                    fontSize: '14px',
-                    width: '100%',
-                    textAlign: 'center',
-                    height: '49px',
-                    maxHeight: '49px',
-                    // overflow: 'scroll',
-                    color: '#111111d0',
-                    fontFamily: 'lato',
-                  }}
-                >
-                  {member.job_title} at {member.organization_name}
-                  <br></br>
-                  <>{mentee && 'Mentee'}</> {}
-                  <>{mentor && 'Mentor'}</>
-                </p>
-                <hr style={{ marginTop: '-12px' }} />
-                <Button
-                  block
-                  outline
-                  color="primary"
-                  size="sm"
-                  onClick={this.handleListingClick}
-                  style={style_list.card.learnMoreButton}
-                >
-                  Edit
-                </Button>
-              </Col>
-            </Row>
-          </CardBody>
-        </Card>
+          <p style={{ marginTop: '-3.5%', fontWeight: 'bold' }}>Edit</p>
+        </Button>
+
         <Modal
           className="modal-dialog-centered"
           size="lg"
