@@ -9,6 +9,10 @@ import MemberAdminItem from './MemberAdminItem';
 
 class Member extends Component {
   render() {
+    let results = [];
+    if (this.props.results !== undefined) {
+      results = this.props.results;
+    }
     return (
       <div className="MM_table_container">
         <div className="MM_table">
@@ -26,21 +30,10 @@ class Member extends Component {
           </div>
         </div>
         <div className="MM_table_lista" style={{ height: 430 }}>
-          {this.props.store.memberListingsReducer.map((member, index) => {
-            if (this.props.filter.length === 0 || this.props.filter[0] === '') {
-              return <MemberAdminItem member={member} index={index} tab={1} />;
-            } else {
-              let searchResults = function_list.adminSearchFilter(
-                this.props.filter,
-                member
-              );
-
-              if (searchResults.bool === true) {
-                return (
-                  <MemberAdminItem member={member} index={index} tab={1} />
-                );
-              }
-            }
+          {results.map((member, index) => {
+            return (
+              <MemberAdminItem member={member} key={member.email} tab={1} />
+            );
           })}
         </div>
       </div>

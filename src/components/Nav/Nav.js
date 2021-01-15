@@ -25,6 +25,7 @@ const Nav = (props) => {
         expand="lg"
         style={{
           boxShadow: '0 2px 4px #11111150',
+          borderBottom: '3px solid #6C5B7B',
           position: 'fixed',
           width: '100%',
           zIndex: '1000',
@@ -106,6 +107,7 @@ const Nav = (props) => {
         expand="lg"
         style={{
           boxShadow: '0 2px 4px #11111150',
+          borderBottom: '3px solid #6C5B7B',
           position: 'fixed',
           width: '100%',
           zIndex: '1000',

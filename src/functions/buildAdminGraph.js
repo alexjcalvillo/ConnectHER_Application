@@ -43,8 +43,12 @@ const buildAdminGraph = (data, methods) => {
     <>
       <div className="chartGraphs">
         {mapArray.map((item, index) => {
-          const availableWidth = `${(item.amount / totalCount) * 100}%`;
-          percentageByEntry.push({ ...item, percentage: availableWidth });
+          const availableWidthNoCent = (item.amount / totalCount) * 100;
+          const availableWidth = `${(item.amount / totalCount) * 100 + '%'}`;
+          percentageByEntry.push({
+            ...item,
+            percentage: availableWidthNoCent.toFixed(2) + ' %',
+          });
           let graphDetails;
           if (item.amount !== 0) {
             graphDetails = (
