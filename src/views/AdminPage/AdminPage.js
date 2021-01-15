@@ -12,11 +12,11 @@ import './AdminPage.css';
 import AdminCharts from '../../components/Admin/AdminCharts';
 import MemberManager from '../../components/Admin/MemberManagement/Mentor_Mentee';
 import MentorMentee from '../../components/Mentor_Mentee/Mentor_Mentee';
+import MemberSearch from '../../components/Admin/MemberManagement/MemberSearch';
 
 import { transformAuthInfo } from 'passport';
 
 import function_list from '../../functions/list';
-import Member from '../../components/Admin/MemberManagement/Member';
 
 let results = 0;
 
@@ -186,7 +186,7 @@ class AdminPage extends Component {
               </Row>
               <Row>
                 <Col lg={{ size: 10, offset: 1 }} md={4} s={12} xs={12}>
-                  <Member />
+                  <MemberSearch />
                 </Col>
               </Row>
               <Row className="mt-3">
