@@ -14,6 +14,9 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
+  FormGroup,
+  Label,
+  CustomInput,
 } from 'reactstrap';
 
 import function_list from '../../functions/list'; // custom functions object
@@ -109,6 +112,67 @@ class AdminMemberItem extends Component {
         about: {
           ...this.state.editMember.about,
           [propertyKey]: event.target.value,
+        },
+      },
+    });
+  };
+
+  handleMentorRadioTrue = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          mentor: true,
+        },
+      },
+    });
+  };
+  handleMentorRadioFalse = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          mentor: false,
+        },
+      },
+    });
+  };
+  handleMenteeRadioTrue = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          mentee: true,
+        },
+      },
+    });
+  };
+  handleMenteeRadioFalse = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          mentee: false,
+        },
+      },
+    });
+  };
+  handleAccessMember = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          access_level: 1,
+        },
+      },
+    });
+  };
+  handleAccessAdmin = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+          access_level: 2,
         },
       },
     });
@@ -359,16 +423,27 @@ class AdminMemberItem extends Component {
                       }
                     />
                   </label>
-                  <label>
-                    Access Level
-                    <input
-                      type="text"
-                      value={this.state.editMember.about.access_level}
-                      onChange={(event) =>
-                        this.handleMemberEdit(event, 'access_level')
-                      }
-                    />
-                  </label>
+                  <FormGroup>
+                    <Label for="accessRadio">Acess Level:</Label>
+                    <div>
+                      <CustomInput
+                        type="radio"
+                        id="accessMemberRadio"
+                        name="accessRadio"
+                        label="Member"
+                        onChange={this.handleAccessMember}
+                        checked={this.state.editMember.about.access_level === 1}
+                      />
+                      <CustomInput
+                        type="radio"
+                        id="accessAdminRadio"
+                        name="accessRadio"
+                        label="Admin"
+                        onChange={this.handleAccessAdmin}
+                        checked={this.state.editMember.about.access_level === 2}
+                      />
+                    </div>
+                  </FormGroup>
                   <label>
                     Display Name
                     <input
@@ -442,22 +517,48 @@ class AdminMemberItem extends Component {
                     );
                   })}
                 </div>
-                <label>
-                  Mentor:
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.mentor}
-                    onChange={(event) => this.handleMemberEdit(event, 'mentor')}
-                  />
-                </label>
-                <label>
-                  Mentee:
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.mentee}
-                    onChange={(event) => this.handleMemberEdit(event, 'mentee')}
-                  />
-                </label>
+                <FormGroup>
+                  <Label for="mentorRadio">Mentor:</Label>
+                  <div>
+                    <CustomInput
+                      type="radio"
+                      id="mentorTrueRadio"
+                      name="mentorRadio"
+                      label="True"
+                      onChange={this.handleMentorRadioTrue}
+                      checked={this.state.editMember.about.mentor}
+                    />
+                    <CustomInput
+                      type="radio"
+                      id="mentorFalseRadio"
+                      name="mentorRadio"
+                      label="False"
+                      onChange={this.handleMentorRadioFalse}
+                      checked={!this.state.editMember.about.mentor}
+                    />
+                  </div>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="menteeRadio">Mentee:</Label>
+                  <div>
+                    <CustomInput
+                      type="radio"
+                      id="menteeTrueRadio"
+                      name="menteeRadio"
+                      label="True"
+                      onChange={this.handleMenteeRadioTrue}
+                      checked={this.state.editMember.about.mentee}
+                    />
+                    <CustomInput
+                      type="radio"
+                      id="menteeFalseRadio"
+                      name="menteeRadio"
+                      label="False"
+                      onChange={this.handleMenteeRadioFalse}
+                      checked={!this.state.editMember.about.mentee}
+                    />
+                  </div>
+                </FormGroup>
                 <label>
                   Address:
                   <input
