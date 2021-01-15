@@ -61,10 +61,11 @@ function AdminSearch({ term, skills }) {
             style={{ width: '100%', margin: '5px 0 10px 0px' }}
             className="form-control-alternative"
             type="text"
-            placeholder="Search"
+            placeholder="Search by name"
             value={searchTerm}
             onChange={handleChange}
           />
+          <SkillsSelector />
         </Col>
       </Row>
       <Row>
