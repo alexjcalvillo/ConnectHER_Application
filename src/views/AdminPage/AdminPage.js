@@ -96,65 +96,61 @@ class AdminPage extends Component {
       } else {
         if (this.props.store.user.access_level == 2) {
           return (
-            <div style={{ marginTop: '-50px' }}>
+            <div style={{ marginTop: '-82px' }}>
               <Row>
-                <Col lg={{ size: 10, offset: 1 }} md={10}>
-                  <Card className="welcomeBanner1">
-                    <h2
-                      style={{
-                        marginTop: '10px',
-                        fontFamily: 'cabin',
-                        fontSize: '60px',
-                        textAlign: 'center',
-                        color: '#ECECEC',
-                      }}
-                    >
-                      Admin Dashboard
-                    </h2>
-                  </Card>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="graph" lg={12} md={12} s={12} xs={12}>
-                  <div style={{ textAlign: 'center', marginTop: '-70px' }}>
-                    <div
-                      className="chart_category"
-                      style={{ marginTop: -40, width: '100%' }}
-                    >
-                      <div
-                        className="adminButtonLeft"
-                        onClick={() => {
-                          this.rotateTitle('left');
-                        }}
-                      >
-                        <i class="fa fa-arrow-left adminButtonLeftImg"></i>
-                      </div>
-                      <h1 className="chartBoxTitle">
-                        {this.state.title || 'loading...'}
-                      </h1>
-                      <div
-                        className="adminButtonRight"
-                        onClick={() => {
-                          this.rotateTitle('right');
-                        }}
-                      >
-                        <i class="fa fa-arrow-right adminButtonRightImg"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <AdminCharts className="charts" methods={methods} />
-                  <p
-                    className="adminChartResultsTest"
+                <Card className="welcomeBanner1">
+                  <h2
                     style={{
-                      fontSize: 15,
-                      fontFamily: 'lato',
-                      color: '#111111d0',
+                      marginTop: '10px',
+                      fontFamily: 'cabin',
+                      fontSize: '60px',
+                      textAlign: 'center',
+                      color: '#ECECEC',
                     }}
                   >
-                    This chart generated from a total of {results} user results!
-                  </p>
-                </Col>
+                    Admin Dashboard
+                  </h2>
+                </Card>
               </Row>
+
+              <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                <div
+                  className="chart_category"
+                  style={{ marginTop: -40, width: '100%' }}
+                >
+                  <div
+                    className="adminButtonLeft"
+                    onClick={() => {
+                      this.rotateTitle('left');
+                    }}
+                  >
+                    <i class="fa fa-arrow-left adminButtonLeftImg"></i>
+                  </div>
+                  <h1 className="chartBoxTitle">
+                    {this.state.title || 'loading...'}
+                  </h1>
+                  <div
+                    className="adminButtonRight"
+                    onClick={() => {
+                      this.rotateTitle('right');
+                    }}
+                  >
+                    <i class="fa fa-arrow-right adminButtonRightImg"></i>
+                  </div>
+                </div>
+              </div>
+              <AdminCharts className="charts" methods={methods} />
+              <p
+                className="adminChartResultsTest"
+                style={{
+                  fontSize: 15,
+                  fontFamily: 'lato',
+                  color: '#111111d0',
+                }}
+              >
+                This chart generated from a total of {results} user results!
+              </p>
+
               <Row>
                 {' '}
                 <Col
