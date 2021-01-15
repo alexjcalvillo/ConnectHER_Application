@@ -2,9 +2,14 @@
   .ml-auto {
     display: none !important;
   }
+  .phone-nav {
+    position: absolute;
+    right: 0;
+    margin-bottom: 50px;
+  }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 600px) {
   .phone-nav {
     display: none !important;
   }
@@ -84,5 +89,4 @@
 .hamburger {
   height: 30px;
   width: 30px;
-  margin-bottom: -20;
 }

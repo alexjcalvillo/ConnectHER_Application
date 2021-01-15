@@ -103,6 +103,11 @@ CREATE TABLE "personality" (
       "enneagram" VARCHAR(25)
 );
 
+CREATE TABLE "industry" (
+    "id" SERIAL PRIMARY KEY,
+ 	"name" VARCHAR (100)
+);
+
 -- starter categories
 INSERT INTO "category" ("name")
 VALUES 

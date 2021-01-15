@@ -48,7 +48,10 @@ const Nav = (props) => {
           toggle={toggle}
         >
           <DropdownToggle className="phone-nav">
-            <i className="fa fa-bars hamburger"></i>
+            <i
+              style={{ fontSize: 25, color: '#17c3ca' }}
+              className="fa fa-bars hamburger m-1"
+            ></i>
           </DropdownToggle>
           <DropdownMenu style={{ float: 'right !important' }}>
             <DropdownItem header>

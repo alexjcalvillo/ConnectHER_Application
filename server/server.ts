@@ -15,6 +15,7 @@ import demographicRouter from './routes/demographic.router';
 import favoritesRouter from './routes/favorites.router';
 import chatRouter from './routes/chat.router';
 import personalityRouter from './routes/personality.router';
+import industryRouter from './routes/industry.router';
 
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
@@ -49,6 +50,7 @@ app.use(
   })
 );
 
+app.use('/api/industry', industryRouter);
 app.use('/api/personality', personalityRouter);
 app.use('/api/imageurl', imageUrlRouter);
 app.use('/api/profile', profileRouter);

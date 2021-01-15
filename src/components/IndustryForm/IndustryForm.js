@@ -12,7 +12,7 @@ class IndustryForm extends Component {
   };
   componentDidMount() {
     this.props.dispatch({
-      type: 'GET_CATEGORIES',
+      type: 'GET_INDUSTRIES',
     });
   }
 
@@ -55,7 +55,7 @@ class IndustryForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <h2>Please Select All That Apply</h2>
         <div>
-          {this.props.store.skillCategories.map((item, index) => {
+          {this.props.store.industries.map((item, index) => {
             return (
               <label>
                 <input

@@ -148,3 +148,29 @@ VALUES ('18-24', 'Multiracial', 'Female / Female-Identifying', 'Straight / Heter
 
 INSERT INTO "member" (user_id, member_level) 
 VALUES (1, 2), (2,3), (3,3),(4,1),(5,4),(6,3), (7,2), (8,1);
+
+INSERT INTO "industry" ("name")
+VALUES 
+('Accounting'),
+('Airlines/Aviation'),
+('Alternative Dispute Resolution'),
+('Altervative Medicine'),
+('Animation'),
+('Apparel & Fashion'),
+('Architecture & Planning
+'),
+('Arts and Crafts'),
+('Automotive'),
+('Aviation & Aerospace'),
+('Banking'),
+('Biotechnology'),
+
+('Broadcast Media'),
+('Building Materials
+'),
+('Business Supplies and Equipment
+'),
+('Capital Markets'),
+('Chemicals
+'),
+('Civic & Social Organization');
