@@ -98,19 +98,21 @@ class AdminPage extends Component {
           return (
             <div style={{ marginTop: '-50px' }}>
               <Row>
-                <Card className="welcomeBanner1">
-                  <h2
-                    style={{
-                      marginTop: '10px',
-                      fontFamily: 'cabin',
-                      fontSize: '60px',
-                      textAlign: 'center',
-                      color: '#ECECEC',
-                    }}
-                  >
-                    Admin Dashboard
-                  </h2>
-                </Card>
+                <Col lg={{ size: 10, offset: 1 }} md={10}>
+                  <Card className="welcomeBanner1">
+                    <h2
+                      style={{
+                        marginTop: '10px',
+                        fontFamily: 'cabin',
+                        fontSize: '60px',
+                        textAlign: 'center',
+                        color: '#ECECEC',
+                      }}
+                    >
+                      Admin Dashboard
+                    </h2>
+                  </Card>
+                </Col>
               </Row>
               <Row>
                 <Col className="graph" lg={12} md={12} s={12} xs={12}>
