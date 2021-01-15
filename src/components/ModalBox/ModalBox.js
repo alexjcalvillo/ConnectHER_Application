@@ -4,6 +4,7 @@ import styles from './ModalBox.module.css';
 import { Button } from 'reactstrap';
 
 import style_list from '../../styles/list';
+import function_list from '../../functions/list'; // custom functions object
 
 // This is a custom made modal box with that requires a button to close.
 // Needs to be refactor to be more flexible as it currently is for skills specifically

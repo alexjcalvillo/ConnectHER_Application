@@ -1,27 +1,30 @@
 .modal {
-    /* display: flex; */
-    width: 50%;
-    height: 50%;
-    border: 1px solid gray;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 5rem;
-    background: #f2f2f2;
-    position: fixed;
-    top: 5rem;
-    left: 25%;
-    z-index: 999;
+  /* display: flex; */
+  width: 50%;
+  height: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  background: #d6f3f3;
+  position: fixed;
+  top: 5rem;
+  left: 25%;
+  z-index: 999;
+  box-shadow: 0 2px 4px #11111150;
+  border-top: 1px solid #11111150;
+  border-radius: 0 0 5px 5px !important;
 }
 
 .modalContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 998;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
 }

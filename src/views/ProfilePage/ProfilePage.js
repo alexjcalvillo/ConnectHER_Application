@@ -47,6 +47,9 @@ class ProfilePage extends Component {
       profile: this.props.store.profile,
       update: false,
     });
+    this.props.dispatch({
+      type: 'GET_INDUSTRIES',
+    });
   }
 
   toggleModal = (state) => {

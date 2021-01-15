@@ -17,6 +17,7 @@ import demographicReducer from './demographic.reducer';
 import favorites from './favorites.reducer';
 import memberLevel from './memberLevel.reducer';
 import chat from './chat.reducer';
+import industries from './industry.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
   favorites,
   memberLevel,
   chat,
+  industries,
 });
 
 export default rootReducer;

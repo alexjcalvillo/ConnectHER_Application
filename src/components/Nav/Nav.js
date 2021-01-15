@@ -3,15 +3,24 @@ import { connect } from 'react-redux';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
-import React from 'react';
-
-import { Navbar, Container } from 'reactstrap';
+import React, { useState } from 'react';
+import {
+  Navbar,
+  Container,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 
 const Nav = (props) => {
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
   };
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   if (props.store.user.id != null) {
     loginLinkData.path = '/user';
@@ -32,7 +41,66 @@ const Nav = (props) => {
           marginTop: '-150px',
         }}
       >
-        <Container>
+        {' '}
+        <Dropdown
+          className="phone-nav"
+          style={{ float: 'right' }}
+          isOpen={dropdownOpen}
+          toggle={toggle}
+        >
+          <DropdownToggle className="phone-nav">
+            <i
+              style={{ fontSize: 25, color: '#17c3ca' }}
+              className="fa fa-bars hamburger m-1"
+            ></i>
+          </DropdownToggle>
+          <DropdownMenu style={{ float: 'right !important' }}>
+            <DropdownItem header>
+              <Link className="nav-line text-nowrap mr-2" to="/main">
+                <i className="fa fa-book m-1" style={{ color: '#888' }} />
+                Home
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              <Link className="nav-line text-nowrap mr-2" to="/search">
+                <i className="fa fa-users m-1" style={{ color: '#888' }} />
+                Community
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/speakers">
+                <i className="fa fa-microphone m-1" style={{ color: '#888' }} />
+                Speakers
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/businesses">
+                <i className="fa fa-briefcase m-1" style={{ color: '#888' }} />
+                Businesses
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/spaces">
+                <i className="fa fa-building m-1" style={{ color: '#888' }} />
+                Spaces
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2  " to="/profile">
+                <i
+                  className="fa fa-user-circle m-1"
+                  style={{ color: '#888' }}
+                />
+                Profile
+              </Link>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Container className="luckyCharm">
           <Link to="/home">
             <img
               style={{
@@ -173,29 +241,61 @@ const Nav = (props) => {
             )}
           </div>
         </Container>
-        <div class="DROPDOWN">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">
-              Action
-            </a>
-            <a class="dropdown-item" href="#">
-              Another action
-            </a>
-            <a class="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
-        </div>
+        <Dropdown
+          className="phone-nav"
+          style={{ float: 'right' }}
+          isOpen={dropdownOpen}
+          toggle={toggle}
+        >
+          <DropdownToggle>
+            <i className="fa fa-bars hamburger"></i>
+          </DropdownToggle>
+          <DropdownMenu style={{ float: 'right !important' }}>
+            <DropdownItem header>
+              <Link className="nav-line text-nowrap mr-2" to="/main">
+                <i className="fa fa-book m-1" style={{ color: '#888' }} />
+                Home
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              <Link className="nav-line text-nowrap mr-2" to="/search">
+                <i className="fa fa-users m-1" style={{ color: '#888' }} />
+                Community
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/speakers">
+                <i className="fa fa-microphone m-1" style={{ color: '#888' }} />
+                Speakers
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/businesses">
+                <i className="fa fa-briefcase m-1" style={{ color: '#888' }} />
+                Businesses
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2" to="/spaces">
+                <i className="fa fa-building m-1" style={{ color: '#888' }} />
+                Spaces
+              </Link>
+            </DropdownItem>
+            <DropdownItem header>
+              {' '}
+              <Link className="nav-line text-nowrap mr-2  " to="/profile">
+                <i
+                  className="fa fa-user-circle m-1"
+                  style={{ color: '#888' }}
+                />
+                Profile
+              </Link>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </Navbar>
     );
   }

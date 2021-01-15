@@ -39,6 +39,10 @@
   .community-tablet {
     display: none;
   }
+  .community-phone {
+    margin-top: -60px !important;
+    margin-bottom: 10px !important;
+  }
   .community-laptop {
     display: none;
   }
@@ -56,7 +60,7 @@
   }
   .searchMemberButton3 {
     margin-top: 5px;
-    margin-left: 8px;
+    margin-left: 5px;
     font-size: 0.775rem;
     height: 40px;
     width: 330px;
