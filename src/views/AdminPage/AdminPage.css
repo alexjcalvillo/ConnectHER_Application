@@ -47,6 +47,6 @@
   background-image: url(banner1.png);
   background-size: cover;
   height: 120px;
-  /* width: 1300px; */
+  width: 100%;
   box-shadow: 0 2px 4px #11111150;
 }

@@ -169,12 +169,12 @@
 }
 
 .chartPercentileMarkers {
-  width: 100%;
+  width: 52vw;
   height: 15px;
   overflow: hidden;
   position: absolute;
   top: 0;
-  margin-top: 3px;
+  margin-top: 310px;
   transform: scaleY(-1);
 }
 
