@@ -31,7 +31,7 @@ class AdminMembership extends Component {
     return (
       <Container className="admin">
         <Row>
-          <Col className="adminOptions" lg={12} md={12} sm={12} xs={12}>
+          <Col className="adminOptions" lg={4} md={4} sm={4} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -48,7 +48,7 @@ class AdminMembership extends Component {
               </h3>
               <h5
                 style={{
-                  color: '#823bae',
+                  color: '#6C5B7B',
                   marginTop: 0,
                   marginBottom: 2,
                   marginLeft: 'auto',
@@ -57,7 +57,7 @@ class AdminMembership extends Component {
                   fontFamily: 'Cabin',
                 }}
               >
-                10/Monthly
+                $10 Monthly
               </h5>
               <div className="adminHeightControl">
                 <p
@@ -72,12 +72,12 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  10 Members currently enrolled
+                  10 Members Currently Enrolled
                 </p>
               </div>
             </Card>
           </Col>
-          <Col className="adminOptions" lg={12} md={12} sm={12} xs={12}>
+          <Col className="adminOptions" lg={4} md={4} sm={4} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -94,7 +94,7 @@ class AdminMembership extends Component {
               </h3>
               <h5
                 style={{
-                  color: '#823bae',
+                  color: '#6C5B7B',
                   marginTop: 0,
                   marginBottom: 2,
                   marginLeft: 'auto',
@@ -116,12 +116,12 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  4 Members currently enrolled
+                  4 Members Currently Enrolled
                 </p>
               </div>{' '}
             </Card>
           </Col>
-          <Col className="adminHeightControl" lg={12} md={12} sm={12} xs={12}>
+          <Col className="adminHeightControl" lg={4} md={4} sm={4} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -137,7 +137,7 @@ class AdminMembership extends Component {
               </h3>
               <h5
                 style={{
-                  color: '#823bae',
+                  color: '#6C5B7B',
                   marginTop: 0,
                   marginBottom: 2,
                   marginLeft: 'auto',
@@ -159,7 +159,7 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  3 Members currently enrolled
+                  3 Members Currently Enrolled
                 </p>
               </div>
             </Card>

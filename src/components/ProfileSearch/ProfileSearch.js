@@ -58,10 +58,16 @@ function ProfileOptions({ term, skills }) {
         >
           <SkillsSelector />
           <Input
-            style={{ width: '100%', margin: '5px 0 10px 0px' }}
+            style={{
+              width: '100%',
+              margin: '5px 0 10px 0px',
+              backgroundColor: '#d6f3f3',
+              border: '1px solid #f7fafc',
+              boxShadow: '0 2px 4px #11111150',
+            }}
             className="form-control-alternative"
             type="text"
-            placeholder="Search"
+            placeholder="Search Community"
             value={searchTerm}
             onChange={handleChange}
           />
