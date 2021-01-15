@@ -1,10 +1,11 @@
 const form_base = {
-  backgroundColor: '#17c3ca40',
+  backgroundColor: ' #d6f3f3',
   borderRadius: '5px',
-  border: '3px solid #f7fafc',
+  border: '2px solid #f7fafc',
   boxShadow: '0 2px 4px #11111150',
   marginLeft: '10%',
   marginRight: '10%',
+  marginBottom: 15,
 };
 
 const form_inputA = {

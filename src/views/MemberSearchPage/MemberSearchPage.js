@@ -55,15 +55,15 @@ class MemberSearchPage extends Component {
     let activeButton5 = {};
 
     if (this.state.rSelected === 1) {
-      activeButton1 = { backgroundColor: '#bceef0', color: '#111111d0' };
+      activeButton1 = { backgroundColor: '#d6f3f3', color: '#111111d0' };
     } else if (this.state.rSelected === 2) {
-      activeButton2 = { backgroundColor: '#bceef0', color: '#111111d0' };
+      activeButton2 = { backgroundColor: '#d6f3f3', color: '#111111d0' };
     } else if (this.state.rSelected === 3) {
-      activeButton3 = { backgroundColor: '#bceef0', color: '#111111d0' };
+      activeButton3 = { backgroundColor: '#d6f3f3', color: '#111111d0' };
     } else if (this.state.rSelected === 4) {
-      activeButton4 = { backgroundColor: '#bceef0', color: '#111111d0' };
+      activeButton4 = { backgroundColor: '#d6f3f3', color: '#111111d0' };
     } else if (this.state.rSelected === 5) {
-      activeButton5 = { backgroundColor: '#bceef0', color: '#111111d0' };
+      activeButton5 = { backgroundColor: '#d6f3f3', color: '#111111d0' };
     }
 
     let Content = (
@@ -151,7 +151,7 @@ class MemberSearchPage extends Component {
               <br />
             </Col>
           </Row>
-          <Row>
+          <Row style={{ marginTop: -25 }}>
             <Col lg={{ size: 2, offset: 1 }} s={12} xs={12}>
               <Button
                 // style={style_list.register.button}

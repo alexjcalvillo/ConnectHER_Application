@@ -22,12 +22,12 @@ class MentorMentee extends Component {
 
     if (this.state.tab === 'mentor') {
       mentorTabActive = {
-        backgroundColor: '#bceef0',
+        backgroundColor: ' #d6f3f3',
         color: '#111111d0',
       };
     } else {
       menteeTabActive = {
-        backgroundColor: '#bceef0',
+        backgroundColor: ' #d6f3f3',
         color: '#111111d0',
       };
     }

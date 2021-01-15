@@ -15,14 +15,16 @@ const ModalBox = (props) => {
       <Button
         style={{
           ...style_list.register.button,
-          width: '20%',
-          padding: '5px 10px',
+
+          float: 'right',
+          marginTop: -50,
+          marginRight: 10,
         }}
         outline
         color="primary"
         onClick={() => setIsOpen(!isOpen)}
       >
-        Add Skills
+        Add
       </Button>
       {isOpen ? (
         <div>
