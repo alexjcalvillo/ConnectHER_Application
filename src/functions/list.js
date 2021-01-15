@@ -19,6 +19,8 @@ import buildAdminGraph from './buildAdminGraph';
 import fixAdminChartType from './fixAdminChartType';
 import adminHandleGraphSwitch from './adminHandleGraphSwitch';
 import getNextGraph from './getNextGraph';
+import splitInput from './splitInput';
+import adminSearchFilter from './adminSearchFilter';
 /*-------------------------*/
 
 // *-----> PUT VARIABLES HERE
@@ -43,6 +45,8 @@ const function_list = {
   fixAdminChartType,
   adminHandleGraphSwitch,
   getNextGraph,
+  splitInput,
+  adminSearchFilter,
 };
 /*-------------------------*/
 

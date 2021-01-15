@@ -2,6 +2,7 @@ const fixAdminChartType = (type) => {
   let newType;
 
   switch (type) {
+    // AGE
     case 'age18':
       newType = '< 18';
       break;
@@ -27,6 +28,7 @@ const fixAdminChartType = (type) => {
       newType = '> 75';
       break;
 
+    //ETHNICITY
     case 'asian':
       newType = 'Asian';
       break;
@@ -52,6 +54,7 @@ const fixAdminChartType = (type) => {
       newType = 'White';
       break;
 
+    //GENDER ID
     case 'female':
       newType = 'Female';
       break;
@@ -59,6 +62,7 @@ const fixAdminChartType = (type) => {
       newType = 'Non-Binary';
       break;
 
+    //SEXUAL ORIENTATION
     case 'lgbtqia':
       newType = 'LGBTQIA';
       break;
@@ -66,6 +70,52 @@ const fixAdminChartType = (type) => {
       newType = 'Straight';
       break;
 
+    //ABILITY
+    case 'disability':
+      newType = 'Disability';
+      break;
+    case 'noDisability':
+      newType = 'No Disability';
+      break;
+
+    //EDUCATION
+    case 'associates':
+      newType = 'Associates';
+      break;
+    case 'bachelors':
+      newType = 'Bachelors';
+      break;
+    case 'diploma':
+      newType = 'Highschool';
+      break;
+    case 'doctors':
+      newType = 'Doctors';
+      break;
+    case 'masters':
+      newType = 'Masters';
+      break;
+    case 'noHighschool':
+      newType = '< Highschool';
+      break;
+    case 'someCollege':
+      newType = 'Some College';
+      break;
+
+    //INCOME
+    case 'lessFourtyK':
+      newType = '< $40,000';
+      break;
+    case 'fourtyK':
+      newType = '$40,000 - $79,999';
+      break;
+    case 'eightyK':
+      newType = '$80,000 - $99,999';
+      break;
+    case 'hundoK':
+      newType = '> $100,000';
+      break;
+
+    //NA
     case 'noAnswer':
       newType = 'No Answer';
       break;

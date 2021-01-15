@@ -26,8 +26,6 @@ const buildAdminGraph = (data, methods) => {
   const antiMargin = availableHeight.toFixed(1) * -0.3;
   const mapArray = [];
   const percentageByEntry = [];
-  let marginFix;
-
   let totalCount = 0;
 
   for (const [key, value] of Object.entries(data.reducer)) {
@@ -83,7 +81,7 @@ const buildAdminGraph = (data, methods) => {
         />
         <div className="chartPercentileMarkers">
           <div className="chartMarker-0 chartMarker" />
-          <div className="chartMarker-1  chartMarker" />
+          <div className="chartMarker-1 chartMarker" />
           <div className="chartMarker-1 chartMarker" />
           <div className="chartMarker-1 chartMarker" />
           <div className="chartMarker-1 chartMarker" />

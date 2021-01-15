@@ -4,8 +4,8 @@ const getNextGraph = (move, state) => {
   if (move === 'left') {
     if (state.titleNum === 1) {
       newState = {
-        title: 'Sexual Orientation',
-        titleNum: 4,
+        title: 'Ability',
+        titleNum: 7,
       };
     } else if (state.titleNum === 2) {
       newState = {
@@ -21,6 +21,21 @@ const getNextGraph = (move, state) => {
       newState = {
         title: 'Gender Identity',
         titleNum: 3,
+      };
+    } else if (state.titleNum === 5) {
+      newState = {
+        title: 'Sexual Orientation',
+        titleNum: 4,
+      };
+    } else if (state.titleNum === 6) {
+      newState = {
+        title: 'Education',
+        titleNum: 5,
+      };
+    } else if (state.titleNum === 7) {
+      newState = {
+        title: 'Income',
+        titleNum: 6,
       };
     }
   } else {
@@ -40,6 +55,21 @@ const getNextGraph = (move, state) => {
         titleNum: 4,
       };
     } else if (state.titleNum === 4) {
+      newState = {
+        title: 'Education',
+        titleNum: 5,
+      };
+    } else if (state.titleNum === 5) {
+      newState = {
+        title: 'Income',
+        titleNum: 6,
+      };
+    } else if (state.titleNum === 6) {
+      newState = {
+        title: 'Ability',
+        titleNum: 7,
+      };
+    } else if (state.titleNum === 7) {
       newState = {
         title: 'Age',
         titleNum: 1,

@@ -25,6 +25,26 @@ const adminHandleGraphSwitch = (data) => {
         reducer: data.reducer.sexualOrientation,
       };
       break;
+    case 'Ability':
+      selectedGraph = {
+        type: data.title,
+        reducer: data.reducer.ability,
+      };
+      break;
+    case 'Education':
+      selectedGraph = {
+        type: data.title,
+        reducer: data.reducer.education,
+      };
+      break;
+    case 'Income':
+      selectedGraph = {
+        type: data.title,
+        reducer: data.reducer.income,
+      };
+      break;
+    default:
+      break;
   }
 
   return selectedGraph;

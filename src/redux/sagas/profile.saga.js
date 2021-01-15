@@ -67,6 +67,15 @@ function* getAllProfiles(action) {
       type: 'GET_LEVEL_LIST',
     });
     yield put({
+      type: 'GET_ABILITY_DEMO',
+    });
+    yield put({
+      type: 'GET_INCOME_DEMO',
+    });
+    yield put({
+      type: 'GET_EDUCATION_DEMO',
+    });
+    yield put({
       type: 'GET_USER',
     });
     // yield put({ type: 'SET_MEMBER_LISTINGS', payload: response.data });
