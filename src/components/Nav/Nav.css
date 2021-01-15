@@ -1,3 +1,15 @@
+@media only screen and (max-width: 400px) {
+  .ml-auto {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .phone-nav {
+    display: none !important;
+  }
+}
+
 .nav-title {
   font-size: 24px;
   font-weight: 700;
@@ -67,4 +79,10 @@
   display: inline;
   color: #f2f2f2;
   margin-right: 5px;
+}
+
+.hamburger {
+  height: 30px;
+  width: 30px;
+  margin-bottom: -20;
 }
