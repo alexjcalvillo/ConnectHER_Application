@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Pie } from 'react-chartjs-2';
 import ProfileSearch from '../../components/ProfileSearch/ProfileSearch';
-import { Button, Row, Col } from 'reactstrap';
+import { Button, Row, Col, Card } from 'reactstrap';
 import AdminSearch from '../../components/AdminSearch/AdminSearch';
 import AdminMembership from '../../components/MembershipOptions/AdminMembershipOptions';
 
@@ -98,52 +98,22 @@ class AdminPage extends Component {
           return (
             <div style={{ marginTop: '-50px' }}>
               <Row>
-                <Col
-                  className="pie"
-                  lg={{ size: 3, offset: 6 }}
-                  md={12}
-                  s={12}
-                  xs={12}
-                >
-                  <div className="tester">
-                    <h2
-                      style={{
-                        marginTop: '20',
-                        fontFamily: 'cabin',
-                        fontSize: '60px',
-                        textAlign: 'center',
-                        color: '#ECECEC',
-                      }}
-                    >
-                      Admin Dashboard
-                    </h2>
-                    <Button
-                      onClick={this.handleAdmin}
-                      style={{
-                        float: 'left',
-                        marginRight: '30px',
-                        marginTop: -50,
-                        color: '#d6f3f3',
-                        backgroundColor: '#6C5B7B',
-                      }}
-                    >
-                      Full Demographics
-                    </Button>
-                  </div>
-                </Col>
+                <Card className="welcomeBanner1">
+                  <h2
+                    style={{
+                      marginTop: '10px',
+                      fontFamily: 'cabin',
+                      fontSize: '60px',
+                      textAlign: 'center',
+                      color: '#ECECEC',
+                    }}
+                  >
+                    Admin Dashboard
+                  </h2>
+                </Card>
               </Row>
               <Row>
-                <Col
-                  className="pie"
-                  style={{ marginTop: 12 }}
-                  lg={{ size: 3 }}
-                  md={12}
-                  s={12}
-                  xs={12}
-                >
-                  <AdminMembership />
-                </Col>
-                <Col className="graph" lg={{ size: 6 }} md={12} s={12} xs={12}>
+                <Col className="graph" lg={12} md={12} s={12} xs={12}>
                   <div style={{ textAlign: 'center', marginTop: '-70px' }}>
                     <div
                       className="chart_category"
@@ -177,11 +147,23 @@ class AdminPage extends Component {
                       fontSize: 15,
                       fontFamily: 'lato',
                       color: '#111111d0',
-                      marginLeft: '-20px !important',
                     }}
                   >
                     This chart generated from a total of {results} user results!
                   </p>
+                </Col>
+              </Row>
+              <Row>
+                {' '}
+                <Col
+                  className="pie"
+                  style={{ marginTop: 12 }}
+                  lg={{ size: 12 }}
+                  md={12}
+                  s={12}
+                  xs={12}
+                >
+                  <AdminMembership />
                 </Col>
               </Row>
               <Row>

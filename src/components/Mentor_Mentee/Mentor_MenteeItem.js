@@ -61,13 +61,13 @@ class MentorMenteeItem extends Component {
         alt="profile headshot"
         style={{
           objectFit: 'cover',
-          width: '50px',
-          height: '50px',
+          width: '50px !important',
+          height: '50px !important',
           border: '2px solid #f7fafc',
           boxShadow: '0 2px 4px #11111150',
           borderRadius: '50%',
         }}
-        className="profile-pic card-profile-image mb-2"
+        className="MM_img"
       />
     );
     if (
@@ -78,13 +78,13 @@ class MentorMenteeItem extends Component {
         <img
           style={{
             objectFit: 'cover',
-            width: '50px',
-            height: '50px',
+            width: '50px !important',
+            height: '50px !important',
             border: '2px solid #f7fafc',
             boxShadow: '0 2px 4px #11111150',
             borderRadius: '50%',
           }}
-          className="profile-pic card-profile-image mb-2"
+          className="MM_img"
           src={this.props.member.headshot}
           alt="alternative"
         />
