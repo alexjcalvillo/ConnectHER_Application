@@ -180,7 +180,7 @@ const Nav = (props) => {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Dropdown button
+            Menu
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">
