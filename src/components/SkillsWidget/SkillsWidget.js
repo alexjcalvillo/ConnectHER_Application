@@ -23,7 +23,6 @@ class SkillsWidget extends Component {
   state = {
     selectedSkills: [],
     tabs: 1,
-    searchTerm: '',
   };
 
   // componentDidMount() {
