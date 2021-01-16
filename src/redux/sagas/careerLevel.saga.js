@@ -9,6 +9,16 @@ function* getCareerLevel() {
     careerLevel: response.data,
   });
 }
+
+function* getUserCareer(action) {
+  console.log('made it to the career saga');
+  const response = yield axios.get(`/api/career/user/${action.payload}`);
+  yield put({
+    type: 'SET_USER_CAREER',
+    userCareer: response.data,
+  });
+}
+
 function* postCareerLevel(action) {
   console.log('career level', action.payload);
   try {
@@ -22,5 +32,5 @@ function* postCareerLevel(action) {
 export default function* careerSaga() {
   yield takeLatest('GET_CAREER_LEVELS', getCareerLevel);
   yield takeLatest('POST_USER_CAREER', postCareerLevel);
-  // yield takeLatest('POST_MULTIDATA', postMultidata);
+  yield takeLatest('GET_USER_CAREER', getUserCareer);
 }

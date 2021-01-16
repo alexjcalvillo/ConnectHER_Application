@@ -18,6 +18,22 @@ router.get('/all', (req: Request, res: Response) => {
     });
 });
 
+router.get('/user/:Id', (req: Request, res: Response) => {
+  const userId = req.params.Id;
+  console.log('req.params', req.params.Id);
+  const query = `SELECT "career".name FROM "career"
+  JOIN "userCareerLevel" ON "userCareerLevel".selected = "career".id
+  WHERE user_id = $1`;
+  pool
+    .query(query, [userId])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+});
+
 function queryNum(n: any, array: any): any {
   if (n <= 0) {
     return;

@@ -19,6 +19,7 @@ import memberLevel from './memberLevel.reducer';
 import chat from './chat.reducer';
 import industries from './industries.reducer';
 import careerLevel from './careerLevel.reducer';
+import userCareerLevel from './careerLevel.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -46,6 +47,7 @@ const rootReducer = combineReducers({
   chat,
   industries,
   careerLevel,
+  userCareerLevel,
 });
 
 export default rootReducer;
