@@ -5,14 +5,15 @@ import Swal from 'sweetalert2';
 
 import React, { Component } from 'react';
 
-class CareerForm extends Component {
+class IndustryForm extends Component {
   state = {
+    user_id: this.props.store.user.id,
     selected: [],
     multi_label: 'Checkboxes',
   };
   componentDidMount() {
     this.props.dispatch({
-      type: 'GET_CATEGORIES',
+      type: 'GET_INDUSTRIES',
     });
   }
 
@@ -20,6 +21,7 @@ class CareerForm extends Component {
     this.props.dispatch({
       type: 'POST_MULTIDATA',
       payload: {
+        user_id: this.props.store.user.id,
         label: this.state.multi_label,
         selected: this.state.selected,
       },
@@ -51,22 +53,24 @@ class CareerForm extends Component {
   };
 
   render() {
-    const names = [
-      'Oliver Hansen',
-      'Van Henry',
-      'April Tucker',
-      'Ralph Hubbard',
-      'Omar Alexander',
-      'Carlos Abbott',
-      'Miriam Wagner',
-      'Bradley Wilkerson',
-      'Virginia Andrews',
-      'Kelly Snyder',
-    ];
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>Please Select All That Apply</h2>
-        <div></div>
+        <div>
+          {this.props.store.industries.map((item, index) => {
+            return (
+              <label>
+                <input
+                  type="checkbox"
+                  checked={this.state.selected.indexOf(item.id) !== -1}
+                  value={item.id}
+                  onChange={(event) => this.handleChangeFor(event, 'selected')}
+                />
+                <span>{item.name}</span>
+              </label>
+            );
+          })}
+        </div>
         <button>Save</button>
       </form>
     );
@@ -75,4 +79,4 @@ class CareerForm extends Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default connect(mapStoreToProps)(CareerForm);
+export default connect(mapStoreToProps)(IndustryForm);

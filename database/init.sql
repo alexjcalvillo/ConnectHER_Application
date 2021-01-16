@@ -112,7 +112,7 @@ CREATE TABLE "userIndustry" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "users",
  	"selected" VARCHAR (300)
-);
+     );
 
 -- starter categories
 INSERT INTO "category" ("name")
