@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 import React, { Component } from 'react';
 
-class IndustryForm extends Component {
+class CareerForm extends Component {
   state = {
     user_id: this.props.store.user.id,
     selected: [],
@@ -13,7 +13,7 @@ class IndustryForm extends Component {
   };
   componentDidMount() {
     this.props.dispatch({
-      type: 'GET_INDUSTRIES',
+      type: 'GET_CAREER_LEVELS',
     });
   }
 
@@ -57,7 +57,7 @@ class IndustryForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <h2>Please Select All That Apply</h2>
         <div>
-          {this.props.store.industries.map((item, index) => {
+          {this.props.store.careerLevel.map((item, index) => {
             return (
               <label>
                 <input
@@ -79,4 +79,4 @@ class IndustryForm extends Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default connect(mapStoreToProps)(IndustryForm);
+export default connect(mapStoreToProps)(CareerForm);

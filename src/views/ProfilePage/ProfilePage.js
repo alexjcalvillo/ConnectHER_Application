@@ -50,6 +50,9 @@ class ProfilePage extends Component {
     this.props.dispatch({
       type: 'GET_INDUSTRIES',
     });
+    this.props.dispatch({
+      type: 'GET_CAREER_LEVELS',
+    });
   }
 
   toggleModal = (state) => {
