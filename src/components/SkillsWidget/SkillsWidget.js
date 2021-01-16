@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import SearchOption from '../SearchOption/SearchOption';
+import { Link } from 'react-router-dom';
+
+import style_list from '../../styles/list';
 
 import styles from './SkillsWidget.module.css';
 import classnames from 'classnames';
@@ -59,12 +62,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 1}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 1,
               })}
@@ -76,6 +74,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 2}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 2,
               })}
@@ -87,11 +86,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 3}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 3,
               })}
@@ -103,7 +98,8 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 4}
-              className={classnames('mb-sm-3 mb-md-0', {
+              style={{ marginRight: 2 }}
+              className={classnames('mb-sm-3 mb-md-0 tabs', {
                 active: this.state.tabs === 4,
               })}
               onClick={(e) => this.toggleNavs(e, 'tabs', 4)}
@@ -114,16 +110,10 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 5}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 5,
               })}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-                marginBottom: '2px',
-              }}
               onClick={(e) => this.toggleNavs(e, 'tabs', 5)}
             >
               Accounting and Finance
@@ -132,6 +122,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 6}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 6,
               })}
@@ -143,12 +134,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 7}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 7,
               })}
@@ -171,12 +157,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 9}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 9,
               })}
@@ -188,12 +169,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 10}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 10,
               })}
@@ -205,6 +181,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 11}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 11,
               })}
@@ -216,12 +193,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 12}
-              style={{
-                fontfamily: 'lato',
-                color: '#111111d0',
-                background: '#bceef0',
-                marginRight: '2px',
-              }}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 12,
               })}

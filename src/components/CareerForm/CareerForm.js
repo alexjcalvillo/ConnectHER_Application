@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import style_list from '../../styles/list';
+import { Button } from 'reactstrap';
 
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
@@ -19,7 +21,7 @@ class CareerForm extends Component {
 
   handleSubmit = (event) => {
     this.props.dispatch({
-      type: 'POST_MULTIDATA',
+      type: 'POST_USER_CAREER',
       payload: {
         user_id: this.props.store.user.id,
         label: this.state.multi_label,
@@ -71,7 +73,12 @@ class CareerForm extends Component {
             );
           })}
         </div>
-        <button>Save</button>
+        <Button
+          // style={style_list.register.button}
+          style={{ ...style_list.register.button }}
+        >
+          Save
+        </Button>
       </form>
     );
   }

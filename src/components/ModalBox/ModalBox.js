@@ -29,8 +29,20 @@ const ModalBox = (props) => {
       </Button>
       {isOpen ? (
         <div>
-          <div className={styles.modal}>
-            <button onClick={() => setIsOpen(!isOpen)}>X</button>
+          <div
+            style={{
+              border: '3px solid #f7fafc',
+              boxShadow: '0 2px 4px #11111150',
+              backgroundColor: '#d6f3f3',
+            }}
+            className={styles.modal}
+          >
+            <button
+              style={{ backgroundColor: '#d6f3f3', border: '0' }}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <i style={{ color: '#11111150' }} class="fa fa-times"></i>{' '}
+            </button>
             {props.component}
           </div>
         </div>
