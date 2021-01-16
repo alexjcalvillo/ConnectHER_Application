@@ -1,7 +1,7 @@
 const careerLevel = (state = [], action) => {
   switch (action.type) {
-    case 'SET_INDUSTRIES':
-      return action.industries;
+    case 'SET_CAREER_LEVELS':
+      return action.careerLevel;
     default:
       return state;
   }

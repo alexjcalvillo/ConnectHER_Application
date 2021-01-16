@@ -6,7 +6,7 @@ import { QueryConfig } from 'pg';
 const router: express.Router = express.Router();
 
 router.get('/all', (req: Request, res: Response) => {
-  const query = `SELECT * FROM "careerLevel";`;
+  const query = `SELECT * FROM "career";`;
 
   pool
     .query(query)
