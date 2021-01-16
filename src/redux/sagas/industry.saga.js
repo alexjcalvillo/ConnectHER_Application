@@ -6,10 +6,21 @@ function* getIndustries() {
   const response = yield axios.get('/api/industry/all');
   yield put({
     type: 'SET_INDUSTRIES',
-    categories: response.data,
+    industries: response.data,
   });
+}
+
+function* postMultidata(action) {
+  console.log('multidata saga:', action.payload);
+  try {
+    yield axios.post('/api/industry/user', action.payload);
+    yield put({ type: 'SET_SUBMITTED', payload: action.payload });
+  } catch (error) {
+    console.log('Everything failed', error);
+  }
 }
 
 export default function* industriesSaga() {
   yield takeLatest('GET_INDUSTRIES', getIndustries);
+  yield takeLatest('POST_MULTIDATA', postMultidata);
 }

@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 
 class IndustryForm extends Component {
   state = {
+    user_id: this.props.store.user.id,
     selected: [],
     multi_label: 'Checkboxes',
   };
@@ -20,6 +21,7 @@ class IndustryForm extends Component {
     this.props.dispatch({
       type: 'POST_MULTIDATA',
       payload: {
+        user_id: this.props.store.user.id,
         label: this.state.multi_label,
         selected: this.state.selected,
       },

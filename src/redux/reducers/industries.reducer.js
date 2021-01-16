@@ -1,7 +1,7 @@
 const industries = (state = [], action) => {
   switch (action.type) {
-    case 'SET_CATEGORIES':
-      return action.categories;
+    case 'SET_INDUSTRIES':
+      return action.industries;
     default:
       return state;
   }

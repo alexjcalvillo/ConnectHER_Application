@@ -37,6 +37,6 @@ export default function* rootSaga() {
     memberSaga(),
     chatSaga(),
     personalitySaga(),
-    industriesSaga,
+    industriesSaga(),
   ]);
 }
