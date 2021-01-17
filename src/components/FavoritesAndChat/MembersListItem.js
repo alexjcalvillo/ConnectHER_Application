@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import function_list from '../../functions/list';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import profilePic from './profilePic.jpg';
 
 class MembersListItem extends Component {
   state = {
@@ -39,6 +40,23 @@ class MembersListItem extends Component {
 
     let containerClass = 'tabListItem';
 
+    let image = (
+      <img
+        src={profilePic}
+        alt="profile headshot"
+        className="tabProfileImage"
+      />
+    );
+    if (member.headshot != '' && member.headshot != null) {
+      image = (
+        <img
+          className="profile-pic card-profile-image mb-2"
+          src={member.headshot}
+          alt="alternative"
+        />
+      );
+    }
+
     if (this.state.toggleDetails === true) {
       containerClass = 'tabListItemDetails';
       detailsClass = 'tabItemDetailsOpen';
@@ -47,7 +65,8 @@ class MembersListItem extends Component {
     let Content = (
       <div className={`${containerClass}`} onClick={this.toggleDetails}>
         <div className="tabProfileImageContainer">
-          <img className="tabProfileImage" src={member.headshot} alt="img" />
+          {image}
+          {/* <img className="tabProfileImage" src={member.headshot} alt="img" /> */}
         </div>
         <div className="tabNameContainer">
           <p className="tabName">{member.display_name}</p>

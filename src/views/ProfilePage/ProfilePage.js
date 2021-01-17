@@ -101,28 +101,27 @@ class ProfilePage extends Component {
 
     let industry = <IndustryModal />;
     if (
-      this.props.store.userIndustry != '' &&
-      this.props.store.userIndustry != null
+      this.props.store.userIndustry.name != '' &&
+      this.props.store.userIndustry.name != null
     ) {
       industry = (
         <Input
           id="display_name"
           type="text"
-          placeholder={this.props.store.userIndustry.name}
-          onChange={this.handleChange('display_name')}
+          placeholder={this.props.store.userCareerLevel.name}
         />
       );
     }
     let career = <CareerModal />;
     if (
-      this.props.store.userCareerLevel != '' &&
-      this.props.store.userCareerLevel != null
+      this.props.store.userCareerLevel.name != '' &&
+      this.props.store.userCareerLevel.name != null
     ) {
       career = (
         <Input
           id="display_name"
           type="text"
-          placeholder={this.props.store.userCareerLevel.name}
+          placeholder={this.props.store.userIndustry.name}
         />
       );
     }
