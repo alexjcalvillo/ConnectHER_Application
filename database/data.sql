@@ -157,22 +157,17 @@ VALUES
 ('Altervative Medicine'),
 ('Animation'),
 ('Apparel & Fashion'),
-('Architecture & Planning
-'),
+('Architecture & Planning'),
 ('Arts and Crafts'),
 ('Automotive'),
 ('Aviation & Aerospace'),
 ('Banking'),
 ('Biotechnology'),
-
 ('Broadcast Media'),
-('Building Materials
-'),
-('Business Supplies and Equipment
-'),
+('Building Materials'),
+('Business Supplies and Equipment'),
 ('Capital Markets'),
-('Chemicals
-'),
+('Chemicals'),
 ('Civic & Social Organization');
 
 INSERT INTO "careerLevel" ("name")

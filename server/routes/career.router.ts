@@ -6,7 +6,7 @@ import { QueryConfig } from 'pg';
 const router: express.Router = express.Router();
 
 router.get('/all', (req: Request, res: Response) => {
-  const query = `SELECT * FROM "career";`;
+  const query = `SELECT * FROM "careerLevel";`;
 
   pool
     .query(query)
@@ -21,8 +21,8 @@ router.get('/all', (req: Request, res: Response) => {
 router.get('/user/:Id', (req: Request, res: Response) => {
   const userId = req.params.Id;
   console.log('req.params', req.params.Id);
-  const query = `SELECT "career".name FROM "career"
-  JOIN "userCareerLevel" ON "userCareerLevel".selected = "career".id
+  const query = `SELECT "careerLevel".name FROM "careerLevel"
+  JOIN "userCareerLevel" ON "userCareerLevel".selected = "careerLevel".id
   WHERE user_id = $1`;
   pool
     .query(query, [userId])

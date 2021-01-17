@@ -122,7 +122,7 @@ CREATE TABLE "userIndustry" (
 CREATE TABLE "userCareerLevel" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "users",
- 	"selected" INT REFERENCES "career");
+ 	"selected" INT REFERENCES "careerLevel");
  	
 -- starter categories
 INSERT INTO "category" ("name")

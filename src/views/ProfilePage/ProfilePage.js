@@ -95,6 +95,22 @@ class ProfilePage extends Component {
   };
 
   render() {
+    let career = <CareerModal />;
+    if (
+      this.props.store.userCareerLevel != '' &&
+      this.props.store.userCareerLevel != null
+    ) {
+      career = (
+        <Input
+          id="display_name"
+          type="text"
+          placeholder={this.props.store.userCareerLevel.name}
+          onChange={this.handleChange('display_name')}
+          value={this.props.store.userCareerLevel.name}
+        />
+      );
+    }
+
     const profilePic = require('./profilePic.jpg');
 
     let image = (
@@ -476,7 +492,7 @@ class ProfilePage extends Component {
                         >
                           Career Level:
                         </Label>
-                        <CareerModal />
+                        {career}
                       </Col>
                     </Row>
                     <hr />

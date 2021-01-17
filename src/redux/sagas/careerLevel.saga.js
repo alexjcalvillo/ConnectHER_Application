@@ -6,7 +6,7 @@ function* getCareerLevel() {
   const response = yield axios.get('/api/career/all');
   yield put({
     type: 'SET_CAREER_LEVELS',
-    careerLevel: response.data,
+    careerLevel: response.data[0],
   });
 }
 
