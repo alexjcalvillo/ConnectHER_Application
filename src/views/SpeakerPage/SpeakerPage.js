@@ -17,7 +17,7 @@ class SpeakerPage extends Component {
     return (
       <Container>
         <h1 className="spaces-laptop" style={style_list.pageTitles.laptop}>
-          Speakers
+          SpeakersTesting
         </h1>
         <h1 className="spaces-tablet" style={style_list.pageTitles.tablet}>
           Speakers
