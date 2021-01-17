@@ -53,6 +53,9 @@ class ProfilePage extends Component {
     this.props.dispatch({
       type: 'GET_CAREER_LEVELS',
     });
+    this.props.dispatch({
+      type: 'GET_USER_CAREER',
+    });
   }
 
   toggleModal = (state) => {
@@ -95,6 +98,26 @@ class ProfilePage extends Component {
   };
 
   render() {
+    let career = <CareerModal />;
+    let htmlArray = this.props.store.userCareerLevel.map((item, index) => {
+      return <h3 key={index}>{item.name}</h3>;
+    });
+
+    console.log('html', htmlArray);
+    if (
+      this.props.store.userCareerLevel != '' &&
+      this.props.store.userCareerLevel != null
+    ) {
+      career = (
+        <Input
+          id="display_name"
+          type="text"
+          placeholder={htmlArray}
+          onChange={this.handleChange('display_name')}
+          value={this.props.store.userCareerLevel.name}
+        />
+      );
+    }
     const profilePic = require('./profilePic.jpg');
 
     let image = (
@@ -476,7 +499,7 @@ class ProfilePage extends Component {
                         >
                           Career Level:
                         </Label>
-                        <CareerModal />
+                        {career}
                       </Col>
                     </Row>
                     <hr />

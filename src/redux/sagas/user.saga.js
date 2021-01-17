@@ -28,11 +28,15 @@ function* fetchUser() {
       payload: response.data.id,
     });
     yield put({
-      type: 'GET_PROFILE',
+      type: 'GET_PROFILE_SKILLS',
       payload: response.data.id,
     });
     yield put({
       type: 'GET_USER_CAREER',
+      payload: response.data.id,
+    });
+    yield put({
+      type: 'GET_USER_INDUSTRY',
       payload: response.data.id,
     });
     yield put({

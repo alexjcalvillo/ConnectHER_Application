@@ -10,6 +10,16 @@ function* getIndustries() {
   });
 }
 
+function* getUserIndustry(action) {
+  console.log('made it to the career saga');
+  const response = yield axios.get(`/api/industry/user/${action.payload}`);
+  yield put({
+    type: 'SET_USER_CAREER',
+    payload: response.data,
+  });
+  console.log('userCareer', response.data);
+}
+
 function* postMultidata(action) {
   console.log('multidata saga:', action.payload);
   try {
@@ -23,4 +33,5 @@ function* postMultidata(action) {
 export default function* industriesSaga() {
   yield takeLatest('GET_INDUSTRIES', getIndustries);
   yield takeLatest('POST_MULTIDATA', postMultidata);
+  yield takeLatest('GET_USER_INDUSTRY', getUserIndustry);
 }

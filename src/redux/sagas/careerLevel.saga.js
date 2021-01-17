@@ -15,8 +15,9 @@ function* getUserCareer(action) {
   const response = yield axios.get(`/api/career/user/${action.payload}`);
   yield put({
     type: 'SET_USER_CAREER',
-    userCareer: response.data,
+    payload: response.data,
   });
+  console.log('userCareer', response.data);
 }
 
 function* postCareerLevel(action) {

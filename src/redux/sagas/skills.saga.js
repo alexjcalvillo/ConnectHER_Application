@@ -70,7 +70,7 @@ function* getAllSkills(action) {
     yield put({
       type: 'SET_ALL_SKILLS',
       payload: response.data,
-    })
+    });
   } catch (err) {
     console.log('Error retreiving ALL SKILLS');
   }
@@ -85,6 +85,7 @@ function* getProfileSkills(action) {
       type: 'SET_PROFILE_SKILLS',
       payload: response.data,
     });
+    console.log('skills console log', response.data);
   } catch (error) {
     alert('Skills failed to load. Please go back and try again');
   }
