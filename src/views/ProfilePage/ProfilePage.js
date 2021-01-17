@@ -95,6 +95,24 @@ class ProfilePage extends Component {
   };
 
   render() {
+    // const htmlArray = this.props.store.userCareerLevel.map((item, index) => {
+    //   return <h2 key={index} item={item.name} />;
+    // });
+
+    let industry = <IndustryModal />;
+    if (
+      this.props.store.userIndustry != '' &&
+      this.props.store.userIndustry != null
+    ) {
+      industry = (
+        <Input
+          id="display_name"
+          type="text"
+          placeholder={this.props.store.userIndustry.name}
+          onChange={this.handleChange('display_name')}
+        />
+      );
+    }
     let career = <CareerModal />;
     if (
       this.props.store.userCareerLevel != '' &&
@@ -105,8 +123,6 @@ class ProfilePage extends Component {
           id="display_name"
           type="text"
           placeholder={this.props.store.userCareerLevel.name}
-          onChange={this.handleChange('display_name')}
-          value={this.props.store.userCareerLevel.name}
         />
       );
     }
@@ -479,7 +495,7 @@ class ProfilePage extends Component {
                         >
                           Industry:
                         </Label>
-                        <IndustryModal />
+                        {industry}
                       </Col>
                       <Col lg={6}>
                         <Label

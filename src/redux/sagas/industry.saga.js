@@ -12,11 +12,15 @@ function* getIndustries() {
 
 function* getUserIndustry(action) {
   console.log('made it to the career saga');
-  const response = yield axios.get(`/api/industry/user/${action.payload}`);
-  yield put({
-    type: 'SET_USER_INDUSTRY',
-    userCareer: response.data,
-  });
+  try {
+    const response = yield axios.get(`/api/industry/user/${action.payload}`);
+    yield put({
+      type: 'SET_USER_INDUSTRY',
+      userIndustry: response.data[0],
+    });
+  } catch (error) {
+    console.log('Everything failed', error);
+  }
 }
 
 function* postMultidata(action) {

@@ -29,6 +29,22 @@ function queryNum(n: any, array: any): any {
   }
 }
 
+router.get('/user/:Id', (req: Request, res: Response) => {
+  const userId = req.params.Id;
+  console.log('req.params', req.params.Id);
+  const query = `SELECT "industry".name FROM "industry"
+  JOIN "userIndustry" ON "userIndustry".selected = "industry".id
+  WHERE user_id = $1`;
+  pool
+    .query(query, [userId])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+});
+
 router.post(
   '/user',
   (req: Request, res: Response, next: express.NextFunction): void => {
