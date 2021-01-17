@@ -12,3 +12,11 @@
   position: relative;
   top: 1px;
 }
+
+.modal-background {
+  background-color: #bceef0;
+}
+
+.tabs {
+  background-color: blue !important;
+}

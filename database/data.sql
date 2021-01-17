@@ -174,3 +174,17 @@ VALUES
 ('Chemicals
 '),
 ('Civic & Social Organization');
+
+INSERT INTO "careerLevel" ("name")
+VALUES 
+('Early stage - first 5 years in the workforce'),
+('Mid stage - 5-15 years in the workforce'),
+('Having a career break'),
+('Looking for employment'),
+('In education'),
+('Re-educating'),
+('Re-entry - returning to work after a career break'),
+('Part-time'),
+('Full time'),
+('Contractor'),
+('Mature stage - more than 15 years in the workforce');

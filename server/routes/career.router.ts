@@ -6,10 +6,26 @@ import { QueryConfig } from 'pg';
 const router: express.Router = express.Router();
 
 router.get('/all', (req: Request, res: Response) => {
-  const query = `SELECT * FROM industry;`;
+  const query = `SELECT * FROM "career";`;
 
   pool
     .query(query)
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+});
+
+router.get('/user/:Id', (req: Request, res: Response) => {
+  const userId = req.params.Id;
+  console.log('req.params', req.params.Id);
+  const query = `SELECT "career".name FROM "career"
+  JOIN "userCareerLevel" ON "userCareerLevel".selected = "career".id
+  WHERE user_id = $1`;
+  pool
+    .query(query, [userId])
     .then((response) => {
       res.send(response.rows);
     })
@@ -43,7 +59,7 @@ router.post(
     selected.unshift(user_id);
 
     const query: QueryConfig = {
-      text: `INSERT INTO "userIndustry" (user_id, selected)
+      text: `INSERT INTO "userCareerLevel" (user_id, selected)
       VALUES ${finalQuery};`,
       values: selected,
     };

@@ -32,6 +32,14 @@ function* fetchUser() {
       payload: response.data.id,
     });
     yield put({
+      type: 'GET_USER_CAREER',
+      payload: response.data.id,
+    });
+    yield put({
+      type: 'GET_USER_INDUSTRY',
+      payload: response.data.id,
+    });
+    yield put({
       type: 'GET_FAVORITES',
       payload: response.data.id,
     });

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import SearchOption from '../SearchOption/SearchOption';
+import { Link } from 'react-router-dom';
+
+import style_list from '../../styles/list';
 
 import styles from './SkillsWidget.module.css';
 import classnames from 'classnames';
@@ -47,7 +50,7 @@ class SkillsWidget extends Component {
 
   render() {
     return (
-      <div className="bg-secondary">
+      <div className="modal-background">
         <h2>{this.state.heading}</h2>
         {/*{ id: , category: , skill: } // {user_id: skill_id:}*/}
         <Nav
@@ -59,6 +62,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 1}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 1,
               })}
@@ -70,6 +74,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 2}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 2,
               })}
@@ -81,6 +86,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 3}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 3,
               })}
@@ -92,7 +98,8 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 4}
-              className={classnames('mb-sm-3 mb-md-0', {
+              style={{ marginRight: 2 }}
+              className={classnames('mb-sm-3 mb-md-0 tabs', {
                 active: this.state.tabs === 4,
               })}
               onClick={(e) => this.toggleNavs(e, 'tabs', 4)}
@@ -103,6 +110,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 5}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 5,
               })}
@@ -114,6 +122,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 6}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 6,
               })}
@@ -125,6 +134,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 7}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 7,
               })}
@@ -147,6 +157,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 9}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 9,
               })}
@@ -158,6 +169,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 10}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 10,
               })}
@@ -169,6 +181,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 11}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 11,
               })}
@@ -180,6 +193,7 @@ class SkillsWidget extends Component {
           <NavItem>
             <NavLink
               aria-selected={this.state.tabs === 12}
+              style={{ marginRight: 2 }}
               className={classnames('mb-sm-3 mb-md-0', {
                 active: this.state.tabs === 12,
               })}
@@ -360,7 +374,7 @@ class SkillsWidget extends Component {
           </TabPane>
         </TabContent>
         <CardFooter className="bg-white">
-          <p>Selected Skills:</p>
+          <p style={{ fontFamily: 'lato' }}>Selected Skills:</p>
           {this.props.store.memberskills.map((skill, i) => {
             let color = 'primary';
             if (skill.category_id === 1) {
