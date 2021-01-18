@@ -29,6 +29,7 @@ import {
 import ImageUpload from '../../services/ImageUpload/ImageUpload';
 import CareerModal from '../../components/CareerModal/CareerModal';
 import SelectedIndustryButton from '../../components/IndustryModal/SelectedIndustryButton';
+import MemberPersonalityModal from '../../components/MemberPersonalityForm/MemberPersonalityModal';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -816,13 +817,16 @@ class ProfilePage extends Component {
                     <Button
                       block
                       style={{
-                        backgroundColor: '#17c3ca',
-                        border: '1px solid white',
-                        color: '#f7fafc',
+                        marginLeft: '5px',
+                        marginTop: '15px',
+                        backgroundColor: 'white',
                         boxShadow: '0 2px 4px #11111150',
-                        marginBottom: 15,
-                        marginLeft: 10,
-                        marginTop: 25,
+                        border: '1px solid #AAA',
+                        marginBottom: '10px',
+                        height: 45,
+                        fontFamily: 'cabin',
+                        fontSize: 15,
+                        color: '#11111150',
                       }}
                       size="sm"
                       className="profile-button"
@@ -830,22 +834,7 @@ class ProfilePage extends Component {
                     >
                       Change Profile Picture
                     </Button>
-                    <Button
-                      block
-                      onClick={() => this.toggleModal('defaultModal')}
-                      size="sm"
-                      style={{
-                        backgroundColor: '#17c3ca',
-                        border: '1px solid white',
-                        color: '#f7fafc',
-                        boxShadow: '0 2px 4px #11111150',
-                        marginBottom: 15,
-                        marginLeft: 10,
-                        marginTop: 10,
-                      }}
-                    >
-                      Take Personality Survey!{' '}
-                    </Button>
+                    <MemberPersonalityModal />
                     <br />
                     <Row>
                       <Col className="text-center">

@@ -37,7 +37,7 @@ class AdminMemberItem extends Component {
         email: this.props.member.email,
         first_name: this.props.member.first_name,
         last_name: this.props.member.last_name,
-        member_level: this.props.member.member_level,
+        member_level: this.props.store.memberLevel.member_level,
         access_level: this.props.member.access_level,
         display_name: this.props.member.display_name,
         community_role: this.props.member.community_role,
@@ -378,13 +378,13 @@ class AdminMemberItem extends Component {
                     First Name
                   </Label>
                   <Input
-                    id="Email"
+                    id="First Name"
                     type="text"
                     placeholder="First Name"
                     onChange={(event) =>
                       this.handleMemberEdit(event, 'first_name')
                     }
-                    value={this.state.editMember.about.first_name}
+                    value={this.state.editMember.about.member_level}
                   />
                   <Label
                     style={{
@@ -397,7 +397,7 @@ class AdminMemberItem extends Component {
                     Last Name
                   </Label>
                   <Input
-                    id="Email"
+                    id="Last Name"
                     type="text"
                     placeholder="Last Name"
                     onChange={(event) =>
@@ -417,7 +417,7 @@ class AdminMemberItem extends Component {
                     Display Name
                   </Label>
                   <Input
-                    id="Email"
+                    id="Display Name"
                     type="text"
                     placeholder="Community Role"
                     onChange={(event) =>
@@ -436,7 +436,7 @@ class AdminMemberItem extends Component {
                     Community Role
                   </Label>
                   <Input
-                    id="Email"
+                    id="Community "
                     type="text"
                     placeholder="Community Role"
                     onChange={(event) =>

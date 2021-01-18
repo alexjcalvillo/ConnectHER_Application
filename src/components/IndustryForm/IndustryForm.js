@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import style_list from '../../styles/list'; // custom styles object
+import { Button } from 'reactstrap';
 
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
@@ -71,7 +73,14 @@ class IndustryForm extends Component {
             );
           })}
         </div>
-        <button>Save</button>
+        <Button
+          block
+          style={{ ...style_list.register.button }}
+          size="large"
+          className="profile-button"
+        >
+          Save
+        </Button>
       </form>
     );
   }
