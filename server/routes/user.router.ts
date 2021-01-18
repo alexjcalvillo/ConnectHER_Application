@@ -74,7 +74,7 @@ router.post(
 router.get('/level', (req: Request, res: Response) => {
   const query = `SELECT "users".id, "users".first_name, "users".last_name, member.member_level FROM "users"
 JOIN "member" ON "users".id = "member".user_id 
-ORDER BY "users".id`;
+ORDER BY "member".member_level`;
 
   pool
     .query(query)

@@ -9,6 +9,8 @@ import './AdminMembership.css';
 import { Button, Container, Row, Col, Card, CardBody } from 'reactstrap';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
+import MembershipModal from './MembershipModal';
+import Member from '../Admin/MemberManagement/Member';
 
 class AdminMembership extends Component {
   state = {
@@ -34,7 +36,7 @@ class AdminMembership extends Component {
     return (
       <Container className="admin">
         <Row>
-          <Col className="adminOptions" lg={4} md={4} sm={4} xs={12}>
+          <Col className="adminOptions" lg={3} md={3} sm={3} xs={3}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -81,7 +83,7 @@ class AdminMembership extends Component {
               </div>
             </Card>
           </Col>
-          <Col className="adminOptions" lg={4} md={4} sm={4} xs={12}>
+          <Col className="adminOptions" lg={3} md={3} sm={3} xs={3}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -126,7 +128,7 @@ class AdminMembership extends Component {
               </div>{' '}
             </Card>
           </Col>
-          <Col className="adminHeightControl" lg={4} md={4} sm={4} xs={12}>
+          <Col className="adminHeightControl" lg={3} md={3} sm={3} xs={3}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -168,6 +170,23 @@ class AdminMembership extends Component {
                   Enrolled
                 </p>
               </div>
+            </Card>
+          </Col>
+          <Col className="adminHeightControl" lg={3} md={3} sm={3} xs={3}>
+            <Card className="admin-options">
+              <h3
+                style={{
+                  color: '#17C3CA',
+                  marginBottom: 0,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  fontSize: 30,
+                  fontFamily: 'Cabin',
+                }}
+              >
+                View Full List
+              </h3>
+              <MembershipModal />
             </Card>
           </Col>
         </Row>

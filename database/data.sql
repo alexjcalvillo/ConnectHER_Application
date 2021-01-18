@@ -147,7 +147,7 @@ VALUES ('18-24', 'Multiracial', 'Female / Female-Identifying', 'Straight / Heter
    ('65-74', 'Puerto Rican', 'Female / Female-Identifying', 'Straight / Heterosexual', 'I do not have a disability', '40000-79999', 'Bachelor Degree', 8);
 
 INSERT INTO "member" (user_id, member_level) 
-VALUES (1, 2), (2,3), (3,3),(4,1),(5,4),(6,3), (7,2), (8,1);
+VALUES (1, 2), (2,3), (3,3),(4,1),(5,3),(6,3), (7,2), (8,1);
 
 INSERT INTO "industry" ("name")
 VALUES 
