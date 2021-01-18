@@ -12,6 +12,16 @@ function* memberSaga(action) {
   }
 }
 
+function* countSaga(action) {
+  try {
+    console.log('access level made it to saga', action.payload);
+    yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
+    yield axios.post('/api/user/count', action.payload);
+  } catch (error) {
+    console.log('member level failed:', error);
+  }
+}
+
 function* memberListSaga(action) {
   try {
     console.log('level_list saga reached', action);
@@ -32,6 +42,7 @@ function* memberListSaga(action) {
 function* memberLevel() {
   yield takeLatest('MEMBER_LEVEL', memberSaga);
   yield takeLatest('GET_LEVEL_LIST', memberListSaga);
+  yield takeLatest('FETCH_LEVEL_COUNT', countSaga);
 }
 
 export default memberLevel;

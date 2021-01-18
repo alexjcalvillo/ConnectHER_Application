@@ -39,6 +39,11 @@ function* registerUser(action) {
       `/api/form/register/demographic/${response.data.id}`,
       action.payload.form.demo
     );
+    yield axios.post(
+      `/api/user/level/${response.data.id}`,
+      action.payload.form.access
+    );
+    console.log('access', action.payload.form.access);
     const skills = action.payload.skills.map((skills) => {
       return skills.id;
     });

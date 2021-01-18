@@ -57,12 +57,12 @@ router.post('/logout', (req: Request, res: Response): void => {
 });
 
 router.post(
-  '/level',
+  '/level/:Id',
   (req: Request, res: Response, next: express.NextFunction): void => {
     const user: string = req.params.Id;
     const level: string = req.body.member_level;
 
-    const queryText = `INSERT INTO "member_level" (user_id, member_level)
+    const queryText = `INSERT INTO "member" (user_id, member_level)
     VALUES ($1, $2) RETURNING id`;
     pool
       .query(queryText, [user, level])

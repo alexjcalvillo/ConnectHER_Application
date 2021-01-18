@@ -32,6 +32,9 @@ class AdminPage extends Component {
     this.props.dispatch({
       type: 'FETCH_ALL_PROFILES',
     });
+    this.props.dispatch({
+      type: 'FETCH_LEVEL_COUNTS',
+    });
   }
 
   handleClick = (key) => {
