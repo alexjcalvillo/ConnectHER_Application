@@ -28,6 +28,7 @@ import {
 } from 'reactstrap';
 import ImageUpload from '../../services/ImageUpload/ImageUpload';
 import CareerModal from '../../components/CareerModal/CareerModal';
+import SelectedIndustryButton from '../../components/IndustryModal/SelectedIndustryButton';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -101,16 +102,10 @@ class ProfilePage extends Component {
 
     let industry = <IndustryModal />;
     if (
-      this.props.store.userIndustry.name != '' &&
-      this.props.store.userIndustry.name != null
+      this.props.store.userIndustry != [] &&
+      this.props.store.userIndustry != null
     ) {
-      industry = (
-        <Input
-          id="display_name"
-          type="text"
-          placeholder={this.props.store.userIndustry.name}
-        />
-      );
+      industry = <SelectedIndustryButton />;
     }
     let career = <CareerModal />;
     if (

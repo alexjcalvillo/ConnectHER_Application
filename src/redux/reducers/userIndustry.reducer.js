@@ -1,4 +1,4 @@
-const userIndustry = (state = {}, action) => {
+const userIndustry = (state = [], action) => {
   console.log('industry reducer', action);
   switch (action.type) {
     case 'SET_USER_INDUSTRY':

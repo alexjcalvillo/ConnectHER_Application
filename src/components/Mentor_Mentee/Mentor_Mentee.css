@@ -104,6 +104,20 @@
     font-size: 20px;
     border-right: 1px solid #11111150;
   }
+
+  .MM_nameb {
+    overflow: scroll;
+    width: 100%;
+    text-align: center !important;
+    margin-top: -7px;
+    margin-left: 20px;
+    margin-bottom: -7px;
+    padding-top: 18px;
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 20px;
+    border-right: 1px solid #11111150;
+  }
   .MM_details {
     overflow: scroll;
     width: 75%;

@@ -16,7 +16,7 @@ function* getUserIndustry(action) {
     const response = yield axios.get(`/api/industry/user/${action.payload}`);
     yield put({
       type: 'SET_USER_INDUSTRY',
-      userIndustry: response.data[0],
+      userIndustry: response.data,
     });
   } catch (error) {
     console.log('Everything failed', error);
