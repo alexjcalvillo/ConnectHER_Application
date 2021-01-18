@@ -18,6 +18,9 @@ class AdminMembership extends Component {
 
   componentDidMount() {
     document.title = 'ConnectHER';
+    this.props.dispatch({
+      type: 'FETCH_LEVEL_COUNTS',
+    });
   }
   toggle(tab) {
     if (this.state.activeTab !== tab) {
@@ -72,7 +75,8 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  10 Members Currently Enrolled
+                  {this.props.store.countsReducer.one} Members Currently
+                  Enrolled
                 </p>
               </div>
             </Card>
@@ -116,7 +120,8 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  4 Members Currently Enrolled
+                  {this.props.store.countsReducer.two} Members Currently
+                  Enrolled
                 </p>
               </div>{' '}
             </Card>
@@ -159,7 +164,8 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  3 Members Currently Enrolled
+                  {this.props.store.countsReducer.three} Members Currently
+                  Enrolled
                 </p>
               </div>
             </Card>

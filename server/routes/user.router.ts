@@ -86,4 +86,47 @@ ORDER BY "users".id`;
     });
 });
 
+//GET route to get count for sexual orientation
+router.get(
+  '/count',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 1`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const one = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 2`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const two = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 3`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const three = dbResponse.rows[0].count;
+
+                res.send({
+                  one: one,
+                  two: two,
+                  three: three,
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
 export default router;

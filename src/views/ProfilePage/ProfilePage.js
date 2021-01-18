@@ -108,7 +108,7 @@ class ProfilePage extends Component {
         <Input
           id="display_name"
           type="text"
-          placeholder={this.props.store.userCareerLevel.name}
+          placeholder={this.props.store.userIndustry.name}
         />
       );
     }
