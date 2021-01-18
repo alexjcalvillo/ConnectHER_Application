@@ -26,11 +26,11 @@ class IndustryForm extends Component {
         selected: this.state.selected,
       },
     });
-    alert('made it');
     this.setState({
       selected: [],
       multi_label: 'Mui Checkboxes',
     });
+    this.props.callback();
   };
 
   handleChangeFor = (event, stateKey) => {

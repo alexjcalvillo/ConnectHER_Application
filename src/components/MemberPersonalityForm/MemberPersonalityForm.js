@@ -163,7 +163,7 @@ function MemberPersonalityForm(props) {
               color="primary"
               type="submit"
             >
-              Next
+              Submit
             </Button>
           </Col>
         </Row>

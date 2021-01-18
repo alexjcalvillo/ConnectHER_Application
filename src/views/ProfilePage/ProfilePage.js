@@ -100,13 +100,6 @@ class ProfilePage extends Component {
     //   return <h2 key={index} item={item.name} />;
     // });
 
-    let industry = <IndustryModal />;
-    if (
-      this.props.store.userIndustry != [] &&
-      this.props.store.userIndustry != null
-    ) {
-      industry = <SelectedIndustryButton />;
-    }
     let career = <CareerModal />;
     if (
       this.props.store.userCareerLevel.name != '' &&
@@ -489,7 +482,7 @@ class ProfilePage extends Component {
                         >
                           Industry:
                         </Label>
-                        {industry}
+                        <SelectedIndustryButton />
                       </Col>
                       <Col lg={6}>
                         <Label

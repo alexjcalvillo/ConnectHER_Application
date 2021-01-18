@@ -580,6 +580,7 @@ class AdminMemberItem extends Component {
                         fontFamily: 'Cabin',
                         color: '#111111d0',
                         fontSize: 14,
+                        marginLeft: 10,
                       }}
                     >
                       Mentor:
@@ -613,6 +614,7 @@ class AdminMemberItem extends Component {
                         fontFamily: 'Cabin',
                         color: '#111111d0',
                         fontSize: 14,
+                        marginLeft: 10,
                       }}
                     >
                       Mentee:
@@ -622,6 +624,7 @@ class AdminMemberItem extends Component {
                     <CustomInput
                       className="form-check-input"
                       type="radio"
+                      color="secondary"
                       id="menteeTrueRadio"
                       name="menteeRadio"
                       label="True"
@@ -631,6 +634,7 @@ class AdminMemberItem extends Component {
                     <CustomInput
                       className="form-check-input"
                       type="radio"
+                      color="secondary"
                       id="menteeFalseRadio"
                       name="menteeRadio"
                       label="False"

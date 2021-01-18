@@ -27,6 +27,14 @@ class IndustryModal extends React.Component {
     });
   };
 
+  handleClose = (event) => {
+    window.location.reload();
+    this.setState({
+      defaultModal: false,
+      isOpen: false,
+    });
+  };
+
   render() {
     return (
       <>
@@ -75,7 +83,7 @@ class IndustryModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <IndustryForm />
+            <IndustryForm callback={this.handleClose} />
           </ModalBody>
         </Modal>
       </>
