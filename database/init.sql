@@ -108,6 +108,22 @@ CREATE TABLE "industry" (
  	"name" VARCHAR (100)
 );
 
+CREATE TABLE "careerLevel" (
+    "id" SERIAL PRIMARY KEY,
+ 	"name" VARCHAR (100)
+);
+
+CREATE TABLE "userIndustry" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "users",
+ 	"selected" INT REFERENCES "industry"
+);
+
+CREATE TABLE "userCareerLevel" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "users",
+ 	"selected" INT REFERENCES "careerLevel");
+ 	
 -- starter categories
 INSERT INTO "category" ("name")
 VALUES 

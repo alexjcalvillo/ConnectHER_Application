@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import style_list from '../../styles/list'; // custom styles object
+import { Button } from 'reactstrap';
 
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
@@ -7,6 +9,7 @@ import React, { Component } from 'react';
 
 class IndustryForm extends Component {
   state = {
+    user_id: this.props.store.user.id,
     selected: [],
     multi_label: 'Checkboxes',
   };
@@ -20,15 +23,16 @@ class IndustryForm extends Component {
     this.props.dispatch({
       type: 'POST_MULTIDATA',
       payload: {
+        user_id: this.props.store.user.id,
         label: this.state.multi_label,
         selected: this.state.selected,
       },
     });
-    alert('made it');
     this.setState({
       selected: [],
       multi_label: 'Mui Checkboxes',
     });
+    this.props.callback();
   };
 
   handleChangeFor = (event, stateKey) => {
@@ -69,7 +73,14 @@ class IndustryForm extends Component {
             );
           })}
         </div>
-        <button>Save</button>
+        <Button
+          block
+          style={{ ...style_list.register.button }}
+          size="large"
+          className="profile-button"
+        >
+          Save
+        </Button>
       </form>
     );
   }

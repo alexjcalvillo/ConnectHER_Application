@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
-import IndustryForm from '../IndustryForm/IndustryForm';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
+import IndustryTable from './IndustryTable';
+import IndustryModalButton from './IndustryModalButton';
 
-class IndustryModal extends React.Component {
+class SelectedModal extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
@@ -28,11 +29,12 @@ class IndustryModal extends React.Component {
   };
 
   handleClose = (event) => {
-    window.location.reload();
+    alert('made it to 2nd callback');
     this.setState({
       defaultModal: false,
       isOpen: false,
     });
+    this.props.callback();
   };
 
   render() {
@@ -57,7 +59,7 @@ class IndustryModal extends React.Component {
             color: '#11111150',
           }}
         >
-          Add Industry
+          See my Industries
         </Button>
         <Modal
           className="modal-dialog-centered"
@@ -83,7 +85,8 @@ class IndustryModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <IndustryForm callback={this.handleClose} />
+            <IndustryModalButton />
+            <IndustryTable callback={this.handleClose} />
           </ModalBody>
         </Modal>
       </>
@@ -91,4 +94,4 @@ class IndustryModal extends React.Component {
   }
 }
 
-export default connect(mapStoreToProps)(IndustryModal);
+export default connect(mapStoreToProps)(SelectedModal);

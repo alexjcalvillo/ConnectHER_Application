@@ -1,7 +1,7 @@
-const imageUrlReducer = (state = {}, action) => {
+const imageUrlReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_USER_HEADSHOT':
-      return action.payload;
+      return action.careerLevel;
     default:
       return state;
   }

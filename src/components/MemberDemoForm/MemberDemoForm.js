@@ -100,7 +100,7 @@ function MemberDemoForm(props) {
           <option value="Other">Other</option>
           <option value="I prefer not to answer">I prefer not to answer</option>
         </Input>
-        <Label htmlFor="gender">Gender</Label>
+        <Label htmlFor="gender">Gender Identity</Label>
         <Input
           required
           style={style_list.register.form_inputC}
@@ -138,7 +138,7 @@ function MemberDemoForm(props) {
           <option value="LGBTQIA+">LGBTQIA+</option>
           <option value="I prefer not to answer">I prefer not to answer</option>
         </Input>
-        <Label htmlFor="ability">Ability Level</Label>
+        <Label htmlFor="ability">Ability</Label>
         <Input
           required
           style={style_list.register.form_inputC}

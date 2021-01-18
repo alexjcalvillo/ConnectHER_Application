@@ -57,12 +57,12 @@ router.post('/logout', (req: Request, res: Response): void => {
 });
 
 router.post(
-  '/level',
+  '/level/:Id',
   (req: Request, res: Response, next: express.NextFunction): void => {
     const user: string = req.params.Id;
     const level: string = req.body.member_level;
 
-    const queryText = `INSERT INTO "member_level" (user_id, member_level)
+    const queryText = `INSERT INTO "member" (user_id, member_level)
     VALUES ($1, $2) RETURNING id`;
     pool
       .query(queryText, [user, level])
@@ -74,7 +74,7 @@ router.post(
 router.get('/level', (req: Request, res: Response) => {
   const query = `SELECT "users".id, "users".first_name, "users".last_name, member.member_level FROM "users"
 JOIN "member" ON "users".id = "member".user_id 
-ORDER BY "users".id`;
+ORDER BY "member".member_level`;
 
   pool
     .query(query)
@@ -85,5 +85,48 @@ ORDER BY "users".id`;
       res.sendStatus(500);
     });
 });
+
+//GET route to get count for sexual orientation
+router.get(
+  '/count',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 1`;
+    pool
+      .query(queryText)
+      .then((dbResponse) => {
+        const one = dbResponse.rows[0].count;
+        const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 2`;
+        pool
+          .query(queryText)
+          .then((dbResponse) => {
+            const two = dbResponse.rows[0].count;
+            const queryText = `SELECT COUNT(id) FROM "member" WHERE member_level = 3`;
+            pool
+              .query(queryText)
+              .then((dbResponse) => {
+                const three = dbResponse.rows[0].count;
+
+                res.send({
+                  one: one,
+                  two: two,
+                  three: three,
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.sendStatus(500);
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
 
 export default router;

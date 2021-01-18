@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
-import IndustryForm from '../IndustryForm/IndustryForm';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
+import MembershipLevels from './MembershipLevels';
 
-class IndustryModal extends React.Component {
+class MembershipModal extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
@@ -27,14 +27,6 @@ class IndustryModal extends React.Component {
     });
   };
 
-  handleClose = (event) => {
-    window.location.reload();
-    this.setState({
-      defaultModal: false,
-      isOpen: false,
-    });
-  };
-
   render() {
     return (
       <>
@@ -45,19 +37,20 @@ class IndustryModal extends React.Component {
           size="sm"
           onClick={() => this.toggleModal('defaultModal')}
           style={{
-            marginLeft: '5px',
+            marginLeft: '33px',
             marginTop: '5px',
-            backgroundColor: 'white',
+            backgroundColor: '#f7fafc',
             boxShadow: '0 2px 4px #11111150',
-            border: '1px solid #AAA',
+            border: '1px solid #6C5B7B',
             marginBottom: '5px',
-            height: 45,
+            height: 60,
+            width: 180,
             fontFamily: 'cabin',
             fontSize: 15,
-            color: '#11111150',
+            color: '#6C5B7B',
           }}
         >
-          Add Industry
+          See Member Level
         </Button>
         <Modal
           className="modal-dialog-centered"
@@ -83,7 +76,7 @@ class IndustryModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <IndustryForm callback={this.handleClose} />
+            <MembershipLevels />
           </ModalBody>
         </Modal>
       </>
@@ -91,4 +84,4 @@ class IndustryModal extends React.Component {
   }
 }
 
-export default connect(mapStoreToProps)(IndustryModal);
+export default connect(mapStoreToProps)(MembershipModal);

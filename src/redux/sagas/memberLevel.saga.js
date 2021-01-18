@@ -12,6 +12,23 @@ function* memberSaga(action) {
   }
 }
 
+function* countSaga(action) {
+  try {
+    console.log('level_list saga reached', action);
+    const response = yield axios.get('/api/user/count');
+    yield put({
+      type: 'SET_COUNTS',
+      payload: response.data,
+    });
+    console.log('selected data', response.data);
+  } catch (err) {
+    yield put({
+      type: 'SET_ERROR',
+      payload: 'Could not get Member Level',
+    });
+  }
+}
+
 function* memberListSaga(action) {
   try {
     console.log('level_list saga reached', action);
@@ -32,6 +49,7 @@ function* memberListSaga(action) {
 function* memberLevel() {
   yield takeLatest('MEMBER_LEVEL', memberSaga);
   yield takeLatest('GET_LEVEL_LIST', memberListSaga);
+  yield takeLatest('FETCH_LEVEL_COUNTS', countSaga);
 }
 
 export default memberLevel;

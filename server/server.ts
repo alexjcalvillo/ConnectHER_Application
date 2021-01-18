@@ -16,6 +16,7 @@ import favoritesRouter from './routes/favorites.router';
 import chatRouter from './routes/chat.router';
 import personalityRouter from './routes/personality.router';
 import industryRouter from './routes/industry.router';
+import careerLevel from './routes/career.router';
 
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
@@ -43,13 +44,14 @@ app.use('/api/nodemailer', nodemailerRouter);
 app.use(
   '/s3',
   UploaderS3Router({
-    bucket: 'innovate-her', // required
+    bucket: 'innovateher2020', // required
     region: 'us-east-2', // optional
     headers: { 'Access-Control-Allow-Origin': '*' }, // optional
     ACL: 'public-read', // this is the default - set to `public-read` to let anyone view uploads
   })
 );
 
+app.use('/api/career', careerLevel);
 app.use('/api/industry', industryRouter);
 app.use('/api/personality', personalityRouter);
 app.use('/api/imageurl', imageUrlRouter);

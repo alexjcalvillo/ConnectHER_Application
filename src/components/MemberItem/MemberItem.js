@@ -258,23 +258,21 @@ class MemberItem extends Component {
                 >
                   {member.job_title} at {member.organization_name}
                 </p>
-                <Button
+                <ul
                   style={{
-                    marginTop: '-100px !important',
-                    border: '1px solid white',
-                    width: '150px',
-                    backgroundColor: '#17c3ca',
-                    border: '1px solid #17c3ca',
-                    color: '#f7fafc',
-                    boxShadow: '0 2px 4px #11111150',
+                    listStyleType: 'none',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
                   }}
-                  outline
-                  block
-                  size="sm"
-                  onClick={this.handleListingClick}
                 >
-                  Contact Now
-                </Button>
+                  <li className="mb-2">
+                    <i
+                      style={{ marginLeft: -40 }}
+                      className="ni ni-email-83 mr-2"
+                    />
+                    {member.email}
+                  </li>
+                </ul>
               </Col>
               <Col lg={6} className="text-left p-5">
                 <h3

@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
-import IndustryForm from '../IndustryForm/IndustryForm';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
+import MemberPersonalityForm from './MemberPersonalityForm';
 
-class IndustryModal extends React.Component {
+class MemberPersonalityModal extends React.Component {
   state = {
     status: false, //'false' = '+' AND 'true' = '-'
     defaultModal: false,
@@ -28,7 +28,6 @@ class IndustryModal extends React.Component {
   };
 
   handleClose = (event) => {
-    window.location.reload();
     this.setState({
       defaultModal: false,
       isOpen: false,
@@ -50,14 +49,14 @@ class IndustryModal extends React.Component {
             backgroundColor: 'white',
             boxShadow: '0 2px 4px #11111150',
             border: '1px solid #AAA',
-            marginBottom: '5px',
+            marginBottom: '10px',
             height: 45,
             fontFamily: 'cabin',
             fontSize: 15,
             color: '#11111150',
           }}
         >
-          Add Industry
+          Take Personality Survey
         </Button>
         <Modal
           className="modal-dialog-centered"
@@ -83,7 +82,7 @@ class IndustryModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <IndustryForm callback={this.handleClose} />
+            <MemberPersonalityForm callback={this.handleClose} />
           </ModalBody>
         </Modal>
       </>
@@ -91,4 +90,4 @@ class IndustryModal extends React.Component {
   }
 }
 
-export default connect(mapStoreToProps)(IndustryModal);
+export default connect(mapStoreToProps)(MemberPersonalityModal);
