@@ -844,22 +844,6 @@ class ProfilePage extends Component {
                     </Button>
                     <Button
                       block
-                      onClick={() => this.toggleModal('defaultModal2')}
-                      size="sm"
-                      style={{
-                        backgroundColor: '#17c3ca',
-                        border: '1px solid white',
-                        color: '#f7fafc',
-                        boxShadow: '0 2px 4px #11111150',
-                        marginBottom: 15,
-                        marginLeft: 10,
-                        marginTop: 10,
-                      }}
-                    >
-                      Mentor Survey{' '}
-                    </Button>
-                    <Button
-                      block
                       onClick={() => this.toggleModal('defaultModal')}
                       size="sm"
                       style={{
@@ -872,7 +856,7 @@ class ProfilePage extends Component {
                         marginTop: 10,
                       }}
                     >
-                      Personality Survey{' '}
+                      Take Personality Survey!{' '}
                     </Button>
                     <br />
                     <Row>

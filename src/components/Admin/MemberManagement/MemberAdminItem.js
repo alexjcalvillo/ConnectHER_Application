@@ -116,7 +116,7 @@ class MemberAdminItem extends Component {
           <p className="MM_namea">{this.props.member.display_name}</p>
           <div
             className="MM_details"
-            style={{ borderRight: '0px', padding: '3%', marginTop: '1%' }}
+            style={{ borderRight: '0px', padding: '3%' }}
           >
             <EditButton member={this.props.member} />
           </div>
