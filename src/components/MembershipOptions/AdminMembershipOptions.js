@@ -36,7 +36,7 @@ class AdminMembership extends Component {
     return (
       <Container className="admin">
         <Row>
-          <Col className="adminOptions" lg={3} md={3} sm={3} xs={3}>
+          <Col className="adminOptions" lg={3} md={3} sm={12} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -83,7 +83,7 @@ class AdminMembership extends Component {
               </div>
             </Card>
           </Col>
-          <Col className="adminOptions" lg={3} md={3} sm={3} xs={3}>
+          <Col className="adminOptions" lg={3} md={3} sm={12} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -128,7 +128,7 @@ class AdminMembership extends Component {
               </div>{' '}
             </Card>
           </Col>
-          <Col className="adminHeightControl" lg={3} md={3} sm={3} xs={3}>
+          <Col className="adminHeightControl" lg={3} md={3} sm={12} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{
@@ -172,7 +172,7 @@ class AdminMembership extends Component {
               </div>
             </Card>
           </Col>
-          <Col className="adminHeightControl" lg={3} md={3} sm={3} xs={3}>
+          <Col className="adminHeightControl" lg={3} md={3} sm={12} xs={12}>
             <Card className="admin-options">
               <h3
                 style={{

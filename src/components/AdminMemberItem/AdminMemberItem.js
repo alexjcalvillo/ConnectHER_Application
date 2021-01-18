@@ -6,9 +6,6 @@ import profilePic from '.././MemberItem/profilePic.jpg';
 import '.././MemberItem/MemberItem.css';
 import {
   Badge,
-  Button,
-  Col,
-  Row,
   Card,
   CardBody,
   Modal,
@@ -17,6 +14,14 @@ import {
   FormGroup,
   Label,
   CustomInput,
+  Button,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Col,
+  Row,
 } from 'reactstrap';
 
 import function_list from '../../functions/list'; // custom functions object
@@ -328,17 +333,14 @@ class AdminMemberItem extends Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
+            {' '}
+            Edit Member Profile:
             <Row>
-              <Col lg={1}></Col>
-              <Col lg={5}>
-                <div
-                  style={{
-                    ...style_list.modal.imageContainer,
-                    borderRadius: '50%',
-                  }}
-                >
-                  {function_list.detailsCardImage(member.headshot).modalTag}
-                </div>
+              <Col
+                style={{ marginLeft: 35 }}
+                lg={{ size: 5, offset: 1 }}
+                md={{ size: 5, offset: 1 }}
+              >
                 <div
                   style={{
                     color: '#111111d0',
@@ -348,110 +350,168 @@ class AdminMemberItem extends Component {
                   className="mt-4 display-4"
                 >
                   {' '}
-                  <label>
-                    E-mail
-                    <input
-                      type="text"
-                      value={this.state.editMember.about.email}
-                      onChange={(event) =>
-                        this.handleMemberEdit(event, 'email')
-                      }
-                    />
-                  </label>
-                  <label>
-                    First Name
-                    <input
-                      type="text"
-                      value={this.state.editMember.about.first_name}
-                      onChange={(event) =>
-                        this.handleMemberEdit(event, 'first_name')
-                      }
-                    />
-                  </label>
-                  <label>
-                    Last Name
-                    <input
-                      type="text"
-                      value={this.state.editMember.about.last_name}
-                      onChange={(event) =>
-                        this.handleMemberEdit(event, 'last_name')
-                      }
-                    />
-                  </label>
-                  <FormGroup>
-                    <Label for="accessRadio">Acess Level:</Label>
-                    <div>
-                      <CustomInput
-                        type="radio"
-                        id="accessMemberRadio"
-                        name="accessRadio"
-                        label="Member"
-                        onChange={this.handleAccessMember}
-                        checked={this.state.editMember.about.access_level === 1}
-                      />
-                      <CustomInput
-                        type="radio"
-                        id="accessAdminRadio"
-                        name="accessRadio"
-                        label="Admin"
-                        onChange={this.handleAccessAdmin}
-                        checked={this.state.editMember.about.access_level === 2}
-                      />
-                    </div>
-                  </FormGroup>
-                  <label>
-                    Display Name
-                    <input
-                      type="text"
-                      value={this.state.editMember.about.display_name}
-                      onChange={(event) =>
-                        this.handleMemberEdit(event, 'display_name')
-                      }
-                    />
-                  </label>
-                </div>
-                <label>
-                  Community Role
-                  <input
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="display_name"
+                    className="form-control-label"
+                  >
+                    Email:
+                  </Label>
+                  <Input
+                    id="Email"
                     type="text"
-                    value={this.state.editMember.about.community_role}
+                    placeholder="email"
+                    onChange={(event) => this.handleMemberEdit(event, 'email')}
+                    value={this.state.editMember.about.email}
+                  />
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    First Name
+                  </Label>
+                  <Input
+                    id="Email"
+                    type="text"
+                    placeholder="First Name"
+                    onChange={(event) =>
+                      this.handleMemberEdit(event, 'first_name')
+                    }
+                    value={this.state.editMember.about.first_name}
+                  />
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    Last Name
+                  </Label>
+                  <Input
+                    id="Email"
+                    type="text"
+                    placeholder="Last Name"
+                    onChange={(event) =>
+                      this.handleMemberEdit(event, 'last_name')
+                    }
+                    value={this.state.editMember.about.last_name}
+                  />
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                      marginTop: -20,
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    Display Name
+                  </Label>
+                  <Input
+                    id="Email"
+                    type="text"
+                    placeholder="Community Role"
+                    onChange={(event) =>
+                      this.handleMemberEdit(event, 'display_name')
+                    }
+                    value={this.state.editMember.about.display_name}
+                  />
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    Community Role
+                  </Label>
+                  <Input
+                    id="Email"
+                    type="text"
+                    placeholder="Community Role"
                     onChange={(event) =>
                       this.handleMemberEdit(event, 'community_role')
                     }
+                    value={this.state.editMember.about.community_role}
                   />
-                </label>
-                <label>
-                  Job Title
-                  <input
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    Job Title
+                  </Label>
+                  <Input
+                    id="Email"
                     type="text"
-                    value={this.state.editMember.about.job_title}
+                    placeholder="Photographer"
                     onChange={(event) =>
                       this.handleMemberEdit(event, 'job_title')
                     }
+                    value={this.state.editMember.about.job_title}
                   />
-                </label>
-                <label>
-                  Organization Name
-                  <input
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="first_name"
+                    className="form-control-label"
+                  >
+                    Organization Name
+                  </Label>
+                  <Input
+                    id="Email"
                     type="text"
-                    value={this.state.editMember.about.organization_name}
+                    placeholder="Photographer"
                     onChange={(event) =>
                       this.handleMemberEdit(event, 'organization_name')
                     }
+                    value={this.state.editMember.about.organization_name}
                   />
-                </label>
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="Zip"
+                    className="form-control-label"
+                  >
+                    Bio
+                  </Label>
+                  <Input
+                    id="Email"
+                    type="textarea"
+                    placeholder="Street Address"
+                    onChange={(event) => this.handleMemberEdit(event, 'bio')}
+                    value={this.state.editMember.about.bio}
+                  />
+                </div>
               </Col>
               <Col lg={6} className="text-left p-5">
-                <h3
+                <p
                   className="lead mb-0"
                   style={{
-                    marginTop: '0px',
+                    fontFamily: 'Cabin',
                     color: '#111111d0',
-                    fontFamily: 'cabin',
+                    fontSize: 14,
                   }}
                 >
                   Skills:
-                </h3>
+                </p>
                 <div
                   style={{
                     height: '90px',
@@ -472,10 +532,62 @@ class AdminMemberItem extends Component {
                     );
                   })}
                 </div>
+                <FormGroup className="form-check-inline">
+                  <Label for="menteeRadio">
+                    {' '}
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                      }}
+                    >
+                      Member Database Access Level
+                    </p>
+                  </Label>
+
+                  {/* <div
+                      style={{
+                        fontFamily: 'cabin',
+                        fortSize: 15,
+                        marginTop: '-20px',
+                      }}
+                    > */}
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="accessMemberRadio"
+                    name="accessRadio"
+                    label="Member"
+                    onChange={this.handleAccessMember}
+                    checked={this.state.editMember.about.access_level === 1}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="accessAdminRadio"
+                    name="accessRadio"
+                    label="Admin"
+                    onChange={this.handleAccessAdmin}
+                    checked={this.state.editMember.about.access_level === 2}
+                  />
+                  {/* </div> */}
+                </FormGroup>
                 <FormGroup>
-                  <Label for="mentorRadio">Mentor:</Label>
-                  <div>
+                  <Label for="mentorRadio">
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                      }}
+                    >
+                      Mentor:
+                    </p>
+                  </Label>
+                  <div className="form-check-inline">
                     <CustomInput
+                      className="form-check-input"
                       type="radio"
                       id="mentorTrueRadio"
                       name="mentorRadio"
@@ -484,6 +596,7 @@ class AdminMemberItem extends Component {
                       checked={this.state.editMember.about.mentor}
                     />
                     <CustomInput
+                      className="form-check-input"
                       type="radio"
                       id="mentorFalseRadio"
                       name="mentorRadio"
@@ -494,9 +607,20 @@ class AdminMemberItem extends Component {
                   </div>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="menteeRadio">Mentee:</Label>
-                  <div>
+                  <Label for="menteeRadio">
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                      }}
+                    >
+                      Mentee:
+                    </p>
+                  </Label>
+                  <div className="form-check-inline">
                     <CustomInput
+                      className="form-check-input"
                       type="radio"
                       id="menteeTrueRadio"
                       name="menteeRadio"
@@ -505,6 +629,7 @@ class AdminMemberItem extends Component {
                       checked={this.state.editMember.about.mentee}
                     />
                     <CustomInput
+                      className="form-check-input"
                       type="radio"
                       id="menteeFalseRadio"
                       name="menteeRadio"
@@ -514,118 +639,209 @@ class AdminMemberItem extends Component {
                     />
                   </div>
                 </FormGroup>
-                <label>
-                  Address:
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.address}
-                    onChange={(event) =>
-                      this.handleMemberEdit(event, 'address')
-                    }
-                  />
-                </label>
-                <label>
-                  City:
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.city}
-                    onChange={(event) => this.handleMemberEdit(event, 'city')}
-                  />
-                </label>
-                <label>
-                  State:
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.state}
-                    onChange={(event) => this.handleMemberEdit(event, 'state')}
-                  />
-                </label>
-                <label>
-                  Zip Code
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.zip_code}
-                    onChange={(event) =>
-                      this.handleMemberEdit(event, 'zip_code')
-                    }
-                  />
-                </label>
-                <label>
-                  Bio
-                  <input
-                    type="text"
-                    value={this.state.editMember.about.bio}
-                    onChange={(event) => this.handleMemberEdit(event, 'bio')}
-                  />
-                </label>
+                <Label
+                  style={{
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
+                  }}
+                  htmlFor="first_name"
+                  className="form-control-label"
+                >
+                  Street Address
+                </Label>
+                <Input
+                  id="Email"
+                  type="text"
+                  placeholder="Street Address"
+                  onChange={(event) => this.handleMemberEdit(event, 'address')}
+                  value={this.state.editMember.about.address}
+                />
+                <Label
+                  style={{
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
+                  }}
+                  htmlFor="first_name"
+                  className="form-control-label"
+                >
+                  City
+                </Label>
+                <Input
+                  id="City"
+                  type="text"
+                  placeholder="Street Address"
+                  onChange={(event) => this.handleMemberEdit(event, 'city')}
+                  value={this.state.editMember.about.city}
+                />
+                <Label
+                  style={{
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
+                  }}
+                  htmlFor="Zip"
+                  className="form-control-label"
+                >
+                  State
+                </Label>
+                <Input
+                  id="State"
+                  type="text"
+                  placeholder="Street Address"
+                  onChange={(event) => this.handleMemberEdit(event, 'state')}
+                  value={this.state.editMember.about.state}
+                />
+                <Label
+                  style={{
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
+                  }}
+                  htmlFor="Zip"
+                  className="form-control-label"
+                >
+                  Zip
+                </Label>
+                <Input
+                  id="Zip"
+                  type="number"
+                  placeholder="Street Address"
+                  onChange={(event) => this.handleMemberEdit(event, 'zip_code')}
+                  value={this.state.editMember.about.zip_code}
+                />
               </Col>
             </Row>
-            <hr />
-            <Row>
-              <Col lg={{ size: 10, offset: 1 }}>
-                <i
-                  className="fa fa-instagram"
+            <hr style={{ marginTop: 15 }} />
+            <Row style={{ marginTop: 15 }}>
+              <Col style={{ marginTop: -32 }}>
+                <div
                   style={{
-                    fontSize: '35px',
-                    background:
-                      'linear-gradient(220deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
-                    WebkitTextFillColor: 'transparent',
-                    WebkitBackgroundClip: 'text',
-                    verticalAlign: 'middle',
+                    color: '#111111d0',
+                    fontFamily: 'cabin',
+                    fontWeight: 'bold',
                   }}
-                />
-                <input
-                  type="text"
-                  value={this.state.editMember.about.instagram}
-                  onChange={(event) =>
-                    this.handleMemberEdit(event, 'instagram')
-                  }
-                />
-                <i
-                  className="fa fa-facebook-official"
+                  className="mt-4 display-4"
+                >
+                  {' '}
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="display_name"
+                    className="form-control-label"
+                  >
+                    <i
+                      className="fa fa-instagram"
+                      style={{
+                        fontSize: '35px',
+                        background:
+                          'linear-gradient(220deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+                        WebkitTextFillColor: 'transparent',
+                        WebkitBackgroundClip: 'text',
+                        verticalAlign: 'middle',
+                      }}
+                    />
+                  </Label>
+                  <Input
+                    type="text"
+                    onChange={(event) =>
+                      this.handleMemberEdit(event, 'instagram')
+                    }
+                    value={this.state.editMember.about.instagram}
+                  />
+                  <Label
+                    style={{
+                      fontFamily: 'Cabin',
+                      color: '#111111d0',
+                    }}
+                    htmlFor="display_name"
+                    className="form-control-label"
+                  >
+                    <i
+                      className="fa fa-facebook-official"
+                      style={{
+                        marginTop: -2,
+                        fontSize: '35px',
+                        color: '#4267B2',
+                        verticalAlign: 'middle',
+                      }}
+                    />
+                  </Label>
+                  <Input
+                    style={{ marginTop: -2 }}
+                    id="facebook"
+                    type="text"
+                    onChange={(event) =>
+                      this.handleMemberEdit(event, 'facebook')
+                    }
+                    value={this.state.editMember.about.facebook}
+                  />
+                </div>
+              </Col>
+              <Col>
+                <Label
                   style={{
-                    fontSize: '35px',
-                    color: '#4267B2',
-                    verticalAlign: 'middle',
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
                   }}
-                />
-                <input
+                  htmlFor="display_name"
+                  className="form-control-label"
+                >
+                  <i
+                    className="fa fa-linkedin-square"
+                    style={{
+                      fontSize: '35px',
+                      color: '#2867B2',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </Label>
+
+                <Input
+                  id="Email"
                   type="text"
-                  value={this.state.editMember.about.facebook}
-                  onChange={(event) => this.handleMemberEdit(event, 'facebook')}
-                />
-                <i
-                  className="fa fa-linkedin-square"
-                  style={{
-                    fontSize: '35px',
-                    color: '#2867B2',
-                    verticalAlign: 'middle',
-                  }}
-                />
-                <input
-                  type="text"
-                  value={this.state.editMember.about.linkedin}
                   onChange={(event) => this.handleMemberEdit(event, 'linkedin')}
+                  value={this.state.editMember.about.linkedin}
                 />
-                <i
-                  className="fa fa-twitter-square"
+                <Label
                   style={{
-                    fontSize: '35px',
-                    color: '#1DA1F2',
-                    verticalAlign: 'middle',
+                    fontFamily: 'Cabin',
+                    color: '#111111d0',
                   }}
-                />
-                <input
+                  htmlFor="display_name"
+                  className="form-control-label"
+                >
+                  <i
+                    className="fa fa-twitter-square"
+                    style={{
+                      fontSize: '35px',
+                      color: '#1DA1F2',
+                      verticalAlign: 'middle',
+                    }}
+                  />
+                </Label>
+
+                <Input
+                  id="Email"
                   type="text"
-                  value={this.state.editMember.about.twitter}
                   onChange={(event) => this.handleMemberEdit(event, 'twitter')}
                 />
               </Col>
             </Row>
-            <hr />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleModalSave}>
+            <Button
+              style={{
+                backgroundColor: '#17c3ca',
+                border: '1px solid white',
+                color: '#f7fafc',
+                boxShadow: '0 2px 4px #11111150',
+                marginTop: -15,
+                float: 'right',
+              }}
+              outline
+              color="primary"
+              onClick={this.handleModalSave}
+            >
               Save
             </Button>
           </ModalFooter>
