@@ -11,7 +11,7 @@ class MembershipLevelItem extends Component {
         <div className="MM_itema">
           <p className="MM_namea">{this.props.member.first_name}</p>
           <p className="MM_namea">{this.props.member.last_name}</p>
-          <p className="MM_namea">{this.props.member.member_level}</p>
+          <p className="MM_nameb">{this.props.member.member_level}</p>
         </div>
       </div>
     );

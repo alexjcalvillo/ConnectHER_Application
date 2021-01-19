@@ -21,8 +21,22 @@ function* postPersonality(action) {
   }
 }
 
+function* getPersonality(action) {
+  console.log('made it to the career saga');
+  try {
+    const response = yield axios.get(`/api/personality/${action.payload}`);
+    yield put({
+      type: 'SET_PERSONALITY',
+      userIndustry: response.data,
+    });
+  } catch (error) {
+    console.log('Everything failed', error);
+  }
+}
+
 function* choresSaga() {
   yield takeLatest('SUBMIT_PERSONALITY', postPersonality);
+  yield takeLatest('GET_PERSONALITY', getPersonality);
 }
 
 export default choresSaga;
