@@ -31,8 +31,9 @@ router.get(
 router.get(
   '/members',
   (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryText = `SELECT display_name, community_role, organization_name, mentor, mentee, job_title, headshot, bio, email, first_name, last_name, access_level, twitter, facebook, linkedin, instagram, user_id   FROM about
-                        JOIN "users" ON "about".user_id= "users".id;`;
+    const queryText = `SELECT display_name, community_role, organization_name, mentor, mentee, job_title, headshot, bio, email, first_name, last_name, address, city, state, zip_code, access_level, twitter, facebook, linkedin, instagram, member_level, "about".user_id FROM about
+    JOIN "users" ON "about".user_id= "users".id
+    JOIN "member" ON "users".id = "member".user_id;`;
     pool
       .query(queryText, [])
       .then((response) => {

@@ -86,6 +86,25 @@ ORDER BY "member".member_level`;
     });
 });
 
+router.put(
+  '/level/:id',
+  (req: Request, res: Response, next: express.NextFunction): void => {
+    const userId = req.params.id;
+    const profile = req.body;
+
+    const query = `UPDATE "member" SET member_level = $1 WHERE user_id = $2;`;
+    pool
+      .query(query, [profile.member_level, userId])
+      .then((dbResponse) => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+      });
+  }
+);
+
 //GET route to get count for sexual orientation
 router.get(
   '/count',

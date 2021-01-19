@@ -37,7 +37,6 @@ class AdminMemberItem extends Component {
         email: this.props.member.email,
         first_name: this.props.member.first_name,
         last_name: this.props.member.last_name,
-        member_level: this.props.store.memberLevel.member_level,
         access_level: this.props.member.access_level,
         display_name: this.props.member.display_name,
         community_role: this.props.member.community_role,
@@ -45,10 +44,10 @@ class AdminMemberItem extends Component {
         mentor: this.props.member.mentor,
         mentee: this.props.member.mentee,
         job_title: this.props.member.job_title,
-        address: this.props.store.profile.address,
-        city: this.props.store.profile.city,
-        state: this.props.store.profile.state,
-        zip_code: this.props.store.profile.zip_code,
+        address: this.props.member.address,
+        city: this.props.member.city,
+        state: this.props.member.state,
+        zip_code: this.props.member.zip_code,
         linkedin: this.props.member.linkedin,
         facebook: this.props.member.facebook,
         twitter: this.props.member.twitter,
@@ -57,6 +56,7 @@ class AdminMemberItem extends Component {
         bio: this.props.member.bio,
         user_id: this.props.member.user_id,
       },
+      member_level: this.props.member.member_level,
     },
   };
 
@@ -83,13 +83,13 @@ class AdminMemberItem extends Component {
       type: 'SET_LISTING_CLICKED',
       payload: this.props.member,
     });
+    console.log(this.props.member);
     this.setState({
       editMember: {
         about: {
           email: this.props.member.email,
           first_name: this.props.member.first_name,
           last_name: this.props.member.last_name,
-          member_level: this.props.store.memberLevel.member_level,
           access_level: this.props.member.access_level,
           display_name: this.props.member.display_name,
           community_role: this.props.member.community_role,
@@ -97,10 +97,10 @@ class AdminMemberItem extends Component {
           mentor: this.props.member.mentor,
           mentee: this.props.member.mentee,
           job_title: this.props.member.job_title,
-          address: this.props.store.profile.address,
-          city: this.props.store.profile.city,
-          state: this.props.store.profile.state,
-          zip_code: this.props.store.profile.zip_code,
+          address: this.props.member.address,
+          city: this.props.member.city,
+          state: this.props.member.state,
+          zip_code: this.props.member.zip_code,
           linkedin: this.props.member.linkedin,
           facebook: this.props.member.facebook,
           twitter: this.props.member.twitter,
@@ -109,6 +109,7 @@ class AdminMemberItem extends Component {
           bio: this.props.member.bio,
           user_id: this.props.member.user_id,
         },
+        member_level: this.props.member.member_level,
       },
     });
     this.toggleModal('defaultModal');
@@ -175,6 +176,40 @@ class AdminMemberItem extends Component {
       },
     });
   };
+  handleMemberLevel1 = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+        },
+        member_level: 1,
+      },
+    });
+    console.log(this.state);
+  };
+  handleMemberLevel2 = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+        },
+        member_level: 2,
+      },
+    });
+    console.log(this.state);
+  };
+  handleMemberLevel3 = (event) => {
+    this.setState({
+      editMember: {
+        about: {
+          ...this.state.editMember.about,
+        },
+        member_level: 3,
+      },
+    });
+    console.log(this.state);
+  };
+
   handleAccessAdmin = (event) => {
     this.setState({
       editMember: {
@@ -191,9 +226,11 @@ class AdminMemberItem extends Component {
       type: 'UPDATE_PROFILE',
       payload: {
         profile: this.state.editMember.about,
+        member_level: this.state.editMember.member_level,
         id: this.state.editMember.about.user_id,
       },
     });
+    console.log(this.state);
     this.setState({
       defaultModal: false,
       isOpen: false,
@@ -384,7 +421,7 @@ class AdminMemberItem extends Component {
                     onChange={(event) =>
                       this.handleMemberEdit(event, 'first_name')
                     }
-                    value={this.state.editMember.about.member_level}
+                    value={this.state.editMember.about.first_name}
                   />
                   <Label
                     style={{
@@ -573,6 +610,58 @@ class AdminMemberItem extends Component {
                   />
                   {/* </div> */}
                 </FormGroup>
+
+                <FormGroup className="form-check-inline">
+                  <Label for="memberLevelRadio">
+                    {' '}
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                      }}
+                    >
+                      Member Level:
+                    </p>
+                  </Label>
+
+                  {/* <div
+                      style={{
+                        fontFamily: 'cabin',
+                        fortSize: 15,
+                        marginTop: '-20px',
+                      }}
+                    > */}
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberLevel1Radio"
+                    name="memberRadio"
+                    label="Tier 1"
+                    onChange={this.handleMemberLevel1}
+                    checked={this.state.editMember.member_level === 1}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberLevel2Radio"
+                    name="memberRadio"
+                    label="Tier 2"
+                    onChange={this.handleMemberLevel2}
+                    checked={this.state.editMember.member_level === 2}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberLevel3Radio"
+                    name="memberRadio"
+                    label="Tier 3"
+                    onChange={this.handleMemberLevel3}
+                    checked={this.state.editMember.member_level === 3}
+                  />
+                  {/* </div> */}
+                </FormGroup>
+
                 <FormGroup>
                   <Label for="mentorRadio">
                     <p
