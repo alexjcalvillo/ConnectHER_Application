@@ -22,7 +22,7 @@ class Member extends Component {
           </div>
         </div>
         <div className="MM_table_lista" style={{ height: 430 }}>
-          {this.props.store.memberLevel.map((member, index) => {
+          {this.props.store.memberListingsReducer.map((member, index) => {
             return (
               <MembershipLevelItem member={member} key={member.email} tab={1} />
             );

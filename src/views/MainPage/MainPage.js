@@ -24,9 +24,6 @@ import { Link } from 'react-router-dom';
 class MainPage extends Component {
   componentDidMount() {
     document.title = 'ConnectHER';
-    this.props.dispatch({
-      type: 'GET_PERSONALITY',
-    });
   }
 
   state = {

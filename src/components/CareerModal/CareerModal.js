@@ -3,7 +3,6 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
 import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
 import CareerForm from '../CareerForm/CareerForm';
-
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 
@@ -24,6 +23,13 @@ class CareerModal extends React.Component {
   cellToggle = () => {
     this.setState({
       status: !this.state.status,
+    });
+  };
+
+  handleClose = (event) => {
+    this.setState({
+      defaultModal: false,
+      isOpen: false,
     });
   };
 
@@ -75,7 +81,7 @@ class CareerModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
-            <CareerForm />
+            <CareerForm callback={this.handleClose} />
           </ModalBody>
         </Modal>
       </>

@@ -569,99 +569,6 @@ class AdminMemberItem extends Component {
                     );
                   })}
                 </div>
-                <FormGroup className="form-check-inline">
-                  <Label for="menteeRadio">
-                    {' '}
-                    <p
-                      style={{
-                        fontFamily: 'Cabin',
-                        color: '#111111d0',
-                        fontSize: 14,
-                      }}
-                    >
-                      Member Database Access Level
-                    </p>
-                  </Label>
-
-                  {/* <div
-                      style={{
-                        fontFamily: 'cabin',
-                        fortSize: 15,
-                        marginTop: '-20px',
-                      }}
-                    > */}
-                  <CustomInput
-                    className="form-check-input"
-                    type="radio"
-                    id="accessMemberRadio"
-                    name="accessRadio"
-                    label="Member"
-                    onChange={this.handleAccessMember}
-                    checked={this.state.editMember.about.access_level === 1}
-                  />
-                  <CustomInput
-                    className="form-check-input"
-                    type="radio"
-                    id="accessAdminRadio"
-                    name="accessRadio"
-                    label="Admin"
-                    onChange={this.handleAccessAdmin}
-                    checked={this.state.editMember.about.access_level === 2}
-                  />
-                  {/* </div> */}
-                </FormGroup>
-
-                <FormGroup className="form-check-inline">
-                  <Label for="memberLevelRadio">
-                    {' '}
-                    <p
-                      style={{
-                        fontFamily: 'Cabin',
-                        color: '#111111d0',
-                        fontSize: 14,
-                      }}
-                    >
-                      Member Level:
-                    </p>
-                  </Label>
-
-                  {/* <div
-                      style={{
-                        fontFamily: 'cabin',
-                        fortSize: 15,
-                        marginTop: '-20px',
-                      }}
-                    > */}
-                  <CustomInput
-                    className="form-check-input"
-                    type="radio"
-                    id="memberLevel1Radio"
-                    name="memberRadio"
-                    label="Tier 1"
-                    onChange={this.handleMemberLevel1}
-                    checked={this.state.editMember.member_level === 1}
-                  />
-                  <CustomInput
-                    className="form-check-input"
-                    type="radio"
-                    id="memberLevel2Radio"
-                    name="memberRadio"
-                    label="Tier 2"
-                    onChange={this.handleMemberLevel2}
-                    checked={this.state.editMember.member_level === 2}
-                  />
-                  <CustomInput
-                    className="form-check-input"
-                    type="radio"
-                    id="memberLevel3Radio"
-                    name="memberRadio"
-                    label="Tier 3"
-                    onChange={this.handleMemberLevel3}
-                    checked={this.state.editMember.member_level === 3}
-                  />
-                  {/* </div> */}
-                </FormGroup>
-
                 <FormGroup>
                   <Label for="mentorRadio">
                     <p
@@ -669,7 +576,7 @@ class AdminMemberItem extends Component {
                         fontFamily: 'Cabin',
                         color: '#111111d0',
                         fontSize: 14,
-                        marginLeft: 10,
+                        marginRight: 10,
                       }}
                     >
                       Mentor:
@@ -703,7 +610,7 @@ class AdminMemberItem extends Component {
                         fontFamily: 'Cabin',
                         color: '#111111d0',
                         fontSize: 14,
-                        marginLeft: 10,
+                        marginRight: 10,
                       }}
                     >
                       Mentee:
@@ -800,6 +707,100 @@ class AdminMemberItem extends Component {
                   onChange={(event) => this.handleMemberEdit(event, 'zip_code')}
                   value={this.state.editMember.about.zip_code}
                 />
+                <FormGroup className="form-check-inline">
+                  <Label for="menteeRadio">
+                    {' '}
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                        marginTop: 20,
+                        marginRight: 10,
+                      }}
+                    >
+                      Access Level
+                    </p>
+                  </Label>
+
+                  {/* <div
+                      style={{
+                        fontFamily: 'cabin',
+                        fortSize: 15,
+                        marginTop: '-20px',
+                      }}
+                    > */}
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="accessMemberRadio"
+                    name="accessRadio"
+                    label="Member"
+                    onChange={this.handleAccessMember}
+                    checked={this.state.editMember.about.access_level === 1}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="accessAdminRadio"
+                    name="accessRadio"
+                    label="Admin"
+                    onChange={this.handleAccessAdmin}
+                    checked={this.state.editMember.about.access_level === 2}
+                  />
+                  {/* </div> */}
+                </FormGroup>
+                <FormGroup className="form-check-inline">
+                  <Label for="memberLevelRadio">
+                    {' '}
+                    <p
+                      style={{
+                        fontFamily: 'Cabin',
+                        color: '#111111d0',
+                        fontSize: 14,
+                        marginTop: 20,
+                        marginRight: 10,
+                      }}
+                    >
+                      Member Level
+                    </p>
+                  </Label>
+
+                  {/* <div
+                      style={{
+                        fontFamily: 'cabin',
+                        fortSize: 15,
+                        marginTop: '-20px',
+                      }}
+                    > */}
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberLevelRadio"
+                    name="memberRadio"
+                    label="1"
+                    onChange={this.handleMemberLevel1}
+                    checked={this.state.editMember.member_level === 1}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberRadio"
+                    label="2"
+                    onChange={this.handleMemberLevel2}
+                    checked={this.state.editMember.member_level === 2}
+                  />
+                  <CustomInput
+                    className="form-check-input"
+                    type="radio"
+                    id="memberLevel3Radio"
+                    name="memberRadio"
+                    label="3"
+                    onChange={this.handleMemberLevel3}
+                    checked={this.state.editMember.member_level === 3}
+                  />
+                  {/* </div> */}
+                </FormGroup>
               </Col>
             </Row>
             <hr style={{ marginTop: 15 }} />

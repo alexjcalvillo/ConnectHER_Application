@@ -237,6 +237,7 @@ class SpeakerList extends React.Component {
                     listStyleType: 'none',
                     color: '#111111d0',
                     fontFamily: 'cabin',
+                    marginTop: -10,
                   }}
                 >
                   <li className="mb-2">
@@ -263,11 +264,15 @@ class SpeakerList extends React.Component {
                 </ul>
               </Col>
             </Row>
-            <hr />
+            <hr style={{ marginTop: -10 }} />
             <Row>
               <Col lg={{ size: 10, offset: 1 }}>
                 <p
-                  style={{ color: '#111111d0', fontFamily: 'lato' }}
+                  style={{
+                    marginTop: -10,
+                    color: '#111111d0',
+                    fontFamily: 'lato',
+                  }}
                   className="font-weight-light mt-2"
                 >
                   {this.props.speaker.fields['Speaker Bio']}

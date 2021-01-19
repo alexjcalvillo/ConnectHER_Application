@@ -55,6 +55,10 @@ class ProfilePage extends Component {
     this.props.dispatch({
       type: 'GET_CAREER_LEVELS',
     });
+    this.props.dispatch({
+      type: 'GET_PERSONALITY',
+      payload: this.props.store.user.id,
+    });
   }
 
   toggleModal = (state) => {
@@ -113,6 +117,13 @@ class ProfilePage extends Component {
           placeholder={this.props.store.userCareerLevel.name}
         />
       );
+    }
+    let personality = <MemberPersonalityModal />;
+    if (
+      this.props.store.personality.id != '' &&
+      this.props.store.personality.id != null
+    ) {
+      personality = null;
     }
 
     const profilePic = require('./profilePic.jpg');
@@ -834,7 +845,8 @@ class ProfilePage extends Component {
                     >
                       Change Profile Picture
                     </Button>
-                    <MemberPersonalityModal />
+                    {personality}
+                    {/* <MemberPersonalityModal /> */}
                     <br />
                     <Row>
                       <Col className="text-center">

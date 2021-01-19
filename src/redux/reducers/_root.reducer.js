@@ -22,6 +22,7 @@ import careerLevel from './careerLevel.reducer';
 import userCareerLevel from './userCareerLevel.reducer';
 import userIndustry from './userIndustry.reducer';
 import countsReducer from './counts.reducer';
+import personality from './personality.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -52,6 +53,7 @@ const rootReducer = combineReducers({
   userCareerLevel,
   userIndustry,
   countsReducer,
+  personality,
 });
 
 export default rootReducer;

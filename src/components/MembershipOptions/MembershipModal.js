@@ -50,7 +50,7 @@ class MembershipModal extends React.Component {
             color: '#6C5B7B',
           }}
         >
-          See Member Level
+          Member Levels
         </Button>
         <Modal
           className="modal-dialog-centered"

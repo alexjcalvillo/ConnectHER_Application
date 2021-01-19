@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
-import { Button, Row, Col, Card, CardBody, Modal, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
 import IndustryForm from '../IndustryForm/IndustryForm';
+import Swal from 'sweetalert2';
 
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
@@ -28,7 +29,7 @@ class IndustryModal extends React.Component {
   };
 
   handleClose = (event) => {
-    window.location.reload();
+    Swal.fire('Your Industries Have Been Submitted');
     this.setState({
       defaultModal: false,
       isOpen: false,
@@ -54,10 +55,10 @@ class IndustryModal extends React.Component {
             height: 45,
             fontFamily: 'cabin',
             fontSize: 15,
-            color: '#11111150',
+            color: '#111111d0',
           }}
         >
-          Add Industry
+          Add Industries
         </Button>
         <Modal
           className="modal-dialog-centered"

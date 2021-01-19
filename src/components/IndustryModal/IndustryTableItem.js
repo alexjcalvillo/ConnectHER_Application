@@ -9,7 +9,7 @@ class MembershipLevelItem extends Component {
     return (
       <div className="MM_table_tr_itema">
         <div className="MM_itema">
-          <p className="MM_nameb">{this.props.member.name}</p>
+          <p className="MM_named">{this.props.member.name}</p>
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* postPersonality(action) {
-  console.log('made it to survey');
+  console.log('made it to personality survey');
   console.log('payload', action.payload);
   try {
     yield put({ type: 'ERROR_RESET' });
@@ -22,12 +22,12 @@ function* postPersonality(action) {
 }
 
 function* getPersonality(action) {
-  console.log('made it to the career saga');
+  console.log('made it to the personality saga');
   try {
     const response = yield axios.get(`/api/personality/${action.payload}`);
     yield put({
       type: 'SET_PERSONALITY',
-      userIndustry: response.data,
+      personality: response.data[0],
     });
   } catch (error) {
     console.log('Everything failed', error);

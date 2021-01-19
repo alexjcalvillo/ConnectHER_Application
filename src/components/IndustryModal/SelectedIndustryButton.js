@@ -85,8 +85,12 @@ class SelectedModal extends React.Component {
               borderRadius: '0 0 5px 5px',
             }}
           >
+            {' '}
             <IndustryModalButton />
-            <IndustryTable callback={this.handleClose} />
+            <IndustryTable
+              style={{ marginTop: '-50px !important' }}
+              callback={this.handleClose}
+            />
           </ModalBody>
         </Modal>
       </>

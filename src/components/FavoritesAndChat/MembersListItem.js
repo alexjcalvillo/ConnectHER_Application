@@ -69,7 +69,9 @@ class MembersListItem extends Component {
           {/* <img className="tabProfileImage" src={member.headshot} alt="img" /> */}
         </div>
         <div className="tabNameContainer">
-          <p className="tabName">{member.display_name}</p>
+          <p style={{ marginTop: 0 }} className="tabName">
+            {member.display_name}
+          </p>
         </div>
         <div className={detailsClass}>
           <div
