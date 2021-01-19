@@ -35,4 +35,18 @@ router.post(
   }
 );
 
+router.get('/user/:Id', (req: Request, res: Response) => {
+  const userId = req.params.Id;
+  console.log('req.params', req.params.Id);
+  const query = `SELECT * FROM personality;`;
+  pool
+    .query(query, [userId])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+});
+
 export default router;

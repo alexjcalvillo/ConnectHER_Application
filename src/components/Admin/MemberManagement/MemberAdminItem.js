@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import member from '../../../styles/member';
 import profilePic from './profilePic.jpg';
-
+import './Mentor_Mentee_Admin.css';
 import EditButton from '../../AdminMemberItem/AdminMemberItem';
 
 import function_list from '../../../functions/list';
@@ -115,7 +115,7 @@ class MemberAdminItem extends Component {
           {image}
           <p className="MM_namea">{this.props.member.display_name}</p>
           <div
-            className="MM_details"
+            className="MM_detailsAdmin"
             style={{ borderRight: '0px', padding: '3%' }}
           >
             <EditButton member={this.props.member} />
