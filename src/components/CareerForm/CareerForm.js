@@ -57,7 +57,16 @@ class CareerForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h2>Please Select All That Apply</h2>
+        <h2
+          style={{
+            fontFamily: 'cabin',
+            fontSize: 20,
+            color: '#6c5b78',
+            textAlign: 'center',
+          }}
+        >
+          Please Select All That Apply
+        </h2>
         <div>
           {this.props.store.careerLevel.map((item, index) => {
             return (
@@ -68,14 +77,18 @@ class CareerForm extends Component {
                   value={item.id}
                   onChange={(event) => this.handleChangeFor(event, 'selected')}
                 />
-                <span>{item.name}</span>
+                <span style={{ fontSize: 20, fontFamily: 'lato' }}>
+                  {item.name}
+                </span>
               </label>
             );
           })}
         </div>
         <Button
-          // style={style_list.register.button}
+          block
           style={{ ...style_list.register.button }}
+          size="large"
+          className="profile-button"
         >
           Save
         </Button>
