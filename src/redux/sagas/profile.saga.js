@@ -26,6 +26,7 @@ function* updateProfile(action) {
       `/api/profile/user/${action.payload.id}`,
       action.payload.profile
     );
+    yield axios.put(`/api/user/level/${action.payload.id}`, action.payload);
     yield put({
       type: 'FETCH_USER',
       payload: action.payload.id,
