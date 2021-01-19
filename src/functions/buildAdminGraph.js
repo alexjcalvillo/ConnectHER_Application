@@ -51,11 +51,10 @@ const buildAdminGraph = (data, methods) => {
           });
           let graphDetails;
           if (item.amount !== 0) {
-            graphDetails = (
-              <p className="chartGraphItemText">
-                {`${item.amount} / ${totalCount}`}
-              </p>
-            );
+            graphDetails = null;
+            // <p className="chartGraphItemText">
+            //   {`${item.amount} / ${totalCount}`}
+            // </p>;
           }
           return (
             <>

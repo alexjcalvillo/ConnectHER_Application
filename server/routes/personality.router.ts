@@ -35,10 +35,10 @@ router.post(
   }
 );
 
-router.get('/user/:Id', (req: Request, res: Response) => {
+router.get('/:Id', (req: Request, res: Response) => {
   const userId = req.params.Id;
   console.log('req.params', req.params.Id);
-  const query = `SELECT * FROM personality;`;
+  const query = `SELECT * FROM "personality" WHERE "personality".user_id = $1;`;
   pool
     .query(query, [userId])
     .then((response) => {

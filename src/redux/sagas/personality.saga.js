@@ -27,7 +27,7 @@ function* getPersonality(action) {
     const response = yield axios.get(`/api/personality/${action.payload}`);
     yield put({
       type: 'SET_PERSONALITY',
-      userIndustry: response.data,
+      personality: response.data[0],
     });
   } catch (error) {
     console.log('Everything failed', error);
