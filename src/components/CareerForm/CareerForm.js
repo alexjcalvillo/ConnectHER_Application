@@ -28,11 +28,12 @@ class CareerForm extends Component {
         selected: this.state.selected,
       },
     });
-    alert('made it');
+    Swal.fire('Your Career Level Has Been Submitted');
     this.setState({
       selected: [],
       multi_label: 'Mui Checkboxes',
     });
+    this.props.callback();
   };
 
   handleChangeFor = (event, stateKey) => {

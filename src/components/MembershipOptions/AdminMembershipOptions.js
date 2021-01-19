@@ -77,8 +77,7 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  {this.props.store.countsReducer.one} Members Currently
-                  Enrolled
+                  {this.props.store.countsReducer.one} Members Registered
                 </p>
               </div>
             </Card>
@@ -122,8 +121,7 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  {this.props.store.countsReducer.two} Members Currently
-                  Enrolled
+                  {this.props.store.countsReducer.two} Members Registered
                 </p>
               </div>{' '}
             </Card>
@@ -166,8 +164,7 @@ class AdminMembership extends Component {
                     padding: 2,
                   }}
                 >
-                  {this.props.store.countsReducer.three} Members Currently
-                  Enrolled
+                  {this.props.store.countsReducer.three} Members Registered
                 </p>
               </div>
             </Card>

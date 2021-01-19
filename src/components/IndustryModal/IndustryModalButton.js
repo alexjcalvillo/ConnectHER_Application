@@ -4,6 +4,7 @@ import React from 'react';
 import { Button, Modal, ModalBody } from 'reactstrap';
 import IndustryForm from '../IndustryForm/IndustryForm';
 import Swal from 'sweetalert2';
+
 import function_list from '../../functions/list'; // custom functions object
 import style_list from '../../styles/list'; // custom styles object
 

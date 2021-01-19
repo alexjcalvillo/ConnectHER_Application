@@ -265,9 +265,14 @@ class MemberItem extends Component {
                     fontFamily: 'cabin',
                   }}
                 >
-                  <li className="mb-2">
+                  <li
+                    className="mb-2"
+                    style={{ fontFamily: 'cabin', color: '#111111d0' }}
+                  >
                     <i
-                      style={{ marginLeft: -40 }}
+                      style={{
+                        marginLeft: -40,
+                      }}
                       className="ni ni-email-83 mr-2"
                     />
                     {member.email}
@@ -278,7 +283,7 @@ class MemberItem extends Component {
                 <h3
                   className="lead mb-0"
                   style={{
-                    marginTop: '0px',
+                    marginTop: -50,
                     color: '#111111d0',
                     fontFamily: 'cabin',
                   }}
@@ -287,7 +292,8 @@ class MemberItem extends Component {
                 </h3>
                 <div
                   style={{
-                    height: '90px',
+                    marginTop: 0,
+                    height: '100px',
                     overflow: 'scroll',
                   }}
                 >
@@ -307,11 +313,12 @@ class MemberItem extends Component {
                 </div>
               </Col>
             </Row>
-            <hr />
-            <Row>
+            <hr style={{ marginTop: -10 }} />
+            <Row style={{ marginTop: -10 }}>
               <Col lg={{ size: 10, offset: 1 }}>
                 <p
                   style={{
+                    marginTop: -10,
                     color: '#111111d0',
                     fontFamily: 'cabin',
                   }}

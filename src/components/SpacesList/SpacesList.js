@@ -155,13 +155,13 @@ class SpacesList extends React.Component {
                 <p style={style_list.card.detailsP1}>
                   Capacity: {this.props.space.fields.Capacity}
                 </p>
-                <p style={style_list.card.detailsP2}>
+                {/* <p style={style_list.card.detailsP2}>
                   Womxn Owned?: {this.props.space.fields['Womxn Owned?']}
-                </p>
+                </p> */}
 
                 <hr
                   style={{
-                    marginTop: '-11px',
+                    marginTop: '20px',
                   }}
                 />
                 <Button
@@ -237,6 +237,7 @@ class SpacesList extends React.Component {
                     listStyleType: 'none',
                     color: '#111111d0',
                     fontFamily: 'cabin',
+                    marginTop: -10,
                   }}
                 >
                   <li className="mb-2">
@@ -263,8 +264,8 @@ class SpacesList extends React.Component {
                 </ul>
               </Col>
             </Row>
-            <hr />
-            <Row>
+            <hr style={{ marginTop: -10 }} />
+            <Row style={{ marginTop: -10 }}>
               <Col lg={{ size: 10, offset: 1 }}>
                 <p
                   style={{

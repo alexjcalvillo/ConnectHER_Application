@@ -19,3 +19,39 @@
   background-color: #f7fafc;
   margin-bottom: 10px !important;
 }
+
+.MM_namec {
+  overflow: hidden;
+  width: 80%;
+  height: 100%;
+  font-size: 2vw;
+  margin-left: 20px;
+  padding-top: 0.6vh;
+  display: inline-flex;
+  font-weight: bold;
+  border-right: 1px solid #11111150;
+  margin-block-end: 0;
+}
+.MM_nameb {
+  overflow: scroll;
+  width: 20% !important;
+  margin-top: -3px;
+  margin-bottom: -7px;
+  padding-top: 18px;
+  display: inline-flex;
+  font-weight: bold;
+  border-right: 1px solid #11111150;
+}
+
+.MM_named {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-size: 2vw;
+  margin-left: 20px;
+  padding-top: 0.6vh;
+  display: inline-flex;
+  font-weight: bold;
+  border-right: 1px solid #11111150;
+  margin-block-end: 0;
+}
