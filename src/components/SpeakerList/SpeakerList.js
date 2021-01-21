@@ -245,6 +245,7 @@ class SpeakerList extends React.Component {
                       style={{ cursor: 'pointer' }}
                       className="ni ni-email-83 mr-2"
                     />
+
                     {this.props.speaker.fields.Email}
                   </li>
                   <li className="mb-2">
@@ -259,6 +260,7 @@ class SpeakerList extends React.Component {
                       style={{ cursor: 'pointer' }}
                       className="ni ni-laptop mr-2"
                     />
+
                     {this.props.speaker.fields['Website']}
                   </li>
                 </ul>

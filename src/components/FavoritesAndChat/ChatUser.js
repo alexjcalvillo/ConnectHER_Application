@@ -19,7 +19,7 @@ class ChatUser extends Component {
     if (this.props.user.headshot != '' && this.props.user.headshot != null) {
       image = (
         <img
-          className="profile-pic card-profile-image mb-2"
+          className="tabProfileImage"
           src={this.props.user.headshot}
           alt="alternative"
         />

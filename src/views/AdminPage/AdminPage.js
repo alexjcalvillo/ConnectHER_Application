@@ -122,7 +122,7 @@ class AdminPage extends Component {
                 >
                   <img
                     src="https://primebucket2020.s3.us-east-2.amazonaws.com/cc3158c1-2047-48ee-a1f7-759ee3c3f60f_172-right-arrows-1.svg"
-                    className="adminArrowRight"
+                    className="adminButtonLeft"
                     onClick={() => {
                       this.rotateTitle('left');
                     }}
@@ -133,7 +133,7 @@ class AdminPage extends Component {
                   </h1>
                   <img
                     src="https://primebucket2020.s3.us-east-2.amazonaws.com/5d32aaa3-44d3-459b-9f72-bcc59821efe1_171-right-arrows.svg"
-                    className="adminArrowRight"
+                    className="adminButtonRight"
                     onClick={() => {
                       this.rotateTitle('right');
                     }}
