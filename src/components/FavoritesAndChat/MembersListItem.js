@@ -50,7 +50,7 @@ class MembersListItem extends Component {
     if (member.headshot != '' && member.headshot != null) {
       image = (
         <img
-          className="profile-pic card-profile-image mb-2"
+          className="tabProfileImage"
           src={member.headshot}
           alt="alternative"
         />
