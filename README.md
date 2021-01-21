@@ -2,7 +2,7 @@
 
 ## Description
 
-_Duration: 3 Week Sprint_
+_Duration: 2 Week Sprint_
 
 InnovateHER KC, a nonprofit in Kansas City, MO committed to supporting all womxn, promoting diversity, and advancing its member’s professional goals—came to Prime Digital Academy with a challenge.
 
@@ -66,11 +66,9 @@ The Landing Page contains four links for "Community", "Speakers", "Work Spaces",
 
 3. To search through the community of members, select the ‘Community’ button from the landing page or the nav bar. After navigating to the Search Page, you can find members by inputting a job title, community role, organization name, display name, or mentor/mentee. You have the option to search by skills by clicking `Add` in the skills bar. This will prompt a modal with all the skills in categories. Clicking on a skill will insert that skill into the search filter. When the search results appear, clicking the `Learn More` button a modal will pop up with the users profile information.
 
-4.
+4. On each the members of the community, speakers, businesses, and spaces, there is a a heart icon that can be clicked to favorite the location/member, this will save them to the favorites/chat component located in the bottom right corner of the viewport with the heart icon. each are grouped into their respective categories.The Chat Feature is located within the same component as the Favorites and can be accessed by clicked the chat image right above the favorites, this is display all active chat instances. to begin a chat a user must have another user favorited, and click on them in the favorites menu. A drop down will appear with the option to either delete the favorite or message them.
 
-5. Selecting `Speakers` `Work Spaces`, or `Businesses` from the Landing Page, you can view a list speakers, local businesses, , and/or spaces to hold events. Selecting the `Learn More` button opens a modal, and you can view additional information including contact info for the individual or entity.
-
-6. An admin has access to the admin page, which is accessible by clicking `Admin` in the nav bar. On the admin page there will be charts of demographic information from all the users. You can change graphs by clicking the arrows next to the chart title. Next is a total member count registered, as well as the number of members associated with each membership plan. You can view a full list of members with their associated membership level by clicking `Member Levels`. Admins can search all the members by name and skills, outlined in step 3. On the search results clicking `Edit` will initiate a modal with that users information all in editable fields, as well as the ability to change the users access level and member level, selecting `Save` will save the changes made.
+5. An admin has access to the admin page, which is accessible by clicking `Admin` in the nav bar. On the admin page there will be charts of demographic information from all the users. You can change graphs by clicking the arrows next to the chart title. Next is a total member count registered, as well as the number of members associated with each membership plan. You can view a full list of members with their associated membership level by clicking `Member Levels`. Admins can search all the members by name and skills, outlined in step 3. On the search results clicking `Edit` will initiate a modal with that users information all in editable fields, as well as the ability to change the users access level and member level, selecting `Save` will save the changes made.
 
 User Story:
 
